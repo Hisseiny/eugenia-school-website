@@ -42,11 +42,9 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
           ))
         }
       </ul>
-      <div class="site-header__actions">
-        <a href={ROUTES.evenements} class="site-header__event">Portes ouvertes</a>
-        <a href={ROUTES.admissions} class="btn">Candidater</a>
-      </div>
+      <a href={ROUTES.evenements} class="site-header__event">Portes ouvertes</a>
     </nav>
+    <a href={ROUTES.admissions} class="btn site-header__cta">Candidater</a>
   </div>
 </header>
 
@@ -100,15 +98,13 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
   .site-header__links a[aria-current="page"] {
     border-bottom-color: currentColor;
   }
-  .site-header__actions {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    margin-left: auto;
-  }
   .site-header__event {
     font-size: 15px;
     font-weight: 500;
+    margin-left: auto;
+  }
+  .site-header__cta {
+    margin-left: -34px;
   }
   .site-header__toggle {
     display: none;
@@ -141,8 +137,15 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
     }
     .site-header__toggle {
       display: inline-flex;
+      order: 3;
+      margin-left: 0;
+    }
+    .site-header__cta {
+      order: 2;
+      margin-left: auto;
     }
     .site-header__nav {
+      order: 4;
       flex-basis: 100%;
       flex-direction: column;
       align-items: stretch;
@@ -162,9 +165,10 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
     .site-header--plum .site-header__links a {
       border-bottom-color: rgba(255, 255, 255, 0.12);
     }
-    .site-header__actions {
+    .site-header__event {
       margin-left: 0;
-      justify-content: space-between;
+      font-size: 18px;
+      padding: 10px 0;
     }
     /* With JS on, the menu is closed until opened. Without JS it stays readable. */
     :global(html.js) .site-header__nav:not(.is-open) {
