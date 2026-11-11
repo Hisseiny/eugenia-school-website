@@ -5,23 +5,18 @@ import Pic from "@/components/Pic.astro";
 import Logo from "@/components/Logo.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
+import FaqList from "@/components/FaqList.astro";
 import { img } from "@/data/images";
 import { confirmedFaq, FAQ, PARENT_QUESTIONS, FIGURES, PARENTS, STEPS } from "@/data/admissions";
 import { ROUTES, SITE } from "@/data/site";
+import { faqPageLd } from "@/data/faq";
 
-const faqItems = confirmedFaq(FAQ).map((faq) => ({ faq, index: FAQ.indexOf(faq) }));
+const faqItems = confirmedFaq(FAQ);
 const parentQuestions = confirmedFaq(PARENT_QUESTIONS.map((index) => FAQ[index])).map((faq) => ({
   faq,
   index: FAQ.indexOf(faq),
 }));
-const faqLd = {
-  "@type": "FAQPage",
-  mainEntity: faqItems.map(({ faq: f }) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
+const faqLd = faqPageLd(faqItems);
 ---
 
 <Base
@@ -99,6 +94,12 @@ const faqLd = {
             <li><a href={`#faq-q-${index}`} class="lnk">{faq.q}</a></li>
           ))}
         </ul>
+        <ul class="parents__questions-list">
+          <li><a href={ROUTES.processusAdmission} class="lnk">Processus d'admission</a></li>
+          <li><a href={ROUTES.faq} class="lnk">Toutes les questions fréquentes</a></li>
+          <li><a href={ROUTES.financement} class="lnk">Financement</a></li>
+          <li><a href={ROUTES.alternance} class="lnk">Alternance</a></li>
+        </ul>
       </div>
       <div class="parents__contact">
         <p class="parents__contact-title">Parler à l'équipe admission</p>
@@ -117,25 +118,8 @@ const faqLd = {
       <p class="faq__sub">Une autre question ? L'équipe d'admission te répond.</p>
       <div class="faq__link"><a href={ROUTES.contact} class="lnk">Contacter l'admission</a></div>
     </div>
-    <div class="faq__list" data-accordion>
-      {
-        faqItems.map(({ faq: f, index: i }, visibleIndex) => (
-          <div class="faq-item">
-            <h3 class="faq-item__h">
-              <button type="button" class="faq-item__btn tint" aria-expanded={visibleIndex === 0 ? "true" : "false"} aria-controls={`faq-a-${i}`} id={`faq-q-${i}`}>
-                <span>{f.q}</span>
-                <span class="faq-item__sign" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <p class="faq-item__a" id={`faq-a-${i}`} role="region" aria-labelledby={`faq-q-${i}`}>{f.a}</p>
-          </div>
-        ))
-      }
-      <div class="faq__end"></div>
-    </div>
+    <FaqList items={faqItems} />
   </section>
-
-  <script src="@/scripts/accordion.ts"></script>
 
   <EndOfPage
     title="Ta candidature prend quelques minutes."
