@@ -280,9 +280,23 @@ const ICONS: Record<string, string> = {
     object-fit: cover;
     object-position: 50% 35%;
   }
-  @media (max-width: 1023px) {
+  @media (max-width: 1279px) {
     .hero {
       min-height: 0;
+    }
+    .hero__text {
+      padding: 80px 40px 72px var(--gutter);
+    }
+    .hero__title {
+      font-size: clamp(64px, 9vw, 120px);
+    }
+    .hero__media {
+      min-height: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .hero {
+      grid-template-columns: 1fr;
     }
     .hero__text {
       padding: 72px var(--gutter) 64px;
@@ -293,11 +307,6 @@ const ICONS: Record<string, string> = {
     .hero__media {
       min-height: 0;
       aspect-ratio: 7 / 8;
-    }
-  }
-  @media (max-width: 379px) {
-    .hero {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -407,7 +416,18 @@ const ICONS: Record<string, string> = {
     font-size: 16px;
     color: var(--ink-70);
   }
+  @media (max-width: 1279px) {
+    .doors__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .door:nth-child(n + 3) {
+      border-top: 1px solid var(--line);
+    }
+  }
   @media (max-width: 767px) {
+    .doors__grid {
+      grid-template-columns: 1fr;
+    }
     .door {
       border-left: 0;
       border-top: 1px solid var(--line);
@@ -719,6 +739,17 @@ const ICONS: Record<string, string> = {
   }
   .next__cta {
     margin-top: auto;
+  }
+  @media (max-width: 1023px) {
+    .next__grid {
+      grid-template-columns: 1fr;
+      border-right: 0;
+    }
+    .next__card {
+      border-left: 0;
+      border-top: 1px solid var(--line-w);
+      padding: 32px 0;
+    }
   }
   @media (max-width: 767px) {
     .next {

@@ -141,6 +141,11 @@ const ICONS: Record<string, string> = {
   .way__link {
     margin-top: 28px;
   }
+  @media (min-width: 768px) {
+    .ways__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
   @media (max-width: 767px) {
     .way {
       border-left: 0;
@@ -246,6 +251,19 @@ const ICONS: Record<string, string> = {
     font-weight: 400;
   }
 
+  @media (min-width: 1024px) {
+    .hack__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 1023px) {
+    .hack__grid {
+      grid-template-columns: 1fr;
+    }
+    .hack-card {
+      max-width: 640px;
+    }
+  }
   @media (max-width: 767px) {
     .recruit,
     .oncampus {

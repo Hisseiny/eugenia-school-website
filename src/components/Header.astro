@@ -129,6 +129,24 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
     display: block;
   }
 
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .site-header__row {
+      gap: 28px;
+    }
+    .site-header__nav,
+    .site-header__links {
+      gap: 20px;
+    }
+    .site-header__links,
+    .site-header__event {
+      font-size: 14px;
+    }
+    .site-header__cta {
+      margin-left: -10px;
+      padding-inline: 16px;
+    }
+  }
+
   @media (max-width: 1023px) {
     .site-header__row {
       flex-wrap: wrap;

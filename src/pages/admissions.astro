@@ -176,7 +176,7 @@ const faqLd = {
   .figure-card__value {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: 40px;
+    font-size: clamp(26px, 3.6vw, 40px);
     letter-spacing: -0.03em;
     line-height: 1;
   }
@@ -310,7 +310,25 @@ const faqLd = {
   .faq__end {
     border-top: 1px solid var(--line-strong);
   }
+  @media (max-width: 1023px) {
+    .steps__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 768px) {
+    .figures__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .figure-card {
+      padding: 28px 24px;
+    }
+  }
   @media (max-width: 767px) {
+    .steps__grid {
+      grid-template-columns: 1fr;
+    }
     .steps,
     .figures,
     .parents {
