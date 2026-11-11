@@ -14,12 +14,13 @@ export function initCarousel(root: HTMLElement): void {
     slides.findIndex((s) => !s.hidden),
   );
 
-  const show = (i: number, focusTab = false) => {
+  const show = (i: number, focusTab = false, animate = true) => {
     index = (i + slides.length) % slides.length;
     slides.forEach((slide, k) => {
       const active = k === index;
       slide.hidden = !active;
       slide.setAttribute("aria-hidden", String(!active));
+      slide.classList.toggle("is-entering", active && animate);
     });
     tabs.forEach((tab, k) => {
       const active = k === index;
@@ -57,7 +58,7 @@ export function initCarousel(root: HTMLElement): void {
     if (e.key === "ArrowLeft") show(index - 1);
   });
 
-  show(index);
+  show(index, false, false);
 }
 
 document.querySelectorAll<HTMLElement>("[data-carousel]").forEach(initCarousel);

@@ -392,6 +392,27 @@ const ICONS: Record<string, string> = {
   .door:hover {
     color: var(--plum);
   }
+  .door svg,
+  .door__cta {
+    transition:
+      transform 0.3s var(--ease-out),
+      border-color 0.2s ease-out;
+  }
+  .door:hover svg {
+    transform: translateY(-3px);
+  }
+  .door:hover .door__cta {
+    border-color: var(--plum);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .door svg,
+    .door__cta {
+      transition: none;
+    }
+    .door:hover svg {
+      transform: none;
+    }
+  }
   .door__who {
     font-size: 14px;
     color: var(--ink-60);

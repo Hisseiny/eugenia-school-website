@@ -106,6 +106,22 @@ import { ROUTES } from "@/data/site";
   .testi__slide[hidden] {
     display: none;
   }
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .testi__slide.is-entering {
+    animation: slide-in 0.45s var(--ease-out) both;
+  }
+  .testi__slide.is-entering .pic {
+    animation: slide-in 0.55s var(--ease-out) both;
+  }
   .testi__body {
     display: flex;
     flex-direction: column;
@@ -236,6 +252,10 @@ import { ROUTES } from "@/data/site";
     .testi__dot,
     .testi__arrow {
       transition: none;
+    }
+    .testi__slide.is-entering,
+    .testi__slide.is-entering .pic {
+      animation: none;
     }
   }
 </style>

@@ -12,7 +12,7 @@ const { tone = "white", current } = Astro.props;
 const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
 ---
 
-<header class:list={["site-header", tone === "plum" && "site-header--plum"]}>
+<header class:list={["site-header", tone === "plum" && "site-header--plum"]} data-header>
   <div class="container site-header__row">
     <a href={ROUTES.home} aria-label="Eugenia School, accueil" class="site-header__logo">
       <Image src={logo} alt="Eugenia School" width={300} height={52} format="webp" loading="eager" />
@@ -56,17 +56,40 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
     background: rgba(255, 255, 255, 0.97);
     border-bottom: 1px solid rgba(31, 13, 25, 0.07);
     color: var(--plum);
+    transition:
+      background-color 0.3s ease-out,
+      border-color 0.3s ease-out;
   }
   .site-header--plum {
     background: var(--plum);
     border-bottom-color: rgba(255, 255, 255, 0.08);
     color: var(--white);
   }
+  .site-header.is-scrolled {
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom-color: rgba(31, 13, 25, 0.12);
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  }
+  .site-header--plum.is-scrolled {
+    background: rgba(31, 13, 25, 0.84);
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+  }
   .site-header__row {
     display: flex;
     align-items: center;
     gap: 56px;
     padding-block: 20px;
+    transition: padding 0.3s var(--ease-out);
+  }
+  .site-header.is-scrolled .site-header__row {
+    padding-block: 12px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .site-header__row {
+      transition: none;
+    }
   }
   .site-header__logo img {
     height: 26px;
@@ -203,6 +226,26 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
 </style>
 
 <script>
+  const header = document.querySelector<HTMLElement>("[data-header]");
+  if (header) {
+    let ticking = false;
+    const update = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+      ticking = false;
+    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true },
+    );
+    update();
+  }
+
   const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
   const nav = document.getElementById("site-nav");
   if (toggle && nav) {

@@ -307,6 +307,19 @@ const faqLd = {
   .faq-item__a[hidden] {
     display: none;
   }
+  @keyframes faq-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  :global(html.js) .faq-item__a:not([hidden]) {
+    animation: faq-in 0.35s var(--ease-out) both;
+  }
   .faq__end {
     border-top: 1px solid var(--line-strong);
   }
@@ -347,6 +360,9 @@ const faqLd = {
   @media (prefers-reduced-motion: reduce) {
     .faq-item__sign::after {
       transition: none;
+    }
+    :global(html.js) .faq-item__a:not([hidden]) {
+      animation: none;
     }
   }
 </style>
