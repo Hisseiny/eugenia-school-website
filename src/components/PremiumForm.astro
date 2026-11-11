@@ -22,26 +22,27 @@ const total = cfg.steps.length;
   data-hs-portal={HUBSPOT.portalId}
   data-hs-form-id={cfg.formId}
   data-page-name={cfg.pageName}
+  data-form-tone={form === "contact" ? "vous" : "tu"}
   data-done-title={cfg.done.title}
   data-done-title-parent={cfg.doneParent?.title}
   novalidate
-  aria-labelledby="pf-title"
+  aria-labelledby={`pf-${form}-title-0`}
 >
   <div class="pf__head">
     <div class="pf__mark" aria-hidden="true"></div>
-    <p class="pf__progress"><span data-pf-step>1</span><span class="pf__progress-sep">/</span>{total}</p>
+    <p class="pf__progress" aria-live="polite" aria-atomic="true"><span class="sr-only">Étape </span><span data-pf-step>1</span><span class="pf__progress-sep">/</span>{total}</p>
     <div class="pf__bar" aria-hidden="true"><span data-pf-bar style={`width: ${100 / total}%`}></span></div>
   </div>
 
   {
     cfg.steps.map((step, i) => (
       <fieldset class="pf__step" data-pf-panel={i} hidden={i !== 0}>
-        <legend class="pf__legend" id={i === 0 ? "pf-title" : undefined} data-tone data-tu={step.title} data-vous={step.titleParent}>{step.title}</legend>
+        <legend class="pf__legend" id={`pf-${form}-title-${i}`} tabindex="-1" data-tone data-tu={step.title} data-vous={step.titleParent}>{step.title}</legend>
         {step.kind === "choice" && (
-          <div class:list={["pf__choices", step.cards && "pf__choices--cards"]} role="radiogroup">
-            {(step.name === "all_type_multiple_checkboxes" ? cfg.who.map((w) => WHO[w]) : step.options).map((o, k) => (
+          <div class:list={["pf__choices", step.cards && "pf__choices--cards"]} role="radiogroup" aria-labelledby={`pf-${form}-title-${i}`}>
+            {(step.name === "all_type_multiple_checkboxes" ? cfg.who.map((w) => WHO[w]) : step.options).map((o) => (
               <label class="pf__choice">
-                <input type="radio" name={step.name} value={o.value} required data-autonext />
+                <input type="radio" name={step.name} value={o.value} required />
                 <span class="pf__choice-box">
                   <span class="pf__choice-label">{o.label}</span>
                   {o.hint && <span class="pf__choice-hint">{o.hint}</span>}
@@ -92,7 +93,7 @@ const total = cfg.steps.length;
             {cfg.parentNote} <a href={ROUTES.contact + "?pour=parent"} class="lnk">Poser une question</a>
           </p>
         )}
-        <p class="pf__error" data-pf-error role="alert" hidden></p>
+        <p class="pf__error" id={`pf-${form}-error-${i}`} data-pf-error role="alert" hidden></p>
       </fieldset>
     ))
   }
@@ -102,11 +103,11 @@ const total = cfg.steps.length;
     <button type="button" class="btn pf__next" data-pf-next>Continuer</button>
     <button type="submit" class="btn pf__submit" data-pf-submit hidden>{cfg.submitLabel}</button>
   </div>
-  <p class="pf__privacy">Tes informations servent uniquement à l'équipe d'admission d'Eugenia School pour te répondre.</p>
+  <p class="pf__privacy">Les choix et les coordonnées sont obligatoires ; le message libre est facultatif. <a href={SITE.privacyUrl}>Confidentialité et utilisation des données</a>.</p>
 
   <div class="pf__done" data-pf-done hidden aria-live="polite">
     <div class="pf__done-mark" aria-hidden="true"></div>
-    <p class="pf__done-title" data-pf-done-title></p>
+    <p class="pf__done-title" id={`pf-${form}-done-title`} data-pf-done-title tabindex="-1"></p>
     <ul class="pf__done-lines" data-pf-done-lines>
       {cfg.done.lines.map((l) => <li>{l}</li>)}
     </ul>

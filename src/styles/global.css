@@ -2,6 +2,8 @@
 :root {
   --plum: #1f0d19;
   --red: #e33054;
+  /* Accessible action surface: white normal-size text exceeds WCAG AA 4.5:1. */
+  --red-action: #d62b4d;
   --red-hover: #cf2647;
   --red-dark: #75192b;
   --yellow: #fcba35;
@@ -324,7 +326,7 @@ ol {
     color 0.2s ease-out;
 }
 .btn {
-  background: var(--red);
+  background: var(--red-action);
   color: var(--white);
   border: 0;
   font-size: 16px;
