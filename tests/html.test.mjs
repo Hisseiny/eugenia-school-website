@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 
-const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact"];
+const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents"];
 const html = (name) => {
   const file = `dist/${name}.html`;
   assert.ok(existsSync(file), `${file} missing: run pnpm build`);
@@ -88,4 +88,13 @@ test("redirects exist for the old URLs named in the brief", () => {
   }
   const r = readFileSync("public/_redirects", "utf8");
   assert.ok(r.includes("/trajectoires  /carrieres  301"));
+});
+
+test("parents: entirely « vous », no unvalidated fact, linked from footer and Parent card", () => {
+  const h = html("parents");
+  assert.ok(!h.includes("[À confirmer"), "placeholder leaked on /parents");
+  const body = h.split("<main")[1]?.split("</main>")[0] ?? h;
+  const text = body.replace(/<[^>]+>/g, " ");
+  assert.ok(!/\b(ton|ta|tes|tu)\b/i.test(text.replace(/Eugenia|Continuer la visite/g, "")), "tutoiement found on /parents");
+  assert.ok(html("index").includes('href="/parents"'));
 });

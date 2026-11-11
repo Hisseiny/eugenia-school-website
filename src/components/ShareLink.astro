@@ -1,0 +1,41 @@
+---
+/**
+ * « Partager » button: native share sheet on mobile, copy + toast on desktop, mailto without JS.
+ * Outline style, never red — it is a bridge between the student and the parent, not a sale.
+ */
+import { SITE } from "@/data/site";
+interface Props {
+  path: string;
+  label: string;
+  title: string;
+  text: string;
+  event: string;
+}
+const { path, label, title, text, event } = Astro.props;
+const url = new URL(path, SITE.url).toString();
+const mailto = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${text}\n${url}`)}`;
+---
+
+<span class="share" data-share data-share-url={url} data-share-title={title} data-share-text={text} data-share-event={event}>
+  <a href={mailto} class="btn-outline share__btn" data-share-btn>{label}</a>
+  <span class="share__toast" data-share-toast role="status" aria-live="polite" hidden>Lien copié</span>
+</span>
+
+<script src="@/scripts/share.ts"></script>
+
+<style>
+  .share {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .share__toast {
+    font-size: 13px;
+    color: var(--ink-65);
+    transition: opacity var(--dur-ui) ease;
+  }
+  .share__toast[hidden] {
+    display: none;
+  }
+</style>

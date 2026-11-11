@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { PARTNERS, RECRUITERS } from "@/data/logos";
+import ShareLink from "@/components/ShareLink.astro";
 import { AUDIENCES, DOORS, GALLERY, LEARN_ROWS, NEXT_STEPS, PORTFOLIO_URL } from "@/data/home";
 import { ROUTES } from "@/data/site";
 
@@ -133,6 +134,11 @@ const ICONS: Record<string, string> = {
               <a href={a.cta.href} class="btn-outline">{a.cta.label}</a>
               <a href={a.link.href} class="lnk">{a.link.label}</a>
             </div>
+            {a.id === "etudiant" && (
+              <div class="audience__share">
+                <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+              </div>
+            )}
           </article>
         ))
       }
@@ -258,6 +264,15 @@ const ICONS: Record<string, string> = {
 
   <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Ce que tu vas apprendre, année par année." image="n_crowd" />
 </Base>
+
+<script>
+  import { track } from "@/scripts/track";
+  document.querySelectorAll<HTMLElement>(".audience__card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a")) track("audience_card_click", { audience: card.id.replace("pour-", "") });
+    });
+  });
+</script>
 
 <style>
   /* Hero */
@@ -486,6 +501,9 @@ const ICONS: Record<string, string> = {
     width: 10px;
     height: 2px;
     background: var(--red);
+  }
+  .audience__share {
+    padding-top: 4px;
   }
   .audience__actions {
     margin-top: auto;

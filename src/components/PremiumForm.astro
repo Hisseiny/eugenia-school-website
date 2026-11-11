@@ -6,7 +6,7 @@
  * JavaScript, all steps are shown and the visitor is given the public contact instead.
  */
 import { FORMS, WHO } from "@/data/forms";
-import { HUBSPOT, SITE } from "@/data/site";
+import { HUBSPOT, ROUTES, SITE } from "@/data/site";
 
 interface Props {
   form: keyof typeof FORMS;
@@ -23,6 +23,7 @@ const total = cfg.steps.length;
   data-hs-form-id={cfg.formId}
   data-page-name={cfg.pageName}
   data-done-title={cfg.done.title}
+  data-done-title-parent={cfg.doneParent?.title}
   novalidate
   aria-labelledby="pf-title"
 >
@@ -35,7 +36,7 @@ const total = cfg.steps.length;
   {
     cfg.steps.map((step, i) => (
       <fieldset class="pf__step" data-pf-panel={i} hidden={i !== 0}>
-        <legend class="pf__legend" id={i === 0 ? "pf-title" : undefined}>{step.title}</legend>
+        <legend class="pf__legend" id={i === 0 ? "pf-title" : undefined} data-tone data-tu={step.title} data-vous={step.titleParent}>{step.title}</legend>
         {step.kind === "choice" && (
           <div class:list={["pf__choices", step.cards && "pf__choices--cards"]} role="radiogroup">
             {(step.name === "all_type_multiple_checkboxes" ? cfg.who.map((w) => WHO[w]) : step.options).map((o, k) => (
@@ -51,7 +52,7 @@ const total = cfg.steps.length;
         )}
         {step.kind === "select" && (
           <div class="pf__field">
-            <label class="pf__label" for={`pf-${form}-${step.name}`}>{step.label}</label>
+            <label class="pf__label" for={`pf-${form}-${step.name}`} data-tone data-tu={step.label} data-vous={step.labelParent}>{step.label}</label>
             <select class="pf__input" id={`pf-${form}-${step.name}`} name={step.name} required>
               <option value="">Choisir…</option>
               {step.options.map((o) => (
@@ -86,6 +87,11 @@ const total = cfg.steps.length;
             )}
           </div>
         )}
+        {step.kind === "contact" && cfg.parentNote && (
+          <p class="pf__note" data-pf-parent-note hidden>
+            {cfg.parentNote} <a href={ROUTES.contact + "?pour=parent"} class="lnk">Poser une question</a>
+          </p>
+        )}
         <p class="pf__error" data-pf-error role="alert" hidden></p>
       </fieldset>
     ))
@@ -101,9 +107,14 @@ const total = cfg.steps.length;
   <div class="pf__done" data-pf-done hidden aria-live="polite">
     <div class="pf__done-mark" aria-hidden="true"></div>
     <p class="pf__done-title" data-pf-done-title></p>
-    <ul class="pf__done-lines">
+    <ul class="pf__done-lines" data-pf-done-lines>
       {cfg.done.lines.map((l) => <li>{l}</li>)}
     </ul>
+    {cfg.doneParent && (
+      <ul class="pf__done-lines" data-pf-done-lines-parent hidden>
+        {cfg.doneParent.lines.map((l) => <li>{l}</li>)}
+      </ul>
+    )}
   </div>
 
   <noscript>
@@ -285,6 +296,19 @@ const total = cfg.steps.length;
   }
   textarea.pf__input {
     resize: vertical;
+  }
+  .pf__note {
+    margin: 18px 0 0;
+    padding: 12px 14px;
+    background: var(--mist);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--ink-70);
+    line-height: 1.5;
+  }
+  .pf__note[hidden],
+  .pf__done-lines[hidden] {
+    display: none;
   }
   .pf__error {
     margin: 14px 0 0;

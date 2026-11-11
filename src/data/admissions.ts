@@ -61,3 +61,14 @@ export const FAQ = [
     a: "[À confirmer par l'école] Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité.",
   },
 ] as const;
+
+/** The same four steps, addressed to the parent; every fact is the one above. */
+export const STEPS_PARENTS = [
+  { n: "Étape 1", title: "Candidature en ligne", text: "Le dossier de votre enfant, en ligne. Gratuit pour les résidents de l'Union européenne ; les notes de l'année en cours peuvent être envoyées plus tard." },
+  { n: "Étape 2", title: "Étude d'éligibilité", text: "L'équipe d'admission étudie le dossier. Réponse sous 10 jours." },
+  { n: "Étape 3", title: "Entretien d'admission", text: "Trois temps : faire connaissance, un casse-tête logique, ses motivations." },
+  { n: "Étape 4", title: "Décision finale", text: "Réponse sous 10 jours. La rentrée a lieu en septembre, uniquement." },
+] as const;
+
+/** FAQ entries shown on /parents: only validated answers (anything marked « [À confirmer » is skipped at build time). */
+export const PARENTS_FAQ_IDS = [1, 7, 0, 4, 2, 6] as const;

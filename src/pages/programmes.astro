@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import PageTop from "@/components/PageTop.astro";
 import Pic from "@/components/Pic.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
+import ShareLink from "@/components/ShareLink.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { BACHELOR_YEARS, COMPARE_ROWS, MSC_CHIPS } from "@/data/programmes";
@@ -129,10 +130,16 @@ const courses = [
     image="p_payfit"
     position="50% 45%"
   />
+  <div class="container share-row">
+    <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+  </div>
   <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Où mènent ces programmes : alternance, premier CDI." image="p_team" />
 </Base>
 
 <style>
+  .share-row {
+    padding-block: 32px 8px;
+  }
   .compare {
     padding-block: 130px;
   }

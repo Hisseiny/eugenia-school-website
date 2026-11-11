@@ -20,3 +20,15 @@ the FAQ copied from the current site, and the public contact details of eugenias
 Out of scope on purpose (no verified facts): parent testimonials, salary figures, success rates,
 response time of the admissions team, scholarship details beyond the FAQ line already flagged
 « [À confirmer par l'école] ».
+
+## Parcours parent (v2)
+
+| Élément | Où | Principe | Source |
+| --- | --- | --- | --- |
+| Page `/parents` entièrement au « vous » (garanties, alumni, étapes, coût/conditions, contact) | `src/pages/parents.astro` | Cohérence de ton : le parent reste dans une zone écrite pour lui ; mode « évaluation » → un seul bouton rouge, en fin de page, pour éviter la réactance | NN/g (tone of voice), Brehm (réactance psychologique) |
+| Faits uniquement issus des données validées ; la réponse « financement » marquée « [À confirmer » est exclue au build | `PARENTS_FAQ_IDS`, filtre dans `parents.astro`, test `html.test.mjs` | Transparence : on montre ce qui est vérifié, jamais de placeholder | Cialdini (autorité, cohérence) |
+| Trois actions par engagement croissant (brochure → portes ouvertes → question) | fin de `/parents` | Micro-engagements, pied dans la porte | Freedman & Fraser |
+| « Partager avec mes parents » (accueil, Programmes, Carrières) / « Envoyer à mon enfant » (`/parents`) | `ShareLink.astro`, `share.ts` | La décision se prend à deux : on facilite la conversation ; partage natif → copie + toast → `mailto:` sans JS | Progressive enhancement |
+| Formulaires : Parent choisi → questions suivantes et confirmation au « vous », `?pour=parent` pré-sélectionne, note « la candidature se fait au nom de votre enfant » sans bloquer | `forms.ts` (`titleParent`, `doneParent`, `parentNote`), `premium-form.ts` | Reconnaissance plutôt que rappel ; pas de friction ajoutée | NN/g heuristics #6 |
+| Carrières avec `?pour=parent` → « Continuer la visite » ramène à `/parents` | `carrieres.astro` | Parcours guidé cohérent, logique conditionnelle minimale et progressive | — |
+| Événements `audience_card_click`, `share_to_parent`, `share_to_student`, `parents_page_view`, `form_who_parent` poussés dans `window.dataLayer` | `track.ts` | Mesurer sans tracker : aucun conteneur GTM dans ce dépôt (le site actuel charge GTM-KH6RQW8 + GA4) ; à brancher avec un bandeau de consentement | CNIL |

@@ -36,6 +36,7 @@ export const ROUTES = {
   candidature: "/candidature",
   evenements: "/evenements",
   contact: "/contact",
+  parents: "/parents",
 } as const;
 
 /** Existing pages of the current site that are out of scope of the redesign. */

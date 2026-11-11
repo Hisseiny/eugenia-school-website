@@ -3,6 +3,8 @@
  * HubSpot Forms API (public endpoint, same portal/form id as the embed), then a confirmation
  * that says what happens next. Choosing a card moves on by itself (one less click).
  */
+import { track } from "@/scripts/track";
+
 const API = "https://api.hsforms.com/submissions/v3/integration/submit";
 
 function cookie(name: string): string | undefined {
@@ -22,6 +24,18 @@ export function initPremiumForm(form: HTMLFormElement): void {
   const done = form.querySelector<HTMLElement>("[data-pf-done]")!;
   let index = 0;
   let sending = false;
+  let parent = false;
+
+  /** Parent chosen → every later question says « vous »; the note and confirmation follow. */
+  const setTone = (isParent: boolean) => {
+    parent = isParent;
+    form.querySelectorAll<HTMLElement>("[data-tone]").forEach((el) => {
+      const alt = isParent ? el.dataset.vous : el.dataset.tu;
+      if (alt) el.textContent = alt;
+    });
+    const note = form.querySelector<HTMLElement>("[data-pf-parent-note]");
+    if (note) note.hidden = !isParent;
+  };
 
   const messages: Record<string, string> = {
     firstname: "Ton prénom, s'il te plaît.",
@@ -79,6 +93,10 @@ export function initPremiumForm(form: HTMLFormElement): void {
   back.addEventListener("click", () => show(index - 1));
   form.addEventListener("change", (e) => {
     const t = e.target as HTMLInputElement;
+    if (t.name === "all_type_multiple_checkboxes" && t.checked) {
+      setTone(t.value === "All.Parent");
+      if (parent) track("form_who_parent", { form: form.dataset.pageName ?? "" });
+    }
     if (t.matches("[data-autonext]") && t.checked && index < panels.length - 1) {
       window.setTimeout(() => show(index + 1), 160);
     }
@@ -118,7 +136,13 @@ export function initPremiumForm(form: HTMLFormElement): void {
       });
       if (!res.ok) throw new Error(`HubSpot ${res.status}`);
       const firstname = String(data.get("firstname") ?? "").trim();
-      done.querySelector<HTMLElement>("[data-pf-done-title]")!.textContent = (form.dataset.doneTitle ?? "").replace("{firstname}", firstname);
+      const title = (parent && form.dataset.doneTitleParent) || form.dataset.doneTitle || "";
+      done.querySelector<HTMLElement>("[data-pf-done-title]")!.textContent = title.replace("{firstname}", firstname);
+      const linesParent = done.querySelector<HTMLElement>("[data-pf-done-lines-parent]");
+      if (linesParent) {
+        linesParent.hidden = !parent;
+        done.querySelector<HTMLElement>("[data-pf-done-lines]")!.hidden = parent;
+      }
       panels.forEach((p) => (p.hidden = true));
       form.querySelector<HTMLElement>(".pf__nav")!.hidden = true;
       form.querySelector<HTMLElement>(".pf__privacy")!.hidden = true;
@@ -134,6 +158,15 @@ export function initPremiumForm(form: HTMLFormElement): void {
     }
   });
 
+  // Static site: the query string is only known in the browser (?pour=parent from /parents).
+  const pre = new URLSearchParams(location.search).get("pour") === "parent" ? "All.Parent" : null;
+  if (pre) {
+    const radio = form.querySelector<HTMLInputElement>(`input[name="all_type_multiple_checkboxes"][value="${pre}"]`);
+    if (radio) {
+      radio.checked = true;
+      setTone(pre === "All.Parent");
+    }
+  }
   show(0, false);
 }
 

@@ -120,6 +120,25 @@ const check = (name, ok, extra = "") => {
   await page.close();
 }
 
+// Parent tone in forms (?pour=parent preselects Parent, later steps say « vous »)
+{
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(base + "/candidature?pour=parent", { waitUntil: "load" });
+  check("?pour=parent preselects Parent", await page.locator("input[value='All.Parent']").isChecked());
+  await page.click("[data-pf-next]");
+  check("step 2 says « vous » for a parent", (await page.locator("[data-pf-panel='1'] legend").textContent()).includes("votre enfant"));
+  await page.selectOption("select[name='all_current_academic_year']", "Y-1 (terminale)");
+  await page.click("[data-pf-next]");
+  await page.click(".pf__choice:has(input[value='MSc Gamma']) .pf__choice-box");
+  await page.waitForTimeout(400);
+  check("parent note shown on the last step", await page.locator("[data-pf-parent-note]").isVisible());
+  await page.goto(base + "/carrieres?pour=parent", { waitUntil: "load" });
+  check("Carrières continues to /parents for a parent", (await page.locator("a.continue").getAttribute("href")) === "/parents");
+  await page.goto(base + "/parents", { waitUntil: "load" });
+  check("share button keeps a mailto without share API", (await page.locator("[data-share-btn]").first().getAttribute("href")).startsWith("mailto:"));
+  await page.close();
+}
+
 // No-JS: content readable, answers visible
 {
   const ctx = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });

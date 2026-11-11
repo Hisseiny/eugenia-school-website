@@ -4,6 +4,7 @@ import Base from "@/layouts/Base.astro";
 import PageTop from "@/components/PageTop.astro";
 import Logo from "@/components/Logo.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
+import ShareLink from "@/components/ShareLink.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { ALUMNI, APPRENTICES, BACHELORS, EMPLOYERS } from "@/data/carrieres";
@@ -135,10 +136,30 @@ import { ROUTES } from "@/data/site";
     secondary={{ href: ROUTES.brochure, label: "Télécharger la brochure" }}
     image="p_duo"
   />
+  <div class="container share-row">
+    <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+  </div>
   <ContinueVisit href={ROUTES.ecole} title="L'école" text="Le campus, les professeurs, la vie étudiante." image="n_talk" />
 </Base>
 
+<script>
+  // A parent arriving from /parents (?pour=parent) is sent back to the parents page, not to L'école.
+  if (new URLSearchParams(location.search).get("pour") === "parent") {
+    const a = document.querySelector<HTMLAnchorElement>("a.continue");
+    const name = a?.querySelector<HTMLElement>(".continue__name");
+    const text = a?.querySelector<HTMLElement>(".continue__text");
+    if (a && name) {
+      a.href = "/parents";
+      name.textContent = "Parents";
+      if (text) text.textContent = "Tout ce qu'un parent doit savoir, au même endroit.";
+    }
+  }
+</script>
+
 <style>
+  .share-row {
+    padding-block: 32px 8px;
+  }
   .dest {
     padding-block: 140px 150px;
   }

@@ -39,10 +39,11 @@ export const EVENTS_OPTIONS: Option[] = [
   { value: "12 Décembre 2026 - Atelier : Entrepreneur - 13h30", label: "Atelier entrepreneuriat", hint: "12 décembre, 13 h 30" },
 ];
 
+/** `titleParent` / `labelParent`: the same question, addressed to the parent (« vous ») once Parent is chosen. */
 export type Step =
-  | { kind: "choice"; name: string; title: string; options: Option[]; cards?: boolean }
-  | { kind: "select"; name: string; title: string; label: string; options: Option[] }
-  | { kind: "contact"; title: string; message?: boolean };
+  | { kind: "choice"; name: string; title: string; titleParent?: string; options: Option[]; cards?: boolean }
+  | { kind: "select"; name: string; title: string; titleParent?: string; label: string; labelParent?: string; options: Option[] }
+  | { kind: "contact"; title: string; titleParent?: string; message?: boolean };
 
 export interface FormConfig {
   formId: string;
@@ -52,9 +53,10 @@ export interface FormConfig {
   steps: Step[];
   /** Confirmation: title uses {firstname}; lines come from validated facts only. */
   done: { title: string; lines: string[] };
+  doneParent?: { title: string; lines: string[] };
+  /** Shown on the last step when Parent is chosen (candidature): never blocks. */
+  parentNote?: string;
 }
-
-const contactStep = (title: string, message = false): Step => ({ kind: "contact", title, message });
 
 export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
   candidature: {
@@ -64,14 +66,19 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
     who: ["All.Student", "All.Parent"],
     steps: [
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Qui es-tu ?", options: [], cards: true },
-      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", label: "Ton année actuelle (ou celle de ton enfant)", options: YEARS },
-      { kind: "choice", name: "one_targetted_training", title: "Quel programme t'attire ?", options: TRAININGS, cards: true },
-      contactStep("Tes coordonnées, pour créer ton espace candidat"),
+      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Ton année actuelle", labelParent: "Son année actuelle", options: YEARS },
+      { kind: "choice", name: "one_targetted_training", title: "Quel programme t'attire ?", titleParent: "Quel programme l'attire ?", options: TRAININGS, cards: true },
+      { kind: "contact", title: "Tes coordonnées, pour créer ton espace candidat", titleParent: "Vos coordonnées" },
     ],
     done: {
       title: "C'est envoyé, {firstname}.",
       lines: ["L'équipe d'admission étudie ton dossier : réponse sous 10 jours.", "Tu peux envoyer tes notes manquantes plus tard.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"],
     },
+    doneParent: {
+      title: "C'est envoyé, {firstname}.",
+      lines: ["L'équipe d'admission étudie le dossier : réponse sous 10 jours.", "Les notes manquantes peuvent être envoyées plus tard.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"],
+    },
+    parentNote: "La candidature se fait au nom de votre enfant : vous pouvez la remplir avec lui, ou nous poser d'abord vos questions.",
   },
   brochure: {
     formId: HUBSPOT.forms.brochure,
@@ -80,11 +87,12 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
     who: ["All.Student", "All.Parent", "All.ProfessionalTrainee"],
     steps: [
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Pour qui est cette brochure ?", options: [], cards: true },
-      { kind: "choice", name: "one_targetted_training", title: "Quel programme t'intéresse ?", options: TRAININGS, cards: true },
-      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", label: "Année actuelle", options: YEARS },
-      contactStep("Où envoyer la brochure ?"),
+      { kind: "choice", name: "one_targetted_training", title: "Quel programme t'intéresse ?", titleParent: "Quel programme vous intéresse ?", options: TRAININGS, cards: true },
+      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Année actuelle", labelParent: "Son année actuelle", options: YEARS },
+      { kind: "contact", title: "Où envoyer la brochure ?" },
     ],
     done: { title: "Merci, {firstname}.", lines: ["La brochure arrive dans ta boîte mail.", "Aucun engagement : c'est juste la brochure.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
+    doneParent: { title: "Merci, {firstname}.", lines: ["La brochure arrive dans votre boîte mail.", "Aucun engagement : c'est juste la brochure.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
   },
   evenement: {
     formId: HUBSPOT.forms.evenement,
@@ -94,11 +102,12 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
     steps: [
       { kind: "choice", name: "eugenia_event_name_registered__dropdown_", title: "À quel événement viens-tu ?", options: EVENTS_OPTIONS, cards: true },
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Qui es-tu ?", options: [], cards: true },
-      { kind: "choice", name: "one_targetted_training", title: "Quel programme t'intéresse ?", options: TRAININGS, cards: true },
-      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", label: "Année actuelle", options: YEARS },
-      contactStep("Tes coordonnées, pour confirmer ta place"),
+      { kind: "choice", name: "one_targetted_training", title: "Quel programme t'intéresse ?", titleParent: "Quel programme vous intéresse ?", options: TRAININGS, cards: true },
+      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Année actuelle", labelParent: "Son année actuelle", options: YEARS },
+      { kind: "contact", title: "Tes coordonnées, pour confirmer ta place", titleParent: "Vos coordonnées, pour confirmer votre place" },
     ],
     done: { title: "Ta place est réservée, {firstname}.", lines: ["L'équipe te confirme ta place par e-mail.", "Sur le campus, 18 rue de Paradis, Paris 10e. Gratuit.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
+    doneParent: { title: "Votre place est réservée, {firstname}.", lines: ["L'équipe vous confirme votre place par e-mail.", "Sur le campus, 18 rue de Paradis, Paris 10e. Gratuit.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
   },
   contact: {
     formId: HUBSPOT.forms.contact,
@@ -109,7 +118,7 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Qui êtes-vous ?", options: [], cards: true },
       { kind: "choice", name: "one_targetted_training", title: "Quel programme vous concerne ?", options: TRAININGS, cards: true },
       { kind: "select", name: "all_current_academic_year", title: "Où en êtes-vous aujourd'hui ?", label: "Année actuelle (ou celle de votre enfant)", options: YEARS },
-      contactStep("Vos coordonnées et votre question", true),
+      { kind: "contact", title: "Vos coordonnées et votre question", message: true },
     ],
     done: { title: "Message reçu, {firstname}.", lines: ["L'équipe admission vous répond.", "Aussi par téléphone : 01 31 67 73 88", "Ou par e-mail : admission@eugeniaschool.com"] },
   },

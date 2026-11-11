@@ -183,7 +183,7 @@ export const AUDIENCES = [
       "Le coût de la candidature et le financement, expliqués",
       "L'alternance accompagnée de A à Z par l'école",
     ],
-    cta: { href: `${ROUTES.admissions}#parents`, label: "Ce qui doit vous rassurer" },
+    cta: { href: ROUTES.parents, label: "Tout ce qu'un parent doit savoir" },
     link: { href: `mailto:${SITE.contact.email}`, label: "Écrire à l'équipe admission" },
   },
 ] as const;
