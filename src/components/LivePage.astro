@@ -33,6 +33,7 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
 >
   <PageTop
     title={page.h1}
+    id={page.heroId}
     lead={page.lead}
     dataAnswer={dataAnswer}
     nativeImage
@@ -41,6 +42,13 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
     eyebrow={page.eyebrow?.replace(/^\/\/\s*/, "")}
   />
   {page.audience && <AudienceToggle copy={page.audience} />}
+  {page.heroCtas && page.heroCtas.length > 0 && (
+    <div class="container live-page__hero-actions">
+      {page.heroCtas.map((action, index) => (
+        <a class:list={["btn-outline", index === 0 && "live-page__hero-primary"]} href={action.href}>{action.label}</a>
+      ))}
+    </div>
+  )}
   {
     page.badges && page.badges.length > 0 && (
       <ul class="live-badges container">
@@ -59,12 +67,13 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
   }
   {page.facts && page.facts.length > 0 && <ProgramFacts facts={page.facts} />}
   {page.postFacts && <p class="container live-page__post-facts">{page.postFacts}</p>}
+  {page.anchorIds?.map((id) => <span id={id} class="live-anchor" aria-hidden="true"></span>)}
   <LiveSections sections={page.sections} />
   <EndOfPage
     title={page.footer.title}
     text={page.footer.text}
-    primary={{ href: page.footer.primary.href, label: page.footer.primary.label }}
-    secondary={{ href: page.footer.secondary.href, label: page.footer.secondary.label }}
+    primary={page.footer.primary}
+    secondary={page.footer.secondary}
     image="p_arches"
   />
   <ContinueVisit {...page.next} />
@@ -75,6 +84,20 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
     max-width: 920px;
     padding-bottom: var(--section-y-sm);
     color: var(--ink-70);
+  }
+  .live-anchor {
+    display: block;
+    height: 0;
+    scroll-margin-top: 96px;
+  }
+  .live-page__hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: var(--section-y-sm);
+  }
+  .live-page__hero-primary {
+    border-color: var(--plum);
   }
   .live-badges {
     display: flex;

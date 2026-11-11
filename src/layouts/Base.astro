@@ -27,7 +27,7 @@ interface Props {
   ogImage?: ImageMetadata;
 }
 const { title, description, headerTone = "white", current, crumbs, noindex = false, jsonLd = [], ogImage } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, "") || Astro.site!.href;
+const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\.html$/, "").replace(/\/$/, "") || Astro.site!.href;
 const breadcrumb = crumbs?.length
   ? {
       "@type": "BreadcrumbList",
