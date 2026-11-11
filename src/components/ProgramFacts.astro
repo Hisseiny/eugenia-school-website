@@ -1,0 +1,72 @@
+---
+interface Fact {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+interface Props {
+  facts: Fact[];
+  title?: string;
+}
+
+const { facts, title } = Astro.props;
+---
+
+<section class="container facts" aria-label={title ?? "Informations sur la formation"}>
+  {title && <h2 class="h2-sm facts__title">{title}</h2>}
+  <dl class="facts__grid">
+    {
+      facts.map((fact) => (
+        <div class="facts__item">
+          <dt>{fact.label}</dt>
+          <dd>{fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>
+
+<style>
+  .facts {
+    padding-block: var(--section-y-sm);
+  }
+  .facts__title {
+    margin-bottom: 32px;
+  }
+  .facts__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--line-strong);
+  }
+  .facts__item {
+    display: grid;
+    grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1.3fr);
+    gap: 20px;
+    padding: 20px 24px 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .facts__item dt {
+    color: var(--ink-60);
+    font-size: 15px;
+  }
+  .facts__item dd {
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .facts__item a {
+    text-decoration-color: var(--line-link);
+    text-underline-offset: 4px;
+  }
+  @media (max-width: 767px) {
+    .facts__grid {
+      grid-template-columns: 1fr;
+    }
+    .facts__item {
+      grid-template-columns: minmax(95px, 0.55fr) minmax(0, 1.45fr);
+      gap: 12px;
+      padding-right: 0;
+    }
+  }
+</style>

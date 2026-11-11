@@ -1,0 +1,193 @@
+---
+import type { FaqItem, LiveSection, PageBlock } from "@/data/pages/types";
+import { CURRICULA } from "@/data/curriculum";
+import Curriculum from "@/components/Curriculum.astro";
+import FaqList from "@/components/FaqList.astro";
+import Logo from "@/components/Logo.astro";
+import Pic from "@/components/Pic.astro";
+import { img } from "@/data/images";
+
+interface Props {
+  sections: LiveSection[];
+}
+
+const { sections } = Astro.props;
+let faqGroup = 0;
+
+type RenderBlock = Exclude<PageBlock, { type: "faq" }> | { type: "faq-group"; items: FaqItem[]; idPrefix: string };
+
+const groupFaqBlocks = (blocks: PageBlock[]): RenderBlock[] => {
+  const grouped: RenderBlock[] = [];
+  let items: FaqItem[] = [];
+  const flushFaq = () => {
+    if (!items.length) return;
+    grouped.push({ type: "faq-group", items, idPrefix: `live-faq-${faqGroup++}` });
+    items = [];
+  };
+  for (let index = 0; index < blocks.length; index++) {
+    const block = blocks[index];
+    if (!block) continue;
+    if (block.type === "faq") {
+      items.push(...block.items);
+      const answer = blocks[index + 1];
+      if (answer?.type === "paragraph" && block.items.some((item) => item.a === answer.text)) index++;
+      continue;
+    }
+    flushFaq();
+    grouped.push(block);
+  }
+  flushFaq();
+  return grouped;
+};
+const groupedSections = sections.map((section) => ({ ...section, blocks: groupFaqBlocks(section.blocks) }));
+---
+
+{
+  groupedSections.map((section) => (
+    <section class="live-section" data-reveal>
+      <div class="container">
+        {section.eyebrow && <p class="eyebrow live-section__eyebrow">{section.eyebrow.replace(/^\/\/\s*/, "")}</p>}
+        {section.title && <h2 class="h2 live-section__title">{section.title}</h2>}
+        <div class="live-section__blocks">
+          {section.blocks.map((block) => {
+            if (block.type === "faq-group") return <FaqList items={block.items} idPrefix={block.idPrefix} />;
+            if (block.type === "curriculum") return <Curriculum curriculum={CURRICULA[block.id]} />;
+            if (block.type === "paragraph") return <p class="live-section__text">{block.text}</p>;
+            if (block.type === "heading") return <h3 class="h3-sm live-section__h3">{block.text}</h3>;
+            if (block.type === "eyebrow") return <p class="eyebrow live-section__eyebrow">{block.text.replace(/^\/\/\s*/, "")}</p>;
+            if (block.type === "list") {
+              const List = block.ordered ? "ol" : "ul";
+              return <List class="live-section__list">{block.items.map((item) => <li>{item}</li>)}</List>;
+            }
+            if (block.type === "table") {
+              const [head, ...rows] = block.rows;
+              return (
+                <div class="live-section__table-wrap" tabindex="0" aria-label="Tableau de données">
+                  <table>
+                    <thead><tr>{head?.map((cell) => <th scope="col">{cell}</th>)}</tr></thead>
+                    <tbody>{rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
+                  </table>
+                </div>
+              );
+            }
+            if (block.type === "cta" || block.type === "link") return <a class="lnk live-section__link" href={block.href}>{block.label}</a>;
+            if (block.type === "button") return <span class="live-section__button-label">{block.label}</span>;
+            if (block.type === "image") {
+              return block.logo ? (
+                <Logo name={block.name} alt={block.alt} height={40} />
+              ) : (
+                <figure class="live-section__image">
+                  <Pic src={img(block.name)} alt={block.alt} sizes="(min-width: 1024px) 720px, 100vw" />
+                </figure>
+              );
+            }
+            if (block.type === "quote") return <blockquote class="live-section__quote">{block.text}</blockquote>;
+            return null;
+          })}
+        </div>
+      </div>
+    </section>
+  ))
+}
+
+<style>
+  .live-section {
+    padding-block: var(--section-y);
+  }
+  .live-section:nth-of-type(even) {
+    background: var(--mist);
+  }
+  .live-section__eyebrow {
+    margin-bottom: 14px;
+  }
+  .live-section__title {
+    overflow-wrap: anywhere;
+    max-width: 16em;
+    margin-bottom: 36px;
+  }
+  .live-section__blocks {
+    display: grid;
+    gap: 22px;
+    max-width: 920px;
+  }
+  .live-section__blocks > :global(.curriculum) {
+    width: 100%;
+    max-width: none;
+    padding-inline: 0;
+  }
+  .live-section__text {
+    color: var(--ink-70);
+    max-width: 68em;
+  }
+  .live-section__h3 {
+    margin-top: 18px;
+  }
+  .live-section__list {
+    display: grid;
+    gap: 10px;
+    padding-left: 1.25em;
+    list-style: disc;
+  }
+  .live-section__list[reversed],
+  .live-section__list[type="1"] {
+    list-style: decimal;
+  }
+  .live-section__table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    border-top: 1px solid var(--line-strong);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: left;
+  }
+  th,
+  td {
+    min-width: 110px;
+    padding: 14px 18px 14px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-60);
+  }
+  .live-section__link {
+    justify-self: start;
+  }
+  .live-section__button-label {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid var(--line-ui);
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+  }
+  .live-section__image {
+    max-width: 780px;
+  }
+  .live-section__quote {
+    max-width: 56em;
+    padding-left: 24px;
+    border-left: 2px solid var(--yellow);
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 300;
+    line-height: 1.35;
+  }
+  @media (max-width: 767px) {
+    .live-section {
+      padding-block: var(--section-y);
+    }
+    .live-section__title {
+      margin-bottom: 26px;
+    }
+    th,
+    td {
+      min-width: 96px;
+      padding-right: 12px;
+    }
+  }
+</style>

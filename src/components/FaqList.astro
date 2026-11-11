@@ -1,0 +1,124 @@
+---
+import type { FaqItem } from "@/data/pages/types";
+
+interface Props {
+  items: FaqItem[];
+  idPrefix?: string;
+}
+
+const { items, idPrefix = "" } = Astro.props;
+const prefix = idPrefix ? `${idPrefix}-` : "";
+---
+
+<div class="faq__list" data-accordion>
+  {
+    items.map((item, index) => {
+      return (
+        <div class="faq-item">
+          <h3 class="faq-item__h">
+            <button
+              type="button"
+              class="faq-item__btn tint"
+              aria-expanded={index === 0 ? "true" : "false"}
+              aria-controls={`${prefix}faq-a-${index}`}
+              id={`${prefix}faq-q-${index}`}
+            >
+              <span>{item.q}</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <p class="faq-item__a" id={`${prefix}faq-a-${index}`} role="region" aria-labelledby={`${prefix}faq-q-${index}`}>
+            {item.a}
+          </p>
+        </div>
+      );
+    })
+  }
+  <div class="faq__end"></div>
+</div>
+
+<script src="@/scripts/accordion.ts"></script>
+
+<style>
+  .faq__list {
+    min-width: 0;
+  }
+  .faq-item {
+    border-top: 1px solid var(--line-strong);
+  }
+  .faq-item__h {
+    font-size: inherit;
+    font-weight: 400;
+  }
+  .faq-item__btn {
+    width: 100%;
+    padding: 20px 44px 20px 0;
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .faq-item__sign {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    position: relative;
+  }
+  .faq-item__sign::before,
+  .faq-item__sign::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 14px;
+    height: 1px;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+  }
+  .faq-item__sign::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .faq-item__btn[aria-expanded="true"] .faq-item__sign::after {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  .faq-item__a {
+    overflow-wrap: anywhere;
+    max-width: 64em;
+    padding: 0 44px 22px 0;
+    color: var(--ink-70);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .faq-item__a.is-entering {
+    animation: faq-enter 0.2s ease both;
+  }
+  @keyframes faq-enter {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .faq__end {
+    height: 1px;
+    background: var(--line-strong);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-item__sign::before,
+    .faq-item__sign::after {
+      transition: none;
+    }
+    .faq-item__a.is-entering {
+      animation-duration: 0.12s;
+    }
+  }
+</style>

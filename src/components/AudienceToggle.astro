@@ -1,0 +1,105 @@
+---
+import type { AudienceCopy } from "@/data/pages/types";
+
+interface Props {
+  copy: AudienceCopy;
+}
+
+const { copy } = Astro.props;
+---
+
+<section class="container audience" data-audience-root>
+  <div class="audience__switch">
+    <span>Vous êtes :</span>
+    <div role="group" aria-label="Choisir votre profil">
+      <button type="button" data-audience-select="student" aria-pressed="true">Futur étudiant</button>
+      <button type="button" data-audience-select="parent" aria-pressed="false">Parent</button>
+    </div>
+  </div>
+  <div class="audience__content">
+    <p data-audience="student">{copy.student.replace(/^\/\/\s*/, "")}</p>
+    <p data-audience="parent" hidden>{copy.parent.replace(/^\/\/\s*/, "")}</p>
+    <a class="btn btn--lg audience__cta" href={copy.href}>
+      <span data-audience="student">{copy.studentCta}</span>
+      <span data-audience="parent" hidden>{copy.parentCta}</span>
+    </a>
+  </div>
+</section>
+
+<script src="@/scripts/audience.ts"></script>
+
+<style>
+  .audience {
+    padding-block: 36px var(--section-y-sm);
+  }
+  .audience__switch {
+    display: none;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    color: var(--ink-60);
+    font-size: 14px;
+  }
+  :global(.js) .audience__switch {
+    display: flex;
+  }
+  .audience__switch [role="group"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--line-ui);
+    border-radius: var(--radius-pill);
+  }
+  .audience__switch button {
+    padding: 7px 14px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--ink-65);
+    font-size: 13px;
+    cursor: pointer;
+    transition: color var(--dur-ui) ease, background-color var(--dur-ui) ease;
+  }
+  .audience__switch button[aria-pressed="true"] {
+    background: var(--plum);
+    color: var(--white);
+  }
+  .audience__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px 48px;
+    align-items: center;
+  }
+  .audience__content p {
+    max-width: 54em;
+    color: var(--ink-70);
+    font-size: 17px;
+  }
+  .audience__cta {
+    white-space: nowrap;
+  }
+  .audience [hidden] {
+    display: none !important;
+  }
+  @media (max-width: 767px) {
+    .audience {
+      padding-top: 24px;
+    }
+    .audience__content {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .audience__cta {
+      justify-self: start;
+      white-space: normal;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .audience__switch button {
+      transition: none;
+    }
+  }
+</style>

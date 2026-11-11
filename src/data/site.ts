@@ -66,13 +66,22 @@ export const HUBSPOT = {
   },
 } as const;
 
-/** Routes of the six pages plus the existing form pages. */
+/** Routes rendered by this build. */
 export const ROUTES = {
   home: "/",
   programmes: "/programmes",
+  programmeBachelor: "/programme/bachelor-ia-business",
+  programmeBachelor3: "/programme/bachelor-ia-business-3eme-annee-alternance",
+  programmeMsc: "/programme/master-ia-business-alternance",
+  certificationArchitecteIA: "/certification-architecte-ia",
+  certificationNoCode: "/certification-concepteur-solutions-no-code",
   carrieres: "/carrieres",
   ecole: "/ecole",
   admissions: "/admissions",
+  alternance: "/alternance",
+  financement: "/financement",
+  processusAdmission: "/processus-admission",
+  faq: "/faq",
   entreprises: "/entreprises",
   brochure: "/brochure",
   candidature: "/candidature",
@@ -83,8 +92,6 @@ export const ROUTES = {
 
 /** Existing pages of the current site that are out of scope of the redesign. */
 export const EXTERNAL = {
-  certificationNoCode: "/certification-concepteur-solutions-no-code",
-  certificationArchitecteIA: "/certification-architecte-ia",
   portfolio: "/portfolio",
 } as const;
 
