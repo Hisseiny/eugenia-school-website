@@ -135,6 +135,13 @@ export function initPremiumForm(form: HTMLFormElement): void {
         body: JSON.stringify(body),
       });
       if (!res.ok) throw new Error(`HubSpot ${res.status}`);
+      track("hubspot-form-success", {
+        "event-data": {
+          type: "hsFormCallback",
+          eventName: "onFormSubmit",
+          id: form.dataset.hsFormId,
+        },
+      });
       const firstname = String(data.get("firstname") ?? "").trim();
       const title = (parent && form.dataset.doneTitleParent) || form.dataset.doneTitle || "";
       done.querySelector<HTMLElement>("[data-pf-done-title]")!.textContent = title.replace("{firstname}", firstname);

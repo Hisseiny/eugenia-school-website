@@ -10,10 +10,15 @@ const check = (name, ok, extra = "") => {
   console.log(`${ok ? "PASS" : "FAIL"} ${name} ${extra}`);
   if (!ok) failures++;
 };
+const blockTracking = async (page) => {
+  await page.route("**/*googletagmanager.com/**", (route) => route.abort());
+  await page.route("**/connect.facebook.net/**", (route) => route.abort());
+};
 
 // Carousel (desktop)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
   await page.goto(base + "/", { waitUntil: "load" });
   const visibleName = () => page.locator("[data-slide]:not([hidden]) .testi__name").innerText();
   check("carousel starts on Noah", (await visibleName()) === "Noah S.");
@@ -40,6 +45,7 @@ const check = (name, ok, extra = "") => {
 // Accordion (admissions)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
   await page.goto(base + "/admissions", { waitUntil: "load" });
   const buttons = page.locator("[data-accordion] button");
   check("first question open", (await buttons.nth(0).getAttribute("aria-expanded")) === "true");
@@ -59,6 +65,7 @@ const check = (name, ok, extra = "") => {
 // Mobile menu (375)
 {
   const page = await browser.newPage({ viewport: { width: 375, height: 800 } });
+  await blockTracking(page);
   await page.goto(base + "/programmes", { waitUntil: "load" });
   check("nav hidden on mobile until opened", await page.locator("#site-nav").isHidden());
   await page.click("[data-nav-toggle]");
@@ -75,6 +82,7 @@ const check = (name, ok, extra = "") => {
 // Parents / future-student journey
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
   await page.goto(base + "/", { waitUntil: "load" });
   check("home has the two audience cards", (await page.locator(".audience__card").count()) === 2);
   await page.goto(base + "/admissions#faq-q-4", { waitUntil: "load" });
@@ -82,7 +90,7 @@ const check = (name, ok, extra = "") => {
   check("deep link opens the FAQ answer", await page.locator("#faq-a-4").isVisible());
   check("deep link focuses the question", await page.evaluate(() => document.activeElement?.id === "faq-q-4"));
   await page.goto(base + "/admissions#parents", { waitUntil: "load" });
-  check("parents block links to its questions", (await page.locator(".parents__questions a[href^='#faq-q-']").count()) === 5);
+  check("parents block links to its confirmed questions", (await page.locator(".parents__questions a[href^='#faq-q-']").count()) === 4);
   await page.goto(base + "/candidature", { waitUntil: "load" });
   check("form page shows what happens next", (await page.locator(".formpage__next li").count()) === 3);
   await page.close();
@@ -91,6 +99,7 @@ const check = (name, ok, extra = "") => {
 // Premium application form (HubSpot API mocked: no real submission)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
   let posted = null;
   await page.route(/api\.hsforms\.com/, async (route) => { posted = JSON.parse(route.request().postData()); await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ inlineMessage: "ok" }) }); });
   await page.goto(base + "/candidature", { waitUntil: "load" });
@@ -117,12 +126,20 @@ const check = (name, ok, extra = "") => {
   const names = posted ? posted.fields.map((f) => f.name).sort().join(",") : "";
   check("payload has the HubSpot field names", names === "all_current_academic_year,all_type_multiple_checkboxes,email,firstname,lastname,one_targetted_training,phone", names);
   check("confirmation uses the first name", (await page.locator("[data-pf-done-title]").textContent()).includes("Test"));
+  const successEvent = await page.evaluate(() => window.dataLayer?.find((entry) => entry.event === "hubspot-form-success"));
+  check("successful form pushes its GUID to analytics", successEvent?.["event-data"]?.id === "636c087a-248a-470d-8e70-b50dd08a73b8");
+  check(
+    "form analytics event contains no personal data",
+    Object.keys(successEvent ?? {}).sort().join(",") === "event,event-data" &&
+      Object.keys(successEvent?.["event-data"] ?? {}).sort().join(",") === "eventName,id,type",
+  );
   await page.close();
 }
 
 // Parent tone in forms (?pour=parent preselects Parent, later steps say « vous »)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
   await page.goto(base + "/candidature?pour=parent", { waitUntil: "load" });
   check("?pour=parent preselects Parent", await page.locator("input[value='All.Parent']").isChecked());
   await page.click("[data-pf-next]");
@@ -143,6 +160,7 @@ const check = (name, ok, extra = "") => {
 {
   const ctx = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
+  await blockTracking(page);
   await page.goto(base + "/admissions", { waitUntil: "load" });
   check("without JS all answers are visible", await page.locator("#faq-a-3").isVisible());
   await page.goto(base + "/", { waitUntil: "load" });

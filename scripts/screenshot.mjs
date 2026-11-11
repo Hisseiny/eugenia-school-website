@@ -16,6 +16,8 @@ const browser = await chromium.launch({ executablePath: exe, headless: true });
 for (const width of sizes) {
   const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
   const page = await ctx.newPage();
+  await page.route("**/*googletagmanager.com/**", (route) => route.abort());
+  await page.route("**/connect.facebook.net/**", (route) => route.abort());
   for (const entry of pages) {
     // "name" or "name=/path" (the second form is used for the live site's old URLs)
     const [name, custom] = entry.split("=");
