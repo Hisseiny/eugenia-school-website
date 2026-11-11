@@ -8,7 +8,7 @@ import Testimonials from "@/components/Testimonials.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { PARTNERS, RECRUITERS } from "@/data/logos";
-import { DOORS, GALLERY, LEARN_ROWS, NEXT_STEPS, PORTFOLIO_URL } from "@/data/home";
+import { AUDIENCES, DOORS, GALLERY, LEARN_ROWS, NEXT_STEPS, PORTFOLIO_URL } from "@/data/home";
 import { ROUTES } from "@/data/site";
 
 const ICONS: Record<string, string> = {
@@ -115,6 +115,30 @@ const ICONS: Record<string, string> = {
   </section>
 
   <!-- What you will learn (dark) -->
+  <!-- Two audiences, two voices -->
+  <section class="container section audience" aria-labelledby="audience-title">
+    <h2 id="audience-title" class="sr-only">Futur étudiant ou parent : par où commencer</h2>
+    <div class="audience__grid">
+      {
+        AUDIENCES.map((a) => (
+          <article class="audience__card" id={`pour-${a.id}`}>
+            <p class="eyebrow audience__eyebrow">{a.eyebrow}</p>
+            <h3 class="audience__title">{a.title}</h3>
+            <ul class="audience__points">
+              {a.points.map((p) => (
+                <li>{p}</li>
+              ))}
+            </ul>
+            <div class="audience__actions">
+              <a href={a.cta.href} class="btn-outline">{a.cta.label}</a>
+              <a href={a.link.href} class="lnk">{a.link.label}</a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
   <section class="dark learn" aria-labelledby="learn-title">
     <Image src={img("p_atrium_wide")} alt="" aria-hidden="true" widths={[960, 1500]} sizes="100vw" format="webp" quality={60} loading="lazy" class="learn__bg" />
     <div class="container learn__inner">
@@ -405,6 +429,75 @@ const ICONS: Record<string, string> = {
     }
     .badges__partners:hover .badges__item:not(:hover) :global(.gray) {
       opacity: 1;
+    }
+  }
+
+  /* Audience band: two cards, one voice each; the parent card is calmer (mist) */
+  .audience {
+    padding-top: 0;
+  }
+  .audience__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 24px;
+  }
+  .audience__card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .audience__card#pour-parent {
+    background: var(--mist);
+    border-color: transparent;
+  }
+  .audience__eyebrow {
+    margin: 0;
+  }
+  .audience__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(26px, 2.6vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 14em;
+  }
+  .audience__points {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    color: var(--ink-70);
+    font-size: 16px;
+  }
+  .audience__points li {
+    padding-left: 22px;
+    position: relative;
+  }
+  .audience__points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 10px;
+    height: 2px;
+    background: var(--red);
+  }
+  .audience__actions {
+    margin-top: auto;
+    padding-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 24px;
+  }
+  @media (max-width: 767px) {
+    .audience__card {
+      padding: 28px var(--gutter);
     }
   }
 

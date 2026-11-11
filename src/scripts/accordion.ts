@@ -31,6 +31,17 @@ export function initAccordion(root: HTMLElement): void {
   });
   // Progressive enhancement: without JS every answer is visible; with JS only the first is open.
   buttons.forEach((b, i) => setOpen(b, i === 0, false));
+
+  // Deep links (#faq-q-N, e.g. from the parents block) open that answer and focus its question.
+  const openFromHash = () => {
+    const target = location.hash ? root.querySelector<HTMLButtonElement>(`button${location.hash}`) : null;
+    if (!target || !buttons.includes(target)) return;
+    buttons.forEach((b) => setOpen(b, false));
+    setOpen(target, true, false);
+    target.focus({ preventScroll: true });
+  };
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
 }
 
 document.querySelectorAll<HTMLElement>("[data-accordion]").forEach(initAccordion);

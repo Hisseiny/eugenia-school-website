@@ -12,8 +12,10 @@ interface Props {
   form: keyof typeof HUBSPOT.forms;
   facts?: readonly string[];
   formLabel: string;
+  /** What happens after sending: shown above the form so the last step of the journey reassures. */
+  next?: readonly string[];
 }
-const { title, description, heading, lead, form, facts = [], formLabel } = Astro.props;
+const { title, description, heading, lead, form, facts = [], formLabel, next = [] } = Astro.props;
 ---
 
 <Base title={title} description={description}>
@@ -35,6 +37,15 @@ const { title, description, heading, lead, form, facts = [], formLabel } = Astro
       </div>
       <div class="r3">
         <p class="eyebrow formpage__label">{formLabel}</p>
+        {
+          next.length > 0 && (
+            <ul class="formpage__next" aria-label="Ce qui se passe ensuite">
+              {next.map((n) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          )
+        }
         <HubspotForm form={form} />
       </div>
     </div>
@@ -50,6 +61,21 @@ const { title, description, heading, lead, form, facts = [], formLabel } = Astro
     grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 56px 96px;
     align-items: start;
+  }
+  .formpage__next {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 14px;
+    color: var(--ink-65);
+  }
+  .formpage__next li::before {
+    content: "✓";
+    margin-right: 6px;
+    color: var(--red);
   }
   .formpage__title {
     font-size: clamp(48px, 6vw, 96px);

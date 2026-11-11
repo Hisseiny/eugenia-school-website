@@ -1,9 +1,13 @@
+/** `next` tells what happens after the step; every sentence comes from the FAQ below. */
 export const STEPS = [
-  { n: "Étape 1", title: "Candidature en ligne", text: "Ton dossier, en ligne. Gratuit pour les résidents UE." },
-  { n: "Étape 2", title: "Étude d'éligibilité", text: "L'équipe d'admission étudie ton dossier." },
-  { n: "Étape 3", title: "Entretien d'admission", text: "Un échange avec l'équipe d'admission." },
-  { n: "Étape 4", title: "Décision finale", text: "Et une rentrée en septembre." },
+  { n: "Étape 1", title: "Candidature en ligne", text: "Ton dossier, en ligne. Gratuit pour les résidents UE.", next: "Tu peux commencer sans tes notes de l'année en cours et les envoyer plus tard." },
+  { n: "Étape 2", title: "Étude d'éligibilité", text: "L'équipe d'admission étudie ton dossier.", next: "Réponse sous 10 jours." },
+  { n: "Étape 3", title: "Entretien d'admission", text: "Un échange avec l'équipe d'admission.", next: "Trois temps : faire connaissance, un casse-tête logique, tes motivations." },
+  { n: "Étape 4", title: "Décision finale", text: "Et une rentrée en septembre.", next: "Réponse sous 10 jours. La rentrée a lieu en septembre, uniquement." },
 ] as const;
+
+/** Indices of the FAQ entries parents ask first (cost, financing, Parcoursup, results, requirements). */
+export const PARENT_QUESTIONS = [1, 7, 0, 4, 2] as const;
 
 export const FIGURES = [
   { value: "0 €", label: "pour candidater, si tu es résident de l'Union européenne" },

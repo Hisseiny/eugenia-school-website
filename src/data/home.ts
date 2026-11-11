@@ -1,4 +1,4 @@
-import { EXTERNAL, ROUTES } from "@/data/site";
+import { EXTERNAL, ROUTES, SITE } from "@/data/site";
 
 export const DOORS = [
   {
@@ -159,3 +159,31 @@ export const NEXT_STEPS = [
 ] as const;
 
 export const PORTFOLIO_URL = EXTERNAL.portfolio;
+
+/** Home: two doors only (Hick's law), one voice each — "tu" for the future student, "vous" for the parent. */
+export const AUDIENCES = [
+  {
+    id: "etudiant",
+    eyebrow: "Futur étudiant",
+    title: "Tu veux voir ce que ça donne, concrètement.",
+    points: [
+      "Les programmes, et ce que tu construis chaque année",
+      "La candidature en 4 étapes, hors Parcoursup, gratuite pour les résidents UE",
+      "Les portes ouvertes du 12 décembre, sur le campus",
+    ],
+    cta: { href: ROUTES.admissions, label: "Voir comment candidater" },
+    link: { href: ROUTES.evenements, label: "Réserver ma place aux portes ouvertes" },
+  },
+  {
+    id: "parent",
+    eyebrow: "Parent",
+    title: "Vous voulez des garanties avant un choix qui engage.",
+    points: [
+      "Un établissement certifié Qualiopi, titre enregistré au RNCP",
+      "Le coût de la candidature et le financement, expliqués",
+      "L'alternance accompagnée de A à Z par l'école",
+    ],
+    cta: { href: `${ROUTES.admissions}#parents`, label: "Ce qui doit vous rassurer" },
+    link: { href: `mailto:${SITE.contact.email}`, label: "Écrire à l'équipe admission" },
+  },
+] as const;

@@ -72,6 +72,22 @@ const check = (name, ok, extra = "") => {
   await page.close();
 }
 
+// Parents / future-student journey
+{
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(base + "/", { waitUntil: "load" });
+  check("home has the two audience cards", (await page.locator(".audience__card").count()) === 2);
+  await page.goto(base + "/admissions#faq-q-4", { waitUntil: "load" });
+  await page.waitForTimeout(400);
+  check("deep link opens the FAQ answer", await page.locator("#faq-a-4").isVisible());
+  check("deep link focuses the question", await page.evaluate(() => document.activeElement?.id === "faq-q-4"));
+  await page.goto(base + "/admissions#parents", { waitUntil: "load" });
+  check("parents block links to its questions", (await page.locator(".parents__questions a[href^='#faq-q-']").count()) === 5);
+  await page.goto(base + "/candidature", { waitUntil: "load" });
+  check("form page shows what happens next", (await page.locator(".formpage__next li").count()) === 3);
+  await page.close();
+}
+
 // No-JS: content readable, answers visible
 {
   const ctx = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
