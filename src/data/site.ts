@@ -2,6 +2,8 @@ export const SITE = {
   name: "Eugenia School",
   url: "https://www.eugeniaschool.com",
   address: { street: "18 rue de Paradis", postalCode: "75010", city: "Paris", country: "FR" },
+  /** Public contact details, as published on eugeniaschool.com/contact. */
+  contact: { email: "admission@eugeniaschool.com", phone: "01 31 67 73 88", phoneHref: "tel:+33131677388" },
   description:
     "Eugenia School, l'école de l'IA appliquée au business à Paris : Bachelor et Master en alternance, hors Parcoursup.",
   legalUrl:

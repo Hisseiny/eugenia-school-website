@@ -3,7 +3,7 @@
  * Embeds one of the school's existing HubSpot forms (same portal, region and form ids as the live site).
  * Without JavaScript the visitor gets a fallback link instead of an empty box.
  */
-import { HUBSPOT, ROUTES } from "@/data/site";
+import { HUBSPOT, SITE } from "@/data/site";
 
 interface Props {
   form: keyof typeof HUBSPOT.forms;
@@ -12,6 +12,7 @@ interface Props {
 const { form, minHeight = 420 } = Astro.props;
 const formId = HUBSPOT.forms[form];
 const id = `hs-form-${form}`;
+const { email, phone, phoneHref } = SITE.contact;
 ---
 
 <div
@@ -23,8 +24,17 @@ const id = `hs-form-${form}`;
   style={`min-height: ${minHeight}px`}
 >
   <noscript>
-    <p>Merci d'activer JavaScript pour afficher ce formulaire, ou <a href={ROUTES.contact}>contactez l'équipe</a>.</p>
+    <p>
+      Merci d'activer JavaScript pour afficher ce formulaire, ou écris-nous à
+      <a href={`mailto:${email}`}>{email}</a> (<a href={phoneHref}>{phone}</a>).
+    </p>
   </noscript>
+  <template data-hs-fallback>
+    <p>
+      Le formulaire n'a pas pu se charger (un bloqueur de contenu, peut-être). Réessaie sans bloqueur, ou
+      écris-nous à <a href={`mailto:${email}`}>{email}</a> (<a href={phoneHref}>{phone}</a>).
+    </p>
+  </template>
 </div>
 
 <script>
@@ -37,8 +47,11 @@ const id = `hs-form-${form}`;
 
   const SCRIPT_ID = "hs-embed-v2";
 
+  const TIMEOUT_MS = 8000;
+
+  /** Resolves when HubSpot's embed script is usable; rejects if it is blocked, fails or takes too long. */
   function loadEmbed(region: string): Promise<void> {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       if (window.hbspt) return resolve();
       let s = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
       if (!s) {
@@ -48,15 +61,27 @@ const id = `hs-form-${form}`;
         s.async = true;
         document.head.appendChild(s);
       }
-      s.addEventListener("load", () => resolve(), { once: true });
+      const timer = window.setTimeout(() => reject(new Error("hubspot embed timeout")), TIMEOUT_MS);
+      s.addEventListener("load", () => { window.clearTimeout(timer); resolve(); }, { once: true });
+      s.addEventListener("error", () => { window.clearTimeout(timer); reject(new Error("hubspot embed blocked")); }, { once: true });
     });
+  }
+
+  function showFallback(el: HTMLElement) {
+    const tpl = el.querySelector<HTMLTemplateElement>("template[data-hs-fallback]");
+    if (tpl) el.replaceChildren(tpl.content.cloneNode(true));
   }
 
   document.querySelectorAll<HTMLElement>(".hs-form[data-hs-form-id]").forEach(async (el) => {
     const { hsPortal, hsRegion, hsFormId } = el.dataset;
     if (!hsPortal || !hsRegion || !hsFormId) return;
-    await loadEmbed(hsRegion);
-    window.hbspt?.forms.create({ region: hsRegion, portalId: hsPortal, formId: hsFormId, target: `#${el.id}` });
+    try {
+      await loadEmbed(hsRegion);
+      if (!window.hbspt) throw new Error("hubspot embed unavailable");
+      window.hbspt.forms.create({ region: hsRegion, portalId: hsPortal, formId: hsFormId, target: `#${el.id}` });
+    } catch {
+      showFallback(el);
+    }
   });
 </script>
 
