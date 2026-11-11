@@ -33,11 +33,10 @@ export const TRAININGS: Option[] = [
   { value: "MSc Gamma", label: "MSc IA Applied to Business", hint: "2 ans en alternance, après un Bac+3" },
 ];
 
+/** Upcoming events only (the HubSpot dropdown also lists past dates: June and July 2026). */
 export const EVENTS_OPTIONS: Option[] = [
   { value: "12 Décembre 2026 - Journée Portes Ouvertes - 12 déc - 10h30", label: "Journée portes ouvertes", hint: "12 décembre, 10 h 30" },
   { value: "12 Décembre 2026 - Atelier : Entrepreneur - 13h30", label: "Atelier entrepreneuriat", hint: "12 décembre, 13 h 30" },
-  { value: "6 Juin 2026 - Journée Portes Ouvertes et Découverte de l'IA", label: "Portes ouvertes et découverte de l'IA", hint: "6 juin" },
-  { value: "2026 - 02 Juillet : Webinaire", label: "Webinaire", hint: "2 juillet, en ligne" },
 ];
 
 export type Step =
