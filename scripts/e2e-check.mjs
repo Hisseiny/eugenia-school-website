@@ -166,8 +166,26 @@ const blockTracking = async (page) => {
   await page.locator('[data-audience-select="parent"]').click();
   check("audience switch reveals parent copy", await page.locator('[data-audience="parent"]').first().isVisible());
   check("audience switch updates aria-pressed", (await page.locator('[data-audience-select="parent"]').getAttribute("aria-pressed")) === "true");
+  const audienceCta = page.locator(".audience__cta");
+  check("parent CTA carries form context", (await audienceCta.getAttribute("href")) === "/candidature?pour=parent");
   const audienceEvent = await page.evaluate(() => window.dataLayer?.find((entry) => entry.event === "audience_toggle"));
   check("audience switch tracks the selected profile", audienceEvent?.audience === "parent");
+  for (const [baseHref, expectedHref] of [
+    ["/candidature?pour=parent#form", "/candidature?pour=parent#form"],
+    ["/brochure?source=cta#download", "/brochure?source=cta&pour=parent#download"],
+    ["/evenements#portes-ouvertes", "/evenements?pour=parent#portes-ouvertes"],
+    ["/contact?source=cta", "/contact?source=cta&pour=parent"],
+  ]) {
+    await audienceCta.evaluate((anchor, href) => {
+      anchor.dataset.audienceStudentHref = href;
+      anchor.dataset.audienceParentHref = href;
+      anchor.setAttribute("href", href);
+    }, baseHref);
+    await page.locator('[data-audience-select="parent"]').click();
+    check(`parent CTA keeps context and hash for ${baseHref.split(/[?#]/)[0]}`, (await audienceCta.getAttribute("href")) === expectedHref);
+    await page.locator('[data-audience-select="student"]').click();
+    check(`student CTA remains unchanged for ${baseHref.split(/[?#]/)[0]}`, (await audienceCta.getAttribute("href")) === baseHref);
+  }
   await page.goto(base + "/programme/bachelor-ia-business?pour=parent", { waitUntil: "load" });
   check("?pour=parent selects the parent variant", await page.locator('[data-audience-select="parent"]').getAttribute("aria-pressed") === "true");
   check("parent query is not appended twice", (await page.locator(".audience__cta").getAttribute("href")) === "/candidature?pour=parent");
