@@ -1,0 +1,5 @@
+---
+import LivePage from "@/components/LivePage.astro";
+import { page } from "@/data/pages/faq";
+---
+<LivePage page={page} crumbs={[{ name: "Admissions", path: "/admissions" }, { name: "FAQ" }]} current="admissions" dataAnswer={false} />

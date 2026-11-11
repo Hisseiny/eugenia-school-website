@@ -1,0 +1,73 @@
+---
+interface Crumb {
+  name: string;
+  path?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="crumbs container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    {
+      items.map((item, index) => (
+        <li>
+          <span class="crumbs__separator" aria-hidden="true">/</span>
+          {index === items.length - 1 ? (
+            <span aria-current="page">{item.name}</span>
+          ) : (
+            <a href={item.path}>{item.name}</a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  .crumbs {
+    padding-top: 18px;
+    padding-bottom: 4px;
+    color: var(--ink-60);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .crumbs ol,
+  .crumbs li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .crumbs ol {
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .crumbs a {
+    color: inherit;
+    text-decoration-color: var(--line-link);
+    text-underline-offset: 3px;
+  }
+  .crumbs a:hover {
+    color: var(--plum);
+  }
+  .crumbs [aria-current="page"] {
+    color: var(--plum);
+  }
+  .crumbs__separator {
+    color: var(--ink-55);
+  }
+  @media (max-width: 767px) {
+    .crumbs {
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+  }
+</style>

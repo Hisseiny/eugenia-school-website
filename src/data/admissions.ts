@@ -24,8 +24,7 @@ export const PARENTS = [
 
 /**
  * The first question comes from the mockup. The following answers are copied verbatim from the
- * current eugeniaschool.com/faq page (admissions section). The financing answer is for the school
- * to confirm, as the brief asks.
+ * current eugeniaschool.com/faq page (admissions section), including the financing answer.
  */
 export const FAQ = [
   {
@@ -58,7 +57,7 @@ export const FAQ = [
   },
   {
     q: "Comment financer ma formation ?",
-    a: "[À confirmer par l'école] Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité.",
+    a: "Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. L'attribution de la bourse est basée sur des critères sociaux et académiques. La demande de bourse doit être faite avant l'inscription. Vous pouvez également demander des prêts étudiants auprès des banques partenaires. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité. Pour toute précision : admission@eugeniaschool.com.",
   },
 ] as const;
 

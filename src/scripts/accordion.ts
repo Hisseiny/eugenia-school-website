@@ -29,8 +29,8 @@ export function initAccordion(root: HTMLElement): void {
       }
     });
   });
-  // Progressive enhancement: without JS every answer is visible; with JS only the first is open.
-  buttons.forEach((b, i) => setOpen(b, i === 0, false));
+  // Progressive enhancement: preserve the initial expanded item selected by the page data.
+  buttons.forEach((b) => setOpen(b, b.getAttribute("aria-expanded") === "true", false));
 
   // Deep links (#faq-q-N, e.g. from the parents block) open that answer and focus its question.
   const openFromHash = () => {
