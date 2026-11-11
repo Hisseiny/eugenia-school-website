@@ -18,7 +18,8 @@ Principles followed (nothing is decorative or random):
 | Skill chips (`.chip`) | Pop from 92 % to 100 % after their block, 45 ms apart | 0.4 s, ease-out | Chips are a list: the stagger makes them readable as separate items |
 | Key figures (`S1 / 48 h / 15`, `4 étapes`) | Numbers count up from 0 when 60 % visible | 0.9 s, cubic ease-out | Draws attention to the proof numbers; text values are untouched |
 | Header | Compacts (20 → 12 px) and gets a blurred translucent background after 12 px of scroll | 0.3 s | Gives room to the content while keeping navigation one tap away, without a shadow |
-| Partner / recruiter logos | Greyscale → colour and a 2 px lift on hover; the marquee pauses on hover and only runs once on screen | 0.2–0.3 s | Colour is the reward for attention; the pause lets people read a logo |
+| Partner band (home) | Logos arrive with a soft blur (6 px → 0) and a 10 px rise, 60 ms apart; hovering one dims the others to 40 % while it takes colour and lifts 2 px | 0.7 s / 0.3 s | Blur-in reads as "coming into focus" (Apple); dimming the siblings is the focus pattern used by Linear and Vercel |
+| Recruiter marquee | Greyscale → colour and a 2 px lift on hover; pauses on hover; only runs once on screen | 0.2–0.3 s | Colour is the reward for attention; the pause lets people read a logo |
 | Logo grid cells (Carrières, Entreprises) | Cell tints and the logo takes colour together; cells reveal in cascade | 0.25 s | One hover target, one effect |
 | Testimonial carousel | New slide glides in from 14 px with a fade; active dot grows 12 → 32 px | 0.45–0.55 s / 0.3 s | Direction tells "next"; the dot shows position without a counter |
 | FAQ accordion | Answer fades in from -6 px; + turns into − | 0.35 s / 0.2 s | Confirms the click; one answer open at a time keeps focus |

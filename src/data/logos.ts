@@ -8,6 +8,9 @@ export const PARTNERS: LogoSpec[] = [
   { name: "lg_microsoft", alt: "Microsoft", height: 22 },
   { name: "lg_lvmh", alt: "LVMH", height: 19 },
   { name: "lg_snapchat", alt: "Snapchat", height: 30 },
+  { name: "lg_make", alt: "Make", height: 22 },
+  { name: "lg_payfit", alt: "PayFit", height: 24 },
+  { name: "lg_slack", alt: "Slack", height: 24 },
 ];
 
 /** Companies hiring students on work-study contracts (home marquee). */

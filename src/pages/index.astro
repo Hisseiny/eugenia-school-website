@@ -62,17 +62,17 @@ const ICONS: Record<string, string> = {
     </div>
   </section>
 
-  <!-- Badges + partners -->
-  <section aria-label="Reconnaissance et partenaires" class="badges">
+  <!-- Partners -->
+  <section aria-labelledby="partners-title" class="badges">
     <div class="container badges__row">
-      <div class="badges__official">
-        <Logo name="lg_fc" alt="France Compétences, titre enregistré au RNCP" height={36} />
-        <Logo name="lg_qualiopi" alt="Qualiopi, processus certifié" height={36} />
-      </div>
-      <div class="badges__partners">
-        <span class="badges__label">Partenaires</span>
-        {PARTNERS.map((l) => <Logo name={l.name} alt={l.alt} height={l.height} gray />)}
-      </div>
+      <h2 id="partners-title" class="badges__label">Partenaires d'Eugenia School</h2>
+      <ul class="badges__partners" data-partners>
+        {PARTNERS.map((l) => (
+          <li class="badges__item">
+            <Logo name={l.name} alt={l.alt} height={l.height} gray />
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -310,36 +310,85 @@ const ICONS: Record<string, string> = {
     }
   }
 
-  /* Badges */
+  /* Partners band */
   .badges {
     border-bottom: 1px solid var(--line-soft);
   }
   .badges__row {
-    padding-block: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px 48px;
-    flex-wrap: wrap;
-  }
-  .badges__official {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-  .badges__partners {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    padding-block: 40px 44px;
+    display: grid;
+    justify-items: center;
+    gap: 28px;
   }
   .badges__label {
     font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
     color: var(--ink-65);
   }
+  .badges__partners {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px 56px;
+    flex-wrap: wrap;
+    max-width: 1040px;
+  }
+  .badges__item {
+    display: inline-flex;
+  }
+  /*
+   * Motion (intentional): each logo arrives with a soft blur, 60 ms after the previous one
+   * (Apple-style blur-in); hovering one logo dims the others so the eye lands on it (focus
+   * pattern used by Linear and Vercel), and the logo gets its colour back.
+   */
+  :global(html.js) .badges__item {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(10px);
+    transition:
+      opacity 0.7s var(--ease-out),
+      filter 0.7s var(--ease-out),
+      transform 0.7s var(--ease-out);
+    transition-delay: calc(var(--reveal-i, 0) * 60ms);
+  }
+  :global(html.js) .badges__item.is-visible {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  .badges__item :global(.gray) {
+    transition:
+      transform 0.3s var(--ease-out),
+      opacity 0.3s ease-out;
+  }
+  .badges__partners:hover .badges__item:not(:hover) :global(.gray) {
+    opacity: 0.4;
+  }
   @media (max-width: 767px) {
+    .badges__row {
+      padding-block: 32px;
+      gap: 22px;
+    }
     .badges__partners {
-      gap: 24px;
+      gap: 20px 32px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.js) .badges__item {
+      opacity: 1;
+      filter: none;
+      transform: none;
+      transition: none;
+    }
+    .badges__item :global(.gray) {
+      transition: none;
+    }
+    .badges__partners:hover .badges__item:not(:hover) :global(.gray) {
+      opacity: 1;
     }
   }
 

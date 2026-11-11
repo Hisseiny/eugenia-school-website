@@ -9,8 +9,7 @@ const BLOCKS = [
   "main > a.continue > .container > *",
 ];
 const STAGGERED = [
-  ".badges__official > *",
-  ".badges__partners > *",
+  ".badges__item",
   ".footer__grid > *",
   ".doors__grid > *",
   ".learn__row",
