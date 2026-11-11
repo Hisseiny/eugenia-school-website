@@ -27,7 +27,7 @@ import { ROUTES } from "@/data/site";
       <div class="testi__slides" aria-live="polite">
         {
           TESTIMONIALS.map((t, i) => (
-            <article class="testi__slide" data-slide hidden={i !== 0} aria-hidden={i !== 0 ? "true" : "false"} id={`temoignage-${t.id}`}>
+            <article class="testi__slide" data-slide id={`temoignage-${t.id}`}>
               <div class="pic testi__portrait" style="--ratio: 1 / 1">
                 <Image src={img(t.portrait)} alt={`Portrait de ${t.name}`} widths={[320, 480, 640]} sizes="(min-width: 1024px) 420px, 100vw" format="webp" loading={i === 0 ? "eager" : "lazy"} />
               </div>
@@ -103,8 +103,16 @@ import { ROUTES } from "@/data/site";
     grid-template-columns: minmax(min(260px, 100%), 1fr) minmax(300px, 1.15fr);
     gap: 56px;
   }
-  .testi__slide[hidden] {
+  /* The script hides the inactive slides (hidden attribute). Before it runs, only the first is
+     shown; without JavaScript every story stays readable and the controls are not rendered. */
+  .testi__slide[hidden],
+  :global(html.js) .testi__slide:not(:first-child):not([aria-hidden]) {
     display: none;
+  }
+  :global(html:not(.js)) .testi__slide + .testi__slide {
+    margin-top: 56px;
+    padding-top: 56px;
+    border-top: 1px solid var(--line);
   }
   /*
    * Motion: the new testimonial glides in from 12 px on the side (direction = "next"), 300 ms
@@ -151,6 +159,9 @@ import { ROUTES } from "@/data/site";
   }
   .testi__logo {
     padding-bottom: 76px;
+  }
+  :global(html:not(.js)) .testi__controls {
+    display: none;
   }
   .testi__controls {
     position: absolute;

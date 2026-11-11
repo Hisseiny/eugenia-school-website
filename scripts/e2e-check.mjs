@@ -80,6 +80,8 @@ const check = (name, ok, extra = "") => {
   check("without JS all answers are visible", await page.locator("#faq-a-3").isVisible());
   await page.goto(base + "/", { waitUntil: "load" });
   check("without JS the hero h1 is visible", await page.locator("h1").isVisible());
+  check("without JS all 5 testimonials are readable", (await page.locator("[data-slide]:visible").count()) === 5);
+  check("without JS the form fallback does not link to itself", !(await page.goto(base + "/contact", { waitUntil: "load" })) || (await page.locator(".hs-form noscript a[href='/contact'], .hs-form a[href='/contact']").count()) === 0);
   await ctx.close();
 }
 
