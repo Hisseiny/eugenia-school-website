@@ -1,19 +1,7 @@
-import type { LogoSpec } from "@/data/logos";
+import { RECRUITERS, type LogoSpec } from "@/data/logos";
 
-export const EMPLOYERS: LogoSpec[] = [
-  { name: "lg_accenture", alt: "Accenture", height: 26 },
-  { name: "lg_lvmh", alt: "LVMH", height: 20 },
-  { name: "lg_effy", alt: "EFFY", height: 26 },
-  { name: "lg_alan", alt: "Alan", height: 32 },
-  { name: "lg_microsoft", alt: "Microsoft", height: 22 },
-  { name: "lg_airfrance", alt: "Air France", height: 14 },
-  { name: "lg_misteria", alt: "Mister IA", height: 16 },
-  { name: "lg_licter", alt: "Licter", height: 34 },
-  { name: "lg_carrefour", alt: "Carrefour", height: 32 },
-  { name: "lg_armees", alt: "Ministère des Armées", height: 44 },
-  { name: "lg_wesype", alt: "WeSype", height: 16 },
-  { name: "lg_salesforce", alt: "Salesforce", height: 36 },
-];
+/** Same employers as the home marquee, capped for the grid cells. */
+export const EMPLOYERS: LogoSpec[] = RECRUITERS.map((l) => ({ ...l, height: Math.min(l.height, 34) }));
 
 export const ALUMNI = [
   {
