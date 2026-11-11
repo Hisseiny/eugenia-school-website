@@ -308,18 +308,22 @@ const faqLd = {
   .faq-item__a[hidden] {
     display: none;
   }
-  @keyframes faq-in {
-    from {
-      opacity: 0;
-      transform: translateY(-6px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  /*
+   * Motion: the answer is an expandable panel. It fades in from -4 px in 200 ms (ease-out,
+   * within Kowalski's 150-250 ms budget for dropdown-like UI); the exit is instant because
+   * the user already chose the next question. A transition (not keyframes) stays
+   * interruptible when questions are toggled quickly.
+   */
+  .faq-item__a {
+    transition:
+      opacity var(--dur-ui) var(--ease-out),
+      transform var(--dur-ui) var(--ease-out);
   }
-  .faq-item__a.is-entering {
-    animation: faq-in 0.35s var(--ease-out) both;
+  @starting-style {
+    .faq-item__a.is-entering {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
   }
   .faq__end {
     border-top: 1px solid var(--line-strong);
@@ -362,8 +366,13 @@ const faqLd = {
     .faq-item__sign::after {
       transition: none;
     }
-    .faq-item__a.is-entering {
-      animation: none;
+    .faq-item__a {
+      transition: opacity var(--dur-ui) ease;
+    }
+    @starting-style {
+      .faq-item__a.is-entering {
+        transform: none;
+      }
     }
   }
 </style>

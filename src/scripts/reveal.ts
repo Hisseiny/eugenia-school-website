@@ -1,37 +1,24 @@
 /**
- * Scroll reveal: sections and cards rise 16 px with a fade the first time they enter the viewport.
- * Siblings are staggered by 70 ms. Without JavaScript nothing is hidden (styles are scoped to html.js).
+ * Scroll reveal, kept deliberately rare (Anthropic frontend-design skill: "fade-and-slide-up
+ * entrances on each section read as AI-generated; a single orchestrated moment lands better";
+ * kylezantos anti-checklist: no motion on headings/paragraphs, at most one staggered group per view).
+ * Only card and image grids reveal, one group per section, 12 px / 0.5 s / 60 ms stagger.
+ * Nothing is hidden without JavaScript (styles are scoped to html.js).
  */
-const BLOCKS = [
-  "main > section:not(.hero) > .container > *",
-  "main > section:not(.hero):not(:has(> .container)) > *",
-  "main > figure",
-  "main > a.continue > .container > *",
-];
+const BLOCKS: string[] = [];
 const STAGGERED = [
   ".badges__item",
-  ".footer__grid > *",
   ".doors__grid > *",
-  ".learn__row",
   ".build__grid > *",
   ".next__grid > *",
   ".gallery__item",
-  ".compare__row",
-  ".years__row",
   ".certs__grid > *",
   ".alumni__grid > *",
-  ".appr__grid > *",
-  ".bach__row",
   ".logo-grid__cell",
   ".principles__grid > *",
   ".campus__grid > *",
   ".teachers__grid > *",
-  ".life__item",
-  ".event",
-  ".steps__grid > *",
   ".figures__grid > *",
-  ".parents__item",
-  ".faq-item",
   ".ways__grid > *",
   ".oncampus__grid > *",
   ".hack__grid > *",
@@ -50,7 +37,7 @@ export function initReveal(): void {
       targets.forEach((t) => {
         if (t.contains(el) && t !== el) targets.delete(t);
       });
-      el.style.setProperty("--reveal-i", String(Math.min(i % 12, 7)));
+      el.style.setProperty("--reveal-i", String(Math.min(i % 12, 5)));
       targets.add(el);
     });
   }
@@ -62,10 +49,6 @@ export function initReveal(): void {
     el.setAttribute("data-reveal", "");
     const r = el.getBoundingClientRect();
     if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("is-visible", "is-immediate");
-  });
-  // Chips inside a revealed block pop in one after the other once the block is visible.
-  document.querySelectorAll<HTMLElement>(".chips").forEach((group) => {
-    Array.from(group.children).forEach((chip, i) => (chip as HTMLElement).style.setProperty("--i", String(i)));
   });
 
   const io = new IntersectionObserver(

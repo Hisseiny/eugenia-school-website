@@ -106,18 +106,21 @@ import { ROUTES } from "@/data/site";
   .testi__slide[hidden] {
     display: none;
   }
-  @keyframes slide-in {
-    from {
-      opacity: 0;
-      transform: translateX(14px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  /*
+   * Motion: the new testimonial glides in from 12 px on the side (direction = "next"), 300 ms
+   * ease-out. A transition rather than keyframes so fast clicking on the arrows never restarts
+   * from zero.
+   */
+  .testi__slide {
+    transition:
+      opacity 0.3s var(--ease-out),
+      transform 0.3s var(--ease-out);
   }
-  .testi__slide.is-entering {
-    animation: slide-in 0.45s var(--ease-out) both;
+  @starting-style {
+    .testi__slide.is-entering {
+      opacity: 0;
+      transform: translateX(12px);
+    }
   }
   .testi__body {
     display: flex;
@@ -250,8 +253,13 @@ import { ROUTES } from "@/data/site";
     .testi__arrow {
       transition: none;
     }
-    .testi__slide.is-entering {
-      animation: none;
+    .testi__slide {
+      transition: opacity 0.3s ease;
+    }
+    @starting-style {
+      .testi__slide.is-entering {
+        transform: none;
+      }
     }
   }
 </style>

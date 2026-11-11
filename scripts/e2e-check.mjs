@@ -65,6 +65,7 @@ const check = (name, ok, extra = "") => {
   check("toggle opens nav", await page.locator("#site-nav").isVisible());
   check("aria-expanded true", (await page.getAttribute("[data-nav-toggle]", "aria-expanded")) === "true");
   await page.keyboard.press("Escape");
+  await page.waitForTimeout(300); // exit transition (200 ms, display allow-discrete)
   check("Escape closes nav", await page.locator("#site-nav").isHidden());
   const redButtons = await page.locator(".btn").evaluateAll((els) => els.filter((e) => { const r = e.getBoundingClientRect(); return r.top < 800 && r.bottom > 0; }).length);
   check("exactly one red button in the first mobile screen", redButtons === 1, String(redButtons));

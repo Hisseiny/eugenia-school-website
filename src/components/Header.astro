@@ -57,8 +57,8 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
     border-bottom: 1px solid rgba(31, 13, 25, 0.07);
     color: var(--plum);
     transition:
-      background-color 0.3s ease-out,
-      border-color 0.3s ease-out;
+      background-color var(--dur-ui) ease,
+      border-color var(--dur-ui) ease;
   }
   .site-header--plum {
     background: var(--plum);
@@ -225,6 +225,35 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
     /* With JS on, the menu is closed until opened. Without JS it stays readable. */
     :global(html.js) .site-header__nav:not(.is-open) {
       display: none;
+      opacity: 0;
+      transform: translateY(-4px); /* exit subtler than enter */
+    }
+    /*
+     * Motion: the menu is a panel that appears from the header, so it slides 6 px down with a
+     * fade (200 ms, ease-out; Kowalski's dropdown budget is 150-250 ms). CSS transition +
+     * @starting-style keeps it interruptible; browsers without support just show it.
+     */
+    :global(html.js) .site-header__nav {
+      transition:
+        opacity var(--dur-ui) var(--ease-out),
+        transform var(--dur-ui) var(--ease-out),
+        display var(--dur-ui) allow-discrete;
+    }
+    @starting-style {
+      :global(html.js) .site-header__nav.is-open {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :global(html.js) .site-header__nav {
+        transition: opacity var(--dur-ui) ease;
+      }
+      @starting-style {
+        :global(html.js) .site-header__nav.is-open {
+          transform: none;
+        }
+      }
     }
   }
 </style>

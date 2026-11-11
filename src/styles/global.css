@@ -45,7 +45,11 @@
   --section-y: 150px;
   --section-y-sm: 120px;
 
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* strong ease-out for entrances (Kowalski) */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); /* long settle for the one orchestrated moment */
+  --dur-press: 0.16s;
+  --dur-ui: 0.2s;
+  --dur-reveal: 0.5s;
 }
 
 @media (max-width: 767px) {
@@ -330,12 +334,6 @@ ol {
   background: var(--red-hover);
   color: var(--white);
 }
-@media (hover: hover) {
-  .btn:hover,
-  .btn-outline:hover {
-    transform: translateY(-1px);
-  }
-}
 .btn:active,
 .btn-outline:active {
   transform: scale(0.97);
@@ -479,11 +477,11 @@ ol {
 /* Motion: scroll reveal (JS adds data-reveal; nothing is hidden without JS) */
 html.js [data-reveal] {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(12px);
   transition:
-    opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out);
-  transition-delay: calc(var(--reveal-i, 0) * 70ms);
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 60ms);
 }
 html.js [data-reveal].is-visible {
   opacity: 1;
@@ -493,30 +491,12 @@ html.js [data-reveal].is-visible {
 html.js [data-reveal].is-visible.is-immediate {
   transition: none;
 }
-/* Chips: staggered pop (scale .92 -> 1) after their block is revealed */
-@keyframes chip-in {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-html.js [data-reveal] .chip {
-  opacity: 0;
-}
-html.js [data-reveal].is-visible .chip {
-  animation: chip-in 0.4s var(--ease-out) both;
-  animation-delay: calc(0.2s + var(--i, 0) * 45ms);
-}
-/* Logo cells: the cell tints and the logo gets its colour back together */
+/* Logo cells: the cell tints and the logo gets its colour back together (colour change: ease) */
 .logo-grid__cell {
-  transition: background-color 0.25s ease-out;
+  transition: background-color var(--dur-ui) ease;
 }
 /* Hover effects only where a real pointer exists (on touch, :hover sticks after a tap) */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .logo-grid__cell:hover {
     background-color: rgba(31, 13, 25, 0.03);
   }
@@ -524,14 +504,9 @@ html.js [data-reveal].is-visible .chip {
     filter: none;
     opacity: 1;
   }
-  /* Partner logos: a 2 px lift accompanies the return of colour */
-  .gray:hover {
-    transform: translateY(-2px);
-  }
 }
 .gray {
   display: inline-flex;
-  transition: transform 0.3s var(--ease-out);
 }
 
 /* Motion: one entrance animation, then nothing */
@@ -564,22 +539,10 @@ html.js [data-reveal].is-visible .chip {
     transform: none;
     transition: none;
   }
-  html.js [data-reveal] .chip,
-  html.js [data-reveal].is-visible .chip {
-    opacity: 1;
-    animation: none;
-  }
-  .gray,
   .logo-grid__cell {
     transition: none;
   }
-  .gray:hover {
-    transform: none;
-  }
-  .btn:hover,
-  .btn-outline:hover {
-    transform: none;
-  }
+
   .r1,
   .r2,
   .r3 {
