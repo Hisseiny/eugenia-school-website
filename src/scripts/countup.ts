@@ -15,12 +15,23 @@ export function initCountUp(): void {
     return Number.isFinite(n) && n >= 2 && /^\d/.test((el.textContent ?? "").trim());
   });
   if (targets.length === 0) return;
+  // Figures already on screen at load keep their value (nothing counts in front of the reader
+  // before the page settles); the others show 0 right away so the final number is never seen
+  // before the count starts.
+  const pending = targets.filter((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) return false;
+    el.dataset.countTarget = (el.textContent ?? "").trim().match(/^\d+/)?.[0] ?? "";
+    el.textContent = (el.textContent ?? "").trim().replace(/^\d+/, "0");
+    return true;
+  });
+  if (pending.length === 0) return;
 
   const run = (el: HTMLElement) => {
     const text = (el.textContent ?? "").trim();
     const match = /^(\d+)(.*)$/s.exec(text);
     if (!match) return;
-    const target = Number(match[1]);
+    const target = Number(el.dataset.countTarget ?? match[1]);
     const suffix = match[2] ?? "";
     const start = performance.now();
     const duration = 900;
@@ -48,7 +59,7 @@ export function initCountUp(): void {
     },
     { threshold: 0.6 },
   );
-  targets.forEach((el) => io.observe(el));
+  pending.forEach((el) => io.observe(el));
 }
 
 initCountUp();
