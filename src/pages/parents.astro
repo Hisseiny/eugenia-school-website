@@ -63,7 +63,7 @@ const alumni = ALUMNI.slice(0, 4);
   <section class="container section pr-alumni" aria-labelledby="alumni-title">
     <div class="section-head">
       <h2 id="alumni-title" class="h2">Ce que deviennent nos étudiants.</h2>
-      <a href={ROUTES.carrieres} class="lnk">Toutes les trajectoires</a>
+      <a href={`${ROUTES.carrieres}?pour=parent`} class="lnk">Toutes les trajectoires</a>
     </div>
     <ul class="pr-alumni__grid">
       {alumni.map((a) => (
