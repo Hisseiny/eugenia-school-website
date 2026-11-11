@@ -12,7 +12,9 @@ document.querySelectorAll<HTMLElement>("[data-focus-shell]").forEach((shell) => 
       (selected("all_type_multiple_checkboxes") === "All.Parent" ? "parent" : initial);
   };
   const preload = (id: string) => {
-    const image = stories.find((s) => s.dataset.focusStory === id)?.querySelector("img");
+    const story = stories.find((s) => s.dataset.focusStory === id);
+    story?.classList.add("is-loaded");
+    const image = story?.querySelector("img");
     if (image) image.loading = "eager";
   };
   const show = (id: string) => {

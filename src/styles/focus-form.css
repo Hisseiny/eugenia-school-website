@@ -14,6 +14,7 @@ body:has([data-focus-shell]) .crumbs { display: none; }
 .focus-visual { position: sticky; top: 0; height: 100svh; background: var(--plum); overflow: hidden; }
 .focus-story { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 400ms ease; pointer-events: none; }
 .focus-story.is-active { opacity: 1; }
+.focus-story:not(.is-active):not(.is-loaded) { display: none; }
 .focus-story > img { width: 100%; height: 100%; object-fit: cover; }
 .focus-story::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 22%, rgba(31,13,25,.25) 45%, rgba(31,13,25,.96) 100%); }
 .focus-story figcaption { position: absolute; z-index: 1; inset: auto 40px 44px; color: white; padding: 24px; background: rgba(31,13,25,.85); border-radius: 4px; }
@@ -44,8 +45,9 @@ body:has([data-focus-shell]) .crumbs { display: none; }
 .pf--focus .pf__choices--years .pf__choice-icon { display: none; }
 .pf--focus .pf__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
 .pf--focus .pf__grid > :nth-child(n+3) { grid-column: 1 / -1; }
+.pf--focus .pf__field { display: grid; gap: 6px; min-width: 0; }
 .pf--focus .pf__label { font-size: 14px; color: var(--plum); }
-.pf--focus .pf__input { min-height: 52px; border-radius: 10px; background: white; }
+.pf--focus .pf__input { display: block; width: 100%; min-height: 52px; border: 1px solid var(--line-strong); border-radius: 10px; background: white; color: var(--plum); padding: 13px 14px; font: inherit; font-size: 16px; }
 .pf--focus .pf__input:focus-visible { outline-color: var(--plum); border-color: var(--plum); }
 .pf--focus .pf__input[aria-invalid="true"] { border-color: var(--plum); box-shadow: 0 0 0 1px var(--plum); }
 .pf--focus .pf__error, .pf__field-error { font-size: 13px; color: var(--plum); line-height: 1.45; }
@@ -76,6 +78,7 @@ html.js .pf--focus:not([data-last-step="true"]) .pf__privacy { display: none; }
 @starting-style { .pf__done:not([hidden]) .pf__done-mark svg path { stroke-dashoffset: 28; } }
 html:not(.js) .pf__draft-note { display: none; }
 .pf--focus .pf__done-lines li::before { color: var(--plum); }
+.focus-shell .pf.pf--focus .pf__done-lines li::before { color: var(--plum); }
 .pf__next-steps { margin-top: 28px; font-size: 14px; }
 .pf__next-steps h2 { font-family: var(--font-display); font-weight: 400; font-size: 19px; margin: 0 0 16px; }
 .pf__received { color: var(--plum); font-weight: 600; }

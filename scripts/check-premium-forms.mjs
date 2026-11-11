@@ -2,6 +2,7 @@
 // Every external request is intercepted. No submissions reach HubSpot.
 import assert from "node:assert/strict";
 import { chromium } from "playwright-core";
+import { serveBuild } from "./static-test-route.mjs";
 
 const base = process.argv[2] ?? "http://127.0.0.1:4322";
 const browser = await chromium.launch({
@@ -17,13 +18,13 @@ const check = (condition, message) => {
 };
 
 try {
-  for (const width of [375, 1440]) {
+  for (const width of (process.env.FORM_WIDTHS ?? "375,1440").split(",").map(Number)) {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
     let requests = [];
     let mode = "success";
     await context.route("**/*", async (route) => {
       const url = new URL(route.request().url());
-      if (url.origin === new URL(base).origin) return route.continue();
+      if (url.origin === new URL(base).origin) return serveBuild(route);
       if (url.hostname === "api.hsforms.com") {
         requests.push(route.request().postDataJSON());
         if (mode === "timeout") return; // Browser aborts after the deadline.
@@ -120,7 +121,7 @@ try {
   }
   const nojs = await browser.newContext({ javaScriptEnabled: false });
   await nojs.route("**/*", (route) =>
-    new URL(route.request().url()).origin === new URL(base).origin ? route.continue() : route.abort());
+    new URL(route.request().url()).origin === new URL(base).origin ? serveBuild(route) : route.abort());
   const page = await nojs.newPage();
   await page.goto(`${base}/brochure`);
   check(await page.locator("[data-pf-panel]:visible").count() === 4, "no JS: all questions visible");

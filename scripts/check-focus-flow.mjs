@@ -1,15 +1,18 @@
 import { chromium } from "playwright-core";
 import assert from "node:assert/strict";
+import { mkdirSync } from "node:fs";
+import { serveBuild } from "./static-test-route.mjs";
+mkdirSync("../attached_assets/eugenia-preview", { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH, args: ["--no-sandbox", "--disable-gpu", "--disable-software-rasterizer", "--renderer-process-limit=1"] });
 let checks = 0;
 const ok = (value, label) => { assert.ok(value, label); console.log(`PASS ${label}`); checks++; };
 try {
-  for (const width of [390, 1440]) {
+  for (const width of (process.env.FOCUS_WIDTHS ?? "390,1440").split(",").map(Number)) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: "reduce" });
     const payloads = [];
     await context.route("**/*", (route) => {
       const url = new URL(route.request().url());
-      if (url.origin === "http://127.0.0.1:4322") return route.continue();
+      if (url.origin === "http://127.0.0.1:4322") return serveBuild(route);
       if (url.hostname === "api.hsforms.com") {
         payloads.push({ url: route.request().url(), body: route.request().postDataJSON() });
         return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
@@ -29,6 +32,9 @@ try {
     ok(await page.locator('[data-focus-story="msc"]').getAttribute("aria-hidden") === "false", `${width}: MSc story`);
     await page.locator('label:has(input[value="Y3"])').click();
     ok(await page.locator("[data-pf-step]").textContent() === "4", `${width}: contact in three clicks`);
+    const inputBox = await page.locator('[name="email"]').boundingBox();
+    const formBox = await page.locator("[data-premium-form]").boundingBox();
+    ok(inputBox.height >= 52 && inputBox.width >= formBox.width - 2, `${width}: full-width contact inputs`);
     await page.locator('[name="firstname"]').fill("Camille");
     await page.locator('[name="lastname"]').fill("Exemple");
     await page.locator('[name="email"]').fill("camille@gmial.com");

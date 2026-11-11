@@ -29,3 +29,10 @@ test("each form exposes named questions, progress, privacy and focusable confirm
     for (const id of ids) assert.ok(html.includes(`id="${id}" tabindex="-1"`));
   }
 });
+
+test("focused child-component inputs have independent full-width styling", () => {
+  const css = readFileSync("src/styles/focus-form.css", "utf8");
+  assert.match(css, /\.pf--focus \.pf__field\s*\{[^}]*display:\s*grid/);
+  assert.match(css, /\.pf--focus \.pf__input\s*\{[^}]*width:\s*100%/);
+  assert.match(css, /\.pf--focus \.pf__input\s*\{[^}]*min-height:\s*52px/);
+});

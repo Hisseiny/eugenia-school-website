@@ -48,9 +48,17 @@ CHROME_PATH=/path/to/chromium node scripts/check-focus-flow.mjs
 ```
 
 Both browser scripts intercept external traffic; no contact is created in the live CRM.
+Local page requests are fulfilled from dist by static-test-route.mjs, so the scripts also
+work without a running preview server. FOCUS_WIDTHS and FORM_WIDTHS can restrict a run
+to one viewport (for example FOCUS_WIDTHS=390).
 The focus-flow script verifies the unchanged candidature payload, three-click progression,
 contextual images, email correction, reload/restore, draft removal, and analytics without PII.
 It also writes preview captures under attached_assets/eugenia-preview outside this repository.
 
 Do not equate a stubbed successful submission with verified HubSpot workflow/email delivery.
 Do not claim the Lighthouse acceptance threshold until a completed measurement is available.
+
+On a memory-constrained sandbox, the integrated production build passed with
+NODE_OPTIONS=--max-old-space-size=512 and VIPS_CONCURRENCY=1, followed by 104 passing tests.
+The final browser regression pass and Lighthouse measurement remain pending; this is
+why the pull request is a draft.
