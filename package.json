@@ -12,7 +12,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node --test"
+    "test": "node --test",
+    "check:urls": "node scripts/check-live-urls.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

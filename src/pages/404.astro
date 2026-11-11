@@ -1,0 +1,30 @@
+---
+import Base from "@/layouts/Base.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { ROUTES } from "@/data/site";
+---
+
+<Base
+  title="Page introuvable : retrouver Eugenia School | Eugenia"
+  description="La page recherchée n'existe pas ou plus. Recherchez une information sur eugeniaschool.com ou consultez les programmes, admissions, événements et contact."
+  noindex
+>
+  <section class="container section">
+    <h1 class="h2">Cette page n'existe pas (ou plus).</h1>
+    <form action="https://www.google.com/search" method="get">
+      <label for="site-search">Rechercher sur eugeniaschool.com</label>
+      <input class="pf__input" id="site-search" name="q" type="search" />
+      <input name="as_sitesearch" type="hidden" value="eugeniaschool.com" />
+      <button class="btn-outline" type="submit">Rechercher</button>
+    </form>
+    <nav aria-label="Pages principales">
+      <ul>
+        <li><a href={ROUTES.programmes}>Programmes</a></li>
+        <li><a href={ROUTES.admissions}>Admissions</a></li>
+        <li><a href={ROUTES.evenements}>Événements</a></li>
+        <li><a href={ROUTES.contact}>Contact</a></li>
+      </ul>
+    </nav>
+  </section>
+  <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Découvrir les formations Bachelor, MSc et certifications." image="n_crowd" />
+</Base>
