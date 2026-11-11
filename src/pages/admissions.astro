@@ -6,12 +6,17 @@ import Logo from "@/components/Logo.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
-import { FAQ, PARENT_QUESTIONS, FIGURES, PARENTS, STEPS } from "@/data/admissions";
+import { confirmedFaq, FAQ, PARENT_QUESTIONS, FIGURES, PARENTS, STEPS } from "@/data/admissions";
 import { ROUTES, SITE } from "@/data/site";
 
+const faqItems = confirmedFaq(FAQ).map((faq) => ({ faq, index: FAQ.indexOf(faq) }));
+const parentQuestions = confirmedFaq(PARENT_QUESTIONS.map((index) => FAQ[index])).map((faq) => ({
+  faq,
+  index: FAQ.indexOf(faq),
+}));
 const faqLd = {
   "@type": "FAQPage",
-  mainEntity: FAQ.map((f) => ({
+  mainEntity: faqItems.map(({ faq: f }) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -20,9 +25,10 @@ const faqLd = {
 ---
 
 <Base
-  title="Admissions : candidater en quatre étapes, hors Parcoursup | Eugenia School"
-  description="Candidature en ligne, étude d'éligibilité, entretien et décision finale. Gratuit pour les résidents de l'Union européenne, rentrée en septembre."
+  title="Admissions : candidater hors Parcoursup | Eugenia School"
+  description="Candidature, étude d'éligibilité, entretien et décision finale : quatre étapes hors Parcoursup, gratuites pour les résidents UE, rentrée en septembre."
   current={ROUTES.admissions}
+  crumbs={[{ name: "Admissions" }]}
   jsonLd={[faqLd]}
 >
   <PageTop
@@ -89,8 +95,8 @@ const faqLd = {
         <p class="parents__questions-title"><a href={ROUTES.parents} class="lnk">Tout ce qu'un parent doit savoir</a></p>
         <p class="parents__questions-title">Vos questions, nos réponses</p>
         <ul class="parents__questions-list">
-          {PARENT_QUESTIONS.map((i) => (
-            <li><a href={`#faq-q-${i}`} class="lnk">{FAQ[i].q}</a></li>
+          {parentQuestions.map(({ faq, index }) => (
+            <li><a href={`#faq-q-${index}`} class="lnk">{faq.q}</a></li>
           ))}
         </ul>
       </div>
@@ -113,10 +119,10 @@ const faqLd = {
     </div>
     <div class="faq__list" data-accordion>
       {
-        FAQ.map((f, i) => (
+        faqItems.map(({ faq: f, index: i }, visibleIndex) => (
           <div class="faq-item">
             <h3 class="faq-item__h">
-              <button type="button" class="faq-item__btn tint" aria-expanded={i === 0 ? "true" : "false"} aria-controls={`faq-a-${i}`} id={`faq-q-${i}`}>
+              <button type="button" class="faq-item__btn tint" aria-expanded={visibleIndex === 0 ? "true" : "false"} aria-controls={`faq-a-${i}`} id={`faq-q-${i}`}>
                 <span>{f.q}</span>
                 <span class="faq-item__sign" aria-hidden="true"></span>
               </button>

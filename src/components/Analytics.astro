@@ -1,0 +1,23 @@
+---
+interface Props {
+  position: "head" | "body";
+}
+
+const { position } = Astro.props;
+---
+
+{
+  import.meta.env.PROD && position === "head" && (
+    <>
+      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      <link rel="dns-prefetch" href="https://connect.facebook.net" />
+      <link rel="dns-prefetch" href="https://js-eu1.hs-analytics.net" />
+      <script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('set','developer_id.dZGVlNj',true);gtag('config','G-9GX0407BZB');window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});(function(){var done=false;function load(){if(done)return;done=true;['scroll','pointerdown','keydown','touchstart','mousemove'].forEach(function(t){window.removeEventListener(t,load)});var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=G-9GX0407BZB';document.head.appendChild(g);var m=document.createElement('script');m.async=true;m.src='https://www.googletagmanager.com/gtm.js?id=GTM-KH6RQW8';document.head.appendChild(m);}['scroll','pointerdown','keydown','touchstart','mousemove'].forEach(function(t){window.addEventListener(t,load,{once:true,passive:true})});window.addEventListener('load',function(){setTimeout(load,3000)});})();</script>
+    </>
+  )
+}
+{
+  import.meta.env.PROD && position === "body" && (
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH6RQW8" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+  )
+}

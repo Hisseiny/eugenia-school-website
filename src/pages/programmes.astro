@@ -7,30 +7,31 @@ import ShareLink from "@/components/ShareLink.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { BACHELOR_YEARS, COMPARE_ROWS, MSC_CHIPS } from "@/data/programmes";
-import { EXTERNAL, ROUTES, SITE } from "@/data/site";
+import { EXTERNAL, ORG_ID, ROUTES, SITE } from "@/data/site";
 
 const courses = [
   {
-    "@type": "Course",
+    "@type": "EducationalOccupationalProgram",
     name: "Bachelor IA Applied to Business",
     description: "Trois ans, hors Parcoursup. Un socle commun en IA, data et no-code, puis une trajectoire et une troisième année en alternance.",
-    provider: { "@type": "EducationalOrganization", name: SITE.name, url: SITE.url },
+    provider: { "@id": ORG_ID },
     url: `${SITE.url}${ROUTES.programmes}#bachelor`,
   },
   {
-    "@type": "Course",
+    "@type": "EducationalOccupationalProgram",
     name: "MSc IA Applied to Business",
     description: "Deux ans en alternance après un Bac+3 ou +4 : l'IA et l'automatisation appliquées en entreprise.",
-    provider: { "@type": "EducationalOrganization", name: SITE.name, url: SITE.url },
+    provider: { "@id": ORG_ID },
     url: `${SITE.url}${ROUTES.programmes}#msc`,
   },
 ];
 ---
 
 <Base
-  title="Programmes : Bachelor et MSc IA Applied to Business | Eugenia School"
+  title="Programmes Bachelor et MSc IA à Paris | Eugenia School"
   description="Bachelor en trois ans après le bac, MSc en deux ans en alternance, et deux certifications professionnelles. Un même socle en IA, data et no-code."
   current={ROUTES.programmes}
+  crumbs={[{ name: "Programmes" }]}
   jsonLd={courses}
 >
   <PageTop
@@ -52,7 +53,7 @@ const courses = [
         COMPARE_ROWS.map((r) => (
           <div class="compare__row" role="row">
             <div class="compare__label" role="rowheader">{r.label}</div>
-            <div role="cell">{r.bachelor}</div>
+            <div role="cell">{r.bachelor.includes("[À confirmer") ? "—" : r.bachelor}</div>
             <div role="cell">{r.msc}</div>
           </div>
         ))

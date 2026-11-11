@@ -12,6 +12,48 @@ export const SITE = {
     "https://albert-school.notion.site/Data-Privacy-Politique-de-confidentialit-747674845ae54dafa6e41193471129b4?pvs=4",
 } as const;
 
+export const ORG_ID = `${SITE.url}/#organization`;
+
+export const ORGANIZATION = {
+  "@type": "CollegeOrUniversity",
+  "@id": ORG_ID,
+  name: "Eugenia School",
+  alternateName: "Eugenia",
+  url: `${SITE.url}/`,
+  logo: `${SITE.url}/logo.png`,
+  description: SITE.description,
+  email: SITE.contact.email,
+  telephone: "+33131677388",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "18 rue de Paradis",
+    postalCode: "75010",
+    addressLocality: "Paris",
+    addressCountry: "FR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 48.8748613,
+    longitude: 2.3537106,
+  },
+  parentOrganization: { "@type": "Organization", name: "Albert School" },
+  sameAs: [
+    "https://www.linkedin.com/school/eugenia-school/",
+    "https://www.instagram.com/eugenia.school/",
+    "https://www.youtube.com/@EugeniaSchool",
+    "https://www.facebook.com/EugeniaSchoolGroupeAGDS/",
+  ],
+} as const;
+
+export const WEBSITE = {
+  "@type": "WebSite",
+  "@id": `${SITE.url}/#website`,
+  name: "Eugenia School",
+  url: `${SITE.url}/`,
+  inLanguage: "fr-FR",
+  publisher: { "@id": ORG_ID },
+} as const;
+
 /** Public HubSpot embed identifiers, read from the live eugeniaschool.com pages (not secrets). */
 export const HUBSPOT = {
   portalId: "25517078",

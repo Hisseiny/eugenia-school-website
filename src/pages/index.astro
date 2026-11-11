@@ -10,7 +10,7 @@ import { img } from "@/data/images";
 import { PARTNERS, RECRUITERS } from "@/data/logos";
 import ShareLink from "@/components/ShareLink.astro";
 import { AUDIENCES, DOORS, GALLERY, LEARN_ROWS, NEXT_STEPS, PORTFOLIO_URL } from "@/data/home";
-import { ROUTES } from "@/data/site";
+import { ORG_ID, ROUTES } from "@/data/site";
 
 const ICONS: Record<string, string> = {
   cap: '<path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/>',
@@ -21,8 +21,8 @@ const ICONS: Record<string, string> = {
 ---
 
 <Base
-  title="École IA à Paris : Bachelor et MSc en alternance | Eugenia School"
-  description="Eugenia School, l'école de l'IA appliquée au business à Paris : Bachelor et Master en alternance, hors Parcoursup. Premier projet en entreprise dès le semestre 1."
+  title="École d'IA à Paris : Bachelor et MSc | Eugenia School"
+  description="Eugenia School, l'école de l'IA appliquée au business : Bachelor et Master en alternance, hors Parcoursup. Un premier projet en entreprise au semestre 1."
   headerTone="plum"
   current={ROUTES.home}
   jsonLd={[
@@ -33,7 +33,7 @@ const ICONS: Record<string, string> = {
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: { "@type": "Place", name: "Eugenia School", address: "18 rue de Paradis, 75010 Paris" },
       isAccessibleForFree: true,
-      organizer: { "@type": "EducationalOrganization", name: "Eugenia School" },
+      organizer: { "@id": ORG_ID },
     },
   ]}
 >
@@ -87,7 +87,6 @@ const ICONS: Record<string, string> = {
       <figcaption class="caption">La façade du 18 rue de Paradis, à l'heure de la pause.</figcaption>
     </figure>
     <div>
-      <p class="eyebrow promise__eyebrow">Fondée en 2023</p>
       <p class="promise__title">Ici, on apprend l'IA en la construisant, avec les entreprises qui la font.</p>
       <p class="promise__text">Ni école d'ingénieur, ni école de commerce : le meilleur des deux. Des professionnels en poste comme professeurs, un premier projet en entreprise dès le semestre 1, et un campus de 2 500 m² au cœur de Paris.</p>
       <div class="promise__link"><a href={ROUTES.ecole} class="lnk">Découvrir l'école</a></div>

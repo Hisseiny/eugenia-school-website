@@ -1,7 +1,7 @@
 // Static checks on the built site (run `pnpm build` first). Guards the brief's non-negotiables.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 
 const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents"];
 const html = (name) => {
@@ -10,6 +10,18 @@ const html = (name) => {
   return readFileSync(file, "utf8");
 };
 const count = (s, re) => (s.match(re) ?? []).length;
+const filesUnder = (directory) =>
+  readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const path = `${directory}/${entry.name}`;
+    return entry.isDirectory() ? filesUnder(path) : [path];
+  });
+const decodeEntities = (value) =>
+  value
+    .replace(/&amp;/g, "&")
+    .replace(/&#39;|&#x27;/gi, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
 
 for (const name of PAGES) {
   test(`${name}: exactly one <h1>, a <title> and a meta description`, () => {
@@ -40,7 +52,7 @@ for (const name of PAGES) {
   test(`${name}: structured data is valid JSON`, () => {
     const h = html(name);
     const blocks = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-    assert.ok(blocks.length >= 1);
+    assert.equal(blocks.length, 1);
     for (const [, json] of blocks) JSON.parse(json);
   });
 }
@@ -97,4 +109,93 @@ test("parents: entirely « vous », no unvalidated fact, linked from footer and 
   const text = body.replace(/<[^>]+>/g, " ");
   assert.ok(!/\b(ton|ta|tes|tu)\b/i.test(text.replace(/Eugenia|Continuer la visite/g, "")), "tutoiement found on /parents");
   assert.ok(html("index").includes('href="/parents"'));
+});
+
+const builtPages = filesUnder("dist")
+  .filter((file) => file.endsWith(".html"))
+  .map((file) => ({ file, source: readFileSync(file, "utf8") }))
+  .filter(({ source }) => !/http-equiv="refresh"/i.test(source));
+
+test("every built page has unique SEO metadata and one organization graph", () => {
+  const titles = [];
+  const descriptions = [];
+
+  for (const { file, source } of builtPages) {
+    const title = decodeEntities(source.match(/<title>([^<]+)<\/title>/)?.[1] ?? "");
+    const description = decodeEntities(source.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "");
+    const canonical = source.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    const robots = source.match(/<meta name="robots" content="([^"]+)"/)?.[1];
+    const blocks = [...source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+
+    assert.ok(title, `${file}: missing title`);
+    assert.ok(title.length >= 50 && title.length <= 60, `${file}: title length ${title.length}: ${title}`);
+    assert.ok(description.length >= 140 && description.length <= 155, `${file}: description length ${description.length}: ${description}`);
+    assert.ok(canonical, `${file}: missing canonical`);
+    assert.ok(robots, `${file}: missing robots meta`);
+    assert.equal(count(source, /<link rel="canonical"/g), 1, `${file}: canonical count`);
+    assert.equal(blocks.length, 1, `${file}: JSON-LD count`);
+
+    const schema = JSON.parse(blocks[0][1]);
+    assert.ok(Array.isArray(schema["@graph"]), `${file}: missing @graph`);
+    assert.ok(
+      schema["@graph"].some((entity) => entity["@type"] === "CollegeOrUniversity" && entity["@id"] === "https://www.eugeniaschool.com/#organization"),
+      `${file}: missing organization entity`,
+    );
+    assert.ok(!source.includes("EducationalOrganization"), `${file}: legacy organization type`);
+    assert.ok(!source.includes('"Course"'), `${file}: legacy Course type`);
+
+    const isHome = file === "dist/index.html";
+    const isNotFound = file === "dist/404.html";
+    const breadcrumb = schema["@graph"].find((entity) => entity["@type"] === "BreadcrumbList");
+    if (isHome || isNotFound) {
+      assert.equal(breadcrumb, undefined, `${file}: unexpected breadcrumb`);
+    } else {
+      assert.ok(breadcrumb, `${file}: missing breadcrumb`);
+      assert.equal(breadcrumb.itemListElement.at(-1)?.item, canonical, `${file}: breadcrumb does not end at canonical`);
+    }
+
+    assert.ok(source.includes("GTM-KH6RQW8"), `${file}: missing GTM container`);
+    assert.ok(source.includes("G-9GX0407BZB"), `${file}: missing GA4 id`);
+    assert.ok(source.includes('src="https://www.googletagmanager.com/ns.html?id=GTM-KH6RQW8"'), `${file}: missing GTM noscript iframe`);
+    assert.ok(!source.includes("À confirmer"), `${file}: unconfirmed text leaked`);
+    titles.push(title);
+    descriptions.push(description);
+  }
+
+  assert.ok(builtPages.length > 0, "no built HTML pages found");
+  assert.equal(new Set(titles).size, titles.length, "duplicate page title");
+  assert.equal(new Set(descriptions).size, descriptions.length, "duplicate meta description");
+});
+
+test("404 is noindex and robots.txt names the required crawlers", () => {
+  const notFound = html("404");
+  assert.ok(notFound.includes('<meta name="robots" content="noindex, follow"'));
+  const robots = readFileSync("dist/robots.txt", "utf8");
+  for (const bot of ["*", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "ClaudeBot", "Google-Extended", "Applebot-Extended"]) {
+    assert.ok(robots.includes(`User-agent: ${bot}`), `robots.txt missing ${bot}`);
+  }
+  assert.ok(robots.includes("Disallow: /studio"));
+  assert.ok(robots.includes("Sitemap: https://www.eugeniaschool.com/sitemap-index.xml"));
+});
+
+test("sitemap excludes 404 and every configured redirect source", () => {
+  const config = readFileSync("astro.config.ts", "utf8");
+  const block = config.match(/const redirects = \{([\s\S]*?)\} as const/);
+  assert.ok(block, "redirect map not found in astro.config.ts");
+  const redirectSources = [...block[1].matchAll(/^\s*"([^"]+)"\s*:\s*"([^"]+)",?\s*$/gm)].map(([, source]) => source);
+  const sitemapFiles = filesUnder("dist").filter((file) => /sitemap.*\.xml$/.test(file));
+  const sitemap = sitemapFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+
+  assert.ok(sitemapFiles.length > 0, "sitemap not generated");
+  assert.ok(!sitemap.includes("https://www.eugeniaschool.com/404"), "sitemap contains /404");
+  for (const source of redirectSources) {
+    assert.ok(!sitemap.includes(`https://www.eugeniaschool.com${source}`), `sitemap contains redirect source ${source}`);
+  }
+});
+
+test("llms files do not contain unconfirmed copy", () => {
+  for (const file of ["dist/llms.txt", "dist/llms-full.txt"]) {
+    assert.ok(existsSync(file), `${file} missing`);
+    assert.ok(!readFileSync(file, "utf8").includes("À confirmer"), `${file} contains unconfirmed copy`);
+  }
 });

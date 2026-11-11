@@ -11,17 +11,18 @@ import ContinueVisit from "@/components/ContinueVisit.astro";
 import ShareLink from "@/components/ShareLink.astro";
 import { img } from "@/data/images";
 import { ROUTES, SITE } from "@/data/site";
-import { FAQ, PARENTS, PARENTS_FAQ_IDS, STEPS_PARENTS } from "@/data/admissions";
+import { confirmedFaq, FAQ, PARENTS, PARENTS_FAQ_IDS, STEPS_PARENTS } from "@/data/admissions";
 import { ALUMNI } from "@/data/carrieres";
 
-const faq = PARENTS_FAQ_IDS.map((i) => FAQ[i]).filter((f) => !f.a.includes("[À confirmer"));
+const faq = confirmedFaq(PARENTS_FAQ_IDS.map((i) => FAQ[i]));
 const alumni = ALUMNI.slice(0, 4);
 ---
 
 <Base
-  title="Parents : ce qu'il faut savoir avant de choisir Eugenia School"
-  description="Pour les parents d'un futur étudiant : certifications, parcours d'admission étape par étape, ce que deviennent les étudiants, coût de la candidature, et comment parler à l'équipe d'admission."
+  title="Parents : admissions et parcours à Eugenia School | Eugenia"
+  description="Pour les parents d'un futur étudiant : certifications, parcours d'admission, débouchés et contact de l'équipe. Consultez les questions fréquentes."
   current={ROUTES.parents}
+  crumbs={[{ name: "Admissions", path: ROUTES.admissions }, { name: "Parents" }]}
 >
   <section class="container pr-top">
     <div class="pr-top__grid">

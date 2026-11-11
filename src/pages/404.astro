@@ -1,0 +1,55 @@
+---
+import Base from "@/layouts/Base.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { ROUTES } from "@/data/site";
+---
+
+<Base
+  title="Page introuvable : retrouver Eugenia School | Eugenia"
+  description="La page recherchée n'existe pas ou plus. Recherchez une information sur eugeniaschool.com ou consultez les programmes, admissions, événements et contact."
+  noindex
+>
+  <section class="container section nf">
+    <p class="eyebrow">Erreur 404</p>
+    <h1 class="h2">Cette page n'existe pas (ou plus).</h1>
+    <p class="lead nf__lead">Le site a changé d'adresse pour certaines pages. Cherchez ce qu'il vous faut, ou repartez d'ici.</p>
+    <form class="nf__search" action="https://www.google.com/search" method="get" role="search">
+      <label class="nf__label" for="site-search">Rechercher sur eugeniaschool.com</label>
+      <div class="nf__field">
+        <input class="nf__input" id="site-search" name="q" type="search" autocomplete="off" required />
+        <input name="as_sitesearch" type="hidden" value="eugeniaschool.com" />
+        <button class="btn-outline" type="submit">Rechercher</button>
+      </div>
+    </form>
+    <nav aria-label="Pages principales">
+      <ul class="nf__links">
+        <li><a class="lnk" href={ROUTES.programmes}>Programmes</a></li>
+        <li><a class="lnk" href={ROUTES.admissions}>Admissions</a></li>
+        <li><a class="lnk" href={ROUTES.evenements}>Événements</a></li>
+        <li><a class="lnk" href={ROUTES.contact}>Contact</a></li>
+      </ul>
+    </nav>
+  </section>
+  <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Découvrir les formations Bachelor, MSc et certifications." image="n_crowd" />
+</Base>
+
+<style>
+  .nf { max-width: 760px; }
+  .nf__lead { margin-top: 16px; }
+  .nf__search { margin-top: 40px; }
+  .nf__label { display: block; font-weight: 500; margin-bottom: 10px; }
+  .nf__field { display: flex; gap: 12px; flex-wrap: wrap; }
+  .nf__input {
+    flex: 1 1 260px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--plum);
+    background: var(--white);
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    padding: 13px 14px;
+    min-height: 48px;
+  }
+  .nf__input:focus-visible { outline: 2px solid var(--plum); outline-offset: 2px; }
+  .nf__links { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: 12px 32px; }
+</style>
