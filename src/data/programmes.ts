@@ -4,7 +4,7 @@ export const COMPARE_ROWS = [
   { label: "Rythme", bachelor: "Cours et projets, puis 3e année en alternance", msc: "En alternance" },
   { label: "Admission", bachelor: "Hors Parcoursup", msc: "Hors Mon Master" },
   { label: "Bacs acceptés", bachelor: "Terminale générale, toutes spécialités, ou STMG", msc: "Licence, bachelor ou équivalent" },
-  { label: "Titre", bachelor: "[À confirmer par l'école]", msc: "Titre RNCP 41993, Architecte en intelligence artificielle" },
+  { label: "Titre", bachelor: "Titre RNCP 41143, Concepteur de solutions no code", msc: "Titre RNCP 41993, Architecte en intelligence artificielle" },
 ] as const;
 
 export const BACHELOR_YEARS = [

@@ -7,7 +7,7 @@ import ShareLink from "@/components/ShareLink.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { BACHELOR_YEARS, COMPARE_ROWS, MSC_CHIPS } from "@/data/programmes";
-import { EXTERNAL, ORG_ID, ROUTES, SITE } from "@/data/site";
+import { ORG_ID, ROUTES, SITE } from "@/data/site";
 
 const courses = [
   {
@@ -15,14 +15,14 @@ const courses = [
     name: "Bachelor IA Applied to Business",
     description: "Trois ans, hors Parcoursup. Un socle commun en IA, data et no-code, puis une trajectoire et une troisième année en alternance.",
     provider: { "@id": ORG_ID },
-    url: `${SITE.url}${ROUTES.programmes}#bachelor`,
+    url: `${SITE.url}${ROUTES.programmeBachelor}`,
   },
   {
     "@type": "EducationalOccupationalProgram",
     name: "MSc IA Applied to Business",
     description: "Deux ans en alternance après un Bac+3 ou +4 : l'IA et l'automatisation appliquées en entreprise.",
     provider: { "@id": ORG_ID },
-    url: `${SITE.url}${ROUTES.programmes}#msc`,
+    url: `${SITE.url}${ROUTES.programmeMsc}`,
   },
 ];
 ---
@@ -53,7 +53,7 @@ const courses = [
         COMPARE_ROWS.map((r) => (
           <div class="compare__row" role="row">
             <div class="compare__label" role="rowheader">{r.label}</div>
-            <div role="cell">{r.bachelor.includes("[À confirmer") ? "—" : r.bachelor}</div>
+            <div role="cell">{r.bachelor}</div>
             <div role="cell">{r.msc}</div>
           </div>
         ))
@@ -70,8 +70,9 @@ const courses = [
         <p class="prog__text">Un socle commun en IA, data et no-code, puis tu choisis ta trajectoire. Un premier projet IA en entreprise dès le premier semestre, et une troisième année en alternance.</p>
         <div class="btn-row">
           <a href={ROUTES.candidature} class="btn">Candidater au Bachelor</a>
-          <a href={ROUTES.brochure} class="btn-outline">Télécharger la brochure</a>
+          <a href={ROUTES.programmeBachelor} class="btn-outline">Découvrir le programme</a>
         </div>
+        <p class="lnk-row"><a class="lnk" href={ROUTES.programmeBachelor3}>Voir la 3e année en alternance</a> · <a class="lnk" href={ROUTES.brochure}>Télécharger la brochure</a></p>
       </div>
       <div>
         <Pic src={img("p_duo")} alt="Deux étudiants sourient, assis sur les gradins du campus" ratio="16 / 9" sizes="(min-width: 1024px) 640px, 100vw" class="prog__pic" />
@@ -102,8 +103,9 @@ const courses = [
         <div class="chips prog__chips">{MSC_CHIPS.map((c) => <span class="chip">{c}</span>)}</div>
         <div class="btn-row">
           <a href={ROUTES.candidature} class="btn">Candidater au MSc</a>
-          <a href={ROUTES.brochure} class="btn-outline">Télécharger la brochure</a>
+          <a href={ROUTES.programmeMsc} class="btn-outline">Découvrir le programme</a>
         </div>
+        <p class="lnk-row"><a class="lnk" href={ROUTES.brochure}>Télécharger la brochure</a></p>
       </div>
     </div>
   </section>
@@ -114,12 +116,12 @@ const courses = [
       <article class="cert">
         <h3 class="h3-sm">Concepteur de solutions no code</h3>
         <p class="cert__text">Concevoir et livrer des outils métier sans écrire de code.</p>
-        <div class="cert__link"><a href={EXTERNAL.certificationNoCode} class="lnk">Voir la certification</a></div>
+        <div class="cert__link"><a href={ROUTES.certificationNoCode} class="lnk">Voir la certification</a></div>
       </article>
       <article class="cert">
         <h3 class="h3-sm">Architecte IA</h3>
         <p class="cert__text">Concevoir des systèmes d'IA utiles et fiables en entreprise.</p>
-        <div class="cert__link"><a href={EXTERNAL.certificationArchitecteIA} class="lnk">Voir la certification</a></div>
+        <div class="cert__link"><a href={ROUTES.certificationArchitecteIA} class="lnk">Voir la certification</a></div>
       </article>
     </div>
   </section>

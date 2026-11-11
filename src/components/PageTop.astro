@@ -5,22 +5,30 @@ import { img } from "@/data/images";
 
 interface Props {
   title: string;
-  lead: string;
-  image: string;
-  alt: string;
+  lead?: string;
+  image?: string;
+  alt?: string;
+  eyebrow?: string;
+  dataAnswer?: boolean;
+  nativeImage?: boolean;
   ratio?: string;
   position?: string;
 }
-const { title, lead, image, alt, ratio, position } = Astro.props;
+const { title, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage = false, ratio, position } = Astro.props;
 ---
 
-<section class="container pagetop">
-  <h1 class="r1 display">{title}</h1>
-  <p class="r2 lead pagetop__lead">{lead}</p>
+<section class:list={["container", "pagetop", !lead && "pagetop--single"]}>
+  <div class="pagetop__title-wrap">
+    {eyebrow && <p class="eyebrow pagetop__eyebrow">{eyebrow}</p>}
+    <h1 class="r1 display">{title}</h1>
+  </div>
+  {lead && <p class="r2 lead pagetop__lead" data-answer={dataAnswer ? "" : undefined}>{lead}</p>}
 </section>
-<figure class="container r3">
-  <Pic src={img(image)} alt={alt} ratio={ratio ?? "16 / 9"} position={position} priority sizes="(min-width: 1440px) 1376px, 100vw" />
-</figure>
+{image && (
+  <figure class="container r3">
+    <Pic src={img(image)} alt={alt} ratio={nativeImage ? undefined : ratio ?? "16 / 9"} position={position} priority sizes="(min-width: 1440px) 1376px, 100vw" />
+  </figure>
+)}
 
 <style>
   .pagetop {
@@ -35,10 +43,16 @@ const { title, lead, image, alt, ratio, position } = Astro.props;
     margin-bottom: 10px;
     max-width: 26em;
   }
+  .pagetop__eyebrow {
+    margin-bottom: 18px;
+  }
   /* The title column takes the width of the word; the lead gets the rest. */
   @media (min-width: 1024px) {
     .pagetop {
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .pagetop--single {
+      grid-template-columns: 1fr;
     }
   }
   @media (max-width: 1023px) {

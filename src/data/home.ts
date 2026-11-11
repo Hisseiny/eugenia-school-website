@@ -2,7 +2,7 @@ import { EXTERNAL, ROUTES, SITE } from "@/data/site";
 
 export const DOORS = [
   {
-    href: `${ROUTES.programmes}#bachelor`,
+    href: ROUTES.programmeBachelor,
     icon: "cap",
     who: "Après le bac",
     title: "Bachelor IA Applied to Business",
@@ -10,7 +10,7 @@ export const DOORS = [
     cta: "Découvrir le Bachelor",
   },
   {
-    href: `${ROUTES.programmes}#bachelor`,
+    href: ROUTES.programmeBachelor3,
     icon: "steps",
     who: "Après un Bac+2",
     title: "Bachelor, 3e année en alternance",
@@ -18,7 +18,7 @@ export const DOORS = [
     cta: "Découvrir la 3e année",
   },
   {
-    href: `${ROUTES.programmes}#msc`,
+    href: ROUTES.programmeMsc,
     icon: "book",
     who: "Après un Bac+3 ou +4",
     title: "MSc IA Applied to Business",
@@ -41,7 +41,7 @@ export const LEARN_ROWS = [
     title: "Bachelor IA Applied to Business",
     text: "Le socle commun, puis tu choisis ta trajectoire. La troisième année se fait en alternance.",
     chips: ["Python", "Scraping", "Automatisation no-code", "Marketing digital", "SEO", "Pitch"],
-    link: { href: `${ROUTES.programmes}#bachelor`, label: "Le programme du Bachelor" },
+    link: { href: ROUTES.programmeBachelor, label: "Le programme du Bachelor" },
     image: "n_laptops_43",
     alt: "Trois étudiants travaillent ensemble sur leurs ordinateurs",
   },
@@ -50,7 +50,7 @@ export const LEARN_ROWS = [
     title: "MSc IA Applied to Business",
     text: "Pour basculer vers l'IA et la data après un Bac+3 ou +4, en alternance.",
     chips: ["SQL", "Tableau", "Power BI", "Automatisation", "IA en entreprise"],
-    link: { href: `${ROUTES.programmes}#msc`, label: "Le programme du Master" },
+    link: { href: ROUTES.programmeMsc, label: "Le programme du Master" },
     image: "p_laptop",
     alt: "Un étudiant au travail, son ordinateur couvert de stickers n8n, Mistral AI, Dust et Eugenia",
   },

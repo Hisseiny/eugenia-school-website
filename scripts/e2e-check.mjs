@@ -90,7 +90,7 @@ const blockTracking = async (page) => {
   check("deep link opens the FAQ answer", await page.locator("#faq-a-4").isVisible());
   check("deep link focuses the question", await page.evaluate(() => document.activeElement?.id === "faq-q-4"));
   await page.goto(base + "/admissions#parents", { waitUntil: "load" });
-  check("parents block links to its confirmed questions", (await page.locator(".parents__questions a[href^='#faq-q-']").count()) === 4);
+  check("parents block links to its confirmed questions", (await page.locator(".parents__questions a[href^='#faq-q-']").count()) === 5);
   await page.goto(base + "/candidature", { waitUntil: "load" });
   check("form page shows what happens next", (await page.locator(".formpage__next li").count()) === 3);
   await page.close();
@@ -156,6 +156,61 @@ const blockTracking = async (page) => {
   await page.close();
 }
 
+// Audience variants, native curriculum disclosures and the dedicated FAQ page.
+{
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
+  await page.goto(base + "/programme/bachelor-ia-business", { waitUntil: "load" });
+  check("Bachelor defaults to student copy", await page.locator('[data-audience="student"]').first().isVisible());
+  check("parent copy is initially hidden", await page.locator('[data-audience="parent"]').first().isHidden());
+  await page.locator('[data-audience-select="parent"]').click();
+  check("audience switch reveals parent copy", await page.locator('[data-audience="parent"]').first().isVisible());
+  check("audience switch updates aria-pressed", (await page.locator('[data-audience-select="parent"]').getAttribute("aria-pressed")) === "true");
+  const audienceCta = page.locator(".audience__cta");
+  check("parent CTA carries form context", (await audienceCta.getAttribute("href")) === "/candidature?pour=parent");
+  const audienceEvent = await page.evaluate(() => window.dataLayer?.find((entry) => entry.event === "audience_toggle"));
+  check("audience switch tracks the selected profile", audienceEvent?.audience === "parent");
+  for (const [baseHref, expectedHref] of [
+    ["/candidature?pour=parent#form", "/candidature?pour=parent#form"],
+    ["/brochure?source=cta#download", "/brochure?source=cta&pour=parent#download"],
+    ["/evenements#portes-ouvertes", "/evenements?pour=parent#portes-ouvertes"],
+    ["/contact?source=cta", "/contact?source=cta&pour=parent"],
+  ]) {
+    await audienceCta.evaluate((anchor, href) => {
+      anchor.dataset.audienceStudentHref = href;
+      anchor.dataset.audienceParentHref = href;
+      anchor.setAttribute("href", href);
+    }, baseHref);
+    await page.locator('[data-audience-select="parent"]').click();
+    check(`parent CTA keeps context and hash for ${baseHref.split(/[?#]/)[0]}`, (await audienceCta.getAttribute("href")) === expectedHref);
+    await page.locator('[data-audience-select="student"]').click();
+    check(`student CTA remains unchanged for ${baseHref.split(/[?#]/)[0]}`, (await audienceCta.getAttribute("href")) === baseHref);
+  }
+  await page.goto(base + "/programme/bachelor-ia-business?pour=parent", { waitUntil: "load" });
+  check("?pour=parent selects the parent variant", await page.locator('[data-audience-select="parent"]').getAttribute("aria-pressed") === "true");
+  check("parent query is not appended twice", (await page.locator(".audience__cta").getAttribute("href")) === "/candidature?pour=parent");
+  await page.goto(base + "/programme/bachelor-ia-business-3eme-annee-alternance", { waitUntil: "load" });
+  await page.locator('[data-audience-select="parent"]').click();
+  check("third-year parent CTA links to the rhythm section", (await page.locator(".audience__cta").getAttribute("href")) === "#rythme");
+  check("third-year rhythm section has its live anchor", (await page.locator("#rythme").count()) === 1);
+  await page.locator('[data-audience-select="student"]').click();
+  check("third-year student CTA still links to the application", (await page.locator(".audience__cta").getAttribute("href")) === "/candidature");
+  const module = page.locator(".curriculum__module").first();
+  await module.locator("summary").click();
+  check("native curriculum details open and expose courses", await module.evaluate((el) => el.open) && await module.locator(".curriculum__course-name").first().isVisible());
+  for (const route of ["/faq", "/alternance", "/processus-admission"]) {
+    await page.goto(base + route, { waitUntil: "load" });
+    const openAnswers = await page.locator('[data-accordion] button[aria-expanded="true"]').count();
+    check(`${route}: at most one FAQ answer is open on load`, openAnswers <= 1, String(openAnswers));
+  }
+  await page.goto(base + "/faq", { waitUntil: "load" });
+  const faqButtons = page.locator("[data-accordion] button");
+  check("FAQ page has live question items", (await faqButtons.count()) > 0);
+  await faqButtons.nth(1).click();
+  check("FAQ page accordion opens the selected answer", (await faqButtons.nth(1).getAttribute("aria-expanded")) === "true");
+  await page.close();
+}
+
 // No-JS: content readable, answers visible
 {
   const ctx = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
@@ -166,8 +221,58 @@ const blockTracking = async (page) => {
   await page.goto(base + "/", { waitUntil: "load" });
   check("without JS the hero h1 is visible", await page.locator("h1").isVisible());
   check("without JS all 5 testimonials are readable", (await page.locator("[data-slide]:visible").count()) === 5);
+  await page.goto(base + "/programme/bachelor-ia-business", { waitUntil: "load" });
+  check("without JS student variant remains visible", await page.locator('[data-audience="student"]').first().isVisible());
+  check("without JS audience controls stay hidden", await page.locator(".audience__switch").isHidden());
+  check("without JS parent variant stays hidden", await page.locator('[data-audience="parent"]').first().isHidden());
   check("without JS the form fallback does not link to itself", !(await page.goto(base + "/contact", { waitUntil: "load" })) || (await page.locator(".hs-form noscript a[href='/contact'], .hs-form a[href='/contact']").count()) === 0);
   await ctx.close();
+}
+
+// Scroll reveals never leave visible content transparent, including unusually tall elements.
+{
+  const routes = [
+    "/programme/bachelor-ia-business",
+    "/programme/bachelor-ia-business-3eme-annee-alternance",
+    "/programme/master-ia-business-alternance",
+    "/certification-architecte-ia",
+    "/certification-concepteur-solutions-no-code",
+    "/alternance",
+    "/financement",
+    "/processus-admission",
+    "/faq",
+  ];
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
+  for (const route of routes) {
+    await page.goto(base + route, { waitUntil: "load" });
+    await page.evaluate(() => window.scrollTo(0, 0));
+    check(`${route}: extraction link inventory is not rendered`, (await page.locator(".live-links").count()) === 0);
+    let step = 0;
+    while (true) {
+      await page.waitForTimeout(1000);
+      const { invisible, redButtons } = await page.evaluate(() => {
+        const inViewport = (element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+        };
+        const invisible = [...document.querySelectorAll("body *")]
+          .filter((element) => !element.closest("[hidden], [aria-hidden='true'], .sr-only, .visually-hidden"))
+          .filter((element) => getComputedStyle(element).opacity === "0" && inViewport(element))
+          .map((element) => `${element.tagName.toLowerCase()}${element.className ? `.${String(element.className).trim().replace(/\s+/g, ".")}` : ""}`);
+        const redButtons = [...document.querySelectorAll("main .btn")].filter(inViewport).length;
+        return { invisible, redButtons };
+      });
+      check(`${route}: no transparent content after wheel step ${step}`, invisible.length === 0, invisible.slice(0, 3).join(", "));
+      check(`${route}: at most one red content button after wheel step ${step}`, redButtons <= 1, String(redButtons));
+      const { y, max } = await page.evaluate(() => ({ y: window.scrollY, max: document.documentElement.scrollHeight - window.innerHeight }));
+      if (y >= max) break;
+      await page.mouse.wheel(0, 900);
+      await page.waitForTimeout(50);
+      step++;
+    }
+  }
+  await page.close();
 }
 
 await browser.close();

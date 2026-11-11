@@ -1,0 +1,116 @@
+---
+import Base from "@/layouts/Base.astro";
+import AudienceToggle from "@/components/AudienceToggle.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import EndOfPage from "@/components/EndOfPage.astro";
+import LiveSections from "@/components/LiveSections.astro";
+import PageTop from "@/components/PageTop.astro";
+import ProgramFacts from "@/components/ProgramFacts.astro";
+import type { LivePage as LivePageData } from "@/data/pages/types";
+
+interface Crumb {
+  name: string;
+  path?: string;
+}
+
+interface Props {
+  page: LivePageData;
+  crumbs: Crumb[];
+  current: string;
+  jsonLd?: Record<string, unknown>[];
+  dataAnswer?: boolean;
+}
+
+const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } = Astro.props;
+---
+
+<Base
+  title={page.title}
+  description={page.description}
+  current={current}
+  crumbs={crumbs}
+  jsonLd={jsonLd}
+>
+  <PageTop
+    title={page.h1}
+    lead={page.lead}
+    dataAnswer={dataAnswer}
+    nativeImage
+    image={page.image}
+    alt={page.imageAlt}
+    eyebrow={page.eyebrow?.replace(/^\/\/\s*/, "")}
+  />
+  {page.audience && <AudienceToggle copy={page.audience} />}
+  {
+    page.badges && page.badges.length > 0 && (
+      <ul class="live-badges container">
+        {page.badges.map((badge) => <li>{badge}</li>)}
+      </ul>
+    )
+  }
+  {
+    page.stats && page.stats.length > 0 && (
+      <dl class="live-stats container">
+        {page.stats.map((stat) => (
+          <div><dt>{stat.value}</dt><dd>{stat.label}</dd></div>
+        ))}
+      </dl>
+    )
+  }
+  {page.facts && page.facts.length > 0 && <ProgramFacts facts={page.facts} />}
+  {page.postFacts && <p class="container live-page__post-facts">{page.postFacts}</p>}
+  <LiveSections sections={page.sections} />
+  <EndOfPage
+    title={page.footer.title}
+    text={page.footer.text}
+    primary={{ href: page.footer.primary.href, label: page.footer.primary.label }}
+    secondary={{ href: page.footer.secondary.href, label: page.footer.secondary.label }}
+    image="p_arches"
+  />
+  <ContinueVisit {...page.next} />
+</Base>
+
+<style>
+  .live-page__post-facts {
+    max-width: 920px;
+    padding-bottom: var(--section-y-sm);
+    color: var(--ink-70);
+  }
+  .live-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-block: 0 28px;
+    list-style: none;
+  }
+  .live-badges li {
+    padding: 7px 13px;
+    border: 1px solid var(--line-ui);
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+  }
+  .live-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr));
+    gap: 26px;
+    padding-block: 32px var(--section-y-sm);
+    border-top: 1px solid var(--line);
+  }
+  .live-stats dt {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+  .live-stats dd {
+    margin-top: 8px;
+    color: var(--ink-65);
+    font-size: 14px;
+  }
+  @media (max-width: 767px) {
+    .live-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

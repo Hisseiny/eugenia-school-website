@@ -1,7 +1,7 @@
 ---
 /** A partner or recruiter logo at a fixed display height; width follows the file's ratio. */
 import { Image } from "astro:assets";
-import { img } from "@/data/images";
+import { img, svg } from "@/data/images";
 
 interface Props {
   name: string;
@@ -12,19 +12,26 @@ interface Props {
   class?: string;
 }
 const { name, alt, height, gray = false, decorative = false, class: className = "" } = Astro.props;
-const src = img(name);
-const width = Math.round((src.width / src.height) * height);
+const vector = svg(name);
+const src = vector ? undefined : img(name);
+const width = src ? Math.round((src.width / src.height) * height) : undefined;
 ---
 
 <span class:list={[gray && "gray", className]}>
-  <Image
-    src={src}
-    alt={decorative ? "" : alt}
-    aria-hidden={decorative ? "true" : undefined}
-    width={width * 2}
-    height={height * 2}
-    format="webp"
-    loading="lazy"
-    style={`width: ${width}px; max-width: 100%; height: auto`}
-  />
+  {
+    vector ? (
+      <img src={vector} alt={decorative ? "" : alt} aria-hidden={decorative ? "true" : undefined} loading="lazy" style={`height: ${height}px; max-width: 100%; width: auto`} />
+    ) : (
+      <Image
+        src={src!}
+        alt={decorative ? "" : alt}
+        aria-hidden={decorative ? "true" : undefined}
+        width={width! * 2}
+        height={height * 2}
+        format="webp"
+        loading="lazy"
+        style={`width: ${width}px; max-width: 100%; height: auto`}
+      />
+    )
+  }
 </span>

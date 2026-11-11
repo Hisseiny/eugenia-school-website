@@ -8,9 +8,10 @@ const columns = [
   {
     title: "Programmes",
     links: [
-      { href: `${ROUTES.programmes}#bachelor`, label: "Bachelor" },
-      { href: `${ROUTES.programmes}#msc`, label: "MSc" },
-      { href: `${ROUTES.programmes}#certifications`, label: "Certifications" },
+      { href: ROUTES.programmeBachelor, label: "Bachelor" },
+      { href: ROUTES.programmeMsc, label: "MSc" },
+      { href: ROUTES.certificationNoCode, label: "Concepteur de solutions no code" },
+      { href: ROUTES.certificationArchitecteIA, label: "Architecte IA" },
       { href: ROUTES.carrieres, label: "Carrières et alumni" },
     ],
   },
@@ -27,7 +28,10 @@ const columns = [
     title: "Admissions",
     links: [
       { href: ROUTES.admissions, label: "Candidater" },
-      { href: `${ROUTES.admissions}#faq`, label: "Questions fréquentes" },
+      { href: ROUTES.processusAdmission, label: "Processus d'admission" },
+      { href: ROUTES.alternance, label: "Alternance" },
+      { href: ROUTES.financement, label: "Financement" },
+      { href: ROUTES.faq, label: "Questions fréquentes" },
       { href: ROUTES.parents, label: "Parents" },
       { href: ROUTES.contact, label: "Nous contacter" },
       { href: ROUTES.entreprises, label: "Entreprises" },

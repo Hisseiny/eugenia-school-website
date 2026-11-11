@@ -144,6 +144,21 @@ ol {
   padding-inline: var(--gutter);
 }
 
+.crumbs + .pagetop {
+  padding-top: 28px;
+}
+
+.crumbs + .pr-top {
+  padding-top: 28px;
+}
+
+@media (max-width: 767px) {
+  .crumbs + .pagetop,
+  .crumbs + .pr-top {
+    padding-top: 20px;
+  }
+}
+
 .section {
   padding-block: var(--section-y);
 }
