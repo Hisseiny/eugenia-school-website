@@ -54,12 +54,6 @@
     --section-y: 96px;
     --section-y-sm: 80px;
   }
-  .display {
-    font-size: clamp(44px, 13vw, 96px);
-  }
-  .cta-title {
-    font-size: clamp(36px, 11vw, 84px);
-  }
 }
 
 *,
@@ -510,5 +504,15 @@ ol {
   .tint,
   .gray img {
     transition: none;
+  }
+}
+
+/* Mobile heading sizes (after the base definitions so they win) */
+@media (max-width: 767px) {
+  .display {
+    font-size: clamp(44px, 13vw, 96px);
+  }
+  .cta-title {
+    font-size: clamp(36px, 11vw, 84px);
   }
 }

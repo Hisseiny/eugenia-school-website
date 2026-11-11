@@ -10,13 +10,16 @@ const only = process.env.PAGES?.split(",");
 const pages = only ?? ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises"];
 const exe = process.env.CHROME_PATH ?? "/home/ubuntu/.local/bin/google-chrome";
 
-mkdirSync("screenshots", { recursive: true });
+const dir = process.env.OUT_DIR ?? "screenshots";
+mkdirSync(dir, { recursive: true });
 const browser = await chromium.launch({ executablePath: exe, headless: true });
 for (const width of sizes) {
   const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
   const page = await ctx.newPage();
-  for (const name of pages) {
-    const path = name === "index" ? "/" : `/${name}`;
+  for (const entry of pages) {
+    // "name" or "name=/path" (the second form is used for the live site's old URLs)
+    const [name, custom] = entry.split("=");
+    const path = custom ?? (name === "index" ? "/" : `/${name}`);
     await page.goto(base + path, { waitUntil: "load", timeout: 60000 });
     await page.evaluate(async () => {
       // Force lazy images to load before the capture.
@@ -28,7 +31,7 @@ for (const width of sizes) {
       ]);
     });
     await page.waitForTimeout(300);
-    const file = `screenshots/${name}_${width}.png`;
+    const file = `${dir}/${name}_${width}.png`;
     await page.screenshot({ path: file, fullPage: true });
     console.log(file);
   }

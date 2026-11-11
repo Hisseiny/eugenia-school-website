@@ -35,6 +35,12 @@ const { title, lead, image, alt, ratio, position } = Astro.props;
     margin-bottom: 10px;
     max-width: 26em;
   }
+  /* The title column takes the width of the word; the lead gets the rest. */
+  @media (min-width: 768px) {
+    .pagetop {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+  }
   @media (max-width: 767px) {
     .pagetop {
       padding-top: 56px;
