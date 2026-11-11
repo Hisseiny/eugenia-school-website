@@ -5,6 +5,7 @@ import { img } from "@/data/images";
 
 interface Props {
   title: string;
+  id?: string;
   lead?: string;
   image?: string;
   alt?: string;
@@ -14,10 +15,10 @@ interface Props {
   ratio?: string;
   position?: string;
 }
-const { title, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage = false, ratio, position } = Astro.props;
+const { title, id, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage = false, ratio, position } = Astro.props;
 ---
 
-<section class:list={["container", "pagetop", !lead && "pagetop--single"]}>
+<section id={id} class:list={["container", "pagetop", !lead && "pagetop--single"]}>
   <div class="pagetop__title-wrap">
     {eyebrow && <p class="eyebrow pagetop__eyebrow">{eyebrow}</p>}
     <h1 class="r1 display">{title}</h1>
@@ -39,6 +40,11 @@ const { title, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage =
     gap: 32px 80px;
     align-items: end;
   }
+  .pagetop__title-wrap,
+  .pagetop__lead {
+    min-width: 0;
+    max-width: 100%;
+  }
   .pagetop__lead {
     margin-bottom: 10px;
     max-width: 26em;
@@ -57,7 +63,7 @@ const { title, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage =
   }
   @media (max-width: 1023px) {
     .pagetop {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 24px;
     }
   }
@@ -66,6 +72,9 @@ const { title, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage =
       padding-top: 56px;
       padding-bottom: 36px;
       gap: 20px;
+    }
+    .pagetop .display {
+      font-size: clamp(36px, 11vw, 96px);
     }
   }
 </style>
