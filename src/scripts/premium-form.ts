@@ -21,6 +21,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
   const bar = form.querySelector<HTMLElement>("[data-pf-bar]")!;
   const done = form.querySelector<HTMLElement>("[data-pf-done]")!;
   let index = 0;
+  let sending = false;
 
   const messages: Record<string, string> = {
     firstname: "Ton prénom, s'il te plaît.",
@@ -95,7 +96,8 @@ export function initPremiumForm(form: HTMLFormElement): void {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (!validate(panels[index])) return;
+    if (sending || !validate(panels[index])) return;
+    sending = true;
     const data = new FormData(form);
     const fields = Array.from(data.entries())
       .filter(([, v]) => String(v).trim() !== "")
@@ -125,6 +127,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
       error.textContent = "L'envoi n'a pas abouti. Réessaie dans un instant, ou écris-nous à admission@eugeniaschool.com.";
       error.hidden = false;
     } finally {
+      sending = false;
       submit.removeAttribute("aria-busy");
     }
   });
