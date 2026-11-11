@@ -229,6 +229,19 @@ test("new routes are real pages with their live H1 and visible breadcrumbs", () 
   }
 });
 
+test("financing fee tables follow their programme headings", () => {
+  const source = html("financement");
+  const bachelorHeading = source.match(/<h3\b[^>]*>\s*Bachelor Programme\s*<\/h3>/i);
+  const bachelorHeadingIndex = bachelorHeading?.index ?? -1;
+  const mscEyebrow = source.indexOf("MSc · Alternance", bachelorHeadingIndex);
+  const bachelorTable = [...source.matchAll(/<table\b[^>]*>[\s\S]*?<\/table>/g)]
+    .find(([table]) => plainText(table).includes("14 900€") && plainText(table).includes("16 900€"));
+  assert.ok(bachelorHeading, "missing Bachelor Programme heading");
+  assert.ok(bachelorTable, "missing Bachelor fee table");
+  assert.ok(mscEyebrow > bachelorHeadingIndex, "MSc · Alternance eyebrow must follow the Bachelor heading");
+  assert.ok(bachelorTable.index > bachelorHeadingIndex && bachelorTable.index < mscEyebrow, "Bachelor fee table must follow its heading and precede the MSc eyebrow");
+});
+
 test("programme pages render direct answers, static facts and required program schemas", () => {
   const expectations = [
     [

@@ -33,15 +33,6 @@ export const page: LivePage = {
           "text": "Nous offrons des bourses en fonction des revenus. Contactez-nous pour plus d'informations sur les aides financières."
         },
         {
-          "type": "cta",
-          "label": "Candidater",
-          "href": "/candidature"
-        },
-        {
-          "type": "paragraph",
-          "text": "MSc · Alternance"
-        },
-        {
           "type": "table",
           "rows": [
             [
@@ -62,6 +53,15 @@ export const page: LivePage = {
           ]
         },
         {
+          "type": "cta",
+          "label": "Candidater",
+          "href": "/candidature"
+        },
+        {
+          "type": "paragraph",
+          "text": "MSc · Alternance"
+        },
+        {
           "type": "heading",
           "level": 3,
           "text": "Master of Science ou 3ème année de Bachelor en Alternance"
@@ -69,11 +69,6 @@ export const page: LivePage = {
         {
           "type": "paragraph",
           "text": "Les frais des programmes d'alternance sont payés par l'employeur de l'étudiant. Une année d'études en France est nécessaire pour ce programme."
-        },
-        {
-          "type": "cta",
-          "label": "Candidater",
-          "href": "/candidature"
         },
         {
           "type": "table",
@@ -94,6 +89,11 @@ export const page: LivePage = {
               "par an"
             ]
           ]
+        },
+        {
+          "type": "cta",
+          "label": "Candidater",
+          "href": "/candidature"
         }
       ],
       "eyebrow": "pourquoi choisir eugenia school ?"
