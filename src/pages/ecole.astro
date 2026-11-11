@@ -8,7 +8,7 @@ import EndOfPage from "@/components/EndOfPage.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { CAMPUS, EVENTS, PRINCIPLES, STUDENT_LIFE, TEACHERS } from "@/data/ecole";
-import { ROUTES, SITE } from "@/data/site";
+import { ORG_ID, ROUTES, SITE } from "@/data/site";
 
 const eventsLd = EVENTS.map((e) => ({
   "@type": "Event",
@@ -18,19 +18,20 @@ const eventsLd = EVENTS.map((e) => ({
   eventStatus: "https://schema.org/EventScheduled",
   location: { "@type": "Place", name: SITE.name, address: `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}` },
   isAccessibleForFree: true,
-  organizer: { "@type": "EducationalOrganization", name: SITE.name, url: SITE.url },
+  organizer: { "@id": ORG_ID },
 }));
 ---
 
 <Base
-  title="L'école : campus, professeurs et vie étudiante | Eugenia School"
-  description="Une école de l'IA appliquée, fondée en 2023, au 18 rue de Paradis à Paris : 2 500 m² de campus, des professeurs en poste, un Entrepreneuriat LAB et une vie étudiante."
+  title="Eugenia School : campus, professeurs et vie étudiante"
+  description="Au 18 rue de Paradis à Paris, découvrez le campus, les professeurs en poste, les principes pédagogiques et la vie étudiante d'Eugenia School."
   current={ROUTES.ecole}
+  crumbs={[{ name: "L'école" }]}
   jsonLd={eventsLd}
 >
   <PageTop
     title="L'école"
-    lead="Une école de l'IA appliquée, fondée en 2023, au 18 rue de Paradis."
+    lead="Une école de l'IA appliquée, au 18 rue de Paradis."
     image="n_talk"
     alt="Des étudiants échangent autour d'une table, devant la fresque de l'atrium"
   />

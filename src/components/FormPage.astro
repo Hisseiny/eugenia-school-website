@@ -7,6 +7,7 @@ import type { HUBSPOT } from "@/data/site";
 interface Props {
   title: string;
   description: string;
+  crumbs: { name: string; path?: string }[];
   heading: string;
   lead: string;
   form: keyof typeof HUBSPOT.forms;
@@ -15,10 +16,10 @@ interface Props {
   /** What happens after sending: shown above the form so the last step of the journey reassures. */
   next?: readonly string[];
 }
-const { title, description, heading, lead, form, facts = [], formLabel, next = [] } = Astro.props;
+const { title, description, crumbs, heading, lead, form, facts = [], formLabel, next = [] } = Astro.props;
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} crumbs={crumbs}>
   <section class="mist formpage">
     <div class="container formpage__grid">
       <div>

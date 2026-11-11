@@ -62,6 +62,10 @@ export const FAQ = [
   },
 ] as const;
 
+export function confirmedFaq<T extends { a: string }>(faqs: readonly T[]): T[] {
+  return faqs.filter((faq) => !faq.a.includes("[À confirmer"));
+}
+
 /** The same four steps, addressed to the parent; every fact is the one above. */
 export const STEPS_PARENTS = [
   { n: "Étape 1", title: "Candidature en ligne", text: "Le dossier de votre enfant, en ligne. Gratuit pour les résidents de l'Union européenne ; les notes de l'année en cours peuvent être envoyées plus tard." },
