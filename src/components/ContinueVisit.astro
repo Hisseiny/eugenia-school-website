@@ -1,0 +1,97 @@
+---
+/** The band at the bottom of every page: no dead ends, the visit continues. */
+import Pic from "@/components/Pic.astro";
+import { img } from "@/data/images";
+
+interface Props {
+  href: string;
+  title: string;
+  text: string;
+  image: string;
+  position?: string;
+}
+const { href, title, text, image, position } = Astro.props;
+---
+
+<a href={href} class="continue tint">
+  <div class="container continue__grid">
+    <div>
+      <p class="continue__label">Continuer la visite</p>
+      <div class="continue__title">
+        <span class="continue__name">{title}</span>
+        <span class="continue__arrow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </span>
+      </div>
+      <p class="continue__text">{text}</p>
+    </div>
+    <Pic src={img(image)} alt="" decorative ratio="16 / 9" position={position} sizes="(min-width: 768px) 320px, 100vw" widths={[480, 768]} />
+  </div>
+</a>
+
+<style>
+  .continue {
+    display: block;
+    text-decoration: none;
+    color: var(--plum);
+    border-top: 1px solid var(--line-soft);
+  }
+  .continue:hover {
+    color: var(--plum);
+  }
+  .continue__grid {
+    padding-block: 72px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 48px;
+    align-items: center;
+  }
+  .continue__label {
+    font-size: 15px;
+    color: var(--ink-65);
+    margin-bottom: 14px;
+  }
+  .continue__title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .continue__name {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 72px);
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+  .continue__arrow {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--line-ui);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s var(--ease-out);
+  }
+  .continue:hover .continue__arrow {
+    transform: translateX(6px);
+  }
+  .continue__text {
+    margin-top: 18px;
+    font-size: 17px;
+    color: var(--ink-70);
+  }
+  @media (max-width: 767px) {
+    .continue__grid {
+      grid-template-columns: 1fr;
+      padding-block: 56px;
+      gap: 32px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .continue__arrow {
+      transition: none;
+    }
+  }
+</style>

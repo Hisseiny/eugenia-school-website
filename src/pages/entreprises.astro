@@ -1,0 +1,276 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageTop from "@/components/PageTop.astro";
+import Pic from "@/components/Pic.astro";
+import Logo from "@/components/Logo.astro";
+import LogoMarquee from "@/components/LogoMarquee.astro";
+import EndOfPage from "@/components/EndOfPage.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { img } from "@/data/images";
+import { RECRUITERS } from "@/data/logos";
+import { HACKATHONS, PARTNER_MARQUEE, WAYS } from "@/data/entreprises";
+import { ROUTES } from "@/data/site";
+
+const ICONS: Record<string, string> = {
+  recruit: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/>',
+  hackathon: '<path d="M4 20L20 4"/><path d="M14 4h6v6"/>',
+  partner: '<path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/>',
+};
+---
+
+<Base
+  title="Entreprises : recruter un alternant, organiser un hackathon | Eugenia School"
+  description="Recrutez des alternants qui savent déjà construire avec l'IA, confiez un brief à nos étudiants le temps d'un hackathon, ou devenez partenaire de l'école."
+  current={ROUTES.entreprises}
+>
+  <PageTop
+    title="Entreprises"
+    lead="Recrutez des alternants qui savent déjà construire avec l'IA. Ou confiez-leur un vrai problème, le temps d'un hackathon."
+    image="p_award"
+    alt="Une équipe d'étudiants célèbre son Bronze Award au hackathon Dust"
+    position="45% 40%"
+  />
+
+  <section class="ways" aria-label="Trois façons de travailler avec l'école">
+    <div class="container ways__grid">
+      {
+        WAYS.map((w) => (
+          <div class="way">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={ICONS[w.icon]} />
+            <h2 class="h4 way__title">{w.title}</h2>
+            <p class="way__text">{w.text}</p>
+            <div class="way__link"><a href={w.link.href} class="lnk">{w.link.label}</a></div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container recruit" aria-labelledby="recruit-title">
+    <h2 id="recruit-title" class="h2 recruit__title">Elles recrutent déjà nos étudiants.</h2>
+    <ul class="logo-grid">
+      {
+        RECRUITERS.map((l) => (
+          <li class="logo-grid__cell">
+            <Logo name={l.name} alt={l.alt} height={Math.min(l.height, 34)} gray />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="container oncampus" aria-labelledby="oncampus-title">
+    <h2 id="oncampus-title" class="h2 oncampus__title">Sur le campus, toute l'année.</h2>
+    <div class="oncampus__grid">
+      <figure>
+        <Pic src={img("n_speaker")} alt="Lancement du hackathon PayFit devant les kakemonos PayFit, dans l'atrium" ratio="16 / 9" sizes="(min-width: 1024px) 680px, 100vw" />
+        <figcaption class="oncampus__caption"><div class="semibold">Le lancement d'un hackathon</div><div class="muted text-15">Le brief PayFit présenté aux étudiants, dans l'atrium.</div></figcaption>
+      </figure>
+      <figure>
+        <Pic src={img("n_partners")} alt="Présentation sur scène des partenaires de l'école : startups, éditeurs technologiques et grands groupes" ratio="16 / 9" sizes="(min-width: 1024px) 680px, 100vw" />
+        <figcaption class="oncampus__caption"><div class="semibold">Un réseau qui grandit</div><div class="muted text-15">Startups, éditeurs technologiques et grands groupes, présentés aux étudiants.</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="hackathons" class="dark hack" aria-labelledby="hack-title">
+    <div class="container">
+      <div class="section-head hack__head">
+        <h2 id="hack-title" class="h2 hack__title">Ils ont confié un brief à nos étudiants.</h2>
+        <p class="hack__sub">48 heures, des équipes d'étudiants, une démo devant le jury de l'entreprise.</p>
+      </div>
+      <div class="hack__grid">
+        {
+          HACKATHONS.map((h) => (
+            <article class="hack-card">
+              <Pic src={img(h.image)} alt={h.alt} ratio="4 / 3" position={h.position} sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1400]} class="hack-card__pic" />
+              <div class="hack-card__shade"></div>
+              <div class="hack-card__row">
+                <h3 class="hack-card__title">{h.title}</h3>
+                <Logo name={h.logo.name} alt={h.logo.alt} height={h.logo.height} class="logo-pad" />
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="partners" aria-labelledby="partners-title">
+    <h2 id="partners-title" class="eyebrow partners__title">Nos partenaires</h2>
+    <LogoMarquee logos={PARTNER_MARQUEE} label="Partenaires de l'école" />
+  </section>
+
+  <div id="contact"></div>
+  <EndOfPage
+    title="Parlons de votre prochain alternant."
+    primary={{ href: ROUTES.contact, label: "Nous contacter" }}
+    secondary={{ href: ROUTES.brochure, label: "Télécharger la plaquette entreprises" }}
+    image="p_team"
+    position="50% 45%"
+  />
+  <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Les profils que vous pouvez recruter, et leurs parcours." image="p_team" />
+</Base>
+
+<style>
+  .ways {
+    padding-block: 72px 0;
+  }
+  .ways__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-inline: 0;
+  }
+  .way {
+    padding: 44px 32px 40px;
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+  }
+  .way__title {
+    margin-top: 28px;
+  }
+  .way__text {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--ink-68);
+    line-height: 1.5;
+  }
+  .way__link {
+    margin-top: 28px;
+  }
+  @media (max-width: 767px) {
+    .way {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding: 32px var(--gutter);
+    }
+    .way:first-child {
+      border-top: 0;
+    }
+  }
+
+  .recruit,
+  .oncampus {
+    padding-block: 140px 0;
+  }
+  .recruit__title,
+  .oncampus__title {
+    max-width: 10em;
+  }
+  .logo-grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .logo-grid__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    padding: 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .oncampus__grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 24px;
+  }
+  .oncampus__caption {
+    margin-top: 16px;
+  }
+
+  .hack {
+    margin-top: 140px;
+    padding-block: 140px;
+  }
+  .hack__head {
+    margin-bottom: 56px;
+  }
+  .hack__title {
+    max-width: 10em;
+  }
+  .hack__sub {
+    max-width: 24em;
+    font-size: 17px;
+    color: var(--paper-72);
+  }
+  .hack__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 20px;
+  }
+  .hack-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #2a1622;
+  }
+  .hack-card :global(.pic) {
+    border-radius: 0;
+  }
+  .hack-card__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(31, 13, 25, 0) 45%, rgba(31, 13, 25, 0.85));
+  }
+  .hack-card__row {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .hack-card__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .partners {
+    padding: 130px 0 140px;
+  }
+  .partners__title {
+    margin-bottom: 44px;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  @media (max-width: 767px) {
+    .recruit,
+    .oncampus {
+      padding-top: var(--section-y);
+    }
+    .logo-grid {
+      margin-top: 36px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .logo-grid__cell {
+      min-height: 90px;
+    }
+    .oncampus__grid {
+      margin-top: 36px;
+      grid-template-columns: 1fr;
+    }
+    .hack {
+      margin-top: var(--section-y);
+      padding-block: var(--section-y);
+    }
+    .hack__grid {
+      grid-template-columns: 1fr;
+    }
+    .partners {
+      padding: var(--section-y) 0;
+    }
+  }
+</style>

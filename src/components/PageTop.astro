@@ -1,0 +1,45 @@
+---
+/** Top of every inner page: title left, lead right, then a full-width photo at its ratio. */
+import Pic from "@/components/Pic.astro";
+import { img } from "@/data/images";
+
+interface Props {
+  title: string;
+  lead: string;
+  image: string;
+  alt: string;
+  ratio?: string;
+  position?: string;
+}
+const { title, lead, image, alt, ratio, position } = Astro.props;
+---
+
+<section class="container pagetop">
+  <h1 class="r1 display">{title}</h1>
+  <p class="r2 lead pagetop__lead">{lead}</p>
+</section>
+<figure class="container r3">
+  <Pic src={img(image)} alt={alt} ratio={ratio ?? "16 / 9"} position={position} priority sizes="(min-width: 1440px) 1376px, 100vw" />
+</figure>
+
+<style>
+  .pagetop {
+    padding-top: 104px;
+    padding-bottom: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 32px 80px;
+    align-items: end;
+  }
+  .pagetop__lead {
+    margin-bottom: 10px;
+    max-width: 26em;
+  }
+  @media (max-width: 767px) {
+    .pagetop {
+      padding-top: 56px;
+      padding-bottom: 36px;
+      gap: 20px;
+    }
+  }
+</style>

@@ -1,0 +1,739 @@
+---
+import { Image } from "astro:assets";
+import Base from "@/layouts/Base.astro";
+import Pic from "@/components/Pic.astro";
+import Logo from "@/components/Logo.astro";
+import LogoMarquee from "@/components/LogoMarquee.astro";
+import Testimonials from "@/components/Testimonials.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { img } from "@/data/images";
+import { PARTNERS, RECRUITERS } from "@/data/logos";
+import { DOORS, GALLERY, LEARN_ROWS, NEXT_STEPS, PORTFOLIO_URL } from "@/data/home";
+import { ROUTES } from "@/data/site";
+
+const ICONS: Record<string, string> = {
+  cap: '<path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/>',
+  steps: '<path d="M4 20h4v-4h4v-4h4V8h4"/><path d="M4 20V4"/>',
+  book: '<path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5C4.7 20 4 19.3 4 18.5v-13z"/><path d="M12 4h6.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H12"/>',
+  building: '<path d="M4 20V6l8-3 8 3v14"/><path d="M9 20v-5h6v5"/><path d="M8 9h.01M12 9h.01M16 9h.01"/>',
+};
+---
+
+<Base
+  title="École IA à Paris : Bachelor et MSc en alternance | Eugenia School"
+  description="Eugenia School, l'école de l'IA appliquée au business à Paris : Bachelor et Master en alternance, hors Parcoursup. Premier projet en entreprise dès le semestre 1."
+  headerTone="plum"
+  current={ROUTES.home}
+  jsonLd={[
+    {
+      "@type": "Event",
+      name: "Portes ouvertes Eugenia School",
+      startDate: "2026-12-12T10:30:00+01:00",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      location: { "@type": "Place", name: "Eugenia School", address: "18 rue de Paradis, 75010 Paris" },
+      isAccessibleForFree: true,
+      organizer: { "@type": "EducationalOrganization", name: "Eugenia School" },
+    },
+  ]}
+>
+  <!-- Hero: text left, 7:8 photo right -->
+  <section class="hero dark">
+    <div class="hero__text">
+      <p class="r1 hero__place">18 rue de Paradis, Paris 10e</p>
+      <h1 class="r1 hero__title">Eugenia<br />School</h1>
+      <p class="r2 hero__lead">L'école de l'IA appliquée au business. Bachelor et Master en alternance, hors Parcoursup.</p>
+      <div class="r3 btn-row hero__actions">
+        <a href={ROUTES.admissions} class="btn btn--lg">Candidater</a>
+        <a href={ROUTES.programmes} class="btn-outline">Voir les programmes</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <Image
+        src={img("n_hero_pair")}
+        alt="Deux étudiants sourient en conférence, l'un porte le pull Eugenia School"
+        widths={[480, 720, 960, 1265]}
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        format="webp"
+        quality={82}
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+      />
+    </div>
+  </section>
+
+  <!-- Badges + partners -->
+  <section aria-label="Reconnaissance et partenaires" class="badges">
+    <div class="container badges__row">
+      <div class="badges__official">
+        <Logo name="lg_fc" alt="France Compétences, titre enregistré au RNCP" height={36} />
+        <Logo name="lg_qualiopi" alt="Qualiopi, processus certifié" height={36} />
+      </div>
+      <div class="badges__partners">
+        <span class="badges__label">Partenaires</span>
+        {PARTNERS.map((l) => <Logo name={l.name} alt={l.alt} height={l.height} gray />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Façade + promise -->
+  <section class="container section promise">
+    <figure>
+      <Pic src={img("p_facade_tall")} alt="La façade du 18 rue de Paradis, ses vitraux et les étudiants devant l'entrée" ratio="3 / 4" sizes="(min-width: 1024px) 640px, 100vw" />
+      <figcaption class="caption">La façade du 18 rue de Paradis, à l'heure de la pause.</figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow promise__eyebrow">Fondée en 2023</p>
+      <p class="promise__title">Ici, on apprend l'IA en la construisant, avec les entreprises qui la font.</p>
+      <p class="promise__text">Ni école d'ingénieur, ni école de commerce&#8239;: le meilleur des deux. Des professionnels en poste comme professeurs, un premier projet en entreprise dès le semestre 1, et un campus de 2&#8239;500 m² au cœur de Paris.</p>
+      <div class="promise__link"><a href={ROUTES.ecole} class="lnk">Découvrir l'école</a></div>
+    </div>
+  </section>
+
+  <!-- Four entry doors -->
+  <section aria-labelledby="pour-qui" class="doors">
+    <h2 id="pour-qui" class="sr-only">Trouver le programme qui te correspond</h2>
+    <div class="container doors__grid">
+      {
+        DOORS.map((d) => (
+          <a href={d.href} class="door tint">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={ICONS[d.icon]} />
+            <span class="door__who">{d.who}</span>
+            <span class="h4">{d.title}</span>
+            <span class="door__text">{d.text}</span>
+            <span class="door__cta">{d.cta}</span>
+          </a>
+        ))
+      }
+    </div>
+    <div class="container doors__hesitate">
+      Tu hésites entre deux parcours&#8239;? <a href={ROUTES.contact} class="lnk">Pose ta question à l'équipe</a>, elle te répond et peut te proposer un rendez-vous d'orientation.
+    </div>
+  </section>
+
+  <!-- What you will learn (dark) -->
+  <section class="dark learn" aria-labelledby="learn-title">
+    <Image src={img("p_atrium_wide")} alt="" aria-hidden="true" widths={[960, 1500]} sizes="100vw" format="webp" quality={60} loading="lazy" class="learn__bg" />
+    <div class="container learn__inner">
+      <div class="section-head learn__head">
+        <h2 id="learn-title" class="h2 learn__title">Ce que tu vas apprendre, et construire.</h2>
+        <p class="learn__sub">Un socle commun en IA, data et no-code, enseigné par des professionnels en poste.</p>
+      </div>
+      {
+        LEARN_ROWS.map((row) => (
+          <div class="learn__row">
+            <div class="learn__duration">{row.duration}</div>
+            <div>
+              <h3 class="h3 learn__h3">{row.title}</h3>
+              <p class="learn__text">{row.text}</p>
+              <div class="chips learn__chips">
+                {row.chips.map((c) => (
+                  <span class="chip">{c}</span>
+                ))}
+              </div>
+              <a href={row.link.href} class="lnk">{row.link.label}</a>
+            </div>
+            <Pic src={img(row.image)} alt={row.alt} ratio="4 / 3" sizes="300px" widths={[320, 600]} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- What students build -->
+  <section class="container section build" aria-labelledby="build-title">
+    <div class="section-head build__head">
+      <h2 id="build-title" class="h2 build__title">Ce que nos étudiants construisent.</h2>
+      <a href={PORTFOLIO_URL} class="lnk">Tous les portfolios</a>
+    </div>
+    <div class="build__grid">
+      <a href={`${ROUTES.entreprises}#hackathons`} class="build__feature">
+        <Pic src={img("p_award")} alt="Une équipe d'étudiants célèbre son Bronze Award au hackathon Dust" ratio="16 / 9" position="45% 40%" sizes="(min-width: 1024px) 900px, 100vw" class="build__feature-pic" />
+        <div class="build__overlay"></div>
+        <div class="build__caption">
+          <div>
+            <div class="build__kicker">Hackathon Dust, sur le campus</div>
+            <div class="build__big">Bronze Award&#8239;: livré, pitché, récompensé.</div>
+          </div>
+          <Logo name="lg_dust" alt="Dust" height={28} class="logo-pad" />
+        </div>
+      </a>
+      <div class="build__side">
+        <a href={PORTFOLIO_URL} class="build__card">
+          <Pic src={img("pf_ian")} alt="Portfolio en ligne de Ian Laurent" ratio="16 / 9" position="top" sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1200]} />
+          <div class="build__card-meta"><span class="semibold">Portfolio de Ian Laurent</span><span class="muted">Agent IA et fine-tuning</span></div>
+        </a>
+        <a href={`${ROUTES.entreprises}#hackathons`} class="build__card">
+          <Pic src={img("p_payfit")} alt="Les équipes du hackathon PayFit sur le campus" ratio="16 / 9" position="top" sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1200]} />
+          <div class="build__card-meta"><span class="semibold">Hackathon PayFit</span><span class="muted">48 heures, un brief réel</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <!-- Recruiters -->
+  <section class="recruiters" aria-labelledby="recruiters-title">
+    <h2 id="recruiters-title" class="eyebrow recruiters__title">Ils recrutent nos étudiants en alternance</h2>
+    <LogoMarquee logos={RECRUITERS} label="Entreprises qui recrutent nos étudiants" />
+    <div class="recruiters__link"><a href={ROUTES.entreprises} class="lnk">Recruter un alternant</a></div>
+  </section>
+
+  <!-- Campus gallery, overflowing to the right -->
+  <section class="gallery" aria-labelledby="gallery-title">
+    <div class="container section-head gallery__head">
+      <div>
+        <h2 id="gallery-title" class="h2 gallery__title">Un lieu qui donne envie de construire.</h2>
+        <p class="gallery__sub">2&#8239;500 m² au cœur du 10e, entre patrimoine Art nouveau et espaces de travail d'aujourd'hui.</p>
+      </div>
+      <a href={`${ROUTES.ecole}#campus`} class="lnk">Visiter le campus</a>
+    </div>
+    <div class="gallery__strip">
+      {
+        GALLERY.map((g) => (
+          <figure class="gallery__item" style={`--w: ${g.width}px`}>
+            <Pic src={img(g.image)} alt={g.alt} sizes={`${g.width}px`} widths={[400, 700]} />
+            <figcaption class="gallery__caption">{g.caption}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Next step -->
+  <section class="dark next" aria-labelledby="next-title">
+    <div class="container">
+      <div class="next__head">
+        <h2 id="next-title" class="cta-title">Ta prochaine étape.</h2>
+        <p class="next__sub">Pas besoin de tout décider aujourd'hui. Choisis l'étape qui te correspond.</p>
+      </div>
+      <div class="next__grid">
+        {
+          NEXT_STEPS.map((s) => (
+            <div class:list={["next__card", s.cta.primary && "next__card--highlight"]}>
+              <div class="next__step">
+                <span class:list={["next__num", s.cta.primary && "next__num--accent"]}>{s.n}</span>
+                {s.step}
+              </div>
+              <div class="h3-sm next__title">{s.title}</div>
+              <div class="next__accent">{s.accent}</div>
+              <p class="next__text">{s.text}</p>
+              <div class="next__cta">
+                <a href={s.cta.href} class={s.cta.primary ? "btn" : "btn-outline"}>{s.cta.label}</a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Ce que tu vas apprendre, année par année." image="n_crowd" />
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    min-height: 820px;
+  }
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 96px 64px 96px max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
+  }
+  .hero__place {
+    margin-bottom: 28px;
+    font-size: 15px;
+    color: var(--paper-60);
+  }
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(72px, 8.2vw, 132px);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+  }
+  .hero__lead {
+    margin-top: 36px;
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--paper-86);
+    max-width: 23em;
+  }
+  .hero__actions {
+    margin-top: 44px;
+  }
+  .hero__media {
+    position: relative;
+    min-height: 820px;
+    overflow: hidden;
+  }
+  .hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 35%;
+  }
+  @media (max-width: 1023px) {
+    .hero {
+      min-height: 0;
+    }
+    .hero__text {
+      padding: 72px var(--gutter) 64px;
+    }
+    .hero__title {
+      font-size: clamp(64px, 18vw, 96px);
+    }
+    .hero__media {
+      min-height: 0;
+      aspect-ratio: 7 / 8;
+    }
+  }
+  @media (max-width: 379px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Badges */
+  .badges {
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .badges__row {
+    padding-block: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 48px;
+    flex-wrap: wrap;
+  }
+  .badges__official {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .badges__partners {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .badges__label {
+    font-size: 14px;
+    color: var(--ink-65);
+  }
+  @media (max-width: 767px) {
+    .badges__partners {
+      gap: 24px;
+    }
+  }
+
+  /* Promise */
+  .promise {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 56px 96px;
+    align-items: center;
+  }
+  .promise__eyebrow {
+    margin-bottom: 28px;
+  }
+  .promise__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(30px, 3.2vw, 44px);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+  .promise__text {
+    margin-top: 28px;
+    color: var(--ink-72);
+    max-width: 30em;
+  }
+  .promise__link {
+    margin-top: 40px;
+  }
+
+  /* Doors */
+  .doors {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .doors__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    padding-inline: 0;
+  }
+  .door {
+    text-decoration: none;
+    color: var(--plum);
+    padding: 48px 32px 44px;
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 260px;
+  }
+  .door:hover {
+    color: var(--plum);
+  }
+  .door__who {
+    font-size: 14px;
+    color: var(--ink-60);
+    margin-top: 28px;
+  }
+  .door__text {
+    font-size: 15px;
+    color: var(--ink-68);
+    line-height: 1.5;
+  }
+  .door__cta {
+    margin-top: auto;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line-link);
+    align-self: flex-start;
+    padding-bottom: 3px;
+  }
+  .doors__hesitate {
+    padding-block: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 16px;
+    color: var(--ink-70);
+  }
+  @media (max-width: 767px) {
+    .door {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding: 36px var(--gutter);
+      min-height: 0;
+    }
+    .door:first-child {
+      border-top: 0;
+    }
+  }
+
+  /* Learn */
+  .learn {
+    position: relative;
+    padding: var(--section-y) 0 var(--section-y-sm);
+    overflow: hidden;
+  }
+  .learn__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.09;
+  }
+  .learn__inner {
+    position: relative;
+  }
+  .learn__head {
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+  .learn__title {
+    max-width: 12em;
+  }
+  .learn__sub {
+    max-width: 24em;
+    font-size: 17px;
+    color: var(--paper-72);
+  }
+  .learn__row {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 300px;
+    gap: 40px;
+    padding: 44px 0;
+    border-top: 1px solid var(--line-w-strong);
+    align-items: start;
+  }
+  .learn__duration {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--paper-70);
+  }
+  .learn__h3 {
+    margin-bottom: 12px;
+  }
+  .learn__text {
+    margin-bottom: 24px;
+    color: var(--paper-72);
+    max-width: 34em;
+    font-size: 17px;
+  }
+  .learn__chips {
+    margin-bottom: 28px;
+  }
+  @media (max-width: 1023px) {
+    .learn__row {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .learn__row :global(.pic) {
+      max-width: 420px;
+    }
+    .learn__head {
+      margin-bottom: 48px;
+    }
+  }
+
+  /* Build */
+  .build__head {
+    margin-bottom: 64px;
+  }
+  .build__title {
+    max-width: 11em;
+  }
+  .build__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  .build__feature {
+    position: relative;
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    color: var(--white);
+    text-decoration: none;
+    background: var(--plum);
+  }
+  .build__feature:hover {
+    color: var(--white);
+  }
+  .build__feature :global(.pic) {
+    border-radius: 0;
+  }
+  .build__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(31, 13, 25, 0) 40%, rgba(31, 13, 25, 0.85));
+  }
+  .build__caption {
+    position: absolute;
+    left: 36px;
+    right: 36px;
+    bottom: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .build__kicker {
+    font-size: 15px;
+    color: var(--paper-75);
+    margin-bottom: 8px;
+  }
+  .build__big {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 38px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .build__side {
+    display: grid;
+    gap: 20px;
+    align-content: start;
+  }
+  .build__card {
+    text-decoration: none;
+    color: var(--plum);
+    display: block;
+  }
+  .build__card:hover {
+    color: var(--plum);
+  }
+  .build__card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 15px;
+  }
+  @media (max-width: 1023px) {
+    .build__grid {
+      grid-template-columns: 1fr;
+    }
+    .build__side {
+      grid-template-columns: 1fr 1fr;
+    }
+    .build__caption {
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+    }
+    .build__big {
+      font-size: clamp(24px, 4.5vw, 38px);
+    }
+  }
+  @media (max-width: 767px) {
+    .build__side {
+      grid-template-columns: 1fr;
+    }
+    .build__head {
+      margin-bottom: 36px;
+    }
+  }
+
+  /* Recruiters */
+  .recruiters {
+    padding: var(--section-y-sm) 0 130px;
+  }
+  .recruiters__title {
+    margin-bottom: 44px;
+    text-align: center;
+    font-weight: 400;
+  }
+  .recruiters__link {
+    text-align: center;
+    margin-top: 44px;
+  }
+  @media (max-width: 767px) {
+    .recruiters {
+      padding-bottom: var(--section-y-sm);
+    }
+  }
+
+  /* Gallery */
+  .gallery {
+    padding-bottom: 160px;
+  }
+  .gallery__head {
+    margin-bottom: 64px;
+  }
+  .gallery__title {
+    max-width: 12em;
+  }
+  .gallery__sub {
+    margin-top: 20px;
+    max-width: 30em;
+    font-size: 17px;
+    color: var(--ink-70);
+  }
+  .gallery__strip {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-left: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
+    padding-right: var(--gutter);
+  }
+  .gallery__strip::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery__item {
+    flex: 0 0 var(--w);
+  }
+  .gallery__caption {
+    margin-top: 14px;
+    font-size: 15px;
+  }
+  @media (max-width: 767px) {
+    .gallery {
+      padding-bottom: var(--section-y);
+    }
+    .gallery__head {
+      margin-bottom: 36px;
+    }
+    .gallery__item {
+      flex-basis: min(var(--w), 70vw);
+    }
+  }
+
+  /* Next step */
+  .next {
+    padding: var(--section-y) 0 140px;
+  }
+  .next__head {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 32px 80px;
+    align-items: end;
+    margin-bottom: 72px;
+  }
+  .next__sub {
+    font-size: 18px;
+    color: var(--paper-75);
+    max-width: 26em;
+  }
+  .next__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    border-right: 1px solid var(--line-w);
+  }
+  .next__card {
+    padding: 36px 32px 40px;
+    border-left: 1px solid var(--line-w);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .next__card--highlight {
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .next__step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--paper-60);
+  }
+  .next__num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--white);
+  }
+  .next__num--accent {
+    border-color: var(--yellow);
+  }
+  .next__title {
+    margin-top: 18px;
+  }
+  .next__accent {
+    font-size: 14px;
+    color: var(--yellow);
+  }
+  .next__text {
+    margin: 4px 0 28px;
+    font-size: 16px;
+    color: var(--paper-72);
+  }
+  .next__cta {
+    margin-top: auto;
+  }
+  @media (max-width: 767px) {
+    .next {
+      padding-bottom: var(--section-y);
+    }
+    .next__head {
+      margin-bottom: 40px;
+    }
+    .next__grid {
+      border-right: 0;
+    }
+    .next__card {
+      border-left: 0;
+      border-top: 1px solid var(--line-w);
+      padding: 32px 0;
+    }
+  }
+</style>

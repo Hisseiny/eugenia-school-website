@@ -1,0 +1,70 @@
+---
+/**
+ * Embeds one of the school's existing HubSpot forms (same portal, region and form ids as the live site).
+ * Without JavaScript the visitor gets a fallback link instead of an empty box.
+ */
+import { HUBSPOT, ROUTES } from "@/data/site";
+
+interface Props {
+  form: keyof typeof HUBSPOT.forms;
+  minHeight?: number;
+}
+const { form, minHeight = 420 } = Astro.props;
+const formId = HUBSPOT.forms[form];
+const id = `hs-form-${form}`;
+---
+
+<div
+  id={id}
+  class="hs-form"
+  data-hs-portal={HUBSPOT.portalId}
+  data-hs-region={HUBSPOT.region}
+  data-hs-form-id={formId}
+  style={`min-height: ${minHeight}px`}
+>
+  <noscript>
+    <p>Merci d'activer JavaScript pour afficher ce formulaire, ou <a href={ROUTES.contact}>contactez l'équipe</a>.</p>
+  </noscript>
+</div>
+
+<script>
+  type Hbspt = { forms: { create: (opts: Record<string, string>) => void } };
+  declare global {
+    interface Window {
+      hbspt?: Hbspt;
+    }
+  }
+
+  const SCRIPT_ID = "hs-embed-v2";
+
+  function loadEmbed(region: string): Promise<void> {
+    return new Promise((resolve) => {
+      if (window.hbspt) return resolve();
+      let s = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
+      if (!s) {
+        s = document.createElement("script");
+        s.id = SCRIPT_ID;
+        s.src = `https://js-${region}.hsforms.net/forms/embed/v2.js`;
+        s.async = true;
+        document.head.appendChild(s);
+      }
+      s.addEventListener("load", () => resolve(), { once: true });
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>(".hs-form[data-hs-form-id]").forEach(async (el) => {
+    const { hsPortal, hsRegion, hsFormId } = el.dataset;
+    if (!hsPortal || !hsRegion || !hsFormId) return;
+    await loadEmbed(hsRegion);
+    window.hbspt?.forms.create({ region: hsRegion, portalId: hsPortal, formId: hsFormId, target: `#${el.id}` });
+  });
+</script>
+
+<style>
+  .hs-form {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+</style>

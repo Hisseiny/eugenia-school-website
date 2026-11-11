@@ -1,0 +1,58 @@
+---
+/** Plum closing section: title + one primary action + one secondary, photo at its natural ratio. */
+import Pic from "@/components/Pic.astro";
+import { img } from "@/data/images";
+
+interface Props {
+  title: string;
+  primary: { href: string; label: string };
+  secondary: { href: string; label: string };
+  image: string;
+  position?: string;
+  text?: string;
+}
+const { title, primary, secondary, image, position, text } = Astro.props;
+---
+
+<section class="dark end">
+  <div class="container end__grid">
+    <div>
+      <h2 class="cta-title end__title">{title}</h2>
+      {text && <p class="end__text">{text}</p>}
+      <div class="btn-row end__actions">
+        <a href={primary.href} class="btn btn--lg">{primary.label}</a>
+        <a href={secondary.href} class="btn-outline">{secondary.label}</a>
+      </div>
+    </div>
+    <Pic src={img(image)} alt="" decorative position={position} sizes="(min-width: 1024px) 640px, 100vw" />
+  </div>
+</section>
+
+<style>
+  .end {
+    padding-block: var(--section-y);
+  }
+  .end__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 64px 80px;
+    align-items: center;
+  }
+  .end__title {
+    max-width: 9em;
+  }
+  .end__text {
+    margin-top: 28px;
+    font-size: 18px;
+    color: var(--paper-75);
+    max-width: 28em;
+  }
+  .end__actions {
+    margin-top: 52px;
+  }
+  @media (max-width: 767px) {
+    .end__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

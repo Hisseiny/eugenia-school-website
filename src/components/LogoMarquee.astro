@@ -1,0 +1,61 @@
+---
+/** Slow CSS scroll of recruiter logos, paused on hover. Content is duplicated once for the loop. */
+import Logo from "@/components/Logo.astro";
+
+interface Props {
+  logos: ReadonlyArray<{ name: string; alt: string; height: number }>;
+  label?: string;
+}
+const { logos, label } = Astro.props;
+---
+
+<div class="marq" aria-label={label}>
+  <div class="track">
+    {logos.map((l) => <Logo name={l.name} alt={l.alt} height={l.height} gray />)}
+    {logos.map((l) => <Logo name={l.name} alt={l.alt} height={l.height} gray decorative />)}
+  </div>
+</div>
+
+<style>
+  .marq {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .track {
+    display: flex;
+    gap: 88px;
+    align-items: center;
+    width: max-content;
+    animation: marquee 56s linear infinite;
+  }
+  .marq:hover .track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (max-width: 767px) {
+    .track {
+      gap: 48px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .track {
+      animation: none;
+      flex-wrap: wrap;
+      width: auto;
+      justify-content: center;
+      gap: 32px 48px;
+      padding-inline: var(--gutter);
+    }
+    .track > :nth-child(n + 14) {
+      display: none;
+    }
+  }
+</style>
