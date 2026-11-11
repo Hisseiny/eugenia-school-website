@@ -224,8 +224,9 @@ export const page: LivePage = {
           "text": "Les deux écoles ont été fondées par les mêmes fondateurs, Grégoire Genest et Mathieu Schimpl, serial entrepreneurs. Albert School s'appuie sur les maths appliquées et une approche quantitative : une IA et une data très techniques (data science, engineering) appliquées au business. Eugenia forme des profils plus opérationnels, entrepreneuriaux et généralistes, des « couteaux suisses » de l'IA appliquée au business, sans maths avancées."
         },
         {
-          "type": "paragraph",
-          "text": "Découvrir l'ADN d'Eugenia →"
+          "type": "link",
+          "label": "Découvrir l'ADN d'Eugenia →",
+          "href": "/notre-adn"
         },
         {
           "type": "faq",
@@ -312,8 +313,9 @@ export const page: LivePage = {
           "text": "Nos diplômes s'appuient sur des titres RNCP (Registre National des Certifications Professionnelles) reconnus par France Compétences. Pour le Bachelor AI Applied to Business, il s'agit du titre RNCP de niveau 6 « Concepteur de solutions no code », délivré par LION (RNCP 41143). Pour le Master of Science AI Applied to Business, il s'agit du titre RNCP de niveau 7 « Architecte en intelligence artificielle », délivré par JEDHA (RNCP 41993)."
         },
         {
-          "type": "paragraph",
-          "text": "Voir la certification du Bachelor →"
+          "type": "link",
+          "label": "Voir la certification du Bachelor →",
+          "href": "/certification-concepteur-solutions-no-code"
         },
         {
           "type": "faq",
@@ -358,8 +360,9 @@ export const page: LivePage = {
           "text": "Oui, pour le Bachelor comme pour le MSc : chaque étudiant est accompagné par des mentors et bénéficie d'un suivi individuel tout au long du parcours."
         },
         {
-          "type": "paragraph",
-          "text": "Rencontrer les professeurs et mentors →"
+          "type": "link",
+          "label": "Rencontrer les professeurs et mentors →",
+          "href": "/approche-pedagogique"
         },
         {
           "type": "faq",
@@ -466,8 +469,9 @@ export const page: LivePage = {
           "text": "Décrivez votre besoin via le formulaire dédié : l'équipe revient vers vous. Stage, alternance (contrats de professionnalisation et d'apprentissage acceptés) ou CDI pour un diplômé."
         },
         {
-          "type": "paragraph",
-          "text": "Recruter nos étudiants →"
+          "type": "link",
+          "label": "Recruter nos étudiants →",
+          "href": "/recruter-nos-etudiants"
         },
         {
           "type": "faq",
@@ -498,8 +502,9 @@ export const page: LivePage = {
           "text": "Le MSc se fait en alternance : après un bootcamp de 5 semaines, le rythme est de 4 jours en entreprise et 1 jour à l'école. La 3e année du Bachelor peut aussi se faire en alternance."
         },
         {
-          "type": "paragraph",
-          "text": "Voir la 3e année en alternance →"
+          "type": "link",
+          "label": "Voir la 3e année en alternance →",
+          "href": "/programme/bachelor-ia-business-3eme-annee-alternance"
         },
         {
           "type": "faq",
@@ -690,8 +695,9 @@ export const page: LivePage = {
           "text": "Oui. Pour le MSc, il faut être titulaire d'un bac+3 (180 crédits ECTS), quelle que soit la filière d'origine, avec l'envie d'acquérir une base technique : le bootcamp de démarrage reprend les bases de l'analyse de données."
         },
         {
-          "type": "paragraph",
-          "text": "Découvrir le MSc →"
+          "type": "link",
+          "label": "Découvrir le MSc →",
+          "href": "/programme/master-ia-business-alternance"
         },
         {
           "type": "faq",
@@ -722,8 +728,9 @@ export const page: LivePage = {
           "text": "La candidature est gratuite pour les candidats résidant dans l'Union européenne. Pour les candidats résidant hors de l'Union européenne, elle coûte 30 €."
         },
         {
-          "type": "paragraph",
-          "text": "Candidater →"
+          "type": "link",
+          "label": "Candidater →",
+          "href": "/candidature"
         },
         {
           "type": "faq",
@@ -740,8 +747,9 @@ export const page: LivePage = {
           "text": "La rentrée a lieu uniquement en septembre. Il n'y a pas de rentrée en janvier."
         },
         {
-          "type": "paragraph",
-          "text": "Voir le processus d'admission →"
+          "type": "link",
+          "label": "Voir le processus d'admission →",
+          "href": "/processus-admission"
         },
         {
           "type": "faq",
@@ -876,8 +884,9 @@ export const page: LivePage = {
           "text": "Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. L'attribution de la bourse est basée sur des critères sociaux et académiques. La demande de bourse doit être faite avant l'inscription. Vous pouvez également demander des prêts étudiants auprès des banques partenaires. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité. Pour toute précision : admission@eugeniaschool.com."
         },
         {
-          "type": "paragraph",
-          "text": "Voir le financement →"
+          "type": "link",
+          "label": "Voir le financement →",
+          "href": "/financement"
         }
       ]
     }

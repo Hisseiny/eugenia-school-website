@@ -160,13 +160,23 @@ export const page: LivePage = {
       "title": "Comment le titre s’obtient.",
       "blocks": [
         {
-          "type": "cta",
-          "label": "Le programmeBachelor AI Applied to BusinessTrois ans pour construire, tester et lancer, avec une 3e année en stage ou en alternance.Découvrir →",
-          "href": "/programme/bachelor-ia-business"
-        },
-        {
-          "type": "paragraph",
-          "text": "L’autre certificationArchitecte en intelligence artificielleTitre RNCP 41993 de niveau 7, délivré par JEDHA dans le cadre du MSc d’Eugenia School.Lire la fiche →"
+          "type": "related-cards",
+          "items": [
+            {
+              "eyebrow": "Le programme",
+              "title": "Bachelor AI Applied to Business",
+              "text": "Trois ans pour construire, tester et lancer, avec une 3e année en stage ou en alternance.",
+              "label": "Découvrir →",
+              "href": "/programme/bachelor-ia-business"
+            },
+            {
+              "eyebrow": "L’autre certification",
+              "title": "Architecte en intelligence artificielle",
+              "text": "Titre RNCP 41993 de niveau 7, délivré par JEDHA dans le cadre du MSc d’Eugenia School.",
+              "label": "Lire la fiche →",
+              "href": "/certification-architecte-ia"
+            }
+          ]
         }
       ],
       "eyebrow": "candidatures · rentrée en septembre"

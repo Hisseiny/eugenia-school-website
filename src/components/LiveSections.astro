@@ -13,8 +13,14 @@ interface Props {
 
 const { sections } = Astro.props;
 let faqGroup = 0;
+const cleanText = (text: string) => text.replace(/\*\*(.*?)\*\*/gu, "$1");
 
-type RenderBlock = Exclude<PageBlock, { type: "faq" }> | { type: "faq-group"; items: FaqItem[]; idPrefix: string };
+type CardGroup = { type: "card-group"; cards: { number?: string; title: string; blocks: PageBlock[] }[] };
+type ProfileGroup = { type: "profile-group"; profiles: { image: PageBlock & { type: "image" }; blocks: PageBlock[] }[] };
+type LogoGroup = { type: "logo-group"; items: { name: string; alt: string }[] };
+type ImageGroup = { type: "image-group"; items: { name: string; alt: string }[] };
+type RenderBlock = Exclude<PageBlock, { type: "faq" | "image" }> | { type: "faq-group"; items: FaqItem[]; idPrefix: string } | CardGroup | ProfileGroup | LogoGroup | ImageGroup | (PageBlock & { type: "image" });
+const isLogoImage = (block: PageBlock | RenderBlock) => block.type === "image" && (block.logo || /^(lg_|pr3_logo-)/.test(block.name));
 
 const groupFaqBlocks = (blocks: PageBlock[]): RenderBlock[] => {
   const grouped: RenderBlock[] = [];
@@ -39,38 +45,215 @@ const groupFaqBlocks = (blocks: PageBlock[]): RenderBlock[] => {
   flushFaq();
   return grouped;
 };
-const groupedSections = sections.map((section) => ({ ...section, blocks: groupFaqBlocks(section.blocks) }));
+const groupContent = (blocks: PageBlock[], title: string): RenderBlock[] => {
+  const profiles: RenderBlock[] = [];
+  if (/ce qu['’]ils en disent|ils sont passés par là/i.test(title)) {
+    for (let index = 0; index < blocks.length;) {
+      const block = blocks[index];
+      if (block?.type !== "image" || !/^Portrait/i.test(block.alt)) {
+        profiles.push(block as RenderBlock);
+        index++;
+        continue;
+      }
+      const profileBlocks: PageBlock[] = [];
+      index++;
+      while (index < blocks.length) {
+        const next = blocks[index]!;
+        if (next.type === "image" && /^Portrait/i.test(next.alt)) break;
+        if (isLogoImage(next) && blocks.slice(index).every(isLogoImage)) break;
+        profileBlocks.push(next);
+        index++;
+      }
+      const last = profiles.at(-1);
+      if (last?.type === "profile-group") last.profiles.push({ image: block, blocks: profileBlocks });
+      else profiles.push({ type: "profile-group", profiles: [{ image: block, blocks: profileBlocks }] });
+    }
+  } else {
+    profiles.push(...blocks as RenderBlock[]);
+  }
+
+  const grouped: RenderBlock[] = [];
+  for (let index = 0; index < profiles.length;) {
+    const block = profiles[index];
+    if (block?.type === "image" && isLogoImage(block)) {
+      const items: { name: string; alt: string }[] = [];
+      while (profiles[index]?.type === "image" && isLogoImage(profiles[index])) {
+        const logo = profiles[index] as PageBlock & { type: "image" };
+        items.push({ name: logo.name, alt: logo.alt });
+        index++;
+      }
+      grouped.push({ type: "logo-group", items });
+      continue;
+    }
+    if (block?.type === "image" && !isLogoImage(block)) {
+      const items: { name: string; alt: string }[] = [];
+      while (profiles[index]?.type === "image" && !isLogoImage(profiles[index])) {
+        const image = profiles[index] as PageBlock & { type: "image" };
+        items.push({ name: image.name, alt: image.alt });
+        index++;
+      }
+      grouped.push({ type: "image-group", items });
+      continue;
+    }
+    grouped.push(block!);
+    index++;
+  }
+
+  if (grouped.some((block) => (block as { type: string }).type === "faq")) return groupFaqBlocks(grouped as PageBlock[]);
+
+  const withCards: RenderBlock[] = [];
+  for (let index = 0; index < grouped.length;) {
+    const start = index;
+    const cards: CardGroup["cards"] = [];
+    while (index < grouped.length) {
+      let number: string | undefined;
+      const current = grouped[index];
+      if (current?.type === "paragraph" && /^Bloc \d{2}$/i.test(current.text) && grouped[index + 1]?.type === "heading") {
+        number = current.text;
+        index++;
+      }
+      const heading = grouped[index];
+      if (heading?.type !== "heading") break;
+      index++;
+      const content: PageBlock[] = [];
+      while (index < grouped.length) {
+        const currentContent = grouped[index];
+        if (!currentContent || currentContent.type === "heading" || (currentContent.type === "paragraph" && /^Bloc \d{2}$/i.test(currentContent.text) && grouped[index + 1]?.type === "heading")) break;
+        content.push(currentContent as PageBlock);
+        index++;
+      }
+      cards.push({ number, title: heading.text, blocks: content });
+    }
+    const cardSafe = cards.length >= 2 && cards.every((card) => card.blocks.every((item) => ["paragraph", "list", "quote"].includes(item.type)));
+    if (cardSafe) withCards.push({ type: "card-group", cards });
+    else {
+      withCards.push(...grouped.slice(start, index === start ? start + 1 : index));
+      if (index === start) index++;
+    }
+  }
+  return groupFaqBlocks(withCards as PageBlock[]);
+};
+const groupedSections = sections.map((section) => {
+  const [first, ...rest] = section.blocks;
+  const lead = first?.type === "paragraph" && first.text.length > 100 ? first.text : undefined;
+  return { ...section, lead, blocks: groupContent(lead ? rest : section.blocks, section.title ?? "") };
+});
 ---
 
 {
   groupedSections.map((section) => (
-    <section class="live-section" data-reveal>
+    <section class="live-section">
       <div class="container">
-        {section.eyebrow && <p class="eyebrow live-section__eyebrow">{section.eyebrow.replace(/^\/\/\s*/, "")}</p>}
-        {section.title && <h2 class="h2 live-section__title">{section.title}</h2>}
+        <header class:list={["live-section__head", !section.lead && "live-section__head--single"]}>
+          <div>
+            {section.eyebrow && <p class="eyebrow live-section__eyebrow">{section.eyebrow.replace(/^\/\/\s*/, "")}</p>}
+            {section.title && <h2 class="h2 live-section__title">{section.title}</h2>}
+          </div>
+          {section.lead && <p class="live-section__intro">{section.lead}</p>}
+        </header>
         <div class="live-section__blocks">
           {section.blocks.map((block) => {
             if (block.type === "faq-group") return <FaqList items={block.items} idPrefix={block.idPrefix} />;
+            if (block.type === "card-group") {
+              return (
+                <div class="live-card-grid">
+                  {block.cards.map((card) => (
+                    <article class="live-card">
+                      {card.number && <span class="live-card__number">{card.number}</span>}
+                      <h3 class="h3-sm">{card.title}</h3>
+                      {card.blocks.map((content) => {
+                        if (content.type === "paragraph") return <p class="live-section__text">{cleanText(content.text)}</p>;
+                        if (content.type === "list") return <ul class="live-section__list live-section__list--compact">{content.items.map((item) => <li>{item}</li>)}</ul>;
+                        if (content.type === "quote") return <blockquote class="live-section__quote">{cleanText(content.text)}</blockquote>;
+                        return null;
+                      })}
+                    </article>
+                  ))}
+                </div>
+              );
+            }
+            if (block.type === "profile-group") {
+              return (
+                <div class="live-testimonial-grid">
+                  {block.profiles.map((profile) => (
+                    <article class="live-profile-card">
+                      <Pic src={img(profile.image.name)} alt={profile.image.alt} sizes="(min-width: 1024px) 320px, 80vw" />
+                      <div class="live-profile-card__body">
+                        {profile.blocks.map((content) => {
+                          if (content.type === "paragraph") return <p>{content.text}</p>;
+                          if (content.type === "image") return isLogoImage(content) ? <Logo name={content.name} alt={content.alt} height={24} /> : <Pic src={img(content.name)} alt={content.alt} sizes="120px" />;
+                          return null;
+                        })}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              );
+            }
+            if (block.type === "logo-group" || block.type === "logos") {
+              const items = block.items;
+              return <div class="live-logo-grid">{items.map((item) => <div class="logo-grid__cell"><Logo name={item.name} alt={item.alt} height={36} /></div>)}</div>;
+            }
+            if (block.type === "image-group") {
+              return <div class="live-image-grid">{block.items.map((item) => <figure class="live-section__image"><Pic src={img(item.name)} alt={item.alt} sizes="(min-width: 1024px) 360px, 100vw" /></figure>)}</div>;
+            }
+            if (block.type === "cards") {
+              return (
+                <div class="live-card-grid">
+                  {block.items.map((card) => (
+                    <article class="live-card">
+                      {card.number && <span class="live-card__number">{card.number}</span>}
+                      {card.image && card.alt && <Pic src={img(card.image)} alt={card.alt} sizes="(min-width: 1024px) 360px, 100vw" />}
+                      {card.title && <h3 class="h3-sm">{card.title}</h3>}
+                      <p class="live-section__text">{cleanText(card.text)}</p>
+                      {card.action && <a class="lnk live-card__link" href={card.action.href}>{card.action.label}</a>}
+                      {card.logo && card.logoAlt && <Logo name={card.logo} alt={card.logoAlt} height={24} />}
+                      {card.tags && <ul class="live-card__tags">{card.tags.map((tag) => <li>{tag}</li>)}</ul>}
+                    </article>
+                  ))}
+                </div>
+              );
+            }
+            if (block.type === "related-cards") {
+              return (
+                <div class="live-card-grid">
+                  {block.items.map((card) => (
+                    <a class="live-related-card" href={card.href}>
+                      <p class="eyebrow">{card.eyebrow}</p>
+                      <h3 class="h3-sm">{card.title}</h3>
+                      <p class="live-section__text">{card.text}</p>
+                      <span class="lnk">{card.label}</span>
+                    </a>
+                  ))}
+                </div>
+              );
+            }
             if (block.type === "curriculum") return <Curriculum curriculum={CURRICULA[block.id]} />;
-            if (block.type === "paragraph") return <p class="live-section__text">{block.text}</p>;
-            if (block.type === "heading") return <h3 class="h3-sm live-section__h3">{block.text}</h3>;
+            if (block.type === "paragraph") return <p class="live-section__text">{cleanText(block.text)}</p>;
+            if (block.type === "heading") return <h3 id={block.id} class="h3-sm live-section__h3">{block.text}</h3>;
             if (block.type === "eyebrow") return <p class="eyebrow live-section__eyebrow">{block.text.replace(/^\/\/\s*/, "")}</p>;
             if (block.type === "list") {
               const List = block.ordered ? "ol" : "ul";
-              return <List class="live-section__list">{block.items.map((item) => <li>{item}</li>)}</List>;
+              const short = block.items.every((item) => item.length < 56);
+              return (
+                <List class:list={["live-section__list", short ? "live-section__list--chips" : "live-section__list--cards", block.ordered && "live-section__list--ordered"]}>
+                  {block.items.map((item) => <li>{item}</li>)}
+                </List>
+              );
             }
             if (block.type === "table") {
               const [head, ...rows] = block.rows;
               return (
                 <div class="live-section__table-wrap" tabindex="0" aria-label="Tableau de données">
-                  <table>
+                  <table class="compare__table">
                     <thead><tr>{head?.map((cell) => <th scope="col">{cell}</th>)}</tr></thead>
                     <tbody>{rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
                   </table>
                 </div>
               );
             }
-            if (block.type === "cta" || block.type === "link") return <a class="lnk live-section__link" href={block.href}>{block.label}</a>;
+            if (block.type === "cta") return <a class="btn-outline live-section__link" href={block.href}>{block.label}</a>;
+            if (block.type === "link") return <a class="lnk live-section__link" href={block.href}>{block.label}</a>;
             if (block.type === "button") return <span class="live-section__button-label">{block.label}</span>;
             if (block.type === "image") {
               return block.logo ? (
@@ -81,7 +264,7 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
                 </figure>
               );
             }
-            if (block.type === "quote") return <blockquote class="live-section__quote">{block.text}</blockquote>;
+            if (block.type === "quote") return <blockquote class="live-section__quote">{cleanText(block.text)}</blockquote>;
             return null;
           })}
         </div>
@@ -100,15 +283,34 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
   .live-section__eyebrow {
     margin-bottom: 14px;
   }
+  .live-section__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 32px 72px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  .live-section__head--single {
+    display: block;
+  }
   .live-section__title {
     overflow-wrap: anywhere;
     max-width: 16em;
-    margin-bottom: 36px;
+    margin-bottom: 0;
+  }
+  .live-section__intro {
+    max-width: 65ch;
+    color: var(--ink-70);
+    font-size: 17px;
   }
   .live-section__blocks {
     display: grid;
-    gap: 22px;
-    max-width: 920px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+  }
+  .live-section__blocks > * {
+    min-width: 0;
   }
   .live-section__blocks > :global(.curriculum) {
     width: 100%;
@@ -117,7 +319,7 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
   }
   .live-section__text {
     color: var(--ink-70);
-    max-width: 68em;
+    max-width: 65ch;
   }
   .live-section__h3 {
     margin-top: 18px;
@@ -127,6 +329,40 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
     gap: 10px;
     padding-left: 1.25em;
     list-style: disc;
+    max-width: 65ch;
+  }
+  .live-section__list--chips,
+  .live-section__list--cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+    max-width: none;
+  }
+  .live-section__list--chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .live-section__list--chips li,
+  .live-section__list--cards li {
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--ink-70);
+  }
+  .live-section__list--chips li {
+    width: max-content;
+    max-width: 100%;
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+  }
+  .live-section__list--cards li {
+    padding: 24px;
+    border-radius: var(--radius);
   }
   .live-section__list[reversed],
   .live-section__list[type="1"] {
@@ -136,8 +372,9 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
     max-width: 100%;
     overflow-x: auto;
     border-top: 1px solid var(--line-strong);
+    margin-block: 8px 24px;
   }
-  table {
+  .compare__table {
     width: 100%;
     border-collapse: collapse;
     font-size: 15px;
@@ -151,11 +388,120 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
     vertical-align: top;
   }
   th {
-    font-size: 13px;
+    padding-block: 18px;
+    font-family: var(--font-display);
+    font-size: 18px;
     font-weight: 500;
-    color: var(--ink-60);
+    color: var(--ink);
+  }
+  .compare__table td {
+    color: var(--ink-70);
+  }
+  .live-section__image img,
+  .live-card img {
+    width: 100%;
+    height: auto;
+    border-radius: calc(var(--radius) - 4px);
+  }
+  .live-card-grid,
+  .live-logo-grid,
+  .live-testimonial-grid,
+  .live-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+  .live-card {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+  }
+  .live-related-card {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: inherit;
+    text-decoration: none;
+  }
+  .live-related-card .live-section__text {
+    margin: 0;
+  }
+  .live-related-card .lnk {
+    justify-self: start;
+    margin-top: 4px;
+  }
+  .live-card__number {
+    color: var(--red);
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+  }
+  .live-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+  }
+  .live-card__tags li {
+    padding: 5px 9px;
+    border: 1px solid var(--line-ui);
+    border-radius: var(--radius-pill);
+    color: var(--ink-65);
+    font-size: 12px;
+  }
+  .live-card .live-section__text {
+    margin: 0;
+  }
+  .live-logo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    align-items: center;
+  }
+  .live-logo-grid .logo-grid__cell {
+    display: grid;
+    min-height: 84px;
+    place-items: center;
+    padding: 16px;
+    border-radius: var(--radius);
+    background: var(--white);
+  }
+  .live-profile-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+  }
+  .live-image-grid .live-section__image {
+    max-width: none;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+  .live-profile-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .live-profile-card__body {
+    display: grid;
+    gap: 8px;
+    padding: 20px;
+    color: var(--ink-70);
+  }
+  .live-profile-card__body p:first-child {
+    color: var(--ink);
+    font-weight: 600;
   }
   .live-section__link {
+    justify-self: start;
+  }
+  .live-card__link {
     justify-self: start;
   }
   .live-section__button-label {
@@ -183,6 +529,14 @@ const groupedSections = sections.map((section) => ({ ...section, blocks: groupFa
     }
     .live-section__title {
       margin-bottom: 26px;
+    }
+    .live-section__head {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .live-section__title {
+      margin-bottom: 0;
     }
     th,
     td {

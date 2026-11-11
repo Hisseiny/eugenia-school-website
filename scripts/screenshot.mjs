@@ -9,12 +9,13 @@ const sizes = widths.length ? widths : [1440, 375];
 const only = process.env.PAGES?.split(",");
 const pages = only ?? ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises"];
 const exe = process.env.CHROME_PATH ?? "/home/ubuntu/.local/bin/google-chrome";
+const scrollCrops = process.env.SCROLL_CROPS === "1";
 
 const dir = process.env.OUT_DIR ?? "screenshots";
 mkdirSync(dir, { recursive: true });
 const browser = await chromium.launch({ executablePath: exe, headless: true });
 for (const width of sizes) {
-  const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
+  const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, reducedMotion: "no-preference" });
   const page = await ctx.newPage();
   await page.route("**/*googletagmanager.com/**", (route) => route.abort());
   await page.route("**/connect.facebook.net/**", (route) => route.abort());
@@ -32,10 +33,28 @@ for (const width of sizes) {
         new Promise((r) => setTimeout(r, 8000)),
       ]);
     });
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(700);
     const file = `${dir}/${name}_${width}.png`;
     await page.screenshot({ path: file, fullPage: true });
     console.log(file);
+    if (scrollCrops) {
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForTimeout(1000);
+      let crop = 0;
+      const capture = async () => {
+        const cropFile = `${dir}/${name}_${width}_scroll-${String(crop++).padStart(3, "0")}.png`;
+        await page.screenshot({ path: cropFile });
+        console.log(cropFile);
+      };
+      await capture();
+      while (true) {
+        const { y, max } = await page.evaluate(() => ({ y: window.scrollY, max: document.documentElement.scrollHeight - window.innerHeight }));
+        if (y >= max) break;
+        await page.mouse.wheel(0, 900);
+        await page.waitForTimeout(1000);
+        await capture();
+      }
+    }
   }
   await ctx.close();
 }

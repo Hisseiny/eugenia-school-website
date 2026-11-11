@@ -102,19 +102,58 @@ export const page: LivePage = {
       "title": "Nos valeurs.",
       "blocks": [
         {
-          "type": "list",
-          "ordered": false,
+          "type": "cards",
           "items": [
-            "01Nous sommes Data-drivenDe l'analyse de données à l'IA, nos programmes sont conçus pour développer les compétences analytiques essentielles à la réussite dans un monde technologique.",
-            "02Nous cultivons l'OptimismeNous encourageons une culture de l'optimisme, permettant aux étudiants de voir les défis comme des opportunités et de prendre des initiatives pour leur avenir.",
-            "03Nous avons un Esprit CritiqueNous incitons les étudiants à remettre en question le statu quo, poser des questions pertinentes et réfléchir de manière critique pour résoudre des problèmes complexes."
+            {
+              "number": "01",
+              "title": "Nous sommes Data-driven",
+              "text": "De l'analyse de données à l'IA, nos programmes sont conçus pour développer les compétences analytiques essentielles à la réussite dans un monde technologique."
+            },
+            {
+              "number": "02",
+              "title": "Nous cultivons l'Optimisme",
+              "text": "Nous encourageons une culture de l'optimisme, permettant aux étudiants de voir les défis comme des opportunités et de prendre des initiatives pour leur avenir."
+            },
+            {
+              "number": "03",
+              "title": "Nous avons un Esprit Critique",
+              "text": "Nous incitons les étudiants à remettre en question le statu quo, poser des questions pertinentes et réfléchir de manière critique pour résoudre des problèmes complexes."
+            }
           ]
         }
       ],
-      "eyebrow": "prêts étudiants"
+    },
+    {
+      "eyebrow": "des cas réels d’entreprises partenaires",
+      "blocks": [
+        {
+          "type": "logos",
+          "items": [
+            { "name": "pr3_yt-mirakl", "alt": "Mirakl" },
+            { "name": "pr3_logo-anthropic", "alt": "Anthropic" },
+            { "name": "pr3_logo-tinder", "alt": "Tinder" },
+            { "name": "lg_licter", "alt": "Licter" },
+            { "name": "pr3_logo-h-company", "alt": "H Company" },
+            { "name": "lg_alan", "alt": "Alan" },
+            { "name": "lg_effy", "alt": "EFFY" },
+            { "name": "lg_wesype", "alt": "WeSype" },
+            { "name": "lg_misteria", "alt": "Mister IA" },
+            { "name": "lg_armees", "alt": "Ministère des Armées" },
+            { "name": "lg_airfrance", "alt": "Air France" },
+            { "name": "lg_accenture", "alt": "Accenture" },
+            { "name": "lg_sage", "alt": "Sage" },
+            { "name": "pr3_logo-welcome-to-the-jungle", "alt": "Welcome to the Jungle" },
+            { "name": "lg_salesforce", "alt": "Salesforce" },
+            { "name": "pr3_logo-google-cloud", "alt": "Google Cloud" },
+            { "name": "lg_notion", "alt": "Notion" },
+            { "name": "pr3_logo-n8n", "alt": "n8n" }
+          ]
+        }
+      ]
     },
     {
       "title": "En savoir plus sur nos prêts étudiants et leur fonctionnement",
+      "eyebrow": "prêts étudiants",
       "blocks": [
         {
           "type": "cta",
@@ -151,7 +190,7 @@ export const page: LivePage = {
     }
   ],
   "footer": {
-    "title": "En savoir plus sur nos prêts étudiants et leur fonctionnement",
+    "title": "Prêt à construire quelque chose de réel ?",
     "primary": {
       "label": "Postuler",
       "href": "/candidature"

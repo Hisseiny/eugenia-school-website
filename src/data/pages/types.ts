@@ -7,10 +7,13 @@ export interface FaqItem {
 
 export type PageBlock =
   | { type: "paragraph"; text: string }
-  | { type: "heading"; level: 3; text: string }
+  | { type: "heading"; level: 3; text: string; id?: string }
   | { type: "eyebrow"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
   | { type: "table"; rows: string[][] }
+  | { type: "cards"; items: { number?: string; title?: string; text: string; tags?: string[]; image?: string; alt?: string; logo?: string; logoAlt?: string; action?: { label: string; href: string } }[] }
+  | { type: "logos"; items: { name: string; alt: string }[] }
+  | { type: "related-cards"; items: { eyebrow: string; title: string; text: string; label: string; href: string }[] }
   | { type: "cta" | "link"; label: string; href: string }
   | { type: "button"; label: string }
   | { type: "image"; name: string; alt: string; logo?: boolean }

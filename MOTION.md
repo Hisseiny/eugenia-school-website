@@ -30,7 +30,7 @@ Principles followed (nothing is decorative or random). Sources read before the l
 | Where | What | Duration / easing | Why |
 |---|---|---|---|
 | Page top (hero, every inner page, form pages) | Title, lead, buttons rise 16 px with a fade, 150 ms apart (`.r1 .r2 .r3`) | 0.9 s, `cubic-bezier(.23,1,.32,1)` | The one entrance animation of the brief: sets the reading order |
-| Every section block and card (`data-reveal`) | Rises 16 px with a fade the first time it enters the viewport; siblings in a grid follow each other by 70 ms. What is already on screen at load appears at once | 0.7 s, ease-out | Guides the eye down the page, gives rhythm to long pages; happens once, never on scroll-up; nothing waits above the fold |
+| Card and image grid items (`data-reveal`) | Rise 12 px with a fade the first time they enter the viewport; siblings in a grid follow each other by 60 ms. What is already on screen at load appears at once | 0.5 s, ease-out | Guides the eye down the page, gives rhythm to long pages; happens once, never on scroll-up; nothing waits above the fold |
 | Key figures (`S1 / 48 h / 15`, `4 étapes`) | Numbers count up from 0 when 60 % visible, in tabular digits so nothing jitters | 0.9 s, cubic ease-out | Draws attention to the proof numbers; text values are untouched |
 | Header | Gets a blurred translucent background after 12 px of scroll (height never changes: a shrinking header would shift the page) | 0.2 s, ease | Separates navigation from content without a shadow; the open mobile menu is always opaque |
 | Mobile menu | Slides 6 px down with a fade when opened, fades out 4 px on close (transition + `@starting-style`) | 0.2 s, ease-out | A panel that appears from the header should come from it; the exit is subtler than the entrance |

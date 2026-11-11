@@ -41,20 +41,29 @@ export const page: LivePage = {
           "text": "Ton implication compte : l’école t’aide à préparer, à rencontrer et à signer."
         },
         {
-          "type": "paragraph",
-          "text": "1. 01Un CV qui te ressembleL’équipe t’aide à construire ton CV pour qu’il parle aux recruteurs de ton secteur."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 02Des coachings alternanceTu t’entraînes aux entretiens avec des coachings dédiés, avant de rencontrer les entreprises."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 03Des job datings sur le campusDe janvier à juillet, des entreprises partenaires viennent sur le campus : tu passes directement des entretiens avec les recruteurs. Les job datings sont réservés aux étudiants admis."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 04Une plateforme rien que pour toiUne plateforme créée pour les étudiants rassemble tous les conseils pour l’alternance : comment t’entraîner, chercher des postes, activer ton réseau. Elle est accessible une fois admis."
+          "type": "cards",
+          "items": [
+            {
+              "number": "01",
+              "title": "Un CV qui te ressemble",
+              "text": "L’équipe t’aide à construire ton CV pour qu’il parle aux recruteurs de ton secteur."
+            },
+            {
+              "number": "02",
+              "title": "Des coachings alternance",
+              "text": "Tu t’entraînes aux entretiens avec des coachings dédiés, avant de rencontrer les entreprises."
+            },
+            {
+              "number": "03",
+              "title": "Des job datings sur le campus",
+              "text": "De janvier à juillet, des entreprises partenaires viennent sur le campus : tu passes directement des entretiens avec les recruteurs. Les job datings sont réservés aux étudiants admis."
+            },
+            {
+              "number": "04",
+              "title": "Une plateforme rien que pour toi",
+              "text": "Une plateforme créée pour les étudiants rassemble tous les conseils pour l’alternance : comment t’entraîner, chercher des postes, activer ton réseau. Elle est accessible une fois admis."
+            }
+          ]
         }
       ],
       "eyebrow": "comment ça se passe"
@@ -63,24 +72,14 @@ export const page: LivePage = {
       "title": "De l’admission au premier jour.",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "1. 01Tu es admisL’admission ouvre l’accès aux job datings et à la plateforme."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 02Tu te préparesCV, coachings alternance, plateforme : tu construis ta recherche avec l’équipe."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 03Tu rencontres les recruteursLes job datings se tiennent sur le campus, de janvier à juillet."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 04Tu signes ton contratContrat de professionnalisation ou d’apprentissage : l’école gère la partie administrative."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 05Tu démarres en septembreRentrée en septembre. Au MSc, un bootcamp de 5 semaines précède le rythme 4 jours en entreprise, 1 jour à l’école."
+          "type": "cards",
+          "items": [
+            { "number": "01", "title": "Tu es admis", "text": "L’admission ouvre l’accès aux job datings et à la plateforme." },
+            { "number": "02", "title": "Tu te prépares", "text": "CV, coachings alternance, plateforme : tu construis ta recherche avec l’équipe." },
+            { "number": "03", "title": "Tu rencontres les recruteurs", "text": "Les job datings se tiennent sur le campus, de janvier à juillet." },
+            { "number": "04", "title": "Tu signes ton contrat", "text": "Contrat de professionnalisation ou d’apprentissage : l’école gère la partie administrative." },
+            { "number": "05", "title": "Tu démarres en septembre", "text": "Rentrée en septembre. Au MSc, un bootcamp de 5 semaines précède le rythme 4 jours en entreprise, 1 jour à l’école." }
+          ]
         }
       ],
       "eyebrow": "ce que ça coûte"
@@ -195,17 +194,17 @@ export const page: LivePage = {
       "title": "Leurs postes, pour de vrai.",
       "blocks": [
         {
-          "type": "list",
-          "ordered": false,
+          "type": "cards",
           "items": [
-            "MSc · M2Ali H.Ingénieur d’études",
-            "MSc · M1 · AlternanceVictoria I.Business Developer, secteur public",
-            "MSc · M1Lenja S.Conversion Rate Optimization Analyst"
+            { "number": "MSc · M2", "title": "Ali H.", "text": "Ingénieur d’études", "image": "pr3_portrait-ali", "alt": "Portrait de Ali, M2 à Eugenia School", "logo": "lg_accenture", "logoAlt": "Accenture" },
+            { "number": "MSc · M1 · Alternance", "title": "Victoria I.", "text": "Business Developer, secteur public", "image": "pr3_portrait-victoria", "alt": "Portrait de Victoria, M1 à Eugenia School", "logo": "lg_misteria", "logoAlt": "Mister IA" },
+            { "number": "MSc · M1", "title": "Lenja S.", "text": "Conversion Rate Optimization Analyst", "image": "pr3_portrait-lenja", "alt": "Portrait de Lenja, M1 à Eugenia School", "logo": "lg_lvmh", "logoAlt": "LVMH" }
           ]
         },
         {
-          "type": "paragraph",
-          "text": "Voir toutes les trajectoires →"
+          "type": "link",
+          "label": "Voir toutes les trajectoires →",
+          "href": "/carrieres"
         }
       ],
       "eyebrow": "questions fréquentes"

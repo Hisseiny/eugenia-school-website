@@ -25,11 +25,11 @@ export const page: LivePage = {
         },
         {
           "type": "button",
-          "label": "BachelorAprès le lycée · Bac+2"
+          "label": "Bachelor Après le lycée · Bac+2"
         },
         {
           "type": "button",
-          "label": "MScBac+3 et plus"
+          "label": "MSc Bac+3 et plus"
         },
         {
           "type": "heading",
@@ -37,21 +37,31 @@ export const page: LivePage = {
           "text": "Bachelor AI Applied to Business"
         },
         {
-          "type": "paragraph",
-          "text": "1. 01Envoyez votre candidatureÉlève en terminale générale (avec ou sans spé maths) ou en STMG ? Après le lycée, il est temps d'apprendre de nouvelles choses notamment dans le domaine de l'IA et du business. Avec un Bac+2, la 3e année du Bachelor, en alternance, vous est ouverte. Le dossier de candidature se remplit en ligne, directement sur notre site : c'est l'occasion de démontrer votre motivation à rejoindre un programme sur mesure en IA et business. Plus qu'un parcours académique, c'est votre ambition et votre engagement qui feront la différence, notamment à travers votre lettre de motivation.En savoir plus"
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 02Interview avec un membre du jury d'Eugenia SchoolLes candidats dont le profil et la motivation nous intéressent sont invités à l'entretien. Pas besoin d'être un expert en tech : une fois sur place, c'est votre personnalité et votre curiosité qui feront la différence."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 03AdmissionSi votre dévouement et votre talent ont impressionné vos interlocuteurs, bienvenue à bord ! Vous faites maintenant partie d'une expérience transformatrice qui améliorera vos compétences et vos perspectives de carrière."
+          "type": "cards",
+          "items": [
+            {
+              "number": "01",
+              "title": "Envoyez votre candidature",
+              "text": "Élève en terminale générale (avec ou sans spé maths) ou en STMG ? Après le lycée, il est temps d'apprendre de nouvelles choses notamment dans le domaine de l'IA et du business. Avec un Bac+2, la 3e année du Bachelor, en alternance, vous est ouverte. Le dossier de candidature se remplit en ligne, directement sur notre site : c'est l'occasion de démontrer votre motivation à rejoindre un programme sur mesure en IA et business. Plus qu'un parcours académique, c'est votre ambition et votre engagement qui feront la différence, notamment à travers votre lettre de motivation.",
+              "action": { "label": "En savoir plus", "href": "#documents-bachelor" }
+            },
+            {
+              "number": "02",
+              "title": "Interview avec un membre du jury d'Eugenia School",
+              "text": "Les candidats dont le profil et la motivation nous intéressent sont invités à l'entretien. Pas besoin d'être un expert en tech : une fois sur place, c'est votre personnalité et votre curiosité qui feront la différence."
+            },
+            {
+              "number": "03",
+              "title": "Admission",
+              "text": "Si votre dévouement et votre talent ont impressionné vos interlocuteurs, bienvenue à bord ! Vous faites maintenant partie d'une expérience transformatrice qui améliorera vos compétences et vos perspectives de carrière."
+            }
+          ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Quels documents pouvez-vous joindre à votre candidature ?"
+          "text": "Quels documents pouvez-vous joindre à votre candidature ?",
+          "id": "documents-bachelor"
         },
         {
           "type": "cta",
@@ -98,21 +108,31 @@ export const page: LivePage = {
           "text": "Master of Science AI Applied to Business"
         },
         {
-          "type": "paragraph",
-          "text": "1. 01Envoyez votre candidatureÉtudiant avec un bac+3 en cours de validation ou déjà en poche ? Les domaines que le jury apprécie : finance, marketing, éco-gestion, vente, management. Démontrez votre intérêt à acquérir une double compétence pour intégrer notre programme AI Applied to Business. Le dossier de candidature se remplit en ligne, directement sur notre site : c'est l'occasion de démontrer votre motivation à rejoindre un programme sur mesure en IA et business. Plus qu'un parcours académique, c'est votre ambition et votre engagement qui feront la différence, notamment à travers votre lettre de motivation.En savoir plus"
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 02Interview avec un membre du jury d'Eugenia SchoolLes candidats dont le profil et la motivation nous intéressent sont invités à l'entretien. Pas besoin d'être un expert en tech : une fois sur place, c'est votre personnalité et votre curiosité qui feront la différence."
-        },
-        {
-          "type": "paragraph",
-          "text": "1. 03AdmissionFélicitations, votre ambition et votre vision ont convaincu ! Vous rejoignez une expérience transformatrice qui façonnera vos compétences et votre avenir. La dernière étape : trouver votre alternance pour intégrer la rentrée. L'équipe Carrières se rapprochera de vous : des sessions de coachings ainsi que des job datings sont organisés pour mettre toutes les chances de votre côté !"
+          "type": "cards",
+          "items": [
+            {
+              "number": "01",
+              "title": "Envoyez votre candidature",
+              "text": "Étudiant avec un bac+3 en cours de validation ou déjà en poche ? Les domaines que le jury apprécie : finance, marketing, éco-gestion, vente, management. Démontrez votre intérêt à acquérir une double compétence pour intégrer notre programme AI Applied to Business. Le dossier de candidature se remplit en ligne, directement sur notre site : c'est l'occasion de démontrer votre motivation à rejoindre un programme sur mesure en IA et business. Plus qu'un parcours académique, c'est votre ambition et votre engagement qui feront la différence, notamment à travers votre lettre de motivation.",
+              "action": { "label": "En savoir plus", "href": "#documents-master" }
+            },
+            {
+              "number": "02",
+              "title": "Interview avec un membre du jury d'Eugenia School",
+              "text": "Les candidats dont le profil et la motivation nous intéressent sont invités à l'entretien. Pas besoin d'être un expert en tech : une fois sur place, c'est votre personnalité et votre curiosité qui feront la différence."
+            },
+            {
+              "number": "03",
+              "title": "Admission",
+              "text": "Félicitations, votre ambition et votre vision ont convaincu ! Vous rejoignez une expérience transformatrice qui façonnera vos compétences et votre avenir. La dernière étape : trouver votre alternance pour intégrer la rentrée. L'équipe Carrières se rapprochera de vous : des sessions de coachings ainsi que des job datings sont organisés pour mettre toutes les chances de votre côté !"
+            }
+          ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Quels documents pouvez-vous joindre à votre candidature ?"
+          "text": "Quels documents pouvez-vous joindre à votre candidature ?",
+          "id": "documents-master"
         },
         {
           "type": "cta",
@@ -300,10 +320,9 @@ export const page: LivePage = {
           "type": "paragraph",
           "text": "Des bourses couvrant jusqu'à 50 % des frais de scolarité sont possibles, sur critères sociaux et académiques, ainsi que des prêts étudiants auprès de banques partenaires. Le MSc se fait en alternance : l'employeur prend en charge 100 % des frais de scolarité."
         },
-        {
-          "type": "paragraph",
-          "text": "Toutes les questions →CandidaterRecevoir la brochure"
-        }
+        { "type": "link", "label": "Toutes les questions →", "href": "/faq" },
+        { "type": "cta", "label": "Candidater", "href": "/candidature" },
+        { "type": "link", "label": "Recevoir la brochure", "href": "/brochure" }
       ]
     },
     {

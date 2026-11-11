@@ -199,6 +199,52 @@ const blockTracking = async (page) => {
   await ctx.close();
 }
 
+// Scroll reveals never leave visible content transparent, including unusually tall elements.
+{
+  const routes = [
+    "/programme/bachelor-ia-business",
+    "/programme/bachelor-ia-business-3eme-annee-alternance",
+    "/programme/master-ia-business-alternance",
+    "/certification-architecte-ia",
+    "/certification-concepteur-solutions-no-code",
+    "/alternance",
+    "/financement",
+    "/processus-admission",
+    "/faq",
+  ];
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
+  for (const route of routes) {
+    await page.goto(base + route, { waitUntil: "load" });
+    await page.evaluate(() => window.scrollTo(0, 0));
+    check(`${route}: extraction link inventory is not rendered`, (await page.locator(".live-links").count()) === 0);
+    let step = 0;
+    while (true) {
+      await page.waitForTimeout(1000);
+      const { invisible, redButtons } = await page.evaluate(() => {
+        const inViewport = (element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+        };
+        const invisible = [...document.querySelectorAll("body *")]
+          .filter((element) => !element.closest("[hidden], [aria-hidden='true'], .sr-only, .visually-hidden"))
+          .filter((element) => getComputedStyle(element).opacity === "0" && inViewport(element))
+          .map((element) => `${element.tagName.toLowerCase()}${element.className ? `.${String(element.className).trim().replace(/\s+/g, ".")}` : ""}`);
+        const redButtons = [...document.querySelectorAll("main .btn")].filter(inViewport).length;
+        return { invisible, redButtons };
+      });
+      check(`${route}: no transparent content after wheel step ${step}`, invisible.length === 0, invisible.slice(0, 3).join(", "));
+      check(`${route}: at most one red content button after wheel step ${step}`, redButtons <= 1, String(redButtons));
+      const { y, max } = await page.evaluate(() => ({ y: window.scrollY, max: document.documentElement.scrollHeight - window.innerHeight }));
+      if (y >= max) break;
+      await page.mouse.wheel(0, 900);
+      await page.waitForTimeout(50);
+      step++;
+    }
+  }
+  await page.close();
+}
+
 await browser.close();
 console.log(failures ? `${failures} failure(s)` : "all interaction checks passed");
 process.exit(failures ? 1 : 0);

@@ -315,6 +315,16 @@ export const page: LivePage = {
         {
           "type": "paragraph",
           "text": "Plus de 100 entreprises partenaires : workshops, visites, projets et recrutement."
+        },
+        {
+          "type": "logos",
+          "items": [
+            { "name": "lg_slack", "alt": "Slack" },
+            { "name": "lg_dust", "alt": "Dust" },
+            { "name": "lg_openai", "alt": "OpenAI" },
+            { "name": "lg_microsoft", "alt": "Microsoft" },
+            { "name": "lg_snapchat", "alt": "Snapchat" }
+          ]
         }
       ]
     },
@@ -322,25 +332,24 @@ export const page: LivePage = {
       "title": "Des projets qu’ils te confient.",
       "blocks": [
         {
-          "type": "list",
-          "ordered": false,
+          "type": "cards",
           "items": [
-            "Projets data et automatisation en conditions réelles, au sein des marques du groupe.",
-            "Data",
-            "Automatisation",
-            "Retail",
-            "Cas d’usage IA appliqués aux produits RH, de l’analyse à l’automatisation de workflows.",
-            "IA produit",
-            "RH tech",
-            "Workflows",
-            "Workshops animés par les équipes qui construisent les LLMs européens, sur le campus. Voir le résumé du hackathon.",
-            "LLM",
-            "Fine-tuning",
-            "Hackathon",
-            "Automatisation no-code intégrée au curriculum. Tu déploies tes premiers workflows dès le premier semestre.",
-            "No-code",
-            "Automatisation",
-            "S1"
+            {
+              "text": "Projets data et automatisation en conditions réelles, au sein des marques du groupe.",
+              "tags": ["Data", "Automatisation", "Retail"]
+            },
+            {
+              "text": "Cas d’usage IA appliqués aux produits RH, de l’analyse à l’automatisation de workflows.",
+              "tags": ["IA produit", "RH tech", "Workflows"]
+            },
+            {
+              "text": "Workshops animés par les équipes qui construisent les LLMs européens, sur le campus. Voir le résumé du hackathon.",
+              "tags": ["LLM", "Fine-tuning", "Hackathon"]
+            },
+            {
+              "text": "Automatisation no-code intégrée au curriculum. Tu déploies tes premiers workflows dès le premier semestre.",
+              "tags": ["No-code", "Automatisation", "S1"]
+            }
           ]
         }
       ],

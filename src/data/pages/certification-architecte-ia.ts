@@ -301,13 +301,23 @@ export const page: LivePage = {
           "text": "C'est ainsi que nous nous assurons que vous êtes prêts à relever les défis de demain."
         },
         {
-          "type": "cta",
-          "label": "Le programmeMaster of Science AI Applied to BusinessDeux ans en alternance pour passer de la donnée à la solution d’IA déployée.Découvrir →",
-          "href": "/programme/master-ia-business-alternance"
-        },
-        {
-          "type": "paragraph",
-          "text": "L’autre certificationConcepteur de solutions no codeTitre RNCP 41143 de niveau 6, délivré par LION dans le cadre du Bachelor d’Eugenia School.Lire la fiche →"
+          "type": "related-cards",
+          "items": [
+            {
+              "eyebrow": "Le programme",
+              "title": "Master of Science AI Applied to Business",
+              "text": "Deux ans en alternance pour passer de la donnée à la solution d’IA déployée.",
+              "label": "Découvrir →",
+              "href": "/programme/master-ia-business-alternance"
+            },
+            {
+              "eyebrow": "L’autre certification",
+              "title": "Concepteur de solutions no code",
+              "text": "Titre RNCP 41143 de niveau 6, délivré par LION dans le cadre du Bachelor d’Eugenia School.",
+              "label": "Lire la fiche →",
+              "href": "/certification-concepteur-solutions-no-code"
+            }
+          ]
         }
       ],
       "eyebrow": "candidatures · rentrée en septembre"

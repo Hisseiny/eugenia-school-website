@@ -61,43 +61,12 @@ export const page: LivePage = {
           "text": "L’admission en 3e année se fait directement, sur justificatif d’études Bac+2."
         },
         {
-          "type": "paragraph",
-          "text": "01"
-        },
-        {
-          "type": "heading",
-          "level": 3,
-          "text": "Deux ans d’études validées"
-        },
-        {
-          "type": "paragraph",
-          "text": "BTS, BUT, L2, école de commerce ou d’informatique : un Bac+2 ouvre directement la porte de la 3e année."
-        },
-        {
-          "type": "paragraph",
-          "text": "02"
-        },
-        {
-          "type": "heading",
-          "level": 3,
-          "text": "Un cap vers la data, le digital, l’IA"
-        },
-        {
-          "type": "paragraph",
-          "text": "Une réorientation vers la data, le marketing digital ou l’IA appliquée trouve ici sa rampe de lancement."
-        },
-        {
-          "type": "paragraph",
-          "text": "03"
-        },
-        {
-          "type": "heading",
-          "level": 3,
-          "text": "L’envie d’apprendre en faisant"
-        },
-        {
-          "type": "paragraph",
-          "text": "L’alternance parle à celles et ceux qui progressent mieux avec une vraie mission, une vraie équipe, de vrais retours."
+          "type": "cards",
+          "items": [
+            { "number": "01", "title": "Deux ans d’études validées", "text": "BTS, BUT, L2, école de commerce ou d’informatique : un Bac+2 ouvre directement la porte de la 3e année." },
+            { "number": "02", "title": "Un cap vers la data, le digital, l’IA", "text": "Une réorientation vers la data, le marketing digital ou l’IA appliquée trouve ici sa rampe de lancement." },
+            { "number": "03", "title": "L’envie d’apprendre en faisant", "text": "L’alternance parle à celles et ceux qui progressent mieux avec une vraie mission, une vraie équipe, de vrais retours." }
+          ]
         },
         {
           "type": "list",
@@ -184,13 +153,12 @@ export const page: LivePage = {
       "title": "Des missions qui comptent.",
       "blocks": [
         {
-          "type": "list",
-          "ordered": false,
+          "type": "cards",
           "items": [
-            "MaltAnalyse de données marketing automatisée avec l’IA de Mistral.",
-            "Welcome to the JungleAutomatisation du reporting commercial.",
-            "CarrefourTableaux de bord et analyse de données.",
-            "HubSpot · MakePilotage de campagnes d’acquisition."
+            { "title": "Malt", "text": "Analyse de données marketing automatisée avec l’IA de Mistral." },
+            { "title": "Welcome to the Jungle", "text": "Automatisation du reporting commercial." },
+            { "title": "Carrefour", "text": "Tableaux de bord et analyse de données." },
+            { "title": "HubSpot · Make", "text": "Pilotage de campagnes d’acquisition." }
           ]
         },
         {

@@ -42,14 +42,14 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
   />
   {page.audience && <AudienceToggle copy={page.audience} />}
   {
-    page.badges?.length && (
+    page.badges && page.badges.length > 0 && (
       <ul class="live-badges container">
         {page.badges.map((badge) => <li>{badge}</li>)}
       </ul>
     )
   }
   {
-    page.stats?.length && (
+    page.stats && page.stats.length > 0 && (
       <dl class="live-stats container">
         {page.stats.map((stat) => (
           <div><dt>{stat.value}</dt><dd>{stat.label}</dd></div>
@@ -57,18 +57,9 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
       </dl>
     )
   }
-  {page.facts?.length && <ProgramFacts facts={page.facts} />}
+  {page.facts && page.facts.length > 0 && <ProgramFacts facts={page.facts} />}
   {page.postFacts && <p class="container live-page__post-facts">{page.postFacts}</p>}
   <LiveSections sections={page.sections} />
-  {
-    page.internalLinks.length > 0 && (
-      <nav class="container live-links" aria-label="Liens utiles">
-        <ul>
-          {page.internalLinks.map((link) => <li><a class="lnk" href={link.href}>{link.label}</a></li>)}
-        </ul>
-      </nav>
-    )
-  }
   <EndOfPage
     title={page.footer.title}
     text={page.footer.text}
@@ -116,15 +107,6 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
     margin-top: 8px;
     color: var(--ink-65);
     font-size: 14px;
-  }
-  .live-links {
-    padding-block: var(--section-y-sm);
-  }
-  .live-links ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 28px;
-    list-style: none;
   }
   @media (max-width: 767px) {
     .live-stats {
