@@ -1,0 +1,441 @@
+---
+import { Image } from "astro:assets";
+import Base from "@/layouts/Base.astro";
+import PageTop from "@/components/PageTop.astro";
+import Pic from "@/components/Pic.astro";
+import Logo from "@/components/Logo.astro";
+import EndOfPage from "@/components/EndOfPage.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { img } from "@/data/images";
+import { CAMPUS, EVENTS, PRINCIPLES, STUDENT_LIFE, TEACHERS } from "@/data/ecole";
+import { ROUTES, SITE } from "@/data/site";
+
+const eventsLd = EVENTS.map((e) => ({
+  "@type": "Event",
+  name: e.title,
+  startDate: e.start,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: { "@type": "Place", name: SITE.name, address: `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}` },
+  isAccessibleForFree: true,
+  organizer: { "@type": "EducationalOrganization", name: SITE.name, url: SITE.url },
+}));
+---
+
+<Base
+  title="L'école : campus, professeurs et vie étudiante | Eugenia School"
+  description="Une école de l'IA appliquée, fondée en 2023, au 18 rue de Paradis à Paris : 2 500 m² de campus, des professeurs en poste, un Entrepreneuriat LAB et une vie étudiante."
+  current={ROUTES.ecole}
+  jsonLd={eventsLd}
+>
+  <PageTop
+    title="L'école"
+    lead="Une école de l'IA appliquée, fondée en 2023, au 18 rue de Paradis."
+    image="n_talk"
+    alt="Des étudiants échangent autour d'une table, devant la fresque de l'atrium"
+  />
+
+  <section class="container principles" aria-labelledby="principles-title">
+    <h2 id="principles-title" class="h2 principles__title">Ce qui nous fait avancer.</h2>
+    <div class="principles__grid">
+      {
+        PRINCIPLES.map((p) => (
+          <div class="principle">
+            <h3 class="h4">{p.title}</h3>
+            <p class="principle__text">{p.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <figure class="container banner">
+    <Pic src={img("p_banner")} alt="Un étudiant accoudé à la balustrade de la mezzanine, à côté de la bannière Eugenia School" ratio="16 / 9" sizes="(min-width: 1440px) 1376px, 100vw" />
+  </figure>
+
+  <section id="campus" class="dark campus" aria-labelledby="campus-title">
+    <div class="container">
+      <div class="section-head campus__head">
+        <h2 id="campus-title" class="h2">Le campus.</h2>
+        <p class="campus__sub">2 500 m² au cœur du 10e arrondissement : un escalier en pierre, des fresques en céramique et un amphithéâtre sous verrière.</p>
+      </div>
+      <div class="campus__grid">
+        {
+          CAMPUS.map((c) => (
+            <figure>
+              <Pic src={img(c.image)} alt={c.alt} ratio="3 / 4" sizes="(min-width: 1024px) 320px, (min-width: 768px) 50vw, 100vw" widths={[400, 700, 1125]} />
+              <figcaption class="campus__caption">{c.caption}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="professeurs" class="container teachers" aria-labelledby="teachers-title">
+    <div class="section-head teachers__head">
+      <h2 id="teachers-title" class="h2 teachers__title">Ils enseignent ce qu'ils font.</h2>
+      <p class="teachers__sub">Des professionnels en poste, qui enseignent le métier qu'ils exercent.</p>
+    </div>
+    <ul class="teachers__grid">
+      {
+        TEACHERS.map((t) => (
+          <li class="prof">
+            <div class="pic prof__pic" style="--ratio: 1 / 1; --pos: 50% 25%">
+              <Image src={img(t.image)} alt={t.name} widths={[240, 400]} sizes="(min-width: 1024px) 210px, 45vw" format="webp" loading="lazy" />
+            </div>
+            <div class="prof__name">{t.name}</div>
+            <div class="prof__subject">{t.subject}</div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mist entre" aria-labelledby="entre-title">
+    <div class="container entre__grid">
+      <div>
+        <h2 id="entre-title" class="h2 entre__title">Lancer. Tester. Recommencer.</h2>
+        <p class="entre__text">Pendant trois ans, chaque étudiant mène un vrai projet de création d'entreprise. L'Entrepreneuriat LAB l'emmène de l'idée au premier MVP testé sur le marché.</p>
+        <p class="entre__text">L'école est partenaire de Station F et de l'incubateur HEC, et invite des fondateurs sur scène toute l'année.</p>
+      </div>
+      <div class="entre__visual">
+        <Pic src={img("hq_stationf_hall")} alt="Le grand hall vitré de Station F" ratio="5 / 4" sizes="(min-width: 1024px) 640px, 100vw" class="entre__pic" />
+        <div class="entre__shade"></div>
+        <div class="entre__logos">
+          <Logo name="lg_stationf" alt="Station F" height={22} />
+          <Logo name="lg_hec" alt="Incubateur HEC Paris" height={30} />
+          <Logo name="lg_vivatech" alt="START Paris et VivaTech" height={26} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vie" class="container life" aria-labelledby="life-title">
+    <Pic src={img("p_team")} alt="Une équipe d'étudiants en t-shirts Dust et Eugenia, sur les gradins du campus" ratio="16 / 9" position="50% 45%" sizes="(min-width: 1440px) 1376px, 100vw" />
+    <div class="life__grid">
+      <h2 id="life-title" class="h2">La vie étudiante.</h2>
+      <dl class="life__list">
+        {
+          STUDENT_LIFE.map((s) => (
+            <div class="life__item">
+              <dt class="life__item-title">{s.title}</dt>
+              <dd class="life__item-text">{s.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section id="evenements" class="container events" aria-labelledby="events-title">
+    <div class="events__top">
+      <h2 id="events-title" class="h2 events__title">Viens voir par toi-même.</h2>
+      <figure>
+        <Pic src={img("n_visit42")} alt="Un groupe d'étudiants écoute une membre du staff lors d'une visite chez 42" ratio="16 / 9" sizes="(min-width: 1024px) 640px, 100vw" />
+        <figcaption class="caption">En visite chez 42. L'école sort aussi de ses murs.</figcaption>
+      </figure>
+      <figure>
+        <Pic src={img("n_soiree")} alt="Deux étudiantes sourient à l'objectif pendant une soirée de l'école" ratio="16 / 9" sizes="(min-width: 1024px) 440px, 100vw" />
+        <figcaption class="caption">Une soirée de l'école. Le bon moment pour rencontrer les étudiants.</figcaption>
+      </figure>
+    </div>
+    <ul class="events__list">
+      {
+        EVENTS.map((e) => (
+          <li class="event">
+            <div class="event__date">
+              <div class="event__day">{e.day}</div>
+              <div class="event__month">{e.month}</div>
+            </div>
+            <div>
+              <div class="event__name">{e.title}</div>
+              <div class="event__text">{e.text}</div>
+            </div>
+            <a href={ROUTES.evenements} class="btn-outline event__cta" aria-label={`S'inscrire : ${e.title}, ${e.day} ${e.month}`}>S'inscrire</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <EndOfPage
+    title="Le mieux, c'est de venir."
+    primary={{ href: ROUTES.evenements, label: "S'inscrire aux portes ouvertes" }}
+    secondary={{ href: ROUTES.admissions, label: "Candidater" }}
+    image="p_facade_wide"
+    position="50% 60%"
+  />
+  <ContinueVisit href={ROUTES.admissions} title="Admissions" text="Quatre étapes, hors Parcoursup. Gratuit pour les résidents UE." image="p_street_wide" />
+</Base>
+
+<style>
+  .principles {
+    padding-block: 140px 120px;
+  }
+  .principles__title {
+    max-width: 12em;
+  }
+  .principles__grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 40px;
+  }
+  .principle {
+    padding-top: 22px;
+    border-top: 1px solid var(--line-strong);
+  }
+  .principle__text {
+    margin-top: 12px;
+    font-size: 16px;
+    color: var(--ink-70);
+  }
+  .banner {
+    padding-bottom: 140px;
+  }
+
+  .campus {
+    padding-block: 140px;
+  }
+  .campus__head {
+    margin-bottom: 56px;
+  }
+  .campus__sub {
+    max-width: 30em;
+    font-size: 17px;
+    color: var(--paper-72);
+  }
+  .campus__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 20px;
+  }
+  .campus__caption {
+    margin-top: 14px;
+    font-size: 15px;
+    color: var(--paper-72);
+  }
+
+  .teachers {
+    padding-block: 140px;
+  }
+  .teachers__head {
+    margin-bottom: 56px;
+  }
+  .teachers__title {
+    max-width: 10em;
+  }
+  .teachers__sub {
+    max-width: 24em;
+    font-size: 17px;
+    color: var(--ink-70);
+  }
+  .teachers__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr));
+    gap: 24px;
+  }
+  .prof__pic img {
+    filter: grayscale(1);
+    transition: filter 0.3s ease-out;
+  }
+  .prof:hover .prof__pic img {
+    filter: none;
+  }
+  .prof__name {
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .prof__subject {
+    font-size: 14px;
+    color: var(--ink-60);
+  }
+
+  .entre {
+    padding-block: 140px;
+  }
+  .entre__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 72px;
+    align-items: center;
+  }
+  .entre__title {
+    max-width: 10em;
+  }
+  .entre__text {
+    margin-top: 28px;
+    color: var(--ink-72);
+    max-width: 30em;
+  }
+  .entre__text + .entre__text {
+    margin-top: 18px;
+  }
+  .entre__visual {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--plum);
+  }
+  .entre__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(31, 13, 25, 0) 50%, rgba(31, 13, 25, 0.8));
+  }
+  .entre__logos {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .entre__logos :global(img) {
+    filter: brightness(0) invert(1);
+  }
+
+  .life {
+    padding-block: 0 140px;
+  }
+  .life__grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 40px 80px;
+    align-items: start;
+  }
+  .life__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 40px;
+  }
+  .life__item {
+    padding: 24px 0;
+    border-top: 1px solid var(--line-strong);
+  }
+  .life__item-title {
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .life__item-text {
+    margin-top: 4px;
+    font-size: 15px;
+    color: var(--ink-62);
+  }
+
+  .events {
+    padding-bottom: 150px;
+  }
+  .events__top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 40px 80px;
+    align-items: end;
+  }
+  .events__title {
+    max-width: 8em;
+  }
+  .events__list {
+    margin-top: 64px;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .event {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--line-strong);
+  }
+  .event__day {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .event__month {
+    font-size: 14px;
+    color: var(--ink-60);
+    margin-top: 4px;
+  }
+  .event__name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+  .event__text {
+    margin-top: 6px;
+    font-size: 15px;
+    color: var(--ink-70);
+  }
+  .event__cta {
+    min-height: 44px;
+    padding: 11px 22px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 1279px) {
+    .teachers__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .campus__grid,
+    .principles__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 767px) {
+    .principles,
+    .campus,
+    .teachers,
+    .entre {
+      padding-block: var(--section-y);
+    }
+    .campus__grid,
+    .principles__grid {
+      grid-template-columns: 1fr;
+    }
+    .banner,
+    .life,
+    .events {
+      padding-bottom: var(--section-y);
+    }
+    .principles__grid,
+    .campus__head,
+    .teachers__head,
+    .life__grid,
+    .events__list {
+      margin-top: 36px;
+    }
+    .campus__head,
+    .teachers__head {
+      margin-bottom: 36px;
+      margin-top: 0;
+    }
+    .teachers__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .life__list {
+      grid-template-columns: 1fr;
+    }
+    .event {
+      grid-template-columns: 72px 1fr;
+      gap: 16px 20px;
+    }
+    .event__cta {
+      grid-column: 2;
+      justify-self: start;
+    }
+    .entre__logos {
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      gap: 20px;
+    }
+  }
+</style>

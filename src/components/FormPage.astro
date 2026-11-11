@@ -1,0 +1,117 @@
+---
+/** Shared layout for the four form pages: title + context left, existing HubSpot form right. */
+import Base from "@/layouts/Base.astro";
+import PremiumForm from "@/components/PremiumForm.astro";
+import type { HUBSPOT } from "@/data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  lead: string;
+  form: keyof typeof HUBSPOT.forms;
+  facts?: readonly string[];
+  formLabel: string;
+  /** What happens after sending: shown above the form so the last step of the journey reassures. */
+  next?: readonly string[];
+}
+const { title, description, heading, lead, form, facts = [], formLabel, next = [] } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <section class="mist formpage">
+    <div class="container formpage__grid">
+      <div>
+        <h1 class="r1 display formpage__title">{heading}</h1>
+        <p class="r2 lead formpage__lead">{lead}</p>
+        {
+          facts.length > 0 && (
+            <ul class="r3 formpage__facts">
+              {facts.map((f) => (
+                <li>{f}</li>
+              ))}
+            </ul>
+          )
+        }
+        <slot />
+      </div>
+      <div class="r3">
+        <p class="eyebrow formpage__label">{formLabel}</p>
+        {
+          next.length > 0 && (
+            <ul class="formpage__next" aria-label="Ce qui se passe ensuite">
+              {next.map((n) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          )
+        }
+        <PremiumForm form={form} />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .formpage {
+    padding-block: 96px 140px;
+  }
+  .formpage__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 56px 96px;
+    align-items: start;
+  }
+  .formpage__next {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 14px;
+    color: var(--ink-65);
+  }
+  .formpage__next li::before {
+    content: "✓";
+    margin-right: 6px;
+    color: var(--red);
+  }
+  .formpage__title {
+    font-size: clamp(48px, 6vw, 96px);
+    max-width: 8em;
+  }
+  .formpage__lead {
+    margin-top: 32px;
+    max-width: 26em;
+  }
+  .formpage__facts {
+    margin-top: 32px;
+    display: grid;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--ink-72);
+  }
+  .formpage__facts li {
+    padding-left: 18px;
+    position: relative;
+  }
+  .formpage__facts li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--yellow);
+  }
+  .formpage__label {
+    margin-bottom: 16px;
+  }
+  @media (max-width: 767px) {
+    .formpage {
+      padding-block: 56px var(--section-y);
+    }
+  }
+</style>

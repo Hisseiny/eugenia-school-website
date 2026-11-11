@@ -1,0 +1,138 @@
+---
+import { Image } from "astro:assets";
+import { img } from "@/data/images";
+import Logo from "@/components/Logo.astro";
+import { ROUTES, SITE } from "@/data/site";
+
+const columns = [
+  {
+    title: "Programmes",
+    links: [
+      { href: `${ROUTES.programmes}#bachelor`, label: "Bachelor" },
+      { href: `${ROUTES.programmes}#msc`, label: "MSc" },
+      { href: `${ROUTES.programmes}#certifications`, label: "Certifications" },
+      { href: ROUTES.carrieres, label: "Carrières et alumni" },
+    ],
+  },
+  {
+    title: "L'école",
+    links: [
+      { href: ROUTES.ecole, label: "Notre ADN" },
+      { href: `${ROUTES.ecole}#campus`, label: "Le campus" },
+      { href: `${ROUTES.ecole}#professeurs`, label: "Les professeurs" },
+      { href: `${ROUTES.ecole}#vie`, label: "Vie étudiante" },
+    ],
+  },
+  {
+    title: "Admissions",
+    links: [
+      { href: ROUTES.admissions, label: "Candidater" },
+      { href: `${ROUTES.admissions}#faq`, label: "Questions fréquentes" },
+      { href: ROUTES.parents, label: "Parents" },
+      { href: ROUTES.contact, label: "Nous contacter" },
+      { href: ROUTES.entreprises, label: "Entreprises" },
+    ],
+  },
+];
+---
+
+<footer class="footer dark">
+  <div class="container footer__grid">
+    <div>
+      <Image src={img("lg_eugenia_white")} alt="Eugenia School" width={300} height={52} format="webp" loading="lazy" class="footer__logo" />
+      <p class="footer__address">{SITE.address.street}<br />{SITE.address.postalCode} {SITE.address.city}</p>
+      <div class="footer__badges">
+        <Logo name="lg_fc" alt="France Compétences" height={26} class="logo-pad" />
+        <Logo name="lg_qualiopi" alt="Qualiopi" height={26} class="logo-pad" />
+      </div>
+    </div>
+    {
+      columns.map((col) => (
+        <nav class="footer__col" aria-label={col.title}>
+          <span class="footer__title">{col.title}</span>
+          {col.links.map((l) => (
+            <a href={l.href}>{l.label}</a>
+          ))}
+        </nav>
+      ))
+    }
+  </div>
+  <div class="container footer__bottom">
+    <span>© {new Date().getFullYear()} Eugenia School</span>
+    <span>
+      <a href={SITE.legalUrl} rel="noopener">Mentions légales</a> et{" "}
+      <a href={SITE.privacyUrl} rel="noopener">confidentialité</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 96px 0 48px;
+    font-size: 15px;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+    gap: 48px;
+  }
+  .footer__logo {
+    height: 24px;
+    width: auto;
+    margin-bottom: 24px;
+  }
+  .footer__address {
+    color: var(--paper-70);
+    line-height: 1.6;
+  }
+  .footer__badges {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    align-items: center;
+  }
+  .footer__badges :global(.logo-pad) {
+    padding: 6px 8px;
+  }
+  .footer__col {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+  }
+  .footer__title {
+    color: var(--paper-55);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .footer__col a {
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease-out;
+  }
+  .footer__col a:hover,
+  .footer__bottom a:hover {
+    border-bottom-color: var(--white);
+  }
+  .footer__bottom {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-w);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--paper-55);
+  }
+  .footer__bottom a {
+    color: var(--paper-55);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-w-link);
+  }
+  @media (max-width: 767px) {
+    .footer {
+      padding: 72px 0 40px;
+    }
+  }
+</style>

@@ -1,0 +1,293 @@
+---
+/**
+ * /parents — the whole page says « vous ». Every fact comes from data already validated elsewhere
+ * on the site (PARENTS, ALUMNI, STEPS, FAQ, public contact). Anything marked « [À confirmer » is
+ * left out at build time.
+ */
+import Base from "@/layouts/Base.astro";
+import Pic from "@/components/Pic.astro";
+import Logo from "@/components/Logo.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import ShareLink from "@/components/ShareLink.astro";
+import { img } from "@/data/images";
+import { ROUTES, SITE } from "@/data/site";
+import { FAQ, PARENTS, PARENTS_FAQ_IDS, STEPS_PARENTS } from "@/data/admissions";
+import { ALUMNI } from "@/data/carrieres";
+
+const faq = PARENTS_FAQ_IDS.map((i) => FAQ[i]).filter((f) => !f.a.includes("[À confirmer"));
+const alumni = ALUMNI.slice(0, 4);
+---
+
+<Base
+  title="Parents : ce qu'il faut savoir avant de choisir Eugenia School"
+  description="Pour les parents d'un futur étudiant : certifications, parcours d'admission étape par étape, ce que deviennent les étudiants, coût de la candidature, et comment parler à l'équipe d'admission."
+  current={ROUTES.parents}
+>
+  <section class="container pr-top">
+    <div class="pr-top__grid">
+      <div>
+        <p class="r1 eyebrow">Pour les parents</p>
+        <h1 class="r1 display pr-top__title">Vous accompagnez un futur étudiant ?</h1>
+        <p class="r2 lead pr-top__lead">
+          Voici, sans détour, ce que nous pouvons vous garantir, comment se déroule l'admission, ce que deviennent nos étudiants, et comment nous joindre.
+        </p>
+        <div class="r3 pr-top__actions">
+          <a href="#essentiel" class="btn-outline">L'essentiel en 60 secondes</a>
+          <ShareLink path={ROUTES.home} label="Envoyer à mon enfant" title="Eugenia School" text="J'ai regardé cette école pour toi. Voici le site :" event="share_to_student" />
+        </div>
+      </div>
+      <figure class="r3">
+        <Pic src={img("n_hero_pair")} alt="Deux étudiants d'Eugenia School discutent sur le campus" ratio="4 / 5" sizes="(min-width: 1024px) 560px, 100vw" />
+      </figure>
+    </div>
+  </section>
+
+  <section id="essentiel" class="mist pr-ess" aria-labelledby="ess-title">
+    <div class="container">
+      <h2 id="ess-title" class="h2">L'essentiel en 60 secondes.</h2>
+      <dl class="pr-ess__grid">
+        {PARENTS.map((p) => (
+          <div class="pr-ess__item">
+            <dt class="pr-ess__title">{p.title}</dt>
+            <dd class="pr-ess__text">{p.text}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="pr-ess__badges">
+        <Logo name="lg_fc" alt="France Compétences, titre enregistré au RNCP" height={30} />
+        <Logo name="lg_qualiopi" alt="Qualiopi, processus certifié" height={30} />
+      </div>
+    </div>
+  </section>
+
+  <section class="container section pr-alumni" aria-labelledby="alumni-title">
+    <div class="section-head">
+      <h2 id="alumni-title" class="h2">Ce que deviennent nos étudiants.</h2>
+      <a href={`${ROUTES.carrieres}?pour=parent`} class="lnk">Toutes les trajectoires</a>
+    </div>
+    <ul class="pr-alumni__grid">
+      {alumni.map((a) => (
+        <li class="pr-alumni__card">
+          <div class="pic pr-alumni__pic" style="--ratio: 1 / 1">
+            <Pic src={img(a.portrait)} alt={`Portrait de ${a.name}`} ratio="1 / 1" sizes="(min-width: 1024px) 300px, 50vw" />
+          </div>
+          <p class="pr-alumni__name">{a.name}</p>
+          <p class="pr-alumni__job">{a.job}</p>
+          <p class="pr-alumni__before">Avant : {a.before}</p>
+          {a.teaches && <p class="pr-alumni__teaches">{a.teaches}</p>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="container section pr-steps" aria-labelledby="steps-title">
+    <h2 id="steps-title" class="h2">Le parcours, étape par étape.</h2>
+    <ol class="pr-steps__grid">
+      {STEPS_PARENTS.map((s) => (
+        <li class="pr-step">
+          <div class="pr-step__n">{s.n}</div>
+          <div class="pr-step__title">{s.title}</div>
+          <div class="pr-step__text">{s.text}</div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mist pr-faq" aria-labelledby="pr-faq-title">
+    <div class="container pr-faq__grid">
+      <div>
+        <h2 id="pr-faq-title" class="h2">Coût, financement, conditions.</h2>
+        <p class="pr-faq__sub">Les réponses de l'équipe d'admission, telles quelles.</p>
+      </div>
+      <dl class="pr-faq__list">
+        {faq.map((f) => (
+          <div class="pr-faq__item">
+            <dt class="pr-faq__q">{f.q}</dt>
+            <dd class="pr-faq__a">{f.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="container section pr-talk" aria-labelledby="talk-title">
+    <div class="pr-talk__grid">
+      <div>
+        <h2 id="talk-title" class="h2">Parler à quelqu'un.</h2>
+        <p class="pr-talk__text">
+          L'équipe d'admission vous répond par e-mail à <a href={`mailto:${SITE.contact.email}`} class="lnk">{SITE.contact.email}</a>
+          ou au <a href={SITE.contact.phoneHref} class="lnk">{SITE.contact.phone}</a>.
+        </p>
+      </div>
+      <ol class="pr-talk__actions" aria-label="Trois façons d'avancer, selon votre engagement">
+        <li><a href={ROUTES.brochure} class="btn-outline">Recevoir la brochure</a></li>
+        <li><a href={ROUTES.evenements} class="btn-outline">Venir aux portes ouvertes</a></li>
+        <li><a href={`${ROUTES.contact}?pour=parent`} class="btn">Poser une question</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <ContinueVisit href={`${ROUTES.carrieres}?pour=parent`} title="Carrières" text="Où sont nos étudiants aujourd'hui." image="p_team" />
+</Base>
+
+<script>
+  import { track } from "@/scripts/track";
+  track("parents_page_view");
+</script>
+
+<style>
+  .pr-top {
+    padding-block: 80px 96px;
+  }
+  .pr-top__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 48px 96px;
+    align-items: center;
+  }
+  .pr-top__title {
+    margin-top: 20px;
+    font-size: clamp(40px, 4.4vw, 60px);
+    max-width: 11em;
+  }
+  .pr-top__lead {
+    margin-top: 28px;
+    max-width: 30em;
+  }
+  .pr-top__actions {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+  }
+  .pr-ess {
+    padding-block: 96px;
+  }
+  .pr-ess__grid {
+    margin: 40px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 32px 48px;
+  }
+  .pr-ess__title {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .pr-ess__text {
+    margin: 8px 0 0;
+    color: var(--ink-70);
+  }
+  .pr-ess__badges {
+    margin-top: 40px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .pr-alumni__grid {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 32px;
+  }
+  .pr-alumni__name {
+    margin: 16px 0 0;
+    font-weight: 600;
+  }
+  .pr-alumni__job {
+    margin: 4px 0 0;
+    color: var(--ink-70);
+  }
+  .pr-alumni__before,
+  .pr-alumni__teaches {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: var(--ink-65);
+  }
+  .pr-steps__grid {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 32px 24px;
+  }
+  .pr-step {
+    padding-top: 20px;
+    border-top: 1px solid var(--line-strong);
+  }
+  .pr-step:first-child {
+    border-top-color: var(--yellow);
+  }
+  .pr-step__n {
+    font-size: 13px;
+    color: var(--ink-65);
+  }
+  .pr-step__title {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .pr-step__text {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--ink-70);
+  }
+  .pr-faq {
+    padding-block: 96px;
+  }
+  .pr-faq__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 40px 96px;
+  }
+  .pr-faq__sub {
+    margin-top: 16px;
+    color: var(--ink-70);
+  }
+  .pr-faq__list {
+    margin: 0;
+  }
+  .pr-faq__item {
+    padding-block: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .pr-faq__q {
+    font-weight: 600;
+  }
+  .pr-faq__a {
+    margin: 8px 0 0;
+    color: var(--ink-70);
+    line-height: 1.6;
+  }
+  .pr-talk__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 40px 96px;
+    align-items: center;
+  }
+  .pr-talk__text {
+    margin-top: 20px;
+    color: var(--ink-70);
+    line-height: 1.6;
+    max-width: 30em;
+  }
+  .pr-talk__actions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+  }
+  @media (max-width: 767px) {
+    .pr-top {
+      padding-block: 56px 72px;
+    }
+    .pr-ess,
+    .pr-faq {
+      padding-block: var(--section-y);
+    }
+  }
+</style>

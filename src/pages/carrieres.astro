@@ -1,0 +1,399 @@
+---
+import { Image } from "astro:assets";
+import Base from "@/layouts/Base.astro";
+import PageTop from "@/components/PageTop.astro";
+import Logo from "@/components/Logo.astro";
+import EndOfPage from "@/components/EndOfPage.astro";
+import ShareLink from "@/components/ShareLink.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { img } from "@/data/images";
+import { ALUMNI, APPRENTICES, BACHELORS, EMPLOYERS } from "@/data/carrieres";
+import { ROUTES } from "@/data/site";
+---
+
+<Base
+  title="Carrières : de l'alternance au premier CDI | Eugenia School"
+  description="Des trajectoires réelles d'étudiants et d'alumni d'Eugenia School : le bac, le déclic, ce qu'ils ont construit, le premier poste."
+  current={ROUTES.carrieres}
+>
+  <PageTop
+    title="Carrières"
+    lead="Le bac, le déclic, ce qu'ils ont construit, le premier poste. Des trajectoires réelles, du Bachelor à l'alternance, jusqu'au premier CDI."
+    image="p_team"
+    alt="Une équipe d'étudiants en t-shirts Dust et Eugenia, sur les gradins du campus"
+  />
+
+  <section class="container dest" aria-labelledby="dest-title">
+    <div class="section-head">
+      <h2 id="dest-title" class="h2 dest__title">Mêmes bases. Des destinations qui n'ont rien à voir.</h2>
+      <p class="dest__sub">Startups et grands groupes : chacun construit sa trajectoire, avec ses projets, ses hackathons et son alternance.</p>
+    </div>
+    <ul class="logo-grid">
+      {
+        EMPLOYERS.map((l) => (
+          <li class="logo-grid__cell">
+            <Logo name={l.name} alt={l.alt} height={l.height} gray />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section id="alumni" class="dark alumni" aria-labelledby="alumni-title">
+    <div class="container">
+      <div class="section-head alumni__head">
+        <h2 id="alumni-title" class="h2 alumni__title">Du MSc au premier CDI.</h2>
+        <p class="alumni__sub">Nos alumni. Trois d'entre eux reviennent enseigner à Eugenia.</p>
+      </div>
+      <div class="alumni__grid">
+        {
+          ALUMNI.map((a) => (
+            <article class="alum">
+              <div class="pic alum__portrait" style="--ratio: 1 / 1">
+                <Image src={img(a.portrait)} alt={`Portrait de ${a.name}`} widths={[320, 480, 640]} sizes="(min-width: 1024px) 320px, (min-width: 768px) 50vw, 100vw" format="webp" loading="lazy" />
+              </div>
+              <div class="alum__head">
+                <span class="alum__name">{a.name}</span>
+                <Logo name={a.logo.name} alt={a.logo.alt} height={a.logo.height} class="logo-pad alum__logo" />
+              </div>
+              <dl class="alum__facts">
+                <div><dt>Avant</dt><dd>{a.before}</dd></div>
+                <div><dt>Construit à Eugenia</dt><dd>{a.built}</dd></div>
+                <div><dt>Premier poste</dt><dd class="alum__job">{a.job}</dd></div>
+              </dl>
+              {a.teaches && (
+                <p class="alum__teaches"><span class="dot" aria-hidden="true"></span>{a.teaches}</p>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="alternance" class="mist appr" aria-labelledby="appr-title">
+    <div class="container">
+      <div class="section-head appr__head">
+        <h2 id="appr-title" class="h2 appr__title">De la licence à l'alternance.</h2>
+        <p class="appr__sub">Nos étudiants de MSc, en entreprise pendant leur formation.</p>
+      </div>
+      <div class="appr__grid">
+        {
+          APPRENTICES.map((a) => (
+            <article class="card">
+              <div class="card__person">
+                <div class="pic card__portrait" style="--ratio: 1 / 1">
+                  <Image src={img(a.portrait)} alt={`Portrait de ${a.name}`} width={112} height={112} format="webp" loading="lazy" />
+                </div>
+                <div>
+                  <div class="card__name">{a.name}</div>
+                  <div class="card__level">{a.level}</div>
+                </div>
+              </div>
+              <dl class="card__facts">
+                <div><dt>Avant</dt><dd>{a.before}</dd></div>
+                <div><dt>Construit à Eugenia</dt><dd>{a.built}</dd></div>
+              </dl>
+              <div class="card__job">
+                <span>{a.role}</span>
+                <Logo name={a.logo.name} alt={a.logo.alt} height={a.logo.height} />
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="bachelor" class="container bach" aria-labelledby="bach-title">
+    <div class="section-head bach__head">
+      <h2 id="bach-title" class="h2 bach__title">Ça commence dès le Bachelor.</h2>
+      <p class="bach__sub">Arrivés curieux, après le bac. Leurs premiers projets, dès le premier semestre.</p>
+    </div>
+    <ul class="bach__list">
+      {
+        BACHELORS.map((b) => (
+          <li class="bach__row">
+            <div class="pic bach__portrait" style="--ratio: 1 / 1">
+              <Image src={img(b.portrait)} alt={`Portrait de ${b.name}`} width={96} height={96} format="webp" loading="lazy" />
+            </div>
+            <div>
+              <div class="bach__name">{b.name}</div>
+              <div class="bach__level">{b.level}</div>
+            </div>
+            <div class="bach__before">{b.before}</div>
+            <div class="bach__built">{b.built}</div>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="bach__end"></div>
+  </section>
+
+  <EndOfPage
+    title="Construis ta propre trajectoire."
+    primary={{ href: ROUTES.admissions, label: "Candidater" }}
+    secondary={{ href: ROUTES.brochure, label: "Télécharger la brochure" }}
+    image="p_duo"
+  />
+  <div class="container share-row">
+    <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+  </div>
+  <ContinueVisit href={ROUTES.ecole} title="L'école" text="Le campus, les professeurs, la vie étudiante." image="n_talk" />
+</Base>
+
+<script>
+  // A parent arriving from /parents (?pour=parent) is sent back to the parents page, not to L'école.
+  if (new URLSearchParams(location.search).get("pour") === "parent") {
+    const a = document.querySelector<HTMLAnchorElement>("a.continue");
+    const name = a?.querySelector<HTMLElement>(".continue__name");
+    const text = a?.querySelector<HTMLElement>(".continue__text");
+    if (a && name) {
+      a.href = "/parents";
+      name.textContent = "Parents";
+      if (text) text.textContent = "Tout ce qu'un parent doit savoir, au même endroit.";
+    }
+  }
+</script>
+
+<style>
+  .share-row {
+    padding-block: 32px 8px;
+  }
+  .dest {
+    padding-block: 140px 150px;
+  }
+  .dest__title {
+    max-width: 10em;
+  }
+  .dest__sub {
+    max-width: 26em;
+    font-size: 17px;
+    color: var(--ink-70);
+  }
+  .logo-grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .logo-grid__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    padding: 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 767px) {
+    .dest {
+      padding-block: var(--section-y);
+    }
+    .logo-grid {
+      margin-top: 40px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .logo-grid__cell {
+      min-height: 96px;
+    }
+  }
+
+  .alumni,
+  .appr,
+  .bach {
+    padding-block: 140px;
+  }
+  .alumni__head,
+  .appr__head,
+  .bach__head {
+    margin-bottom: 64px;
+  }
+  .alumni__title,
+  .appr__title,
+  .bach__title {
+    max-width: 10em;
+  }
+  .alumni__sub,
+  .appr__sub,
+  .bach__sub {
+    max-width: 24em;
+    font-size: 17px;
+    color: var(--ink-70);
+  }
+  .alumni__sub {
+    color: var(--paper-72);
+  }
+  .alumni__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 24px;
+  }
+  .alum__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .alum__name {
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .alum__logo {
+    padding: 4px 6px;
+  }
+  .alum__facts {
+    margin-top: 18px;
+    display: grid;
+    gap: 14px;
+    font-size: 15px;
+  }
+  .alum__facts dt {
+    font-size: 13px;
+    color: var(--paper-55);
+    margin-bottom: 3px;
+  }
+  .alum__facts dd {
+    color: var(--paper-88);
+  }
+  .alum__job {
+    font-weight: 600;
+    color: var(--white);
+  }
+  .alum__teaches {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--paper-88);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .dot {
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--yellow);
+    transform: translateY(-2px);
+  }
+
+  .appr__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card__person {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .card__portrait {
+    width: 56px;
+    flex: 0 0 56px;
+    border-radius: 50%;
+    background: var(--mist);
+  }
+  .card__name {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .card__level {
+    font-size: 14px;
+    color: var(--ink-60);
+  }
+  .card__facts {
+    display: grid;
+    gap: 12px;
+    font-size: 15px;
+  }
+  .card__facts dt {
+    font-size: 13px;
+    color: var(--red-dark);
+    margin-bottom: 2px;
+  }
+  .card__facts dd {
+    color: var(--ink-72);
+  }
+  .card__job {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .bach__list {
+    border-top: 1px solid var(--line-strong);
+  }
+  .bach__row {
+    display: grid;
+    grid-template-columns: 48px 180px 1fr 2fr;
+    gap: 28px;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line-strong);
+    font-size: 15px;
+  }
+  .bach__portrait {
+    width: 48px;
+    border-radius: 50%;
+  }
+  .bach__name {
+    font-weight: 600;
+  }
+  .bach__level {
+    font-size: 13px;
+    color: var(--ink-60);
+  }
+  .bach__before {
+    color: var(--ink-62);
+  }
+  .bach__built {
+    color: var(--ink-72);
+  }
+  @media (max-width: 1023px) {
+    .bach__row {
+      grid-template-columns: 48px 1fr;
+      gap: 10px 20px;
+    }
+    .bach__before,
+    .bach__built {
+      grid-column: 2;
+    }
+  }
+  @media (max-width: 1279px) {
+    .alumni__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 767px) {
+    .alumni,
+    .appr,
+    .bach {
+      padding-block: var(--section-y);
+    }
+    .alumni__head,
+    .appr__head,
+    .bach__head {
+      margin-bottom: 36px;
+    }
+    .alumni__grid,
+    .appr__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

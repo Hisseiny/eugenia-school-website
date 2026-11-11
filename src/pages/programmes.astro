@@ -1,0 +1,297 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageTop from "@/components/PageTop.astro";
+import Pic from "@/components/Pic.astro";
+import EndOfPage from "@/components/EndOfPage.astro";
+import ShareLink from "@/components/ShareLink.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { img } from "@/data/images";
+import { BACHELOR_YEARS, COMPARE_ROWS, MSC_CHIPS } from "@/data/programmes";
+import { EXTERNAL, ROUTES, SITE } from "@/data/site";
+
+const courses = [
+  {
+    "@type": "Course",
+    name: "Bachelor IA Applied to Business",
+    description: "Trois ans, hors Parcoursup. Un socle commun en IA, data et no-code, puis une trajectoire et une troisième année en alternance.",
+    provider: { "@type": "EducationalOrganization", name: SITE.name, url: SITE.url },
+    url: `${SITE.url}${ROUTES.programmes}#bachelor`,
+  },
+  {
+    "@type": "Course",
+    name: "MSc IA Applied to Business",
+    description: "Deux ans en alternance après un Bac+3 ou +4 : l'IA et l'automatisation appliquées en entreprise.",
+    provider: { "@type": "EducationalOrganization", name: SITE.name, url: SITE.url },
+    url: `${SITE.url}${ROUTES.programmes}#msc`,
+  },
+];
+---
+
+<Base
+  title="Programmes : Bachelor et MSc IA Applied to Business | Eugenia School"
+  description="Bachelor en trois ans après le bac, MSc en deux ans en alternance, et deux certifications professionnelles. Un même socle en IA, data et no-code."
+  current={ROUTES.programmes}
+  jsonLd={courses}
+>
+  <PageTop
+    title="Programmes"
+    lead="Deux entrées, un même socle en IA, data et no-code. Et des certifications pour valider une compétence précise."
+    image="n_crowd"
+    alt="Une centaine d'étudiants écoutent deux intervenants sur les gradins de l'atrium"
+  />
+
+  <section class="container compare" aria-labelledby="compare-title">
+    <h2 id="compare-title" class="h2-sm compare__title">Bachelor ou Master ?</h2>
+    <div class="compare__table" role="table">
+      <div class="compare__row compare__row--head" role="row">
+        <div role="columnheader"><span class="sr-only">Critère</span></div>
+        <div role="columnheader">Bachelor</div>
+        <div role="columnheader">MSc</div>
+      </div>
+      {
+        COMPARE_ROWS.map((r) => (
+          <div class="compare__row" role="row">
+            <div class="compare__label" role="rowheader">{r.label}</div>
+            <div role="cell">{r.bachelor}</div>
+            <div role="cell">{r.msc}</div>
+          </div>
+        ))
+      }
+      <div class="compare__end"></div>
+    </div>
+  </section>
+
+  <section id="bachelor" class="mist prog" aria-labelledby="bachelor-title">
+    <div class="container prog__grid">
+      <div>
+        <p class="eyebrow prog__eyebrow">3 ans, après le bac</p>
+        <h2 id="bachelor-title" class="h2 prog__title">Bachelor IA Applied to Business</h2>
+        <p class="prog__text">Un socle commun en IA, data et no-code, puis tu choisis ta trajectoire. Un premier projet IA en entreprise dès le premier semestre, et une troisième année en alternance.</p>
+        <div class="btn-row">
+          <a href={ROUTES.candidature} class="btn">Candidater au Bachelor</a>
+          <a href={ROUTES.brochure} class="btn-outline">Télécharger la brochure</a>
+        </div>
+      </div>
+      <div>
+        <Pic src={img("p_duo")} alt="Deux étudiants sourient, assis sur les gradins du campus" ratio="16 / 9" sizes="(min-width: 1024px) 640px, 100vw" class="prog__pic" />
+        <ol class="years">
+          {
+            BACHELOR_YEARS.map((y) => (
+              <li class="years__row">
+                <span class="years__year">{y.year}</span>
+                <div>
+                  <div class="years__title">{y.title}</div>
+                  <div class="years__text">{y.text}</div>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="msc" class="dark prog" aria-labelledby="msc-title">
+    <div class="container prog__grid prog__grid--center">
+      <Pic src={img("p_sweater")} alt="Un étudiant montre fièrement le logo Eugenia School sur son pull" ratio="4 / 5" sizes="(min-width: 1024px) 640px, 100vw" />
+      <div>
+        <p class="eyebrow prog__eyebrow">2 ans, après un Bac+3 ou +4</p>
+        <h2 id="msc-title" class="h2 prog__title">MSc IA Applied to Business</h2>
+        <p class="prog__text prog__text--tight">Pour passer de la théorie à la pratique : l'IA et l'automatisation appliquées en entreprise, en alternance.</p>
+        <div class="chips prog__chips">{MSC_CHIPS.map((c) => <span class="chip">{c}</span>)}</div>
+        <div class="btn-row">
+          <a href={ROUTES.candidature} class="btn">Candidater au MSc</a>
+          <a href={ROUTES.brochure} class="btn-outline">Télécharger la brochure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="container certs" aria-labelledby="certs-title">
+    <h2 id="certs-title" class="h2-sm certs__title">Certifications professionnelles</h2>
+    <div class="certs__grid">
+      <article class="cert">
+        <h3 class="h3-sm">Concepteur de solutions no code</h3>
+        <p class="cert__text">Concevoir et livrer des outils métier sans écrire de code.</p>
+        <div class="cert__link"><a href={EXTERNAL.certificationNoCode} class="lnk">Voir la certification</a></div>
+      </article>
+      <article class="cert">
+        <h3 class="h3-sm">Architecte IA</h3>
+        <p class="cert__text">Concevoir des systèmes d'IA utiles et fiables en entreprise.</p>
+        <div class="cert__link"><a href={EXTERNAL.certificationArchitecteIA} class="lnk">Voir la certification</a></div>
+      </article>
+    </div>
+  </section>
+
+  <EndOfPage
+    title="Prêt à construire ?"
+    primary={{ href: ROUTES.admissions, label: "Candidater" }}
+    secondary={{ href: ROUTES.contact, label: "Poser une question" }}
+    image="p_payfit"
+    position="50% 45%"
+  />
+  <div class="container share-row">
+    <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+  </div>
+  <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Où mènent ces programmes : alternance, premier CDI." image="p_team" />
+</Base>
+
+<style>
+  .share-row {
+    padding-block: 32px 8px;
+  }
+  .compare {
+    padding-block: 130px;
+  }
+  .compare__title {
+    max-width: 12em;
+  }
+  .compare__table {
+    margin-top: 56px;
+  }
+  .compare__row {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    gap: 32px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    font-size: 16px;
+  }
+  .compare__row--head {
+    border-top: 0;
+    padding: 0 0 18px;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .compare__label {
+    color: var(--ink-60);
+  }
+  .compare__end {
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 767px) {
+    .compare {
+      padding-block: var(--section-y);
+    }
+    .compare__row {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+    }
+    .compare__label {
+      grid-column: 1 / -1;
+      font-size: 14px;
+    }
+    .compare__row--head > :first-child {
+      display: none;
+    }
+  }
+
+  .prog {
+    padding-block: 140px;
+  }
+  .prog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 72px;
+    align-items: start;
+  }
+  .prog__grid--center {
+    align-items: center;
+  }
+  .prog__eyebrow {
+    margin-bottom: 18px;
+  }
+  .prog__title {
+    max-width: 10em;
+  }
+  .prog__text {
+    margin: 28px 0 40px;
+    color: var(--ink-72);
+    max-width: 30em;
+  }
+  .dark .prog__text {
+    color: var(--paper-76);
+  }
+  .prog__text--tight {
+    margin-bottom: 32px;
+  }
+  .prog__chips {
+    margin-bottom: 44px;
+  }
+  .prog__pic {
+    margin-bottom: 32px;
+  }
+  .years__row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line-strong);
+  }
+  .years__year {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 22px;
+  }
+  .years__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .years__text {
+    font-size: 16px;
+    color: var(--ink-70);
+  }
+  @media (max-width: 767px) {
+    .prog {
+      padding-block: var(--section-y);
+    }
+    .prog__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .certs {
+    padding: 140px var(--gutter) 150px;
+  }
+  .certs__title {
+    max-width: 14em;
+  }
+  .certs__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .cert {
+    border: 1px solid rgba(31, 13, 25, 0.1);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 240px;
+  }
+  .cert__text {
+    color: var(--ink-70);
+    font-size: 16px;
+  }
+  .cert__link {
+    margin-top: auto;
+  }
+  @media (max-width: 767px) {
+    .certs {
+      padding-block: var(--section-y);
+    }
+    .certs__grid {
+      grid-template-columns: 1fr;
+    }
+    .cert {
+      padding: 28px;
+      min-height: 0;
+    }
+  }
+</style>

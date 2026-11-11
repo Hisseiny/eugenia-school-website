@@ -1,0 +1,438 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageTop from "@/components/PageTop.astro";
+import Pic from "@/components/Pic.astro";
+import Logo from "@/components/Logo.astro";
+import EndOfPage from "@/components/EndOfPage.astro";
+import ContinueVisit from "@/components/ContinueVisit.astro";
+import { img } from "@/data/images";
+import { FAQ, PARENT_QUESTIONS, FIGURES, PARENTS, STEPS } from "@/data/admissions";
+import { ROUTES, SITE } from "@/data/site";
+
+const faqLd = {
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Base
+  title="Admissions : candidater en quatre étapes, hors Parcoursup | Eugenia School"
+  description="Candidature en ligne, étude d'éligibilité, entretien et décision finale. Gratuit pour les résidents de l'Union européenne, rentrée en septembre."
+  current={ROUTES.admissions}
+  jsonLd={[faqLd]}
+>
+  <PageTop
+    title="Admissions"
+    lead="Quatre étapes, hors Parcoursup. La candidature est gratuite pour les résidents de l'Union européenne."
+    image="p_street_wide"
+    alt="Deux étudiants rue de Paradis, devant l'école"
+    ratio="16 / 10"
+    position="50% 40%"
+  />
+
+  <section class="container steps" aria-labelledby="steps-title">
+    <div class="section-head">
+      <h2 id="steps-title" class="h2 steps__title">Comment se passe ta candidature.</h2>
+      <a href={ROUTES.candidature} class="btn">Commencer ma candidature</a>
+    </div>
+    <ol class="steps__grid">
+      {
+        STEPS.map((s) => (
+          <li class="step">
+            <div class="step__n">{s.n}</div>
+            <div class="step__title">{s.title}</div>
+            <div class="step__text">{s.text}</div>
+            <div class="step__next"><span class="step__next-label">Ensuite</span> {s.next}</div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="mist figures" aria-label="Chiffres clés">
+    <div class="container figures__grid">
+      {
+        FIGURES.map((f) => (
+          <div class="figure-card">
+            <div class="figure-card__value">{f.value}</div>
+            <div class="figure-card__label">{f.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="parents" class="container parents" aria-labelledby="parents-title">
+    <Pic src={img("p_facade_tall")} alt="La façade du 18 rue de Paradis, ses vitraux et les étudiants devant l'entrée" ratio="3 / 4" sizes="(min-width: 1024px) 640px, 100vw" />
+    <div>
+      <p class="eyebrow parents__eyebrow">Pour les parents</p>
+      <h2 id="parents-title" class="h2 parents__title">Ce qui doit vous rassurer.</h2>
+      <dl class="parents__list">
+        {
+          PARENTS.map((p) => (
+            <div class="parents__item">
+              <dt class="parents__item-title">{p.title}</dt>
+              <dd class="parents__item-text">{p.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <div class="parents__badges">
+        <Logo name="lg_fc" alt="France Compétences" height={30} />
+        <Logo name="lg_qualiopi" alt="Qualiopi" height={30} />
+      </div>
+      <div class="parents__questions">
+        <p class="parents__questions-title"><a href={ROUTES.parents} class="lnk">Tout ce qu'un parent doit savoir</a></p>
+        <p class="parents__questions-title">Vos questions, nos réponses</p>
+        <ul class="parents__questions-list">
+          {PARENT_QUESTIONS.map((i) => (
+            <li><a href={`#faq-q-${i}`} class="lnk">{FAQ[i].q}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="parents__contact">
+        <p class="parents__contact-title">Parler à l'équipe admission</p>
+        <p class="parents__contact-text">
+          Par e-mail à <a href={`mailto:${SITE.contact.email}`} class="lnk">{SITE.contact.email}</a> ou au{" "}
+          <a href={SITE.contact.phoneHref} class="lnk">{SITE.contact.phone}</a>. Et pour tout lire à tête reposée,{" "}
+          <a href={ROUTES.brochure} class="lnk">la brochure</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="container faq" aria-labelledby="faq-title">
+    <div>
+      <h2 id="faq-title" class="h2 faq__title">Questions fréquentes.</h2>
+      <p class="faq__sub">Une autre question ? L'équipe d'admission te répond.</p>
+      <div class="faq__link"><a href={ROUTES.contact} class="lnk">Contacter l'admission</a></div>
+    </div>
+    <div class="faq__list" data-accordion>
+      {
+        FAQ.map((f, i) => (
+          <div class="faq-item">
+            <h3 class="faq-item__h">
+              <button type="button" class="faq-item__btn tint" aria-expanded={i === 0 ? "true" : "false"} aria-controls={`faq-a-${i}`} id={`faq-q-${i}`}>
+                <span>{f.q}</span>
+                <span class="faq-item__sign" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <p class="faq-item__a" id={`faq-a-${i}`} role="region" aria-labelledby={`faq-q-${i}`}>{f.a}</p>
+          </div>
+        ))
+      }
+      <div class="faq__end"></div>
+    </div>
+  </section>
+
+  <script src="@/scripts/accordion.ts"></script>
+
+  <EndOfPage
+    title="Ta candidature prend quelques minutes."
+    primary={{ href: ROUTES.candidature, label: "Commencer ma candidature" }}
+    secondary={{ href: ROUTES.evenements, label: "Venir aux portes ouvertes" }}
+    image="p_arches"
+  />
+  <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Avant de te lancer : découvre où sont nos étudiants aujourd'hui." image="p_team" />
+</Base>
+
+<style>
+  .steps {
+    padding-block: 130px 120px;
+  }
+  .steps__title {
+    max-width: 10em;
+  }
+  .steps__grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 32px;
+    counter-reset: step;
+  }
+  .step {
+    padding-top: 20px;
+    border-top: 1px solid var(--line-strong);
+  }
+  .step:first-child {
+    border-top-color: var(--yellow);
+  }
+  .step__n {
+    font-size: 13px;
+    color: var(--ink-60);
+  }
+  .step__title {
+    margin-top: 12px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+  .step__text {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--ink-70);
+  }
+  .step__next {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--ink-65);
+    line-height: 1.5;
+  }
+  .step__next-label {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .parents__questions {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .parents__questions-title,
+  .parents__contact-title {
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .parents__questions-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    font-size: 15px;
+  }
+  .parents__contact {
+    margin-top: 28px;
+  }
+  .parents__contact-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-70);
+    max-width: 34em;
+  }
+
+  .figures {
+    padding-block: 120px;
+  }
+  .figures__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 20px;
+  }
+  .figure-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+  }
+  .figure-card__value {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(26px, 3.6vw, 40px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .figure-card__label {
+    margin-top: 14px;
+    font-size: 15px;
+    color: var(--ink-62);
+  }
+
+  .parents {
+    padding-block: 140px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 56px 96px;
+    align-items: center;
+  }
+  .parents__eyebrow {
+    margin-bottom: 20px;
+  }
+  .parents__title {
+    max-width: 10em;
+  }
+  .parents__list {
+    margin-top: 40px;
+  }
+  .parents__item {
+    padding: 22px 0;
+    border-top: 1px solid var(--line-strong);
+  }
+  .parents__item-title {
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .parents__item-text {
+    margin-top: 6px;
+    font-size: 15px;
+    color: var(--ink-70);
+  }
+  .parents__badges {
+    margin-top: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .faq {
+    padding-block: 0 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 48px 96px;
+    align-items: start;
+  }
+  .faq__title {
+    max-width: 8em;
+  }
+  .faq__sub {
+    margin-top: 20px;
+    font-size: 17px;
+    color: var(--ink-70);
+    max-width: 22em;
+  }
+  .faq__link {
+    margin-top: 28px;
+  }
+  .faq__list {
+    grid-column: span 2;
+  }
+  @media (min-width: 1024px) {
+    .faq {
+      grid-template-columns: minmax(min(300px, 100%), 1fr) minmax(0, 2fr);
+    }
+    .faq__list {
+      grid-column: auto;
+    }
+  }
+  .faq-item__h {
+    margin: 0;
+    font: inherit;
+  }
+  .faq-item__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 8px 22px 0;
+    border: 0;
+    border-top: 1px solid var(--line-strong);
+    background: transparent;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .faq-item__sign {
+    position: relative;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+  }
+  .faq-item__sign::before,
+  .faq-item__sign::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+  }
+  .faq-item__sign::before {
+    width: 14px;
+    height: 1.5px;
+  }
+  .faq-item__sign::after {
+    width: 1.5px;
+    height: 14px;
+    transition: transform 0.2s var(--ease-out);
+  }
+  .faq-item__btn[aria-expanded="true"] .faq-item__sign::after {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+  .faq-item__a {
+    padding: 0 48px 24px 0;
+    font-size: 16px;
+    color: var(--ink-72);
+  }
+  .faq-item__a[hidden] {
+    display: none;
+  }
+  /*
+   * Motion: the answer is an expandable panel. It fades in from -4 px in 200 ms (ease-out,
+   * within Kowalski's 150-250 ms budget for dropdown-like UI); the exit is instant because
+   * the user already chose the next question. A transition (not keyframes) stays
+   * interruptible when questions are toggled quickly.
+   */
+  .faq-item__a {
+    transition:
+      opacity var(--dur-ui) var(--ease-out),
+      transform var(--dur-ui) var(--ease-out);
+  }
+  @starting-style {
+    .faq-item__a.is-entering {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+  .faq__end {
+    border-top: 1px solid var(--line-strong);
+  }
+  @media (max-width: 1023px) {
+    .steps__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 768px) {
+    .figures__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .figure-card {
+      padding: 28px 24px;
+    }
+  }
+  @media (max-width: 767px) {
+    .steps__grid {
+      grid-template-columns: 1fr;
+    }
+    .steps,
+    .figures,
+    .parents {
+      padding-block: var(--section-y);
+    }
+    .faq {
+      padding-bottom: var(--section-y);
+    }
+    .steps__grid {
+      margin-top: 40px;
+    }
+    .faq__list {
+      grid-column: auto;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-item__sign::after {
+      transition: none;
+    }
+    .faq-item__a {
+      transition: opacity var(--dur-ui) ease;
+    }
+    @starting-style {
+      .faq-item__a.is-entering {
+        transform: none;
+      }
+    }
+  }
+</style>

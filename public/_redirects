@@ -1,0 +1,16 @@
+# 301 redirects for Netlify / Cloudflare Pages. Keep in sync with astro.config.ts.
+/trajectoires  /carrieres  301
+/notre-adn  /ecole  301
+/campus/paris  /ecole#campus  301
+/vie-etudiante  /ecole#vie  301
+/entrepreneuriat  /ecole  301
+/approche-pedagogique  /ecole#professeurs  301
+/methode-eugenia  /ecole  301
+/processus-admission  /admissions  301
+/faq  /admissions#faq  301
+/programme/bachelor-ia-business  /programmes#bachelor  301
+/programme/bachelor-ia-business-3eme-annee-alternance  /programmes#bachelor  301
+/programme/master-ia-business-alternance  /programmes#msc  301
+/entreprises-partenaires  /entreprises  301
+/recruter-nos-etudiants  /entreprises  301
+/projets-entreprises  /entreprises#hackathons  301

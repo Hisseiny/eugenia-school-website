@@ -1,0 +1,30 @@
+---
+/** A partner or recruiter logo at a fixed display height; width follows the file's ratio. */
+import { Image } from "astro:assets";
+import { img } from "@/data/images";
+
+interface Props {
+  name: string;
+  alt: string;
+  height: number;
+  gray?: boolean;
+  decorative?: boolean;
+  class?: string;
+}
+const { name, alt, height, gray = false, decorative = false, class: className = "" } = Astro.props;
+const src = img(name);
+const width = Math.round((src.width / src.height) * height);
+---
+
+<span class:list={[gray && "gray", className]}>
+  <Image
+    src={src}
+    alt={decorative ? "" : alt}
+    aria-hidden={decorative ? "true" : undefined}
+    width={width * 2}
+    height={height * 2}
+    format="webp"
+    loading="lazy"
+    style={`width: ${width}px; max-width: 100%; height: auto`}
+  />
+</span>
