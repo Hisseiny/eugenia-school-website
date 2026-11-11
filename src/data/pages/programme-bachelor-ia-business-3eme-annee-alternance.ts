@@ -13,7 +13,8 @@ export const page: LivePage = {
     "parent": "// Alternance · Paris",
     "studentCta": "Candidater →",
     "parentCta": "Voir le rythme ↓",
-    "href": "/candidature"
+    "href": "/candidature",
+    "parentHref": "#rythme"
   },
   "badges": [
     "Durée1 an",
@@ -86,6 +87,7 @@ export const page: LivePage = {
     },
     {
       "title": "Cinq semaines, puis deux mondes.",
+      "id": "rythme",
       "blocks": [
         {
           "type": "paragraph",

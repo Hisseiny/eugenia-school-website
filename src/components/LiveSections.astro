@@ -142,7 +142,7 @@ const groupedSections = sections.map((section) => {
 
 {
   groupedSections.map((section) => (
-    <section class="live-section">
+    <section id={section.id} class="live-section">
       <div class="container">
         <header class:list={["live-section__head", !section.lead && "live-section__head--single"]}>
           <div>

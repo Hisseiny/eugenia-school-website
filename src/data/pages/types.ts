@@ -24,6 +24,7 @@ export type PageBlock =
 export interface LiveSection {
   eyebrow?: string;
   title?: string;
+  id?: string;
   blocks: PageBlock[];
 }
 
@@ -39,6 +40,8 @@ export interface AudienceCopy {
   studentCta: string;
   parentCta: string;
   href: string;
+  studentHref?: string;
+  parentHref?: string;
 }
 
 export interface LivePage {

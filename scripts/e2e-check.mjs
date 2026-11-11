@@ -170,6 +170,13 @@ const blockTracking = async (page) => {
   check("audience switch tracks the selected profile", audienceEvent?.audience === "parent");
   await page.goto(base + "/programme/bachelor-ia-business?pour=parent", { waitUntil: "load" });
   check("?pour=parent selects the parent variant", await page.locator('[data-audience-select="parent"]').getAttribute("aria-pressed") === "true");
+  check("parent query is not appended twice", (await page.locator(".audience__cta").getAttribute("href")) === "/candidature?pour=parent");
+  await page.goto(base + "/programme/bachelor-ia-business-3eme-annee-alternance", { waitUntil: "load" });
+  await page.locator('[data-audience-select="parent"]').click();
+  check("third-year parent CTA links to the rhythm section", (await page.locator(".audience__cta").getAttribute("href")) === "#rythme");
+  check("third-year rhythm section has its live anchor", (await page.locator("#rythme").count()) === 1);
+  await page.locator('[data-audience-select="student"]').click();
+  check("third-year student CTA still links to the application", (await page.locator(".audience__cta").getAttribute("href")) === "/candidature");
   const module = page.locator(".curriculum__module").first();
   await module.locator("summary").click();
   check("native curriculum details open and expose courses", await module.evaluate((el) => el.open) && await module.locator(".curriculum__course-name").first().isVisible());

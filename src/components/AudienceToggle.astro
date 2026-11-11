@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { copy } = Astro.props;
+const studentHref = copy.studentHref ?? copy.href;
+const parentHref = copy.parentHref ?? copy.href;
 ---
 
 <section class="container audience" data-audience-root>
@@ -19,7 +21,13 @@ const { copy } = Astro.props;
   <div class="audience__content">
     <p data-audience="student">{copy.student.replace(/^\/\/\s*/, "")}</p>
     <p data-audience="parent" hidden>{copy.parent.replace(/^\/\/\s*/, "")}</p>
-    <a class="btn btn--lg audience__cta" href={copy.href}>
+    <a
+      class="btn btn--lg audience__cta"
+      href={studentHref}
+      data-audience-cta
+      data-audience-student-href={studentHref}
+      data-audience-parent-href={parentHref}
+    >
       <span data-audience="student">{copy.studentCta}</span>
       <span data-audience="parent" hidden>{copy.parentCta}</span>
     </a>
