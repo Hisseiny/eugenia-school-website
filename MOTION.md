@@ -14,10 +14,10 @@ Principles followed (nothing is decorative or random):
 | Where | What | Duration / easing | Why |
 |---|---|---|---|
 | Page top (hero, every inner page, form pages) | Title, lead, buttons rise 16 px with a fade, 150 ms apart (`.r1 .r2 .r3`) | 0.9 s, `cubic-bezier(.23,1,.32,1)` | The one entrance animation of the brief: sets the reading order |
-| Every section block and card (`data-reveal`) | Rises 16 px with a fade the first time it enters the viewport; siblings in a grid follow each other by 70 ms | 0.7 s, ease-out | Guides the eye down the page, gives rhythm to long pages; happens once, never on scroll-up |
+| Every section block and card (`data-reveal`) | Rises 16 px with a fade the first time it enters the viewport; siblings in a grid follow each other by 70 ms. What is already on screen at load appears at once | 0.7 s, ease-out | Guides the eye down the page, gives rhythm to long pages; happens once, never on scroll-up; nothing waits above the fold |
 | Skill chips (`.chip`) | Pop from 92 % to 100 % after their block, 45 ms apart | 0.4 s, ease-out | Chips are a list: the stagger makes them readable as separate items |
-| Key figures (`S1 / 48 h / 15`, `4 étapes`) | Numbers count up from 0 when 60 % visible | 0.9 s, cubic ease-out | Draws attention to the proof numbers; text values are untouched |
-| Header | Compacts (20 → 12 px) and gets a blurred translucent background after 12 px of scroll | 0.3 s | Gives room to the content while keeping navigation one tap away, without a shadow |
+| Key figures (`S1 / 48 h / 15`, `4 étapes`) | Numbers count up from 0 when 60 % visible, in tabular digits so nothing jitters | 0.9 s, cubic ease-out | Draws attention to the proof numbers; text values are untouched |
+| Header | Gets a blurred translucent background after 12 px of scroll (height never changes: a shrinking header would shift the page) | 0.3 s | Separates navigation from content without a shadow; the open mobile menu is always opaque |
 | Partner band (home) | Each logo unrolls vertically from behind a mask (translateY 110 % → 0), 70 ms apart; hovering one dims the others to 40 % while it takes colour and lifts 2 px | 0.8 s, expo-out `cubic-bezier(.16,1,.3,1)` / 0.3 s | Mask reveal is the signature entrance of premium product pages (Apple, Awwwards); expo-out lands softly without bounce; dimming the siblings is the focus pattern used by Linear and Vercel |
 | Recruiter marquee | Greyscale → colour and a 2 px lift on hover; pauses on hover; only runs once on screen | 0.2–0.3 s | Colour is the reward for attention; the pause lets people read a logo |
 | Logo grid cells (Carrières, Entreprises) | Cell tints and the logo takes colour together; cells reveal in cascade | 0.25 s | One hover target, one effect |
@@ -27,5 +27,7 @@ Principles followed (nothing is decorative or random):
 | Entry doors, "Continuer la visite" | Icon lifts 3 px / arrow moves 6 px on hover; underline darkens | 0.2–0.3 s | Signals the whole card is a link |
 | Teacher portraits | Greyscale → colour on hover | 0.3 s | Keeps the grid calm; the person you look at comes alive |
 
-Everything above is disabled with `prefers-reduced-motion: reduce`, and nothing is hidden
-without JavaScript (reveal styles are scoped to `html.js`).
+Everything above is disabled with `prefers-reduced-motion: reduce`, hover effects only exist on
+pointer devices (`@media (hover: hover)`, so nothing sticks after a tap on mobile), anchors land
+below the sticky header (`scroll-padding-top`), and nothing is hidden without JavaScript (reveal
+styles are scoped to `html.js`).

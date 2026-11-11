@@ -119,9 +119,6 @@ import { ROUTES } from "@/data/site";
   .testi__slide.is-entering {
     animation: slide-in 0.45s var(--ease-out) both;
   }
-  .testi__slide.is-entering .pic {
-    animation: slide-in 0.55s var(--ease-out) both;
-  }
   .testi__body {
     display: flex;
     flex-direction: column;
@@ -253,8 +250,7 @@ import { ROUTES } from "@/data/site";
     .testi__arrow {
       transition: none;
     }
-    .testi__slide.is-entering,
-    .testi__slide.is-entering .pic {
+    .testi__slide.is-entering {
       animation: none;
     }
   }

@@ -377,8 +377,10 @@ const ICONS: Record<string, string> = {
       transform 0.3s var(--ease-out),
       opacity 0.3s ease-out;
   }
-  .badges__partners:hover .badges__item:not(:hover) :global(.gray) {
-    opacity: 0.4;
+  @media (hover: hover) {
+    .badges__partners:hover .badges__item:not(:hover) :global(.gray) {
+      opacity: 0.4;
+    }
   }
   @media (max-width: 767px) {
     .badges__row {
@@ -458,11 +460,13 @@ const ICONS: Record<string, string> = {
       transform 0.3s var(--ease-out),
       border-color 0.2s ease-out;
   }
-  .door:hover svg {
-    transform: translateY(-3px);
-  }
-  .door:hover .door__cta {
-    border-color: var(--plum);
+  @media (hover: hover) {
+    .door:hover svg {
+      transform: translateY(-3px);
+    }
+    .door:hover .door__cta {
+      border-color: var(--plum);
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .door svg,

@@ -176,6 +176,7 @@ const faqLd = {
   .figure-card__value {
     font-family: var(--font-display);
     font-weight: 300;
+    font-variant-numeric: tabular-nums;
     font-size: clamp(26px, 3.6vw, 40px);
     letter-spacing: -0.03em;
     line-height: 1;
@@ -317,7 +318,7 @@ const faqLd = {
       transform: none;
     }
   }
-  :global(html.js) .faq-item__a:not([hidden]) {
+  .faq-item__a.is-entering {
     animation: faq-in 0.35s var(--ease-out) both;
   }
   .faq__end {
@@ -361,7 +362,7 @@ const faqLd = {
     .faq-item__sign::after {
       transition: none;
     }
-    :global(html.js) .faq-item__a:not([hidden]) {
+    .faq-item__a.is-entering {
       animation: none;
     }
   }

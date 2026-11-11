@@ -4,10 +4,13 @@
  */
 export function initAccordion(root: HTMLElement): void {
   const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>("button[aria-controls]"));
-  const setOpen = (btn: HTMLButtonElement, open: boolean) => {
+  const setOpen = (btn: HTMLButtonElement, open: boolean, animate = true) => {
     btn.setAttribute("aria-expanded", String(open));
     const panel = document.getElementById(btn.getAttribute("aria-controls") ?? "");
-    if (panel) panel.hidden = !open;
+    if (panel) {
+      panel.hidden = !open;
+      panel.classList.toggle("is-entering", open && animate);
+    }
   };
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -27,7 +30,7 @@ export function initAccordion(root: HTMLElement): void {
     });
   });
   // Progressive enhancement: without JS every answer is visible; with JS only the first is open.
-  buttons.forEach((b, i) => setOpen(b, i === 0));
+  buttons.forEach((b, i) => setOpen(b, i === 0, false));
 }
 
 document.querySelectorAll<HTMLElement>("[data-accordion]").forEach(initAccordion);

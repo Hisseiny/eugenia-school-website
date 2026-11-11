@@ -54,7 +54,15 @@ export function initReveal(): void {
       targets.add(el);
     });
   }
-  targets.forEach((el) => el.setAttribute("data-reveal", ""));
+  // Elements with the page-top entrance (.r1 .r2 .r3) already animate: never animate them twice.
+  targets.forEach((el) => {
+    if (el.matches(".r1, .r2, .r3")) targets.delete(el);
+  });
+  targets.forEach((el) => {
+    el.setAttribute("data-reveal", "");
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("is-visible", "is-immediate");
+  });
   // Chips inside a revealed block pop in one after the other once the block is visible.
   document.querySelectorAll<HTMLElement>(".chips").forEach((group) => {
     Array.from(group.children).forEach((chip, i) => (chip as HTMLElement).style.setProperty("--i", String(i)));
@@ -71,7 +79,9 @@ export function initReveal(): void {
     },
     { threshold: 0.08 },
   );
-  targets.forEach((el) => io.observe(el));
+  targets.forEach((el) => {
+    if (!el.classList.contains("is-visible")) io.observe(el);
+  });
 }
 
 initReveal();

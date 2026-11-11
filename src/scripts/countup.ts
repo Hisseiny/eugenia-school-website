@@ -33,10 +33,14 @@ export function initCountUp(): void {
     requestAnimationFrame(tick);
   };
 
+  // One batch of entries can contain the same element twice (several threshold crossings
+  // during a smooth scroll); count each figure exactly once.
+  const done = new WeakSet<Element>();
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) {
+        if (e.isIntersecting && !done.has(e.target)) {
+          done.add(e.target);
           run(e.target as HTMLElement);
           io.unobserve(e.target);
         }
