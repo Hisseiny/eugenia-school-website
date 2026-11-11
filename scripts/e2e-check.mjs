@@ -96,6 +96,33 @@ const blockTracking = async (page) => {
   await page.close();
 }
 
+// Portfolio filters remain optional without JavaScript and filter cards accessibly with JavaScript.
+{
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
+  await page.goto(base + "/portfolio", { waitUntil: "load" });
+  const cards = page.locator(".portfolio-gallery__card");
+  check("portfolio shows all five projects", (await cards.count()) === 5);
+  check("portfolio filters are visible with JavaScript", await page.locator("[data-portfolio-filters]").isVisible());
+  await page.getByRole("button", { name: "Python", exact: true }).click();
+  check("portfolio filter updates aria-pressed", (await page.getByRole("button", { name: "Python", exact: true }).getAttribute("aria-pressed")) === "true");
+  check("portfolio filter hides nonmatching projects", (await cards.evaluateAll((items) => items.filter((item) => !item.hidden).length)) === 1);
+  check("portfolio filter count is announced", (await page.locator("[data-filter-count]").textContent()) === "1 résultats");
+  await page.locator("[data-filter-reset]").click();
+  check("portfolio reset restores all projects", (await cards.evaluateAll((items) => items.filter((item) => !item.hidden).length)) === 5);
+  await page.close();
+}
+
+{
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 800 } });
+  const page = await context.newPage();
+  await blockTracking(page);
+  await page.goto(base + "/portfolio", { waitUntil: "load" });
+  check("portfolio without JavaScript keeps all projects visible", (await page.locator(".portfolio-gallery__card:visible").count()) === 5);
+  check("portfolio without JavaScript hides filters", await page.locator("[data-portfolio-filters]").isHidden());
+  await context.close();
+}
+
 // Premium application form (HubSpot API mocked: no real submission)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -241,6 +268,19 @@ const blockTracking = async (page) => {
     "/financement",
     "/processus-admission",
     "/faq",
+    "/notre-adn",
+    "/campus/paris",
+    "/vie-etudiante",
+    "/entrepreneuriat",
+    "/approche-pedagogique",
+    "/methode-eugenia",
+    "/entreprises-partenaires",
+    "/recruter-nos-etudiants",
+    "/projets-entreprises",
+    "/projets-entreprises/dust-hackathon",
+    "/projets-entreprises/mistral-ai-hackathon",
+    "/projets-entreprises/openai-hackathon",
+    "/portfolio",
   ];
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await blockTracking(page);

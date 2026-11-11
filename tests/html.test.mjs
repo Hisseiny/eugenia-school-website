@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 
-const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq"];
+const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq", "notre-adn", "campus/paris", "vie-etudiante", "entrepreneuriat", "approche-pedagogique", "methode-eugenia", "entreprises-partenaires", "recruter-nos-etudiants", "projets-entreprises", "projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon", "portfolio"];
 const html = (name) => {
   const file = `dist/${name}.html`;
   const nestedFile = `dist/${name}/index.html`;
@@ -97,8 +97,8 @@ test("form pages embed the school's existing HubSpot forms", () => {
   }
 });
 
-test("redirects exist for the old URLs named in the brief", () => {
-  for (const file of ["dist/trajectoires.html", "dist/campus/paris.html"]) {
+test("remaining legacy redirect exists and is configured for static hosting", () => {
+  for (const file of ["dist/trajectoires.html"]) {
     assert.ok(existsSync(file), `${file} missing`);
   }
   const r = readFileSync("public/_redirects", "utf8");
@@ -214,12 +214,14 @@ const NEW_PAGES = [
   ["processus-admission", "Candidater. Bachelor ou MSc."],
   ["faq", "Tu as des questions."],
 ];
+const lot3 = JSON.parse(readFileSync("src/data/pages/lot3.json", "utf8"));
+const LOT3_PAGES = Object.entries(lot3).map(([route, entry]) => [route, entry.page.h1]);
 
 const plainText = (htmlText) =>
   decodeEntities(htmlText.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim());
 
 test("new routes are real pages with their live H1 and visible breadcrumbs", () => {
-  for (const [route, expectedH1] of NEW_PAGES) {
+  for (const [route, expectedH1] of [...NEW_PAGES, ...LOT3_PAGES]) {
     const source = html(route);
     assert.ok(!/http-equiv="refresh"/i.test(source), `${route} is a redirect stub`);
     const h1 = source.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "";
@@ -227,6 +229,52 @@ test("new routes are real pages with their live H1 and visible breadcrumbs", () 
     assert.match(source, /<nav\b[^>]*aria-label="Fil d'Ariane"/, `${route}: missing visible breadcrumb`);
     assert.ok(source.includes('aria-current="page"'), `${route}: current breadcrumb is not marked`);
   }
+});
+
+test("lot 3 metadata matches the extraction and stays within the live length targets", () => {
+  const titles = new Set();
+  const descriptions = new Set();
+  for (const [route, { page }] of Object.entries(lot3)) {
+    const source = html(route);
+    const title = decodeEntities(source.match(/<title>([^<]+)<\/title>/)?.[1] ?? "");
+    const description = decodeEntities(source.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "");
+    assert.equal(title, page.title, `${route}: title differs from extraction`);
+    assert.equal(description, page.description, `${route}: description differs from extraction`);
+    assert.ok(title.length >= 50 && title.length <= 60, `${route}: title length ${title.length}`);
+    assert.ok(description.length >= 140 && description.length <= 155, `${route}: description length ${description.length}`);
+    assert.ok(!titles.has(title), `${route}: duplicate title`);
+    assert.ok(!descriptions.has(description), `${route}: duplicate description`);
+    titles.add(title);
+    descriptions.add(description);
+  }
+});
+
+test("case studies mirror live Article fields without inferred dates", () => {
+  for (const route of ["projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon"]) {
+    const source = html(route);
+    const canonical = source.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+    const article = schema["@graph"].find((entity) => entity["@type"] === "Article");
+    assert.ok(article, `${route}: Article schema missing`);
+    assert.equal(article.author["@id"], "https://www.eugeniaschool.com/#organization");
+    assert.equal(article.publisher["@id"], "https://www.eugeniaschool.com/#organization");
+    assert.equal(article.mainEntityOfPage, canonical);
+    assert.match(article.image, /^https:\/\/www\.eugeniaschool\.com\/_astro\/.+\.(?:webp|avif|png|jpg)$/);
+    assert.ok(!("datePublished" in article));
+    assert.ok(!("dateModified" in article));
+  }
+});
+
+test("projects collection lists all three case-study URLs", () => {
+  const source = html("projets-entreprises");
+  const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+  const collection = schema["@graph"].find((entity) => entity["@type"] === "CollectionPage");
+  const items = collection?.mainEntity?.itemListElement?.map((item) => item.url) ?? [];
+  assert.deepEqual(items.sort(), [
+    "https://www.eugeniaschool.com/projets-entreprises/dust-hackathon",
+    "https://www.eugeniaschool.com/projets-entreprises/mistral-ai-hackathon",
+    "https://www.eugeniaschool.com/projets-entreprises/openai-hackathon",
+  ].sort());
 });
 
 test("financing fee tables follow their programme headings", () => {
