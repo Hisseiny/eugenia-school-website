@@ -282,8 +282,9 @@ test("FAQ and alternance FAQPage data exactly match visible questions and answer
     const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
     const faq = schema["@graph"].find((entity) => entity["@type"] === "FAQPage");
     assert.ok(faq, `${route}: missing FAQPage`);
-    const questions = [...source.matchAll(/<button\b[^>]*id="[^"]*faq-q-\d+"[^>]*>([\s\S]*?)<\/button>/g)].map(([, text]) => normalize(text));
-    const answers = [...source.matchAll(/<p\b[^>]*class="faq-item__a"[^>]*>([\s\S]*?)<\/p>/g)].map(([, text]) => normalize(text));
+    const visibleItems = [...source.matchAll(/<div class="faq-item"[^>]*>([\s\S]*?)<\/div>/g)].map(([, item]) => item);
+    const questions = visibleItems.map((item) => normalize(item.match(/<button\b[^>]*class="faq-item__btn[^"]*"[^>]*>([\s\S]*?)<\/button>/)?.[1] ?? ""));
+    const answers = visibleItems.map((item) => normalize(item.match(/<p\b[^>]*class="faq-item__a"[^>]*>([\s\S]*?)<\/p>/)?.[1] ?? ""));
     assert.deepEqual(faq.mainEntity.map((item) => normalize(item.name)), questions);
     assert.deepEqual(faq.mainEntity.map((item) => normalize(item.acceptedAnswer.text)), answers);
     if (route === "alternance") assert.equal(faq.mainEntity.length, 5);

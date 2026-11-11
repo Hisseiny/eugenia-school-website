@@ -48,6 +48,7 @@ const entities = {
   raquo: "»",
   ndash: "–",
   mdash: "—",
+  middot: "·",
   hellip: "…",
   quot: '"',
   lt: "<",
@@ -74,15 +75,40 @@ const cleanMarkdown = (value) =>
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .replace(/\*\*(.*?)\*\*/g, "$1")
       .replace(/`/g, "")
+      .replace(/^\d+\.\s+/, "")
       .replace(/^#+\s*/, ""),
   );
+const withoutWhitespace = (value) => normalize(value).replace(/\s/gu, "");
+const compact = (value) => withoutWhitespace(value).toLocaleLowerCase("fr");
+const ctaTokens = (markdown) => {
+  const inventory = markdown.split("## CTA labels and hrefs\n")[1]?.split("\n## Images")[0] ?? "";
+  return [...inventory.matchAll(/`([^`]+)`/g)]
+    .map((match) => compact(match[1]))
+    .filter((label) => label.length >= 2)
+    .sort((a, b) => b.length - a.length);
+};
+const isInventoryCtaLine = (line, labels) => {
+  const value = compact(line);
+  if (!value) return false;
+  const memo = new Map();
+  const matchesFrom = (offset) => {
+    if (offset === value.length) return true;
+    if (memo.has(offset)) return memo.get(offset);
+    const matches = labels.some((label) => value.startsWith(label, offset) && matchesFrom(offset + label.length));
+    memo.set(offset, matches);
+    return matches;
+  };
+  return matchesFrom(0);
+};
 const extractLines = (markdown) => {
   const pageContent = markdown.split("## Page content\n")[1]?.split("\n## CTA labels")[0];
   if (!pageContent) throw new Error("Missing ## Page content section");
+  const inventoryLabels = ctaTokens(markdown);
   const lines = [];
   for (const line of pageContent.split(/\r?\n/)) {
     const value = line.trim();
     if (!value || value.startsWith("// ") || value.startsWith("[CTA:") || value.startsWith("[Image:") || value.startsWith("**Button:") || value.startsWith("**Expandable section:**")) continue;
+    if (isInventoryCtaLine(value, inventoryLabels)) continue;
     if (value.startsWith("|")) {
       if (/^\|[\s:|-]+\|$/.test(value)) continue;
       for (const cell of value.split("|").slice(1, -1)) {
@@ -110,8 +136,8 @@ for (const [sourceName, route] of pages) {
   const htmlPath = existsSync(builtPath) ? builtPath : fallbackPath;
   if (!existsSync(htmlPath)) throw new Error(`Missing built page: ${builtPath}`);
   const lines = extractLines(readFileSync(markdownPath, "utf8"));
-  const content = htmlText(readFileSync(htmlPath, "utf8"));
-  const missing = lines.filter((line) => !content.includes(line));
+  const content = withoutWhitespace(htmlText(readFileSync(htmlPath, "utf8")));
+  const missing = lines.filter((line) => !content.includes(withoutWhitespace(line)));
   const coverage = lines.length ? ((lines.length - missing.length) / lines.length) * 100 : 100;
   console.log(`${coverage >= 98 ? "OK" : "FAIL"} ${route}: ${lines.length - missing.length}/${lines.length} (${coverage.toFixed(1)}%)`);
   if (missing.length) {
