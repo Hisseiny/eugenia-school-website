@@ -84,7 +84,9 @@ export function initPremiumForm(form: HTMLFormElement): void {
     }
   });
   form.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !(e.target instanceof HTMLTextAreaElement) && index < panels.length - 1) {
+    const t = e.target as HTMLElement;
+    if (t instanceof HTMLButtonElement || t instanceof HTMLTextAreaElement) return;
+    if (e.key === "Enter" && index < panels.length - 1) {
       e.preventDefault();
       next.click();
     }
