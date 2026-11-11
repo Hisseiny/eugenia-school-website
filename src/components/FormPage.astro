@@ -1,7 +1,7 @@
 ---
 /** Shared layout for the four form pages: title + context left, existing HubSpot form right. */
 import Base from "@/layouts/Base.astro";
-import HubspotForm from "@/components/HubspotForm.astro";
+import PremiumForm from "@/components/PremiumForm.astro";
 import type { HUBSPOT } from "@/data/site";
 
 interface Props {
@@ -46,7 +46,7 @@ const { title, description, heading, lead, form, facts = [], formLabel, next = [
             </ul>
           )
         }
-        <HubspotForm form={form} />
+        <PremiumForm form={form} />
       </div>
     </div>
   </section>

@@ -88,6 +88,38 @@ const check = (name, ok, extra = "") => {
   await page.close();
 }
 
+// Premium application form (HubSpot API mocked: no real submission)
+{
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  let posted = null;
+  await page.route(/api\.hsforms\.com/, async (route) => { posted = JSON.parse(route.request().postData()); await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ inlineMessage: "ok" }) }); });
+  await page.goto(base + "/candidature", { waitUntil: "load" });
+  check("form starts at step 1/4", (await page.locator("[data-pf-step]").textContent()) === "1" && (await page.locator("[data-pf-panel='0']").isVisible()));
+  await page.click("[data-pf-next]");
+  check("empty step is blocked with a message", await page.locator("[data-pf-panel='0'] [data-pf-error]").isVisible());
+  await page.click(".pf__choice:has(input[value='All.Student']) .pf__choice-box");
+  await page.waitForTimeout(400);
+  check("choosing a card moves to step 2", (await page.locator("[data-pf-step]").textContent()) === "2");
+  await page.selectOption("select[name='all_current_academic_year']", "Y-1 (terminale)");
+  await page.click("[data-pf-next]");
+  await page.click(".pf__choice:has(input[value='Bachelor Gamma']) .pf__choice-box");
+  await page.waitForTimeout(400);
+  check("step 4 shows the submit button", await page.locator("[data-pf-submit]").isVisible());
+  await page.fill("input[name='firstname']", "Test");
+  await page.fill("input[name='lastname']", "Devin");
+  await page.fill("input[name='email']", "not-an-email");
+  await page.fill("input[name='phone']", "0612345678");
+  await page.click("[data-pf-submit]");
+  check("invalid e-mail is caught before sending", posted === null && (await page.locator("input[name='email'][aria-invalid='true']").count()) === 1);
+  await page.fill("input[name='email']", "test@example.com");
+  await page.click("[data-pf-submit]");
+  await page.waitForTimeout(600);
+  const names = posted ? posted.fields.map((f) => f.name).sort().join(",") : "";
+  check("payload has the HubSpot field names", names === "all_current_academic_year,all_type_multiple_checkboxes,email,firstname,lastname,one_targetted_training,phone", names);
+  check("confirmation uses the first name", (await page.locator("[data-pf-done-title]").textContent()).includes("Test"));
+  await page.close();
+}
+
 // No-JS: content readable, answers visible
 {
   const ctx = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });

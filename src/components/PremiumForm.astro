@@ -1,0 +1,400 @@
+---
+/**
+ * Eugenia-styled multi-step form. Posts to the school's HubSpot form through the public Forms API
+ * (same portal and form id as the embed), so nothing changes in the CRM. One question per screen,
+ * progress shown, inline validation, a confirmation that says what happens next. Without
+ * JavaScript, all steps are shown and the visitor is given the public contact instead.
+ */
+import { FORMS, WHO } from "@/data/forms";
+import { HUBSPOT, SITE } from "@/data/site";
+
+interface Props {
+  form: keyof typeof FORMS;
+}
+const { form } = Astro.props;
+const cfg = FORMS[form];
+const total = cfg.steps.length;
+---
+
+<form
+  class="pf"
+  data-premium-form
+  data-hs-portal={HUBSPOT.portalId}
+  data-hs-form-id={cfg.formId}
+  data-page-name={cfg.pageName}
+  data-done-title={cfg.done.title}
+  novalidate
+  aria-labelledby="pf-title"
+>
+  <div class="pf__head">
+    <div class="pf__mark" aria-hidden="true"></div>
+    <p class="pf__progress"><span data-pf-step>1</span><span class="pf__progress-sep">/</span>{total}</p>
+    <div class="pf__bar" aria-hidden="true"><span data-pf-bar style={`width: ${100 / total}%`}></span></div>
+  </div>
+
+  {
+    cfg.steps.map((step, i) => (
+      <fieldset class="pf__step" data-pf-panel={i} hidden={i !== 0}>
+        <legend class="pf__legend" id={i === 0 ? "pf-title" : undefined}>{step.title}</legend>
+        {step.kind === "choice" && (
+          <div class:list={["pf__choices", step.cards && "pf__choices--cards"]} role="radiogroup">
+            {(step.name === "all_type_multiple_checkboxes" ? cfg.who.map((w) => WHO[w]) : step.options).map((o, k) => (
+              <label class="pf__choice">
+                <input type="radio" name={step.name} value={o.value} required data-autonext />
+                <span class="pf__choice-box">
+                  <span class="pf__choice-label">{o.label}</span>
+                  {o.hint && <span class="pf__choice-hint">{o.hint}</span>}
+                </span>
+              </label>
+            ))}
+          </div>
+        )}
+        {step.kind === "select" && (
+          <div class="pf__field">
+            <label class="pf__label" for={`pf-${form}-${step.name}`}>{step.label}</label>
+            <select class="pf__input" id={`pf-${form}-${step.name}`} name={step.name} required>
+              <option value="">Choisir…</option>
+              {step.options.map((o) => (
+                <option value={o.value}>{o.label}</option>
+              ))}
+            </select>
+          </div>
+        )}
+        {step.kind === "contact" && (
+          <div class="pf__grid">
+            <div class="pf__field">
+              <label class="pf__label" for={`pf-${form}-firstname`}>Prénom</label>
+              <input class="pf__input" id={`pf-${form}-firstname`} name="firstname" type="text" autocomplete="given-name" required />
+            </div>
+            <div class="pf__field">
+              <label class="pf__label" for={`pf-${form}-lastname`}>Nom</label>
+              <input class="pf__input" id={`pf-${form}-lastname`} name="lastname" type="text" autocomplete="family-name" required />
+            </div>
+            <div class="pf__field">
+              <label class="pf__label" for={`pf-${form}-email`}>E-mail</label>
+              <input class="pf__input" id={`pf-${form}-email`} name="email" type="email" autocomplete="email" inputmode="email" required />
+            </div>
+            <div class="pf__field">
+              <label class="pf__label" for={`pf-${form}-phone`}>Téléphone</label>
+              <input class="pf__input" id={`pf-${form}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" required />
+            </div>
+            {step.message && (
+              <div class="pf__field pf__field--full">
+                <label class="pf__label" for={`pf-${form}-message`}>Votre question</label>
+                <textarea class="pf__input" id={`pf-${form}-message`} name="message" rows="4" placeholder="Décrivez-nous votre besoin ou votre question" />
+              </div>
+            )}
+          </div>
+        )}
+        <p class="pf__error" data-pf-error role="alert" hidden></p>
+      </fieldset>
+    ))
+  }
+
+  <div class="pf__nav">
+    <button type="button" class="pf__back" data-pf-back hidden>Retour</button>
+    <button type="button" class="btn pf__next" data-pf-next>Continuer</button>
+    <button type="submit" class="btn pf__submit" data-pf-submit hidden>{cfg.submitLabel}</button>
+  </div>
+  <p class="pf__privacy">Tes informations servent uniquement à l'équipe d'admission d'Eugenia School pour te répondre.</p>
+
+  <div class="pf__done" data-pf-done hidden aria-live="polite">
+    <div class="pf__done-mark" aria-hidden="true"></div>
+    <p class="pf__done-title" data-pf-done-title></p>
+    <ul class="pf__done-lines">
+      {cfg.done.lines.map((l) => <li>{l}</li>)}
+    </ul>
+  </div>
+
+  <noscript>
+    <p class="pf__nojs">
+      L'envoi du formulaire demande JavaScript. Écris-nous à <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      ou appelle le <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.
+    </p>
+  </noscript>
+</form>
+
+<script src="@/scripts/premium-form.ts"></script>
+
+<style>
+  .pf {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 40px 32px;
+    overflow: hidden;
+  }
+  .pf::before {
+    /* Eugenia signature: the yellow line of the mockup, top left */
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 72px;
+    height: 3px;
+    background: var(--yellow);
+  }
+  .pf__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .pf__mark {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--red);
+  }
+  .pf__progress {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-65);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .pf__progress-sep {
+    margin-inline: 2px;
+    color: var(--ink-45, var(--ink-65));
+  }
+  .pf__bar {
+    flex: 1;
+    height: 2px;
+    background: var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .pf__bar span {
+    display: block;
+    height: 100%;
+    background: var(--red);
+    transition: width 0.4s var(--ease-out);
+  }
+  .pf__step {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .pf__step[hidden] {
+    display: none;
+  }
+  :global(html.js) .pf__step {
+    transition:
+      opacity var(--dur-ui) var(--ease-out),
+      transform var(--dur-ui) var(--ease-out);
+  }
+  @starting-style {
+    :global(html.js) .pf__step:not([hidden]) {
+      opacity: 0;
+      transform: translateX(8px);
+    }
+  }
+  .pf__legend {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(24px, 2.2vw, 30px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 22px;
+    padding: 0;
+    max-width: 16em;
+  }
+  .pf__choices {
+    display: grid;
+    gap: 10px;
+  }
+  .pf__choices--cards {
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  }
+  .pf__choice input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .pf__choice-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    cursor: pointer;
+    min-height: 44px;
+    transition:
+      border-color var(--dur-ui) ease,
+      background-color var(--dur-ui) ease;
+  }
+  .pf__choice-label {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .pf__choice-hint {
+    font-size: 13px;
+    color: var(--ink-65);
+  }
+  .pf__choice input:checked + .pf__choice-box {
+    border-color: var(--plum);
+    background: var(--mist);
+    box-shadow: inset 0 0 0 1px var(--plum);
+  }
+  .pf__choice input:focus-visible + .pf__choice-box {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .pf__choice-box:hover {
+      border-color: var(--plum);
+    }
+  }
+  .pf__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 16px 20px;
+  }
+  .pf__field {
+    display: grid;
+    gap: 6px;
+  }
+  .pf__field--full {
+    grid-column: 1 / -1;
+  }
+  .pf__label {
+    font-size: 13px;
+    color: var(--ink-65);
+  }
+  .pf__input {
+    font: inherit;
+    font-size: 16px;
+    color: var(--plum);
+    background: var(--white);
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    padding: 13px 14px;
+    min-height: 48px;
+    width: 100%;
+    transition: border-color var(--dur-ui) ease;
+  }
+  .pf__input:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 1px;
+    border-color: var(--plum);
+  }
+  .pf__input[aria-invalid="true"] {
+    border-color: var(--red);
+  }
+  textarea.pf__input {
+    resize: vertical;
+  }
+  .pf__error {
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: var(--red-dark);
+  }
+  .pf__error[hidden] {
+    display: none;
+  }
+  .pf__nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+  }
+  .pf__back {
+    font: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    background: none;
+    border: 0;
+    padding: 10px 0;
+    color: var(--plum);
+    border-bottom: 1px solid rgba(31, 13, 25, 0.28);
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .pf__back[hidden],
+  .pf__next[hidden],
+  .pf__submit[hidden] {
+    display: none;
+  }
+  .pf__submit[aria-busy="true"] {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .pf__privacy {
+    margin: 18px 0 0;
+    font-size: 12px;
+    color: var(--ink-65);
+  }
+  .pf__done {
+    padding-block: 12px;
+  }
+  .pf__done[hidden] {
+    display: none;
+  }
+  .pf__done-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--red);
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .pf__done-mark::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 11px;
+    width: 9px;
+    height: 16px;
+    border: solid var(--white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .pf__done-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 2.6vw, 36px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 18px;
+  }
+  .pf__done-lines {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--ink-70);
+  }
+  .pf__done-lines li::before {
+    content: "—";
+    color: var(--red);
+    margin-right: 8px;
+  }
+  .pf__nojs {
+    margin: 16px 0 0;
+    font-size: 14px;
+  }
+  /* Without JavaScript: every step visible, no wizard controls */
+  :global(html:not(.js)) .pf__step[hidden] {
+    display: block;
+    margin-top: 28px;
+  }
+  :global(html:not(.js)) .pf__nav,
+  :global(html:not(.js)) .pf__head {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    .pf {
+      padding: 28px var(--gutter) 24px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pf__bar span,
+    :global(html.js) .pf__step {
+      transition: none;
+    }
+  }
+</style>
