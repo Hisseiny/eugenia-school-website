@@ -132,8 +132,15 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
   @media (max-width: 1023px) {
     .site-header__row {
       flex-wrap: wrap;
-      gap: 16px 24px;
-      padding-block: 16px;
+      gap: 16px 12px;
+      padding-block: 14px;
+    }
+    .site-header__logo img {
+      height: 22px;
+    }
+    .site-header__cta {
+      padding-inline: 16px;
+      font-size: 15px;
     }
     .site-header__toggle {
       display: inline-flex;
