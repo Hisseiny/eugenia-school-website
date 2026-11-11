@@ -9,6 +9,22 @@ interface Props {
 
 const { items, idPrefix = "", openFirstItem = true } = Astro.props;
 const prefix = idPrefix ? `${idPrefix}-` : "";
+const answerParts = (text: string) => {
+  const parts: { text: string; href?: string }[] = [];
+  const pattern = /https?:\/\/[^\s<>]+/gu;
+  let cursor = 0;
+  for (const match of text.matchAll(pattern)) {
+    const start = match.index ?? 0;
+    const rawUrl = match[0];
+    const url = rawUrl.replace(/[.,!?;:]+$/u, "");
+    if (start > cursor) parts.push({ text: text.slice(cursor, start) });
+    if (url) parts.push({ text: url, href: url });
+    if (url.length < rawUrl.length) parts.push({ text: rawUrl.slice(url.length) });
+    cursor = start + rawUrl.length;
+  }
+  if (cursor < text.length) parts.push({ text: text.slice(cursor) });
+  return parts;
+};
 ---
 
 <div class="faq__list" data-accordion>
@@ -29,7 +45,7 @@ const prefix = idPrefix ? `${idPrefix}-` : "";
             </button>
           </h3>
           <p class="faq-item__a" id={`${prefix}faq-a-${index}`} role="region" aria-labelledby={`${prefix}faq-q-${index}`}>
-            {item.a}
+            {answerParts(item.a).map((part) => part.href ? <a href={part.href} target="_blank" rel="noopener">{part.text}</a> : part.text)}
           </p>
         </div>
       );

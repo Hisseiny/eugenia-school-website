@@ -301,6 +301,14 @@ test("FAQ and alternance FAQPage data exactly match visible questions and answer
     assert.deepEqual(faq.mainEntity.map((item) => normalize(item.name)), questions);
     assert.deepEqual(faq.mainEntity.map((item) => normalize(item.acceptedAnswer.text)), answers);
     if (route === "alternance") assert.equal(faq.mainEntity.length, 5);
+    if (route === "faq") {
+      const inserjeunes = visibleItems.find((item) => item.includes("Inserjeunes"));
+      const url = "https://www.inserjeunes.education.gouv.fr/diffusion/accueil";
+      assert.match(inserjeunes ?? "", new RegExp(`<a\\b(?=[^>]*href="${url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}")(?=[^>]*target="_blank")(?=[^>]*rel="noopener")[^>]*>${url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}<\\/a>`));
+      const answer = faq.mainEntity.find((item) => item.name.includes("Inserjeunes"))?.acceptedAnswer.text ?? "";
+      assert.ok(answer.includes(url));
+      assert.ok(!answer.includes("<a"));
+    }
   }
 });
 
