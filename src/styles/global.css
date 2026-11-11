@@ -55,7 +55,7 @@
     --section-y-sm: 80px;
   }
   .display {
-    font-size: clamp(48px, 15vw, 96px);
+    font-size: clamp(44px, 13vw, 96px);
   }
   .cta-title {
     font-size: clamp(36px, 11vw, 84px);
@@ -186,13 +186,6 @@ ol {
 }
 
 /* Typography */
-h1,
-h2,
-h3,
-.display,
-.cta-title {
-  overflow-wrap: break-word;
-}
 
 .display {
   font-family: var(--font-display);
