@@ -3,7 +3,6 @@
  * Siblings are staggered by 70 ms. Without JavaScript nothing is hidden (styles are scoped to html.js).
  */
 const BLOCKS = [
-  "footer > .container > *",
   "main > section:not(.hero) > .container > *",
   "main > section:not(.hero):not(:has(> .container)) > *",
   "main > figure",
@@ -71,7 +70,7 @@ export function initReveal(): void {
         }
       }
     },
-    { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
+    { threshold: 0.08 },
   );
   targets.forEach((el) => io.observe(el));
 }
