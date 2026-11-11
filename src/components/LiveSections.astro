@@ -19,15 +19,17 @@ type CardGroup = { type: "card-group"; cards: { number?: string; title: string; 
 type ProfileGroup = { type: "profile-group"; profiles: { image: PageBlock & { type: "image" }; blocks: PageBlock[] }[] };
 type LogoGroup = { type: "logo-group"; items: { name: string; alt: string }[] };
 type ImageGroup = { type: "image-group"; items: { name: string; alt: string }[] };
-type RenderBlock = Exclude<PageBlock, { type: "faq" | "image" }> | { type: "faq-group"; items: FaqItem[]; idPrefix: string } | CardGroup | ProfileGroup | LogoGroup | ImageGroup | (PageBlock & { type: "image" });
+type RenderBlock = Exclude<PageBlock, { type: "faq" | "image" }> | { type: "faq-group"; items: FaqItem[]; idPrefix: string; openFirst: boolean } | CardGroup | ProfileGroup | LogoGroup | ImageGroup | (PageBlock & { type: "image" });
 const isLogoImage = (block: PageBlock | RenderBlock) => block.type === "image" && (block.logo || /^(lg_|pr3_logo-)/.test(block.name));
 
+let hasOpenFaqGroup = false;
 const groupFaqBlocks = (blocks: PageBlock[]): RenderBlock[] => {
   const grouped: RenderBlock[] = [];
   let items: FaqItem[] = [];
   const flushFaq = () => {
     if (!items.length) return;
-    grouped.push({ type: "faq-group", items, idPrefix: `live-faq-${faqGroup++}` });
+    grouped.push({ type: "faq-group", items, idPrefix: `live-faq-${faqGroup++}`, openFirst: !hasOpenFaqGroup });
+    hasOpenFaqGroup = true;
     items = [];
   };
   for (let index = 0; index < blocks.length; index++) {
@@ -153,7 +155,7 @@ const groupedSections = sections.map((section) => {
         </header>
         <div class="live-section__blocks">
           {section.blocks.map((block) => {
-            if (block.type === "faq-group") return <FaqList items={block.items} idPrefix={block.idPrefix} />;
+            if (block.type === "faq-group") return <FaqList items={block.items} idPrefix={block.idPrefix} openFirstItem={block.openFirst} />;
             if (block.type === "card-group") {
               return (
                 <div class="live-card-grid">

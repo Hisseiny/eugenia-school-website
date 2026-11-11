@@ -4,9 +4,10 @@ import type { FaqItem } from "@/data/pages/types";
 interface Props {
   items: FaqItem[];
   idPrefix?: string;
+  openFirstItem?: boolean;
 }
 
-const { items, idPrefix = "" } = Astro.props;
+const { items, idPrefix = "", openFirstItem = true } = Astro.props;
 const prefix = idPrefix ? `${idPrefix}-` : "";
 ---
 
@@ -19,7 +20,7 @@ const prefix = idPrefix ? `${idPrefix}-` : "";
             <button
               type="button"
               class="faq-item__btn tint"
-              aria-expanded={index === 0 ? "true" : "false"}
+              aria-expanded={openFirstItem && index === 0 ? "true" : "false"}
               aria-controls={`${prefix}faq-a-${index}`}
               id={`${prefix}faq-q-${index}`}
             >

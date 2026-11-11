@@ -198,6 +198,11 @@ const blockTracking = async (page) => {
   const module = page.locator(".curriculum__module").first();
   await module.locator("summary").click();
   check("native curriculum details open and expose courses", await module.evaluate((el) => el.open) && await module.locator(".curriculum__course-name").first().isVisible());
+  for (const route of ["/faq", "/alternance", "/processus-admission"]) {
+    await page.goto(base + route, { waitUntil: "load" });
+    const openAnswers = await page.locator('[data-accordion] button[aria-expanded="true"]').count();
+    check(`${route}: at most one FAQ answer is open on load`, openAnswers <= 1, String(openAnswers));
+  }
   await page.goto(base + "/faq", { waitUntil: "load" });
   const faqButtons = page.locator("[data-accordion] button");
   check("FAQ page has live question items", (await faqButtons.count()) > 0);
