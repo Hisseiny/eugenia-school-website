@@ -29,6 +29,10 @@ const { logos, label } = Astro.props;
     width: max-content;
     animation: marquee 56s linear infinite;
   }
+  /* The band only starts scrolling once it is on screen (no hidden work) */
+  :global(html.js) :global([data-reveal]:not(.is-visible)) .track {
+    animation-play-state: paused;
+  }
   .marq:hover .track {
     animation-play-state: paused;
   }

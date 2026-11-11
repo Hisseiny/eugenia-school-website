@@ -1,0 +1,50 @@
+/**
+ * Key figures count up from 0 the first time they are seen (900 ms, ease-out), like the number
+ * tickers on premium product sites. Only applies to values that start with a number >= 2
+ * ("48 h", "15", "4 étapes"); text values ("S1", "Septembre") stay as they are. Static without JS
+ * or with prefers-reduced-motion.
+ */
+const SELECTOR = ".figure-num, .figure-card__value";
+const EASE = (t: number) => 1 - Math.pow(1 - t, 3);
+
+export function initCountUp(): void {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+  const targets = Array.from(document.querySelectorAll<HTMLElement>(SELECTOR)).filter((el) => {
+    const n = parseInt(el.textContent ?? "", 10);
+    return Number.isFinite(n) && n >= 2 && /^\d/.test((el.textContent ?? "").trim());
+  });
+  if (targets.length === 0) return;
+
+  const run = (el: HTMLElement) => {
+    const text = (el.textContent ?? "").trim();
+    const match = /^(\d+)(.*)$/s.exec(text);
+    if (!match) return;
+    const target = Number(match[1]);
+    const suffix = match[2] ?? "";
+    const start = performance.now();
+    const duration = 900;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      el.textContent = `${Math.round(EASE(t) * target)}${suffix}`;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    el.textContent = `0${suffix}`;
+    requestAnimationFrame(tick);
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          run(e.target as HTMLElement);
+          io.unobserve(e.target);
+        }
+      }
+    },
+    { threshold: 0.6 },
+  );
+  targets.forEach((el) => io.observe(el));
+}
+
+initCountUp();

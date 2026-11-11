@@ -3,12 +3,16 @@
  * Siblings are staggered by 70 ms. Without JavaScript nothing is hidden (styles are scoped to html.js).
  */
 const BLOCKS = [
+  "footer > .container > *",
   "main > section:not(.hero) > .container > *",
   "main > section:not(.hero):not(:has(> .container)) > *",
   "main > figure",
   "main > a.continue > .container > *",
 ];
 const STAGGERED = [
+  ".badges__official > *",
+  ".badges__partners > *",
+  ".footer__grid > *",
   ".doors__grid > *",
   ".learn__row",
   ".build__grid > *",
@@ -53,6 +57,10 @@ export function initReveal(): void {
     });
   }
   targets.forEach((el) => el.setAttribute("data-reveal", ""));
+  // Chips inside a revealed block pop in one after the other once the block is visible.
+  document.querySelectorAll<HTMLElement>(".chips").forEach((group) => {
+    Array.from(group.children).forEach((chip, i) => (chip as HTMLElement).style.setProperty("--i", String(i)));
+  });
 
   const io = new IntersectionObserver(
     (entries) => {

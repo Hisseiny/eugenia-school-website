@@ -487,6 +487,43 @@ html.js [data-reveal].is-visible {
   transform: none;
   will-change: auto;
 }
+/* Chips: staggered pop (scale .92 -> 1) after their block is revealed */
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+html.js [data-reveal] .chip {
+  opacity: 0;
+}
+html.js [data-reveal].is-visible .chip {
+  animation: chip-in 0.4s var(--ease-out) both;
+  animation-delay: calc(0.2s + var(--i, 0) * 45ms);
+}
+/* Logo cells: the cell tints and the logo gets its colour back together */
+.logo-grid__cell {
+  transition: background-color 0.25s ease-out;
+}
+.logo-grid__cell:hover {
+  background-color: rgba(31, 13, 25, 0.03);
+}
+.logo-grid__cell:hover .gray img {
+  filter: none;
+  opacity: 1;
+}
+/* Partner logos: a 2 px lift accompanies the return of colour */
+.gray {
+  display: inline-flex;
+  transition: transform 0.3s var(--ease-out);
+}
+.gray:hover {
+  transform: translateY(-2px);
+}
 
 /* Motion: one entrance animation, then nothing */
 @keyframes rise {
@@ -517,6 +554,18 @@ html.js [data-reveal].is-visible {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  html.js [data-reveal] .chip,
+  html.js [data-reveal].is-visible .chip {
+    opacity: 1;
+    animation: none;
+  }
+  .gray,
+  .logo-grid__cell {
+    transition: none;
+  }
+  .gray:hover {
+    transform: none;
   }
   .btn:hover,
   .btn-outline:hover {
