@@ -1,0 +1,11 @@
+---
+interface Props { form: string; name: string; label: string; type?: "text" | "email" | "tel"; autocomplete: string }
+const { form, name, label, type = "text", autocomplete } = Astro.props;
+const id = `pf-${form}-${name}`;
+---
+<div class="pf__field">
+  <label class="pf__label" for={id}>{label}</label>
+  <input class="pf__input" id={id} name={name} type={type} autocomplete={autocomplete} inputmode={type === "email" ? "email" : type === "tel" ? "tel" : "text"} required aria-describedby={`${id}-error`} />
+  <span class="pf__field-error" id={`${id}-error`} data-field-error={name} aria-live="polite"></span>
+  {type === "email" && <button type="button" class="pf__suggestion" data-email-suggestion hidden></button>}
+</div>

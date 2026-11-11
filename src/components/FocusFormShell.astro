@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import { img } from "@/data/images";
+import { SITE, type HUBSPOT } from "@/data/site";
+import { DEFAULT_STORY, FOCUS_STORIES } from "@/data/focus-forms";
+import PremiumForm from "./PremiumForm.astro";
+import "@/styles/focus-form.css";
+interface Props { form: keyof typeof HUBSPOT.forms; heading: string; lead?: string; facts?: readonly string[]; next?: readonly string[]; formLabel?: string }
+const { form, heading } = Astro.props;
+const initial = DEFAULT_STORY[form];
+---
+<div class="focus-shell" data-focus-shell data-initial-story={initial}>
+  <div class="focus-left">
+    <header class="focus-header">
+      <a href="/" aria-label="Eugenia School, accueil" class="focus-logo">
+        <Image src={img("lg_eugenia")} alt="Eugenia School" width={300} height={52} loading="eager" />
+      </a>
+      <a href="/admissions" class="focus-return" data-focus-return><span aria-hidden="true">←</span> Retour</a>
+    </header>
+    <div class="focus-content">
+      <h1 class="sr-only">{heading}</h1>
+      <div class="focus-mobile-story">
+        <div class="focus-avatars" aria-hidden="true">
+          {["tq_ian", "tq_nathan", "tq_abir"].map((name) => <Image src={img(name)} alt="" width={80} height={80} />)}
+        </div>
+        <p data-mobile-story>{FOCUS_STORIES.find((story) => story.id === initial)?.text}</p>
+      </div>
+      <PremiumForm form={form} focus />
+    </div>
+    <div class="focus-help">
+      <p>Besoin d'aide ? <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a></p>
+      <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      <p class="focus-help__privacy"><a href={SITE.privacyUrl}>Politique de confidentialité</a></p>
+    </div>
+  </div>
+  <aside class="focus-visual" aria-label="La vie à Eugenia School">
+    {FOCUS_STORIES.map((story) => (
+      <figure class:list={["focus-story", story.id === initial && "is-active"]} data-focus-story={story.id} aria-hidden={story.id !== initial ? "true" : "false"}>
+        <Image src={img(story.image)} alt="" widths={[480, 800, 1200]} sizes="50vw" loading={story.id === initial ? "eager" : "lazy"} style={`object-position:${story.position}`} />
+        <figcaption>
+          <p class="focus-story__text">{story.text}</p>
+          <p class="focus-story__caption">{story.caption}</p>
+          {"logo" in story && <Image class="focus-story__logo" src={img(story.logo.name)} alt={story.logo.alt} height={32} />}
+        </figcaption>
+      </figure>
+    ))}
+  </aside>
+</div>
+<script src="@/scripts/focus-shell.ts"></script>

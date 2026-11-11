@@ -65,18 +65,18 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
     pageName: "Candidature",
     who: ["All.Student", "All.Parent"],
     steps: [
-      { kind: "choice", name: "all_type_multiple_checkboxes", title: "Qui es-tu ?", options: [], cards: true },
-      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Ton année actuelle", labelParent: "Son année actuelle", options: YEARS },
+      { kind: "choice", name: "all_type_multiple_checkboxes", title: "Commençons par toi.", titleParent: "Commençons par vous.", options: [], cards: true },
       { kind: "choice", name: "one_targetted_training", title: "Quel programme t'attire ?", titleParent: "Quel programme l'attire ?", options: TRAININGS, cards: true },
-      { kind: "contact", title: "Tes coordonnées, pour créer ton espace candidat", titleParent: "Vos coordonnées" },
+      { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Ton année actuelle", labelParent: "Son année actuelle", options: YEARS },
+      { kind: "contact", title: "Créons ton espace candidat.", titleParent: "Créons l'espace candidat de votre enfant." },
     ],
     done: {
       title: "C'est envoyé, {firstname}.",
-      lines: ["L'équipe d'admission étudie ton dossier : réponse sous 10 jours.", "Tu peux envoyer tes notes manquantes plus tard.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"],
+      lines: ["Ta demande a été transmise à l'équipe d'admission.", "La création de l'espace et le dépôt du dossier restent à confirmer avec l'équipe."],
     },
     doneParent: {
       title: "C'est envoyé, {firstname}.",
-      lines: ["L'équipe d'admission étudie le dossier : réponse sous 10 jours.", "Les notes manquantes peuvent être envoyées plus tard.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"],
+      lines: ["Votre demande a été transmise à l'équipe d'admission.", "La création de l'espace et le dépôt du dossier restent à confirmer avec l'équipe."],
     },
     parentNote: "La candidature se fait au nom de votre enfant : vous pouvez la remplir avec lui, ou nous poser d'abord vos questions.",
   },
