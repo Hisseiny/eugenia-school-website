@@ -7,7 +7,7 @@ export interface FaqItem {
 
 export type PageBlock =
   | { type: "paragraph"; text: string }
-  | { type: "heading"; level: 3; text: string; id?: string }
+  | { type: "heading"; level: 3 | 4; text: string; id?: string }
   | { type: "eyebrow"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
   | { type: "table"; rows: string[][] }
@@ -19,12 +19,19 @@ export type PageBlock =
   | { type: "image"; name: string; alt: string; logo?: boolean }
   | { type: "quote"; text: string }
   | { type: "faq"; items: FaqItem[]; idPrefix?: string }
+  | {
+      type: "portfolio-grid";
+      filters: { label: string; key: string; values: string[] }[];
+      emptyText: string;
+      items: { name: string; text: string; href: string; image: string; alt: string; filters: Record<string, string[]> }[];
+    }
   | { type: "curriculum"; id: CurriculumProgram["id"] };
 
 export interface LiveSection {
-  eyebrow?: string;
-  title?: string;
   id?: string;
+  eyebrow?: string;
+  heroCtas?: { label: string; href: string }[];
+  title?: string;
   blocks: PageBlock[];
 }
 
@@ -51,6 +58,9 @@ export interface LivePage {
   image?: string;
   imageAlt?: string;
   eyebrow?: string;
+  heroId?: string;
+  anchorIds?: string[];
+  heroCtas?: { type: "link"; label: string; href: string }[];
   lead?: string;
   postFacts?: string;
   audience?: AudienceCopy;
@@ -63,8 +73,8 @@ export interface LivePage {
   footer: {
     title: string;
     text?: string;
-    primary: { label: string; href: string };
-    secondary: { label: string; href: string };
+    primary?: { label: string; href: string };
+    secondary?: { label: string; href: string };
   };
   next: { href: string; title: string; text: string; image: string };
 }

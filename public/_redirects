@@ -1,11 +1,2 @@
 # 301 redirects for Netlify / Cloudflare Pages. Keep in sync with astro.config.ts.
 /trajectoires  /carrieres  301
-/notre-adn  /ecole  301
-/campus/paris  /ecole#campus  301
-/vie-etudiante  /ecole#vie  301
-/entrepreneuriat  /ecole  301
-/approche-pedagogique  /ecole#professeurs  301
-/methode-eugenia  /ecole  301
-/entreprises-partenaires  /entreprises  301
-/recruter-nos-etudiants  /entreprises  301
-/projets-entreprises  /entreprises#hackathons  301

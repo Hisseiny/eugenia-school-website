@@ -88,11 +88,24 @@ export const ROUTES = {
   evenements: "/evenements",
   contact: "/contact",
   parents: "/parents",
+  notreAdn: "/notre-adn",
+  campusParis: "/campus/paris",
+  vieEtudiante: "/vie-etudiante",
+  entrepreneuriat: "/entrepreneuriat",
+  approchePedagogique: "/approche-pedagogique",
+  methodeEugenia: "/methode-eugenia",
+  entreprisesPartenaires: "/entreprises-partenaires",
+  recruterNosEtudiants: "/recruter-nos-etudiants",
+  projetsEntreprises: "/projets-entreprises",
+  projetDust: "/projets-entreprises/dust-hackathon",
+  projetMistral: "/projets-entreprises/mistral-ai-hackathon",
+  projetOpenAI: "/projets-entreprises/openai-hackathon",
+  portfolio: "/portfolio",
 } as const;
 
 /** Existing pages of the current site that are out of scope of the redesign. */
 export const EXTERNAL = {
-  portfolio: "/portfolio",
+  portfolio: ROUTES.portfolio,
 } as const;
 
 export const NAV = [

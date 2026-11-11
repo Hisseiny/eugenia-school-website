@@ -73,6 +73,8 @@ const eventsLd = EVENTS.map((e) => ({
     </div>
   </section>
 
+  <p class="container lnk-row"><a class="lnk" href={ROUTES.campusParis}>Un campus qui vit.</a></p>
+
   <section id="professeurs" class="container teachers" aria-labelledby="teachers-title">
     <div class="section-head teachers__head">
       <h2 id="teachers-title" class="h2 teachers__title">Ils enseignent ce qu'ils font.</h2>
@@ -93,6 +95,8 @@ const eventsLd = EVENTS.map((e) => ({
     </ul>
   </section>
 
+  <p class="container lnk-row"><a class="lnk" href={ROUTES.approchePedagogique}>Apprendre avec ceux qui font.</a></p>
+
   <section class="mist entre" aria-labelledby="entre-title">
     <div class="container entre__grid">
       <div>
@@ -112,6 +116,8 @@ const eventsLd = EVENTS.map((e) => ({
     </div>
   </section>
 
+  <p class="container lnk-row"><a class="lnk" href={ROUTES.entrepreneuriat}>Lancer. Tester. Recommencer.</a></p>
+
   <section id="vie" class="container life" aria-labelledby="life-title">
     <Pic src={img("p_team")} alt="Une équipe d'étudiants en t-shirts Dust et Eugenia, sur les gradins du campus" ratio="16 / 9" position="50% 45%" sizes="(min-width: 1440px) 1376px, 100vw" />
     <div class="life__grid">
@@ -128,6 +134,8 @@ const eventsLd = EVENTS.map((e) => ({
       </dl>
     </div>
   </section>
+
+  <p class="container lnk-row"><a class="lnk" href={ROUTES.vieEtudiante}>Une école jeune. Une communauté prospère.</a></p>
 
   <section id="evenements" class="container events" aria-labelledby="events-title">
     <div class="events__top">
@@ -159,6 +167,14 @@ const eventsLd = EVENTS.map((e) => ({
       }
     </ul>
   </section>
+
+  <nav class="container" aria-label="Explorer l'école">
+    <p class="lnk-row">
+      <a class="lnk" href={ROUTES.notreAdn}>Des profils qui se distinguent.</a> ·
+      <a class="lnk" href={ROUTES.methodeEugenia}>Partir du problème. Arriver au livrable.</a> ·
+      <a class="lnk" href={ROUTES.portfolio}>Portfolios des étudiants, en accès libre.</a>
+    </p>
+  </nav>
 
   <EndOfPage
     title="Le mieux, c'est de venir."

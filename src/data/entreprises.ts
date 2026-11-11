@@ -6,19 +6,19 @@ export const WAYS = [
     icon: "recruit",
     title: "Recruter un alternant",
     text: "Bachelor 3e année ou MSc, en alternance, pour vos projets IA, data et automatisation.",
-    link: { href: ROUTES.contact, label: "Déposer une offre" },
+    link: { href: ROUTES.recruterNosEtudiants, label: "Déposer une offre" },
   },
   {
     icon: "hackathon",
     title: "Organiser un hackathon",
     text: "Un brief réel, 48 heures, des équipes qui livrent une démo devant votre jury.",
-    link: { href: "#hackathons", label: "Proposer un brief" },
+    link: { href: ROUTES.projetsEntreprises, label: "Proposer un brief" },
   },
   {
     icon: "partner",
     title: "Devenir partenaire",
     text: "Intervenir en cours, ouvrir vos outils, co-construire des projets avec les étudiants.",
-    link: { href: ROUTES.contact, label: "Nous rencontrer" },
+    link: { href: ROUTES.entreprisesPartenaires, label: "Nous rencontrer" },
   },
 ] as const;
 
