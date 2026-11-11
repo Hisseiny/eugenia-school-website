@@ -3,11 +3,13 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 
-const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents"];
+const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq"];
 const html = (name) => {
   const file = `dist/${name}.html`;
-  assert.ok(existsSync(file), `${file} missing: run pnpm build`);
-  return readFileSync(file, "utf8");
+  const nestedFile = `dist/${name}/index.html`;
+  const output = existsSync(file) ? file : nestedFile;
+  assert.ok(existsSync(output), `${file} missing: run pnpm build`);
+  return readFileSync(output, "utf8");
 };
 const count = (s, re) => (s.match(re) ?? []).length;
 const filesUnder = (directory) =>
@@ -20,6 +22,7 @@ const decodeEntities = (value) =>
     .replace(/&amp;/g, "&")
     .replace(/&#39;|&#x27;/gi, "'")
     .replace(/&quot;/g, '"')
+    .replace(/&nbsp;/g, " ")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">");
 
@@ -197,5 +200,117 @@ test("llms files do not contain unconfirmed copy", () => {
   for (const file of ["dist/llms.txt", "dist/llms-full.txt"]) {
     assert.ok(existsSync(file), `${file} missing`);
     assert.ok(!readFileSync(file, "utf8").includes("À confirmer"), `${file} contains unconfirmed copy`);
+  }
+});
+
+const NEW_PAGES = [
+  ["programme/bachelor-ia-business", "Bachelor AI Applied to Business"],
+  ["programme/bachelor-ia-business-3eme-annee-alternance", "Quatre jours sur cinq, en entreprise."],
+  ["programme/master-ia-business-alternance", "MSc IA Appliquée au Business"],
+  ["certification-architecte-ia", "Certification Architecte IA"],
+  ["certification-concepteur-solutions-no-code", "Certification No code"],
+  ["alternance", "Ton alternance, de A à Z."],
+  ["financement", "Financer Eugenia School."],
+  ["processus-admission", "Candidater. Bachelor ou MSc."],
+  ["faq", "Tu as des questions."],
+];
+
+const plainText = (htmlText) =>
+  decodeEntities(htmlText.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim());
+
+test("new routes are real pages with their live H1 and visible breadcrumbs", () => {
+  for (const [route, expectedH1] of NEW_PAGES) {
+    const source = html(route);
+    assert.ok(!/http-equiv="refresh"/i.test(source), `${route} is a redirect stub`);
+    const h1 = source.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "";
+    assert.equal(plainText(h1), expectedH1, `${route}: H1 differs from the live extraction`);
+    assert.match(source, /<nav\b[^>]*aria-label="Fil d'Ariane"/, `${route}: missing visible breadcrumb`);
+    assert.ok(source.includes('aria-current="page"'), `${route}: current breadcrumb is not marked`);
+  }
+});
+
+test("programme pages render direct answers, static facts and required program schemas", () => {
+  const expectations = [
+    [
+      "programme/bachelor-ia-business",
+      "P3Y",
+      "41143",
+      "Le Bachelor AI Applied to Business est un Bac+3 en trois ans (180 ECTS), à Paris, hors Parcoursup, ouvert après une terminale générale ou technologique. Business, data, code et no-code : un projet en entreprise dès le semestre 1, un stage de 6 semaines en 1re année, une 3e année possible en alternance. Titre RNCP 41143 (niveau 6).",
+    ],
+    [
+      "programme/bachelor-ia-business-3eme-annee-alternance",
+      "P1Y",
+      "41143",
+      "La 3e année du Bachelor AI Applied to Business se suit en alternance pendant un an, à Paris, dès un Bac+2 (BTS, BUT, L2, école de commerce ou d'informatique). Après un bootcamp de 5 semaines : 4 jours en entreprise, 1 jour à l'école. Rentrée en septembre. Titre RNCP 41143 (niveau 6), délivré par LION.",
+    ],
+    [
+      "programme/master-ia-business-alternance",
+      "P2Y",
+      "41993",
+      "Le MSc IA Appliquée au Business est un Bac+5 en deux ans (120 ECTS), 100 % en alternance, à Paris, accessible après un Bac+3 en M1 ou un Bac+4 en M2. Après un bootcamp de 5 semaines : 4 jours en entreprise, 1 jour à l'école. Titre RNCP 41993 (niveau 7), Architecte en intelligence artificielle, délivré par JEDHA.",
+    ],
+  ];
+  for (const [route, duration, rncp, expectedAnswer] of expectations) {
+    const source = html(route);
+    const answer = source.match(/<p\b[^>]*data-answer(?:="")?[^>]*>([\s\S]*?)<\/p>/i)?.[1] ?? "";
+    const words = plainText(answer).split(/\s+/).filter(Boolean);
+    assert.ok(words.length >= 40 && words.length <= 60, `${route}: direct answer has ${words.length} words`);
+    assert.equal(plainText(answer), expectedAnswer, `${route}: direct answer differs from the authoritative copy`);
+    assert.match(source, /<dl\b[^>]*class="facts__grid"/, `${route}: facts are not rendered as a definition list`);
+    const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+    const program = schema["@graph"].find((entity) => entity["@type"] === "EducationalOccupationalProgram");
+    assert.ok(program, `${route}: missing EducationalOccupationalProgram`);
+    assert.ok(program.name);
+    assert.ok(program.description);
+    assert.ok(program.url);
+    assert.equal(program.timeToComplete, duration);
+    assert.equal(program.inLanguage, "fr");
+    assert.ok(String(program.educationalCredentialAwarded).includes(rncp));
+    assert.ok(program.programPrerequisites);
+    assert.deepEqual(program.provider, { "@id": "https://www.eugeniaschool.com/#organization" });
+  }
+  const bachelorSchema = JSON.parse(html("programme/bachelor-ia-business").match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+  const bachelor = bachelorSchema["@graph"].find((entity) => entity["@type"] === "EducationalOccupationalProgram");
+  assert.deepEqual(bachelor.offers.map((offer) => offer.price), ["14900", "16900"]);
+  assert.equal(bachelor.startDate, "2027-08-30");
+});
+
+test("FAQ and alternance FAQPage data exactly match visible questions and answers", () => {
+  const normalize = (value) => plainText(value).replace(/\s+/g, " ").trim();
+  for (const route of ["faq", "alternance"]) {
+    const source = html(route);
+    const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+    const faq = schema["@graph"].find((entity) => entity["@type"] === "FAQPage");
+    assert.ok(faq, `${route}: missing FAQPage`);
+    const questions = [...source.matchAll(/<button\b[^>]*id="[^"]*faq-q-\d+"[^>]*>([\s\S]*?)<\/button>/g)].map(([, text]) => normalize(text));
+    const answers = [...source.matchAll(/<p\b[^>]*class="faq-item__a"[^>]*>([\s\S]*?)<\/p>/g)].map(([, text]) => normalize(text));
+    assert.deepEqual(faq.mainEntity.map((item) => normalize(item.name)), questions);
+    assert.deepEqual(faq.mainEntity.map((item) => normalize(item.acceptedAnswer.text)), answers);
+    if (route === "alternance") assert.equal(faq.mainEntity.length, 5);
+  }
+});
+
+test("Bachelor B3 curriculum matches the dedicated third-year page", () => {
+  const bachelor = html("programme/bachelor-ia-business");
+  const bachelor3 = html("programme/bachelor-ia-business-3eme-annee-alternance");
+  const semesterHeadings = (source) => [...source.matchAll(/<h4 id="semester-B3-[12]"[^>]*>([\s\S]*?)<\/h4>/g)].map(([, value]) => plainText(value));
+  const courseCodes = (source) => [...source.matchAll(/class="curriculum__course-code"[^>]*>([^<]*)<\/span>/g)].map(([, value]) => plainText(value));
+  const modules = (source) => [...source.matchAll(/<details class="curriculum__module"[^>]*>([\s\S]*?)<\/details>/g)].map(([, value]) => plainText(value));
+  assert.deepEqual(semesterHeadings(bachelor), semesterHeadings(bachelor3));
+  const b3Codes = courseCodes(bachelor3);
+  assert.ok(b3Codes.length > 0);
+  assert.deepEqual(courseCodes(bachelor).slice(-b3Codes.length), b3Codes);
+  const b3Modules = modules(bachelor3);
+  assert.ok(b3Modules.length > 0);
+  assert.deepEqual(modules(bachelor).slice(-b3Modules.length), b3Modules);
+});
+
+test("new programme routes are no longer redirect sources", () => {
+  const redirects = readFileSync("public/_redirects", "utf8");
+  const config = readFileSync("astro.config.ts", "utf8");
+  for (const [route] of NEW_PAGES.slice(0, 3)) {
+    const path = `/${route}`;
+    assert.ok(!redirects.includes(`${path}  `), `${path} remains in public redirects`);
+    assert.ok(!config.includes(`"${path}"`), `${path} remains in Astro redirects`);
   }
 });
