@@ -390,6 +390,19 @@ test("portfolio filter chips match items in the live first-seen order", () => {
   assert.equal(groups.length, 3, "portfolio must render all filter groups");
 });
 
+test("lot 3 ContinueVisit cards follow non-self built routes and destination metadata", () => {
+  for (const entry of Object.values(lot3)) {
+    const ownPath = `/${entry.route.replace(/^\/+/, "")}`;
+    const { href, title, text } = entry.page.next;
+    assert.notEqual(href, ownPath, `${ownPath}: ContinueVisit must not link to itself`);
+    const destination = html(href.replace(/^\/+/, ""));
+    const h1 = destination.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "";
+    const description = destination.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1] ?? "";
+    assert.equal(plainText(h1), title, `${ownPath}: ContinueVisit title must match ${href}`);
+    assert.equal(decodeEntities(description), text, `${ownPath}: ContinueVisit text must match ${href}`);
+  }
+});
+
 test("school and company hubs use the requested link cards", () => {
   const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
   const schoolLinks = [

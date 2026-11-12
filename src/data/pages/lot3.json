@@ -329,9 +329,9 @@
         }
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/campus/paris",
+        "title": "Un campus qui vit.",
+        "text": "Le campus d'Eugenia School à Paris 10e : amphithéâtre, salles de projet, vie associative et quartier étudiant. Venez le visiter avec l'équipe.",
         "image": "p_team"
       }
     },
@@ -771,9 +771,9 @@
         }
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/vie-etudiante",
+        "title": "Une école jeune. Une communauté prospère.",
+        "text": "La vie étudiante à Eugenia School : associations, événements, WEI, bureau des étudiants et des sports, conférences. Découvrez une communauté soudée.",
         "image": "p_team"
       }
     },
@@ -1062,9 +1062,9 @@
         }
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/entrepreneuriat",
+        "title": "Lancer. Tester. Recommencer.",
+        "text": "L'entrepreneuriat à Eugenia School : projet d'entreprise, hackathons, Station F et réseau de startups. Lancez votre premier projet dès la 1re année.",
         "image": "p_team"
       }
     },
@@ -1347,9 +1347,9 @@
         }
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/approche-pedagogique",
+        "title": "Apprendre avec ceux qui font.",
+        "text": "L'approche pédagogique d'Eugenia School : la méthode QCOR, des professeurs en poste et des projets avec les entreprises. Découvrez comment on apprend.",
         "image": "p_team"
       }
     },
@@ -1779,9 +1779,9 @@
         }
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/methode-eugenia",
+        "title": "Partir du problème. Arriver au livrable.",
+        "text": "La méthode QCOR d'Eugenia School : Question, Concept, Outils, Réponse. Quatre temps par séance, des cas d'entreprise réels. Découvrez-la en détail.",
         "image": "p_team"
       }
     },
@@ -2107,9 +2107,9 @@
         }
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/portfolio",
+        "title": "Portfolios des étudiants, en accès libre.",
+        "text": "Les projets construits par les étudiants d'Eugenia School : stack, code et démos. Filtrez par technologie, programme ou type de projet et inspirez-vous.",
         "image": "p_team"
       }
     },
@@ -2578,9 +2578,9 @@
         }
       },
       "next": {
-        "href": "/entreprises-partenaires",
-        "title": "Vos cas réels, nos équipes.",
-        "text": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
+        "href": "/recruter-nos-etudiants",
+        "title": "Recruter nos étudiants.",
+        "text": "Recrutez des étudiants et diplômés d'Eugenia School, profils tech et business formés à l'IA appliquée : stage, alternance ou CDI. Décrivez votre besoin.",
         "image": "p_team"
       }
     },
@@ -2929,9 +2929,9 @@
         }
       },
       "next": {
-        "href": "/entreprises-partenaires",
-        "title": "Des profils qui se distinguent.",
-        "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
+        "href": "/projets-entreprises",
+        "title": "Des vrais briefs. Des vraies équipes.",
+        "text": "Malt, Mirakl, Dust avec Mistral AI, OpenAI et Make : des briefs réels et un jury externe. Découvrez ce que les étudiants ont livré en 3 à 5 jours.",
         "image": "p_team"
       },
       "form": {
@@ -3584,9 +3584,9 @@
         "text": "Candidatures ouvertes pour la rentrée 2027 Hors Parcoursup · Entretien de motivation"
       },
       "next": {
-        "href": "/entreprises-partenaires",
-        "title": "Vos cas réels, nos équipes.",
-        "text": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
+        "href": "/projets-entreprises/mistral-ai-hackathon",
+        "title": "Mistral AI, Make et Malt : le hackathon des 3M",
+        "text": "Le hackathon des 3M, c’est Mistral AI, Make et Malt : plus de 80 étudiants d’Eugenia ont travaillé 5 jours sur l’automatisation et le scoring de lead.",
         "image": "p_team"
       },
       "jsonLd": [
@@ -3971,9 +3971,9 @@
         "text": "Candidatures ouvertes pour la rentrée 2027 Hors Parcoursup · Entretien de motivation"
       },
       "next": {
-        "href": "/entreprises-partenaires",
-        "title": "Vos cas réels, nos équipes.",
-        "text": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
+        "href": "/entreprises",
+        "title": "Entreprises",
+        "text": "Recrutez un alternant, confiez un brief à nos étudiants pour un hackathon, ou devenez partenaire de l'école. Échangez avec l'équipe d'Eugenia School.",
         "image": "p_team"
       },
       "jsonLd": [
@@ -4390,9 +4390,9 @@
         "text": "Candidatures ouvertes pour la rentrée 2027 Hors Parcoursup · Entretien de motivation"
       },
       "next": {
-        "href": "/entreprises-partenaires",
-        "title": "Vos cas réels, nos équipes.",
-        "text": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
+        "href": "/projets-entreprises/openai-hackathon",
+        "title": "Mirakl × OpenAI : trois défis d’IA agentique",
+        "text": "Hackathon Mirakl avec OpenAI à Eugenia School : 85 étudiants, 5 jours, 3 cas d’usage réels d’IA agentique pitchés devant les équipes de Mirakl et d’OpenAI.",
         "image": "p_team"
       },
       "jsonLd": [
@@ -4819,9 +4819,9 @@
         "text": "Candidatures ouvertes pour la rentrée 2027 Hors Parcoursup · Entretien de motivation"
       },
       "next": {
-        "href": "/entreprises-partenaires",
-        "title": "Vos cas réels, nos équipes.",
-        "text": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
+        "href": "/projets-entreprises/dust-hackathon",
+        "title": "Dust Customers Hackathon : une journée pour passer un cas d’usage IA en production",
+        "text": "Le Dust Customers Hackathon à Eugenia School : une trentaine d’entreprises clientes de Dust, deux équipes d’étudiants, une journée pour un cas d’usage IA.",
         "image": "p_team"
       },
       "jsonLd": [
@@ -5117,9 +5117,9 @@
         "text": "Candidatures ouvertes pour la rentrée 2027 Hors Parcoursup, entretien de motivation"
       },
       "next": {
-        "href": "/notre-adn",
-        "title": "Vos cas réels, nos équipes.",
-        "text": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
+        "href": "/programmes",
+        "title": "Programmes",
+        "text": "Bachelor en trois ans après le bac, MSc en deux ans en alternance, et deux certifications professionnelles. Un même socle en IA, data et no-code.",
         "image": "p_team"
       }
     },
