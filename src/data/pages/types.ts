@@ -12,6 +12,18 @@ export type PageBlock =
   | { type: "list"; ordered: boolean; items: string[] }
   | { type: "table"; rows: string[][] }
   | { type: "cards"; items: { number?: string; eyebrow?: string; title?: string; salary?: string; text?: string; responsibilities?: string[]; details?: string[]; tags?: string[]; image?: string; alt?: string; logo?: string; logoAlt?: string; action?: { label: string; href: string } }[] }
+  | {
+      type: "card-group";
+      cards: {
+        number?: string;
+        title: string;
+        blocks: (
+          | { type: "paragraph"; text: string }
+          | { type: "list"; ordered: boolean; items: string[] }
+          | { type: "quote"; text: string }
+        )[];
+      }[];
+    }
   | { type: "logos"; items: { name: string; alt: string }[] }
   | { type: "related-cards"; items: { eyebrow: string; title: string; text: string; label: string; href: string }[] }
   | { type: "cta" | "link"; label: string; href: string }

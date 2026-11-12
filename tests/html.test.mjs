@@ -311,6 +311,28 @@ test("recruiter page renders the live HubSpot form at the formulaire anchor", ()
   for (const cta of ctas) assert.equal(cta.href, "#formulaire", `${cta.label} must point to #formulaire`);
 });
 
+test("portfolio card-group content is visible inside main", () => {
+  const source = html("portfolio");
+  const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+  const visible = plainText(main);
+  for (const title of [
+    "RAG sur la documentation Claude Code",
+    "Synapse",
+    "IKORY",
+    "Shine Santé, plateforme B2B",
+  ]) {
+    assert.ok(visible.includes(title), `portfolio: missing visible card title ${title}`);
+  }
+  for (const copy of [
+    "Un workflow n8n qui ingère la documentation de Claude Code et répond aux questions en temps réel.",
+    "Un chatbot RAG pour explorer les thèses de theses.fr.",
+    "Des workflows n8n et des agents IA qui ramènent l’analyse de plus de 150 biens immobiliers de plusieurs heures à moins de 5 minutes.",
+    "Une plateforme e-commerce B2B sur Shopify pour un importateur de parapharmacie : prix par palier, vérification SIRET, précommandes et stock synchronisé en temps réel avec Axonaut.",
+  ]) {
+    assert.ok(visible.includes(copy), `portfolio: missing card text ${copy}`);
+  }
+});
+
 test("school and company hubs use the requested link cards", () => {
   const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
   const schoolLinks = [

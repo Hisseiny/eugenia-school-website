@@ -105,6 +105,11 @@ const groupContent = (blocks: PageBlock[], title: string): RenderBlock[] => {
 
   const withCards: RenderBlock[] = [];
   for (let index = 0; index < grouped.length;) {
+    if (grouped[index]?.type === "card-group") {
+      withCards.push(grouped[index] as CardGroup);
+      index++;
+      continue;
+    }
     const start = index;
     const cards: CardGroup["cards"] = [];
     while (index < grouped.length) {
