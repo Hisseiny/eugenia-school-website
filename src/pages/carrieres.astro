@@ -3,6 +3,9 @@ import { Image } from "astro:assets";
 import Base from "@/layouts/Base.astro";
 import PageTop from "@/components/PageTop.astro";
 import Logo from "@/components/Logo.astro";
+import RotatingLine from "@/components/RotatingLine.astro";
+import { CAREER_ITEMS } from "@/data/rotating-lines";
+import ScrollingLogoGrid from "@/components/ScrollingLogoGrid.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
 import ShareLink from "@/components/ShareLink.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
@@ -29,21 +32,13 @@ import { ROUTES } from "@/data/site";
       <h2 id="dest-title" class="h2 dest__title">Mêmes bases. Des destinations qui n'ont rien à voir.</h2>
       <p class="dest__sub">Startups et grands groupes : chacun construit sa trajectoire, avec ses projets, ses hackathons et son alternance.</p>
     </div>
-    <ul class="logo-grid">
-      {
-        EMPLOYERS.map((l) => (
-          <li class="logo-grid__cell">
-            <Logo name={l.name} alt={l.alt} height={l.height} gray />
-          </li>
-        ))
-      }
-    </ul>
+    <ScrollingLogoGrid id="career-recruiters" logos={EMPLOYERS} />
   </section>
 
   <section id="alumni" class="dark alumni" aria-labelledby="alumni-title">
     <div class="container">
       <div class="section-head alumni__head">
-        <h2 id="alumni-title" class="h2 alumni__title">Du MSc au premier CDI.</h2>
+        <RotatingLine id="alumni-title" lead="Ils sont devenus" items={CAREER_ITEMS} tone="plum" srLabel="Exemples de postes occupés par nos alumni et alternants" />
         <p class="alumni__sub">Nos alumni. Trois d'entre eux reviennent enseigner à Eugenia.</p>
       </div>
       <div class="alumni__grid">

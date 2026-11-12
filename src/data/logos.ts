@@ -32,7 +32,7 @@ export const RECRUITERS: LogoSpec[] = [
   { name: "lg_wesype", alt: "WeSype", height: 18 },
   { name: "lg_lvmh", alt: "LVMH", height: 20 },
   { name: "lg_bnp_am", alt: "BNP Paribas Asset Management", height: 30 },
-  { name: "lg_generali", alt: "Generali", height: 20 },
+  { name: "lg_generali", alt: "Generali", height: 34 },
   { name: "lg_esteelauder", alt: "The Estée Lauder Companies", height: 40 },
   { name: "lg_troov", alt: "Troov", height: 30 },
   { name: "lg_fdj", alt: "FDJ, La Française des Jeux", height: 30 },

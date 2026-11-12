@@ -12,6 +12,38 @@ const html = (name) => {
   return readFileSync(output, "utf8");
 };
 const count = (s, re) => (s.match(re) ?? []).length;
+for (const page of ["index", "entreprises", "carrieres"]) {
+  test(`${page}: rotating heading has static fallback, complete accessible labels and pause`, () => {
+    const h = html(page);
+    const headings = h.match(/<h2[^>]*class="rot h2"[\s\S]*?<\/h2>/g) ?? [];
+    assert.equal(headings.length, 1);
+    for (const heading of headings) {
+    assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
+    assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
+    assert.match(heading, /aria-hidden="true"/);
+    const accessible = decodeEntities(heading.match(/class="sr-only"[^>]*>([^<]+)</)?.[1] ?? "");
+    for (const match of heading.matchAll(/alt="([^"]+)"/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
+    for (const match of heading.matchAll(/<span>([^<]+)<\/span>/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
+    assert.doesNotMatch(heading, /aria-live/);
+    }
+    assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*>Mettre en pause<\/button>/);
+  });
+}
+test("career logo wall has 12 fixed slots, the full colour list and a show-all link", () => {
+  const h = html("carrieres");
+  const employers = h.match(/<ul class="logo-flow__static"[\s\S]*?<\/ul>/)?.[0] ?? "";
+  for (const company of ["Accenture", "Alan", "Carrefour", "Air France", "Microsoft", "Salesforce"]) {
+    assert.ok(employers.includes(company));
+  }
+  assert.equal(count(employers, /<li[\s>]/g), 36);
+  assert.equal(count(employers, /class="gray"/g), 0);
+  assert.equal(count(h, /class="logo-flow__cell"/g), 12);
+  assert.match(h, /class="logo-flow__motion" aria-hidden="true"/);
+  assert.match(h, /class="logo-flow__pause"/);
+  assert.match(h, /Voir toutes les entreprises/);
+  assert.match(h, /data-remaining[^>]*>24</);
+  assert.match(h, /id="alumni-title"/);
+});
 const filesUnder = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const path = `${directory}/${entry.name}`;
