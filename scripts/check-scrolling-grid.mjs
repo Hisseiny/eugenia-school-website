@@ -30,13 +30,29 @@ try {
   await page.goto("http://preview.local/", { waitUntil: "domcontentloaded", timeout: 15000 });
   await page.locator("img").evaluateAll((images) => Promise.all(images.map((img) => img.decode().catch(() => {}))));
   const root = page.locator("[data-logo-flow]");
-  const transform = () => page.locator(".logo-flow__track").first().evaluate((el) => getComputedStyle(el).transform);
+  const transform = () => page.locator(".logo-flow__layer").first().evaluate((el) => el.getAnimations()[0].currentTime);
+  const boxes = () => page.locator(".logo-flow__cell").evaluateAll((cells) => cells.map((cell) => {
+    const { x, y, width, height } = cell.getBoundingClientRect();
+    return { x, y, width, height };
+  }));
+  const initialBoxes = await boxes();
+  assert.equal(initialBoxes.length, 36, "36 fixed cells");
   await page.mouse.move(1439, 999);
   await page.waitForTimeout(300);
   const before = await transform();
   await page.waitForTimeout(300);
-  assert.notEqual(await transform(), before, "grid moves continuously");
-  await root.hover();
+  assert.notEqual(await transform(), before, "logo animation runs");
+  const changing = await page.locator(".logo-flow__layer--next").first().evaluate(async (el) => {
+    const start = getComputedStyle(el).transform;
+    for (let i = 0; i < 60; i++) {
+      await new Promise((done) => setTimeout(done, 100));
+      if (getComputedStyle(el).transform !== start) return true;
+    }
+    return false;
+  });
+  assert.equal(changing, true, "the logo rises within its cell");
+  assert.deepEqual(await boxes(), initialBoxes, "borders and cell positions stay fixed");
+  await root.hover({ position: { x: 10, y: 10 } });
   const hovered = await transform();
   await page.waitForTimeout(250);
   assert.equal(await transform(), hovered, "hover pauses movement");
@@ -67,5 +83,5 @@ try {
   await noJS.goto("http://preview.local/", { waitUntil: "domcontentloaded" });
   assert.equal(await noJS.locator(".logo-flow__motion").isVisible(), false);
   assert.equal(await noJS.locator(".logo-flow__static li").count(), 36);
-  console.log("PASS: continuous movement, hover/manual pause, mobile width, reduced motion, no-JS full list.");
+  console.log("PASS: 36 fixed cells, logo entrance, continuous animation, hover/manual pause, mobile width, reduced motion, no-JS full list.");
 } finally { await browser.close(); }

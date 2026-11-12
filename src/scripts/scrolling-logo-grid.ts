@@ -6,7 +6,7 @@ document.querySelectorAll<HTMLElement>("[data-logo-flow]").forEach((root) => {
     root.classList.toggle("is-running", visible && !document.hidden && !hovered && !focused && !paused && !reduced.matches);
     button.disabled = reduced.matches;
     button.setAttribute("aria-pressed", String(paused));
-    button.textContent = reduced.matches ? "Animation désactivée" : paused ? "Reprendre le défilement" : "Mettre en pause";
+    button.textContent = reduced.matches ? "Animation désactivée" : paused ? "Reprendre l’animation" : "Mettre en pause";
   };
   if (!("IntersectionObserver" in window)) return;
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: 0 }).observe(root);
