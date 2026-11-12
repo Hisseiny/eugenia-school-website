@@ -12,6 +12,21 @@ const html = (name) => {
   return readFileSync(output, "utf8");
 };
 const count = (s, re) => (s.match(re) ?? []).length;
+for (const page of ["index", "entreprises", "carrieres"]) {
+  test(`${page}: rotating heading has static fallback, complete accessible labels and pause`, () => {
+    const h = html(page);
+    const heading = h.match(/<h2[^>]*class="rot h2"[\s\S]*?<\/h2>/)?.[0];
+    assert.ok(heading, "rotating h2 present");
+    assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
+    assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
+    assert.match(heading, /aria-hidden="true"/);
+    const accessible = decodeEntities(heading.match(/class="sr-only"[^>]*>([^<]+)</)?.[1] ?? "");
+    for (const match of heading.matchAll(/alt="([^"]+)"/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
+    for (const match of heading.matchAll(/<span>([^<]+)<\/span>/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
+    assert.doesNotMatch(heading, /aria-live/);
+    assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*>Mettre en pause<\/button>/);
+  });
+}
 const filesUnder = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const path = `${directory}/${entry.name}`;

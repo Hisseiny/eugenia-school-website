@@ -1,0 +1,52 @@
+---
+import Logo from "./Logo.astro";
+import { itemLabel, type RotatingItem } from "@/data/rotating-lines";
+interface Props {
+  id: string;
+  lead: string;
+  items: RotatingItem[];
+  tone: "light" | "plum";
+  srLabel: string;
+  interval?: number;
+  afterPartners?: boolean;
+}
+const { id, lead, items, tone, srLabel, interval = 2600, afterPartners = false } = Astro.props;
+---
+<div class:list={["rotating-line", `rotating-line--${tone}`]} data-rotating-line data-interval={Math.max(1000, interval)} data-after-partners={afterPartners || undefined}>
+  <h2 id={id} class="rot h2" tabindex="0">
+    <span class="rot__lead">{lead}</span>
+    <span class="rot__mask" aria-hidden="true">
+      {items.map((item, index) => (
+        <span class:list={["rot__item", index === 0 && "is-active"]}>
+          {item.kind !== "logo" && <span>{item.text}</span>}
+          {item.kind !== "text" && <span class="rot__logo" style={`--logo-height:${0.78 * item.logo.height / 24}em`}><Logo {...item.logo} /></span>}
+        </span>
+      ))}
+    </span>
+    <span class="sr-only">{srLabel} : {items.map(itemLabel).join(", ")}</span>
+  </h2>
+  <button class="rot__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Mettre en pause</button>
+</div>
+<script>
+  import "../scripts/rotating-line";
+</script>
+<style>
+  .rotating-line { margin-bottom: 2rem; }
+  .rot { display: flex; flex-wrap: wrap; align-items: center; gap: .15em .3em; margin: 0; }
+  .rot__mask { display: inline-grid; grid-template-columns: minmax(0, 1fr); overflow: hidden; max-width: 100%; padding-block: .15em; }
+  .rot__item { grid-area: 1 / 1; display: flex; flex-wrap: wrap; align-items: center; gap: .3em; visibility: hidden; opacity: 0; min-width: 0; }
+  .rot__item.is-active { visibility: visible; opacity: 1; }
+  .rotating-line--light .rot__mask { color: #75192b; }
+  .rotating-line--plum .rot__mask { color: #fcba35; }
+  .rot__logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .rot__logo :global(img) { height: var(--logo-height) !important; width: auto !important; object-fit: contain; }
+  .rotating-line--plum .rot__logo { background: #faf8f6; border-radius: 4px; padding: .12em .2em; }
+  .rot__pause { visibility: hidden; display: block; margin: .6rem 0 0 auto; min-height: 44px; padding: .4rem .6rem; font: inherit; font-size: .875rem; color: inherit; border: 1px solid currentColor; border-radius: 4px; background: transparent; cursor: pointer; }
+  .rot-ready .rot__pause { visibility: visible; }
+  .rot__pause:focus-visible, .rot:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  @media (max-width: 639px) {
+    .rot { display: block; }
+    .rot__lead { display: block; }
+    .rot__mask { margin-top: .2em; }
+  }
+</style>

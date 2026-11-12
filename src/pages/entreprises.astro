@@ -3,6 +3,8 @@ import Base from "@/layouts/Base.astro";
 import PageTop from "@/components/PageTop.astro";
 import Pic from "@/components/Pic.astro";
 import Logo from "@/components/Logo.astro";
+import RotatingLine from "@/components/RotatingLine.astro";
+import { PARTNER_ITEMS } from "@/data/rotating-lines";
 import LogoMarquee from "@/components/LogoMarquee.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
@@ -98,7 +100,7 @@ const ICONS: Record<string, string> = {
   </section>
 
   <section class="partners" aria-labelledby="partners-title">
-    <h2 id="partners-title" class="eyebrow partners__title">Nos partenaires</h2>
+    <div class="container"><RotatingLine id="partners-title" lead="Nos étudiants construisent avec" items={PARTNER_ITEMS} tone="light" srLabel="Partenaires de l'école" /></div>
     <LogoMarquee logos={PARTNER_MARQUEE} label="Partenaires de l'école" />
   </section>
 
