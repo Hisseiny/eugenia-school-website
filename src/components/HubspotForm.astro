@@ -6,20 +6,24 @@
 import { HUBSPOT, SITE } from "@/data/site";
 
 interface Props {
-  form: keyof typeof HUBSPOT.forms;
+  form?: keyof typeof HUBSPOT.forms;
+  formId?: string;
+  portalId?: string;
+  region?: string;
   minHeight?: number;
 }
-const { form, minHeight = 420 } = Astro.props;
-const formId = HUBSPOT.forms[form];
-const id = `hs-form-${form}`;
+const { form, formId: publicFormId, portalId = HUBSPOT.portalId, region = HUBSPOT.region, minHeight = 420 } = Astro.props;
+const formId = publicFormId ?? (form ? HUBSPOT.forms[form] : undefined);
+if (!formId) throw new Error("HubspotForm requires a form key or public form id.");
+const id = `hs-form-${form ?? formId}`;
 const { email, phone, phoneHref } = SITE.contact;
 ---
 
 <div
   id={id}
   class="hs-form"
-  data-hs-portal={HUBSPOT.portalId}
-  data-hs-region={HUBSPOT.region}
+  data-hs-portal={portalId}
+  data-hs-region={region}
   data-hs-form-id={formId}
   style={`min-height: ${minHeight}px`}
 >

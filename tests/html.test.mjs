@@ -297,6 +297,20 @@ test("lot 3 route anchors are stored in page data", () => {
   }
 });
 
+test("recruiter page renders the live HubSpot form at the formulaire anchor", () => {
+  const source = html("recruter-nos-etudiants");
+  const formSection = source.match(/<section\b(?=[^>]*id="formulaire")[^>]*>([\s\S]*?)<\/section>/)?.[1] ?? "";
+  assert.ok(formSection, "recruiter page: #formulaire must resolve to a section");
+  assert.match(formSection, /class="hs-form"[^>]*data-hs-portal="25517078"[^>]*data-hs-region="eu1"[^>]*data-hs-form-id="b98543e3-c9ae-49d6-99bc-7c0418dd95ba"/);
+  assert.ok(formSection.includes('id="besoin"'), "recruiter page: #besoin must also resolve inside the form section");
+  assert.doesNotMatch(source, /<h1\b[^>]*id="formulaire"/, "the formulaire anchor belongs to the form section, not the hero");
+  const ctas = [...source.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+    .map(([, attributes, label]) => ({ href: attributes.match(/\bhref="([^"]+)"/)?.[1], label: plainText(label) }))
+    .filter(({ label }) => ["Décrire mon besoin ↑", "Déposer une offre"].includes(label));
+  assert.ok(ctas.some(({ label }) => label === "Décrire mon besoin ↑"), "recruiter page: missing upward need CTA");
+  for (const cta of ctas) assert.equal(cta.href, "#formulaire", `${cta.label} must point to #formulaire`);
+});
+
 test("school and company hubs use the requested link cards", () => {
   const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
   const schoolLinks = [

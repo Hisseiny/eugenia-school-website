@@ -67,6 +67,7 @@ export interface LivePage {
   badges?: string[];
   stats?: { value: string; label: string }[];
   facts?: ProgramFact[];
+  form?: { formId: string; portalId: string; region: string; label: string; anchorId?: string };
   jsonLd?: Record<string, unknown>[];
   sections: LiveSection[];
   internalLinks: { label: string; href: string }[];
