@@ -3,8 +3,6 @@ import Base from "@/layouts/Base.astro";
 import PageTop from "@/components/PageTop.astro";
 import Pic from "@/components/Pic.astro";
 import Logo from "@/components/Logo.astro";
-import RotatingLine from "@/components/RotatingLine.astro";
-import { PARTNER_ITEMS } from "@/data/rotating-lines";
 import LogoMarquee from "@/components/LogoMarquee.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
@@ -115,7 +113,7 @@ const PROJECT_LINKS = [
   </section>
 
   <section class="partners" aria-labelledby="partners-title">
-    <div class="container"><RotatingLine id="partners-title" items={PARTNER_ITEMS} tone="light" srLabel="Partenaires de l'école" controls={false} /></div>
+    <h2 id="partners-title" class="sr-only">Partenaires de l'école</h2>
     <LogoMarquee logos={PARTNER_MARQUEE} label="Partenaires de l'école" />
   </section>
 

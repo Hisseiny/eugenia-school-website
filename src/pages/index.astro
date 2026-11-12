@@ -3,8 +3,6 @@ import { Image } from "astro:assets";
 import Base from "@/layouts/Base.astro";
 import Pic from "@/components/Pic.astro";
 import Logo from "@/components/Logo.astro";
-import RotatingLine from "@/components/RotatingLine.astro";
-import { PARTNER_ITEMS } from "@/data/rotating-lines";
 import LogoMarquee from "@/components/LogoMarquee.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
@@ -68,7 +66,7 @@ const ICONS: Record<string, string> = {
   <!-- Partners -->
   <section aria-labelledby="partners-title" class="badges">
     <div class="container badges__row">
-      <RotatingLine id="partners-title" items={PARTNER_ITEMS} tone="light" srLabel="Partenaires de l'école" controls={false} afterPartners />
+      <h2 id="partners-title" class="sr-only">Partenaires de l'école</h2>
       <ul class="badges__partners" data-partners>
         {PARTNERS.map((l) => (
           <li class="badges__item">

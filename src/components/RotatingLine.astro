@@ -9,11 +9,10 @@ interface Props {
   srLabel: string;
   controls?: boolean;
   interval?: number;
-  afterPartners?: boolean;
 }
-const { id, lead, items, tone, srLabel, controls = true, interval = 2600, afterPartners = false } = Astro.props;
+const { id, lead, items, tone, srLabel, controls = true, interval = 2600 } = Astro.props;
 ---
-<div class:list={["rotating-line", `rotating-line--${tone}`]} data-rotating-line data-interval={Math.max(1000, interval)} data-after-partners={afterPartners || undefined}>
+<div class:list={["rotating-line", `rotating-line--${tone}`]} data-rotating-line data-interval={Math.max(1000, interval)}>
   <h2 id={id} class:list={["rot h2", !lead && "rot--no-lead"]} tabindex="0">
     {lead && <span class="rot__lead">{lead}</span>}
     <span class="rot__mask" aria-hidden="true">

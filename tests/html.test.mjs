@@ -12,32 +12,51 @@ const html = (name) => {
   return readFileSync(output, "utf8");
 };
 const count = (s, re) => (s.match(re) ?? []).length;
-for (const page of ["index", "entreprises", "carrieres"]) {
-  test(`${page}: rotating heading has a static fallback and complete accessible labels`, () => {
+
+for (const [page, className] of [["index", "badges"], ["entreprises", "partners"]]) {
+  test(`${page}: partner section keeps every logo and an accessible label without RotatingLine`, () => {
     const h = html(page);
-    const headings = h.match(/<h2[^>]*class="rot h2[^"]*"[\s\S]*?<\/h2>/g) ?? [];
-    assert.equal(headings.length, 1);
-    for (const heading of headings) {
-      assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
-      assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
-      assert.match(heading, /aria-hidden="true"/);
-      const accessible = decodeEntities(heading.match(/class="sr-only"[^>]*>([^<]+)</)?.[1] ?? "");
-      assert.ok(accessible.length, "heading retains its sr-only label");
-      for (const match of heading.matchAll(/alt="([^"]+)"/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
-      for (const match of heading.matchAll(/<span>([^<]+)<\/span>/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
-      assert.doesNotMatch(heading, /aria-live/);
-    }
-    if (page === "carrieres") {
-      assert.match(headings[0], /<span class="rot__lead"[^>]*>Ils sont devenus<\/span>/);
-      assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*aria-controls="alumni-title"[^>]*>Mettre en pause<\/button>/);
+    const section = [...h.matchAll(/<section\b[^>]*>[\s\S]*?<\/section>/g)]
+      .map(([markup]) => markup)
+      .find((markup) => {
+        const opening = markup.slice(0, markup.indexOf(">"));
+        return opening.includes(`class="${className}"`) && opening.includes('aria-labelledby="partners-title"');
+      });
+    assert.ok(section, "partner section is present");
+    assert.doesNotMatch(section, /data-rotating-line/);
+    const heading = section.match(/<h2\b[^>]*id="partners-title"[^>]*class="sr-only"[^>]*>([\s\S]*?)<\/h2>/);
+    assert.ok(heading, "partner section has an sr-only h2");
+    assert.equal(decodeEntities(heading[1]).trim(), "Partenaires de l'école");
+
+    if (page === "index") {
+      const grid = section.match(/<ul\b[^>]*class="badges__partners"[\s\S]*?<\/ul>/)?.[0] ?? "";
+      const logos = ["OpenAI", "Mistral AI", "Dust", "Microsoft", "LVMH", "Snapchat", "Make", "PayFit", "Slack", "Notion", "Replit"];
+      assert.ok(grid, "home partner grid is present");
+      assert.equal(count(grid, /class="badges__item"/g), logos.length);
+      for (const logo of logos) assert.ok(grid.includes(`alt="${logo}"`), `home grid is missing ${logo}`);
     } else {
-      assert.doesNotMatch(headings[0], /class="rot__lead"/);
-      const label = decodeEntities(headings[0].match(/class="sr-only"[^>]*>([^<]+)/)?.[1] ?? "");
-      assert.ok(label.startsWith("Partenaires de l'école"));
-      assert.doesNotMatch(h, /<button[^>]*class="rot__pause"/);
+      const logos = ["OpenAI", "Mistral AI", "Dust", "Microsoft", "LVMH", "Snapchat", "Make", "PayFit", "Slack"];
+      assert.match(section, /class="marq"/);
+      assert.match(section, /class="track"/);
+      for (const logo of logos) assert.ok(section.includes(`alt="${logo}"`), `entreprises marquee is missing ${logo}`);
     }
   });
 }
+
+test("carrieres: rotating heading retains its lead, static fallback and pause control", () => {
+  const h = html("carrieres");
+  const headings = h.match(/<h2[^>]*class="rot h2[^"]*"[\s\S]*?<\/h2>/g) ?? [];
+  assert.equal(headings.length, 1);
+  const heading = headings[0];
+  assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
+  assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
+  assert.match(heading, /aria-hidden="true"/);
+  assert.match(heading, /<span class="rot__lead"[^>]*>Ils sont devenus<\/span>/);
+  const accessible = decodeEntities(heading.match(/class="sr-only"[^>]*>([^<]+)</)?.[1] ?? "");
+  assert.ok(accessible.length);
+  assert.doesNotMatch(heading, /aria-live/);
+  assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*aria-controls="alumni-title"[^>]*>Mettre en pause<\/button>/);
+});
 test("career logo wall has 12 fixed slots, the full colour list and a show-all link", () => {
   const h = html("carrieres");
   const employers = h.match(/<ul class="logo-flow__static"[\s\S]*?<\/ul>/)?.[0] ?? "";

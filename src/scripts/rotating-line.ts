@@ -35,12 +35,6 @@ document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) =>
   };
   const tick = () => {
     if (!allowed()) return;
-    // Wait for the home logo cascade, including logos on wrapped rows.
-    const partners = root.dataset.afterPartners ? root.closest("section")?.querySelectorAll<HTMLElement>(".badges__item") : undefined;
-    if (partners && [...partners].some((item) => !item.classList.contains("is-visible") || item.getAnimations({ subtree: true }).some((animation) => animation.playState === "running"))) {
-      timer = setTimeout(tick, 100);
-      return;
-    }
     animations.forEach((animation) => animation.cancel());
     items.forEach((item) => item.style.removeProperty("visibility"));
     const previous = items[index];
