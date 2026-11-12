@@ -28,14 +28,14 @@ export type PageBlock =
   | { type: "related-cards"; items: { eyebrow: string; title: string; text: string; label: string; href: string }[] }
   | { type: "cta" | "link"; label: string; href: string }
   | { type: "button"; label: string }
-  | { type: "image"; name: string; alt: string; logo?: boolean }
+  | { type: "image"; name: string; alt: string; logo?: boolean; liveSrc?: string }
   | { type: "quote"; text: string }
   | { type: "faq"; items: FaqItem[]; idPrefix?: string }
   | {
       type: "portfolio-grid";
       filters: { label: string; key: string; values: string[] }[];
       emptyText: string;
-      items: { name: string; text: string; href: string; image: string; alt: string; filters: Record<string, string[]> }[];
+      items: { name: string; text: string; href: string; image: string; alt: string; liveSrc?: string; filters: Record<string, string[]> }[];
     }
   | { type: "curriculum"; id: CurriculumProgram["id"] };
 

@@ -403,6 +403,28 @@ test("lot 3 ContinueVisit cards follow non-self built routes and destination met
   }
 });
 
+test("lot 3 image assets derive from each live source basename", () => {
+  const images = [];
+  const collect = (value) => {
+    if (Array.isArray(value)) return value.forEach(collect);
+    if (!value || typeof value !== "object") return;
+    if (value.type === "image") images.push(value);
+    if (value.type === "portfolio-grid") images.push(...value.items);
+    Object.values(value).forEach(collect);
+  };
+  Object.values(lot3).forEach((entry) => collect(entry.page.sections));
+  for (const image of images) {
+    assert.ok(image.liveSrc, `missing liveSrc for ${image.name}`);
+    const sourceBase = new URL(image.liveSrc).pathname.split("/").pop().replace(/\.[^.]+$/, "");
+    const expected = image.logo
+      ? `l3_logo_${sourceBase.replace(/\.[a-z0-9_-]{8}$/i, "").replace(/^(?:partner-|dd-|logo-)/i, "").replace(/-logo$/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`
+      : `l3_${sourceBase}`;
+    assert.equal(image.name, expected, `${image.liveSrc} must determine the local asset name`);
+    assert.ok(existsSync(`src/assets/images/${image.name}.webp`), `missing asset ${image.name}.webp`);
+  }
+  assert.ok(images.length > 100, "all lot-3 page images should be covered");
+});
+
 test("school and company hubs use the requested link cards", () => {
   const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
   const schoolLinks = [

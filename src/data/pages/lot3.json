@@ -42,9 +42,10 @@
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_logo_albert-school",
               "alt": "Albert School",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-albert-school.ivQFDsLN.svg"
             },
             {
               "type": "paragraph",
@@ -68,9 +69,10 @@
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_logo_eugenia",
               "alt": "Eugenia School",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/trajectoires/logo-eugenia.webp"
             },
             {
               "type": "paragraph",
@@ -143,8 +145,9 @@
             },
             {
               "type": "image",
-              "name": "l3_notre-adn_02_cinq-participants-dun-hackathon-as",
-              "alt": "Cinq participants d’un hackathon, assis dans l’amphithéâtre, aux couleurs d’Eugenia School et de Dust."
+              "name": "l3_dust-equipe-eugenia.CV2laFM4",
+              "alt": "Cinq participants d’un hackathon, assis dans l’amphithéâtre, aux couleurs d’Eugenia School et de Dust.",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dust-equipe-eugenia.CV2laFM4.webp"
             }
           ],
           "eyebrow": "01 · raison d’être",
@@ -229,8 +232,9 @@
             },
             {
               "type": "image",
-              "name": "l3_notre-adn_10_image",
-              "alt": ""
+              "name": "l3_geniathon.CoZYcZfC",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/geniathon.CoZYcZfC.webp"
             },
             {
               "type": "paragraph",
@@ -252,8 +256,9 @@
             },
             {
               "type": "image",
-              "name": "l3_notre-adn_11_une-promo-en-sweat-eugenia-school-",
-              "alt": "Une promo en sweat Eugenia School, réunie devant l’atrium du campus."
+              "name": "l3_pro-group-230.CBZBa6Om",
+              "alt": "Une promo en sweat Eugenia School, réunie devant l’atrium du campus.",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/pro-group-230.CBZBa6Om.avif"
             }
           ],
           "eyebrow": "05 · vision",
@@ -447,8 +452,9 @@
           "blocks": [
             {
               "type": "image",
-              "name": "l3_campus-paris_08_cinq-etudiants-deugenia-school-sou",
-              "alt": "Cinq étudiants d’Eugenia School souriants, côte à côte devant un mur clair"
+              "name": "l3_etudiants-cinq-souriants.SLuUV02f",
+              "alt": "Cinq étudiants d’Eugenia School souriants, côte à côte devant un mur clair",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/etudiants-cinq-souriants.SLuUV02f.webp"
             },
             {
               "type": "cards",
@@ -538,8 +544,9 @@
             },
             {
               "type": "image",
-              "name": "l3_campus-paris_27_un-intervenant-prend-la-parole-dev",
-              "alt": "Un intervenant prend la parole devant une bannière, dans une salle du campus"
+              "name": "l3_eug-atelier",
+              "alt": "Un intervenant prend la parole devant une bannière, dans une salle du campus",
+              "liveSrc": "https://www.eugeniaschool.com/bachelor-v2/eug-atelier.webp"
             },
             {
               "type": "paragraph",
@@ -556,8 +563,9 @@
             },
             {
               "type": "image",
-              "name": "l3_campus-paris_28_lamphitheatre-rempli-detudiants-pe",
-              "alt": "L’amphithéâtre rempli d’étudiants pendant un hackathon"
+              "name": "l3_mirakl-public-etudiants.Di0QWmBC",
+              "alt": "L’amphithéâtre rempli d’étudiants pendant un hackathon",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-public-etudiants.Di0QWmBC.webp"
             },
             {
               "type": "paragraph",
@@ -574,8 +582,9 @@
             },
             {
               "type": "image",
-              "name": "l3_campus-paris_29_des-etudiants-en-tenue-de-ville-ti",
-              "alt": "Des étudiants en tenue de ville tiennent leur CV lors d’un job dating"
+              "name": "l3_etudiants-jobdating.e7OFjtxb",
+              "alt": "Des étudiants en tenue de ville tiennent leur CV lors d’un job dating",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/etudiants-jobdating.e7OFjtxb.avif"
             },
             {
               "type": "paragraph",
@@ -592,8 +601,9 @@
             },
             {
               "type": "image",
-              "name": "l3_campus-paris_30_une-equipe-sur-scene-avec-le-troph",
-              "alt": "Une équipe sur scène avec le trophée du hackathon"
+              "name": "l3_eug-hackathon",
+              "alt": "Une équipe sur scène avec le trophée du hackathon",
+              "liveSrc": "https://www.eugeniaschool.com/bachelor-v2/eug-hackathon.webp"
             },
             {
               "type": "paragraph",
@@ -610,8 +620,9 @@
             },
             {
               "type": "image",
-              "name": "l3_campus-paris_31_les-diplomes-en-toge-rouge-et-etol",
-              "alt": "Les diplômés en toge rouge et étole jaune, diplôme en main, devant le logo Eugenia School"
+              "name": "l3_remise-de-diplome",
+              "alt": "Les diplômés en toge rouge et étole jaune, diplôme en main, devant le logo Eugenia School",
+              "liveSrc": "https://www.eugeniaschool.com/campus/remise-de-diplome.webp"
             }
           ],
           "eyebrow": "quand le campus s’anime",
@@ -635,8 +646,9 @@
             },
             {
               "type": "image",
-              "name": "l3_campus-paris_32_la-facade-du-campus-deugenia-schoo",
-              "alt": "La façade du campus d’Eugenia School, rue de Paradis"
+              "name": "l3_facade",
+              "alt": "La façade du campus d’Eugenia School, rue de Paradis",
+              "liveSrc": "https://www.eugeniaschool.com/campus/facade.webp"
             },
             {
               "type": "paragraph",
@@ -861,8 +873,9 @@
           "blocks": [
             {
               "type": "image",
-              "name": "l3_vie-etudiante_06_image",
-              "alt": ""
+              "name": "l3_soiree-dust.D0fPM1RE",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/soiree-dust.D0fPM1RE.webp"
             },
             {
               "type": "paragraph",
@@ -956,18 +969,21 @@
             },
             {
               "type": "image",
-              "name": "l3_vie-etudiante_14_deux-etudiants-deugenia-school-sou",
-              "alt": "Deux étudiants d’Eugenia School souriants, bras sur les épaules, dans le hall du campus"
+              "name": "l3_vie-soin-deux-etudiants.60J4q62u",
+              "alt": "Deux étudiants d’Eugenia School souriants, bras sur les épaules, dans le hall du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vie-soin-deux-etudiants.60J4q62u.webp"
             },
             {
               "type": "image",
-              "name": "l3_vie-etudiante_15_des-etudiants-et-des-invites-echan",
-              "alt": "Des étudiants et des invités échangent et rient autour d’un café sur le campus"
+              "name": "l3_vie-soin-retrouvailles.DxhrIaqp",
+              "alt": "Des étudiants et des invités échangent et rient autour d’un café sur le campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vie-soin-retrouvailles.DxhrIaqp.webp"
             },
             {
               "type": "image",
-              "name": "l3_vie-etudiante_13_une-etudiante-en-pleine-partie-de-",
-              "alt": "Une étudiante en pleine partie de ping-pong sur le campus d’Eugenia School"
+              "name": "l3_vie-campus-ping-pong.CxJ7eXhM",
+              "alt": "Une étudiante en pleine partie de ping-pong sur le campus d’Eugenia School",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vie-campus-ping-pong.CxJ7eXhM.webp"
             }
           ],
           "eyebrow": "expérience étudiante",
@@ -1005,8 +1021,9 @@
           "blocks": [
             {
               "type": "image",
-              "name": "l3_vie-etudiante_16_deux-jeunes-hommes-complices-bras-",
-              "alt": "Deux jeunes hommes complices, bras sur les épaules, sur le campus pendant une conférence"
+              "name": "l3_vie-conference-chapelon.Bxbc20KI",
+              "alt": "Deux jeunes hommes complices, bras sur les épaules, sur le campus pendant une conférence",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vie-conference-chapelon.Bxbc20KI.webp"
             },
             {
               "type": "paragraph",
@@ -1023,8 +1040,9 @@
             },
             {
               "type": "image",
-              "name": "l3_vie-etudiante_17_jokariz-au-micro-face-aux-etudiant",
-              "alt": "Jokariz au micro, face aux étudiants, pendant sa conférence sur le campus"
+              "name": "l3_vie-conference-jokariz.BtPHMujW",
+              "alt": "Jokariz au micro, face aux étudiants, pendant sa conférence sur le campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vie-conference-jokariz.BtPHMujW.webp"
             },
             {
               "type": "paragraph",
@@ -1041,8 +1059,9 @@
             },
             {
               "type": "image",
-              "name": "l3_vie-etudiante_18_un-etudiant-ou-un-invite-prend-la-",
-              "alt": "Un étudiant ou un invité prend la parole au micro devant l’écran de présentation, dans l’amphithéâtre"
+              "name": "l3_vie-conference-intervenant.BxlB-0er",
+              "alt": "Un étudiant ou un invité prend la parole au micro devant l’écran de présentation, dans l’amphithéâtre",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vie-conference-intervenant.BxlB-0er.webp"
             }
           ],
           "eyebrow": "ils sont venus pour vous",
@@ -1218,33 +1237,39 @@
             },
             {
               "type": "image",
-              "name": "l3_entrepreneuriat_05_une-etudiante-pitche-son-projet-au",
-              "alt": "Une étudiante pitche son projet au micro devant les autres équipes"
+              "name": "l3_mirakl-pitch-etudiante.dzMvY2Q6",
+              "alt": "Une étudiante pitche son projet au micro devant les autres équipes",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-pitch-etudiante.dzMvY2Q6.webp"
             },
             {
               "type": "image",
-              "name": "l3_entrepreneuriat_06_un-intervenant-prend-la-parole-au-",
-              "alt": "Un intervenant prend la parole au micro dans l’amphithéâtre du campus"
+              "name": "l3_mirakl-intervenant-campus.BBqH1qyA",
+              "alt": "Un intervenant prend la parole au micro dans l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-intervenant-campus.BBqH1qyA.webp"
             },
             {
               "type": "image",
-              "name": "l3_entrepreneuriat_07_trois-personnes-en-pull-eugenia-po",
-              "alt": "Trois personnes en pull Eugenia posent devant un panneau de Géniathon"
+              "name": "l3_events-etudiant-professionnelles.D6NvKHXb",
+              "alt": "Trois personnes en pull Eugenia posent devant un panneau de Géniathon",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/events-etudiant-professionnelles.D6NvKHXb.avif"
             },
             {
               "type": "image",
-              "name": "l3_entrepreneuriat_08_equipe-dun-hackathon-en-t-shirts-a",
-              "alt": "Équipe d’un hackathon en t-shirts aux couleurs de ses partenaires"
+              "name": "l3_dust-equipe-eugenia.CV2laFM4",
+              "alt": "Équipe d’un hackathon en t-shirts aux couleurs de ses partenaires",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dust-equipe-eugenia.CV2laFM4.webp"
             },
             {
               "type": "image",
-              "name": "l3_entrepreneuriat_09_une-etudiante-prend-la-parole-au-m",
-              "alt": "Une étudiante prend la parole au micro dans le hall du campus"
+              "name": "l3_sec-etudiante-presente.BDYZ5LpG",
+              "alt": "Une étudiante prend la parole au micro dans le hall du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/sec-etudiante-presente.BDYZ5LpG.avif"
             },
             {
               "type": "image",
-              "name": "l3_entrepreneuriat_10_un-intervenant-echange-avec-des-et",
-              "alt": "Un intervenant échange avec des étudiants dans l’amphithéâtre du campus"
+              "name": "l3_events-group-221.CeG6n7Sw",
+              "alt": "Un intervenant échange avec des étudiants dans l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/events-group-221.CeG6n7Sw.avif"
             },
             {
               "type": "paragraph",
@@ -1262,9 +1287,10 @@
           "blocks": [
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_logo_snapchat",
               "alt": "Snapchat",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-snapchat.C4THzlVU.png"
             },
             {
               "type": "paragraph",
@@ -1272,9 +1298,10 @@
             },
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_logo_morning",
               "alt": "Morning",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-morning.CyXZjj5u.webp"
             },
             {
               "type": "paragraph",
@@ -1297,27 +1324,31 @@
             },
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_logo_licter",
               "alt": "Licter",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-licter.dfzeLDT2.webp"
             },
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_logo_mister-ia",
               "alt": "Mister IA",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mister-ia.Ddlbakk2.webp"
             },
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_logo_effy",
               "alt": "EFFY",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-effy.lQpGICDR.webp"
             },
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_logo_alan",
               "alt": "Alan",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-alan.C5beTeUT.webp"
             }
           ],
           "eyebrow": "et ensuite",
@@ -1390,8 +1421,9 @@
           "blocks": [
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_02_stephane-velasquez-directeur-de-le",
-              "alt": "Stéphane Velasquez, directeur de l’école"
+              "name": "l3_portrait-stephane-escalier.DY0k6q2m",
+              "alt": "Stéphane Velasquez, directeur de l’école",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/portrait-stephane-escalier.DY0k6q2m.webp"
             },
             {
               "type": "paragraph",
@@ -1558,9 +1590,10 @@
             },
             {
               "type": "image",
-              "name": "lg_notion",
+              "name": "l3_logo_notion",
               "alt": "Notion",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-notion.D72YjW9t.webp"
             },
             {
               "type": "list",
@@ -1571,15 +1604,17 @@
             },
             {
               "type": "image",
-              "name": "pr3_logo-anthropic",
+              "name": "l3_logo_anthropic",
               "alt": "Anthropic",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-anthropic.BlHkycdV.webp"
             },
             {
               "type": "image",
-              "name": "pr3_logo-n8n",
+              "name": "l3_logo_n8n",
               "alt": "n8n",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-n8n.CTofFTaF.webp"
             }
           ],
           "eyebrow": "l’équipe",
@@ -1618,8 +1653,9 @@
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_13_image",
-              "alt": ""
+              "name": "l3_qcor-stephane.CCIMOYDg",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/qcor-stephane.CCIMOYDg.webp"
             },
             {
               "type": "paragraph",
@@ -1684,8 +1720,9 @@
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_14_un-intervenant-face-a-une-promo-re",
-              "alt": "Un intervenant face à une promo réunie dans l’amphithéâtre du campus"
+              "name": "l3_hero-notre-adn.BZKKRyt5",
+              "alt": "Un intervenant face à une promo réunie dans l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/hero-notre-adn.BZKKRyt5.avif"
             },
             {
               "type": "paragraph",
@@ -1693,13 +1730,15 @@
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_15_un-etudiant-presente-un-tableau-de",
-              "alt": "Un étudiant présente un tableau de bord sur écran, face à deux professionnels"
+              "name": "l3_msc-alternance.CFBtM11A",
+              "alt": "Un étudiant présente un tableau de bord sur écran, face à deux professionnels",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/msc-alternance.CFBtM11A.avif"
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_16_des-etudiants-en-discussion-avec-d",
-              "alt": "Des étudiants en discussion avec des recruteurs lors d’un job dating"
+              "name": "l3_etudiants-jobdating.e7OFjtxb",
+              "alt": "Des étudiants en discussion avec des recruteurs lors d’un job dating",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/etudiants-jobdating.e7OFjtxb.avif"
             }
           ],
           "eyebrow": "la méthode QCOR",
@@ -1739,23 +1778,27 @@
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_17_une-etudiante-presente-le-projet-d",
-              "alt": "Une étudiante présente le projet de son équipe pendant un hackathon"
+              "name": "l3_mirakl-pitch-etudiante.dzMvY2Q6",
+              "alt": "Une étudiante présente le projet de son équipe pendant un hackathon",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-pitch-etudiante.dzMvY2Q6.webp"
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_18_le-directeur-de-lecole-et-un-respo",
-              "alt": "Le directeur de l’école et un responsable d’OpenAI, côte à côte et souriants, lors d’un événement sur le campus"
+              "name": "l3_stephane-corentin-openai.B35lV427",
+              "alt": "Le directeur de l’école et un responsable d’OpenAI, côte à côte et souriants, lors d’un événement sur le campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/stephane-corentin-openai.B35lV427.webp"
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_19_participants-du-dust-customers-hac",
-              "alt": "Participants du Dust Customers Hackathon assis dans l’amphithéâtre du campus"
+              "name": "l3_dust-equipe-eugenia.CV2laFM4",
+              "alt": "Participants du Dust Customers Hackathon assis dans l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dust-equipe-eugenia.CV2laFM4.webp"
             },
             {
               "type": "image",
-              "name": "l3_approche-pedagogique_20_une-etudiante-prend-la-parole-au-m",
-              "alt": "Une étudiante prend la parole au micro pendant la restitution du hackathon des 3M"
+              "name": "l3_3m-etudiante-micro.D2dUvX4H",
+              "alt": "Une étudiante prend la parole au micro pendant la restitution du hackathon des 3M",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-etudiante-micro.D2dUvX4H.webp"
             },
             {
               "type": "paragraph",
@@ -1897,14 +1940,16 @@
             },
             {
               "type": "image",
-              "name": "l3_methode-eugenia_02_un-etudiant-ecoute-attentivement-p",
-              "alt": "Un étudiant écoute attentivement pendant une séance de projet, une salle de réunion en arrière-plan"
+              "name": "l3_dd-doctolib-photo.B6b2yPzD",
+              "alt": "Un étudiant écoute attentivement pendant une séance de projet, une salle de réunion en arrière-plan",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-doctolib-photo.B6b2yPzD.webp"
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_doctolib",
               "alt": "Doctolib",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-doctolib-logo.Bd7oNMyo.png"
             },
             {
               "type": "paragraph",
@@ -1942,14 +1987,16 @@
             },
             {
               "type": "image",
-              "name": "l3_methode-eugenia_03_une-etudiante-presente-son-projet-",
-              "alt": "Une étudiante présente son projet au micro, devant la bannière « Carrefour Links · Data collaboration »"
+              "name": "l3_dd-carrefour-links.X1N3DLfN",
+              "alt": "Une étudiante présente son projet au micro, devant la bannière « Carrefour Links · Data collaboration »",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-carrefour-links.X1N3DLfN.webp"
             },
             {
               "type": "image",
-              "name": "lg_carrefour",
+              "name": "l3_logo_carrefour",
               "alt": "Carrefour",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-carrefour-logo.BUvrIeCp.svg"
             },
             {
               "type": "paragraph",
@@ -1987,14 +2034,16 @@
             },
             {
               "type": "image",
-              "name": "l3_methode-eugenia_04_une-presentation-devant-un-public-",
-              "alt": "Une présentation devant un public, au milieu de l’amphithéâtre du campus"
+              "name": "l3_dd-spendesk-bg.Boc_p_Va",
+              "alt": "Une présentation devant un public, au milieu de l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-spendesk-bg.Boc_p_Va.avif"
             },
             {
               "type": "image",
-              "name": "lg_payfit",
+              "name": "l3_logo_spendesk",
               "alt": "Spendesk",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-spendesk-logo.COSJovY5.avif"
             },
             {
               "type": "paragraph",
@@ -2032,14 +2081,16 @@
             },
             {
               "type": "image",
-              "name": "l3_methode-eugenia_05_un-jury-et-des-equipes-detudiants-",
-              "alt": "Un jury et des équipes d’étudiants réunis dans l’amphithéâtre du campus"
+              "name": "l3_dd-malt-bg.DW872NSc",
+              "alt": "Un jury et des équipes d’étudiants réunis dans l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-malt-bg.DW872NSc.avif"
             },
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-malt-logo.DNW9rVz2.avif"
             },
             {
               "type": "paragraph",
@@ -2081,8 +2132,9 @@
             },
             {
               "type": "image",
-              "name": "l3_methode-eugenia_06_des-etudiants-suivent-des-presenta",
-              "alt": "Des étudiants suivent des présentations dans l’amphithéâtre du campus"
+              "name": "l3_mirakl-public-etudiants.Di0QWmBC",
+              "alt": "Des étudiants suivent des présentations dans l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-public-etudiants.Di0QWmBC.webp"
             },
             {
               "type": "paragraph",
@@ -2150,57 +2202,66 @@
           "blocks": [
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-malt.BtpzS-XK.avif"
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_doctolib",
               "alt": "Doctolib",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-doctolib.BKfumf8e.avif"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_logo_societegenerale",
               "alt": "Société Générale",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-societegenerale.Dnv7cU6v.png"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_logo_capgemini",
               "alt": "Capgemini",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-capgemini.CSbmD2kt.avif"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_logo_snapchat",
               "alt": "Snapchat",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-snapchat.CwLvQhj7.avif"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_logo_googlecloud",
               "alt": "Google Cloud",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-googlecloud.N5Yh9_vV.png"
             },
             {
               "type": "image",
-              "name": "lg_airfrance",
+              "name": "l3_logo_airfrance",
               "alt": "Air France",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-airfrance.CLaUmOex.avif"
             },
             {
               "type": "image",
-              "name": "lg_carrefour",
+              "name": "l3_logo_carrefour",
               "alt": "Carrefour",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-carrefour.YTGZe0cF.avif"
             },
             {
               "type": "image",
-              "name": "lg_microsoft",
+              "name": "l3_logo_microsoft",
               "alt": "Microsoft",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/partner-microsoft.BZUeD0Ai.avif"
             }
           ]
         },
@@ -2216,8 +2277,9 @@
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_02_image",
-              "alt": ""
+              "name": "l3_geniathon.CoZYcZfC",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/geniathon.CoZYcZfC.webp"
             },
             {
               "type": "paragraph",
@@ -2287,27 +2349,31 @@
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_doctolib",
               "alt": "Doctolib",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-doctolib-logo.Bd7oNMyo.png"
             },
             {
               "type": "image",
-              "name": "lg_carrefour",
+              "name": "l3_logo_carrefour",
               "alt": "Carrefour",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-carrefour-logo.BUvrIeCp.svg"
             },
             {
               "type": "image",
-              "name": "lg_payfit",
+              "name": "l3_logo_spendesk",
               "alt": "Spendesk",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dd-spendesk-logo.COSJovY5.avif"
             },
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-malt.DgRjoudl.png"
             },
             {
               "type": "link",
@@ -2340,23 +2406,27 @@
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_03_directrice-qui-donne-une-conferenc",
-              "alt": "Directrice qui donne une conférence"
+              "name": "l3_directrice-conference.Bb1RI4Id",
+              "alt": "Directrice qui donne une conférence",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/directrice-conference.Bb1RI4Id.avif"
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_04_des-etudiants-pendant-le-jobdating",
-              "alt": "Des étudiants pendant le jobdating"
+              "name": "l3_etudiants-jobdating.e7OFjtxb",
+              "alt": "Des étudiants pendant le jobdating",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/etudiants-jobdating.e7OFjtxb.avif"
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_05_image",
-              "alt": ""
+              "name": "l3_group-227.BqGYdFHA",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/group-227.BqGYdFHA.avif"
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_06_image",
-              "alt": ""
+              "name": "l3_group-226.EGDGv2yH",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/group-226.EGDGv2yH.avif"
             },
             {
               "type": "paragraph",
@@ -2506,18 +2576,21 @@
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_07_station-f",
-              "alt": "Station F"
+              "name": "l3_station-f.DEKLhgBn",
+              "alt": "Station F",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/station-f.DEKLhgBn.avif"
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_08_incubateur-hec",
-              "alt": "Incubateur HEC"
+              "name": "l3_hec-paris.4dcKakqd",
+              "alt": "Incubateur HEC",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/hec-paris.4dcKakqd.avif"
             },
             {
               "type": "image",
-              "name": "l3_entreprises-partenaires_09_viva-technology",
-              "alt": "VIVA Technology"
+              "name": "l3_vivatech.DarqzelU",
+              "alt": "VIVA Technology",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/vivatech.DarqzelU.avif"
             }
           ],
           "eyebrow": "innovation",
@@ -2694,69 +2767,80 @@
             },
             {
               "type": "image",
-              "name": "lg_accenture",
+              "name": "l3_logo_accenture",
               "alt": "Accenture",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-accenture.CeSqHTkH.webp"
             },
             {
               "type": "image",
-              "name": "lg_sage",
+              "name": "l3_logo_sage",
               "alt": "Sage",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-sage.p7h2yXLZ.webp"
             },
             {
               "type": "image",
-              "name": "lg_airfrance",
+              "name": "l3_logo_air-france",
               "alt": "Air France",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-air-france.C44Br9N4.webp"
             },
             {
               "type": "image",
-              "name": "lg_salesforce",
+              "name": "l3_logo_salesforce",
               "alt": "Salesforce",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-salesforce.B7llIudg.webp"
             },
             {
               "type": "image",
-              "name": "lg_microsoft",
+              "name": "l3_logo_microsoft",
               "alt": "Microsoft",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-microsoft.DBxOZ4nq.webp"
             },
             {
               "type": "image",
-              "name": "p_team",
+              "name": "l3_logo_payfit",
               "alt": "PayFit",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-payfit.CqJ5sBhf.png"
             },
             {
               "type": "image",
-              "name": "p_team",
+              "name": "l3_logo_ministere-des-armees",
               "alt": "Ministère des Armées",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-ministere-des-armees.DRXFr2Gg.webp"
             },
             {
               "type": "image",
-              "name": "p_team",
+              "name": "l3_logo_licter",
               "alt": "Licter",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-licter.dfzeLDT2.webp"
             },
             {
               "type": "image",
-              "name": "p_team",
+              "name": "l3_logo_effy",
               "alt": "EFFY",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-effy.lQpGICDR.webp"
             },
             {
               "type": "image",
-              "name": "p_team",
+              "name": "l3_logo_mister-ia",
               "alt": "Mister IA",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mister-ia.Ddlbakk2.webp"
             },
             {
               "type": "image",
-              "name": "p_team",
+              "name": "l3_logo_wesype",
               "alt": "WeSype",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-wesype.CoMrYsFC.webp"
             },
             {
               "type": "cards",
@@ -3025,26 +3109,30 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises_02_image",
-              "alt": ""
+              "name": "l3_3m-hackathon-hero.wOeYXqeO",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-hackathon-hero.wOeYXqeO.webp"
             },
             {
               "type": "image",
-              "name": "lg_mistral",
+              "name": "l3_logo_mistral",
               "alt": "Mistral AI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mistral.S352d8cl.png"
             },
             {
               "type": "image",
-              "name": "lg_make",
+              "name": "l3_logo_make",
               "alt": "Make",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-make.ChYWbrKD.png"
             },
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-malt.DgRjoudl.png"
             },
             {
               "type": "paragraph",
@@ -3070,15 +3158,17 @@
             },
             {
               "type": "image",
-              "name": "lg_mirakl",
+              "name": "l3_logo_mirakl",
               "alt": "Mirakl",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mirakl.BwaBZtO4.webp"
             },
             {
               "type": "image",
-              "name": "lg_openai",
+              "name": "l3_logo_openai",
               "alt": "OpenAI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-openai.D3xfq5Zo.png"
             },
             {
               "type": "paragraph",
@@ -3104,14 +3194,16 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises_04_image",
-              "alt": ""
+              "name": "l3_dust-equipe-eugenia.CV2laFM4",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dust-equipe-eugenia.CV2laFM4.webp"
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_dust",
               "alt": "Dust",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-dust.3jzXmb8n.png"
             },
             {
               "type": "paragraph",
@@ -3144,165 +3236,192 @@
             },
             {
               "type": "image",
-              "name": "lg_mirakl",
+              "name": "l3_logo_mirakl",
               "alt": "Mirakl",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mirakl.BwaBZtO4.webp"
             },
             {
               "type": "image",
-              "name": "pr3_logo-anthropic",
+              "name": "l3_logo_anthropic",
               "alt": "Anthropic",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-anthropic.BlHkycdV.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_tinder",
               "alt": "Tinder",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-tinder.DFb2CQJm.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_licter",
               "alt": "Licter",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-licter.dfzeLDT2.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_h-company",
               "alt": "H Company",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-h-company.BxAvBvqo.svg"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_alan",
               "alt": "Alan",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-alan.C5beTeUT.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_effy",
               "alt": "EFFY",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-effy.lQpGICDR.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_wesype",
               "alt": "WeSype",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-wesype.CoMrYsFC.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_mister-ia",
               "alt": "Mister IA",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mister-ia.Ddlbakk2.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_ministere-des-armees",
               "alt": "Ministère des Armées",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-ministere-des-armees.DRXFr2Gg.webp"
             },
             {
               "type": "image",
-              "name": "lg_airfrance",
+              "name": "l3_logo_air-france",
               "alt": "Air France",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-air-france.C44Br9N4.webp"
             },
             {
               "type": "image",
-              "name": "lg_accenture",
+              "name": "l3_logo_accenture",
               "alt": "Accenture",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-accenture.CeSqHTkH.webp"
             },
             {
               "type": "image",
-              "name": "lg_sage",
+              "name": "l3_logo_sage",
               "alt": "Sage",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-sage.p7h2yXLZ.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_welcome-to-the-jungle",
               "alt": "Welcome to the Jungle",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-welcome-to-the-jungle.C5KKhbKc.webp"
             },
             {
               "type": "image",
-              "name": "lg_salesforce",
+              "name": "l3_logo_salesforce",
               "alt": "Salesforce",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-salesforce.B7llIudg.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_google-cloud",
               "alt": "Google Cloud",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-google-cloud.Ct3zhR-s.webp"
             },
             {
               "type": "image",
-              "name": "lg_notion",
+              "name": "l3_logo_notion",
               "alt": "Notion",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-notion.D72YjW9t.webp"
             },
             {
               "type": "image",
-              "name": "pr3_logo-n8n",
+              "name": "l3_logo_n8n",
               "alt": "n8n",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-n8n.CTofFTaF.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_dataiku",
               "alt": "Dataiku",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-dataiku.BZD33LN6.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_lucca",
               "alt": "Lucca",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-lucca.Ci7xBY7E.svg"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_morning",
               "alt": "Morning",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-morning.CyXZjj5u.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_snapchat",
               "alt": "Snapchat",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-snapchat.C4THzlVU.png"
             },
             {
               "type": "image",
-              "name": "lg_microsoft",
+              "name": "l3_logo_microsoft",
               "alt": "Microsoft",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-microsoft.DBxOZ4nq.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_slack",
               "alt": "Slack",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-slack.B3PmPzJ6.webp"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_lvmh",
               "alt": "LVMH",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-lvmh.D9SAMrgW.png"
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_logo_payfit",
               "alt": "PayFit",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-payfit.CqJ5sBhf.png"
             },
             {
               "type": "image",
-              "name": "lg_make",
+              "name": "l3_logo_make",
               "alt": "Make",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-make.ChYWbrKD.png"
             },
             {
               "type": "paragraph",
@@ -3492,8 +3611,9 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises_05_portrait-de-ian-l",
-              "alt": "Portrait de Ian L."
+              "name": "l3_ian",
+              "alt": "Portrait de Ian L.",
+              "liveSrc": "https://www.eugeniaschool.com/trajectoires/ian.webp"
             },
             {
               "type": "paragraph",
@@ -3517,8 +3637,9 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises_06_portrait-de-robin-m",
-              "alt": "Portrait de Robin M."
+              "name": "l3_robin",
+              "alt": "Portrait de Robin M.",
+              "liveSrc": "https://www.eugeniaschool.com/trajectoires/robin.webp"
             },
             {
               "type": "paragraph",
@@ -3542,8 +3663,9 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises_07_portrait-de-maxime-b",
-              "alt": "Portrait de Maxime B."
+              "name": "l3_maxime",
+              "alt": "Portrait de Maxime B.",
+              "liveSrc": "https://www.eugeniaschool.com/trajectoires/maxime.webp"
             },
             {
               "type": "paragraph",
@@ -3704,9 +3826,10 @@
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_dust",
               "alt": "Dust",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-dust.3jzXmb8n.png"
             }
           ]
         },
@@ -3851,8 +3974,9 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-dust-hackathon_02_image",
-              "alt": ""
+              "name": "l3_video-dust-hackathon.Di3Meite",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/video-dust-hackathon.Di3Meite.webp"
             },
             {
               "type": "paragraph",
@@ -3870,26 +3994,30 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-dust-hackathon_03_image",
-              "alt": ""
+              "name": "l3_3m-hackathon-hero.wOeYXqeO",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-hackathon-hero.wOeYXqeO.webp"
             },
             {
               "type": "image",
-              "name": "lg_mistral",
+              "name": "l3_logo_mistral",
               "alt": "Mistral AI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mistral.S352d8cl.png"
             },
             {
               "type": "image",
-              "name": "lg_make",
+              "name": "l3_logo_make",
               "alt": "Make",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-make.ChYWbrKD.png"
             },
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-malt.DgRjoudl.png"
             },
             {
               "type": "paragraph",
@@ -3915,20 +4043,23 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-dust-hackathon_04_image",
-              "alt": ""
+              "name": "l3_mirakl-pitch-etudiante.dzMvY2Q6",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-pitch-etudiante.dzMvY2Q6.webp"
             },
             {
               "type": "image",
-              "name": "lg_mirakl",
+              "name": "l3_logo_mirakl",
               "alt": "Mirakl",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mirakl.BwaBZtO4.webp"
             },
             {
               "type": "image",
-              "name": "lg_openai",
+              "name": "l3_logo_openai",
               "alt": "OpenAI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-openai.D3xfq5Zo.png"
             },
             {
               "type": "paragraph",
@@ -4053,21 +4184,24 @@
             },
             {
               "type": "image",
-              "name": "lg_mistral",
+              "name": "l3_logo_mistral",
               "alt": "Mistral AI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mistral.S352d8cl.png"
             },
             {
               "type": "image",
-              "name": "lg_make",
+              "name": "l3_logo_make",
               "alt": "Make",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-make.ChYWbrKD.png"
             },
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-malt.DgRjoudl.png"
             },
             {
               "type": "paragraph",
@@ -4266,8 +4400,9 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-mistral-ai-hackathon_02_image",
-              "alt": ""
+              "name": "l3_3m-video-thumb.C5eoBX-i",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-video-thumb.C5eoBX-i.webp"
             },
             {
               "type": "paragraph",
@@ -4281,13 +4416,15 @@
           "blocks": [
             {
               "type": "image",
-              "name": "l3_projets-entreprises-mistral-ai-hackathon_03_deux-etudiants-deugenia-school-bra",
-              "alt": "Deux étudiants d’Eugenia School, bras croisés, devant l’escalier en bois de l’amphithéâtre"
+              "name": "l3_3m-etudiants-cote-a-cote.BKIPcVxR",
+              "alt": "Deux étudiants d’Eugenia School, bras croisés, devant l’escalier en bois de l’amphithéâtre",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-etudiants-cote-a-cote.BKIPcVxR.webp"
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-mistral-ai-hackathon_04_une-etudiante-prend-la-parole-au-m",
-              "alt": "Une étudiante prend la parole au micro pendant la restitution du hackathon"
+              "name": "l3_3m-etudiante-micro.D2dUvX4H",
+              "alt": "Une étudiante prend la parole au micro pendant la restitution du hackathon",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-etudiante-micro.D2dUvX4H.webp"
             }
           ],
           "eyebrow": "sur place",
@@ -4301,20 +4438,23 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-mistral-ai-hackathon_05_image",
-              "alt": ""
+              "name": "l3_mirakl-pitch-etudiante.dzMvY2Q6",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-pitch-etudiante.dzMvY2Q6.webp"
             },
             {
               "type": "image",
-              "name": "lg_mirakl",
+              "name": "l3_logo_mirakl",
               "alt": "Mirakl",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mirakl.BwaBZtO4.webp"
             },
             {
               "type": "image",
-              "name": "lg_openai",
+              "name": "l3_logo_openai",
               "alt": "OpenAI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-openai.D3xfq5Zo.png"
             },
             {
               "type": "paragraph",
@@ -4340,14 +4480,16 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-mistral-ai-hackathon_06_image",
-              "alt": ""
+              "name": "l3_dust-equipe-eugenia.CV2laFM4",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dust-equipe-eugenia.CV2laFM4.webp"
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_dust",
               "alt": "Dust",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-dust.3jzXmb8n.png"
             },
             {
               "type": "paragraph",
@@ -4472,15 +4614,17 @@
             },
             {
               "type": "image",
-              "name": "lg_mirakl",
+              "name": "l3_logo_mirakl",
               "alt": "Mirakl",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mirakl.BwaBZtO4.webp"
             },
             {
               "type": "image",
-              "name": "lg_openai",
+              "name": "l3_logo_openai",
               "alt": "OpenAI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-openai.D3xfq5Zo.png"
             }
           ]
         },
@@ -4679,8 +4823,9 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_02_image",
-              "alt": ""
+              "name": "l3_video-mirakl-openai.D1sXo3xq",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/video-mirakl-openai.D1sXo3xq.webp"
             },
             {
               "type": "paragraph",
@@ -4694,23 +4839,27 @@
           "blocks": [
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_03_un-intervenant-prend-la-parole-dan",
-              "alt": "Un intervenant prend la parole dans l’amphithéâtre du campus pendant le hackathon Mirakl × OpenAI"
+              "name": "l3_mirakl-intervenant-campus.BBqH1qyA",
+              "alt": "Un intervenant prend la parole dans l’amphithéâtre du campus pendant le hackathon Mirakl × OpenAI",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-intervenant-campus.BBqH1qyA.webp"
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_04_les-etudiants-suivent-les-presenta",
-              "alt": "Les étudiants suivent les présentations depuis l’amphithéâtre du campus"
+              "name": "l3_mirakl-public-etudiants.Di0QWmBC",
+              "alt": "Les étudiants suivent les présentations depuis l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-public-etudiants.Di0QWmBC.webp"
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_05_des-professionnels-invites-suivent",
-              "alt": "Des professionnels invités suivent les présentations depuis l’amphithéâtre du campus"
+              "name": "l3_mirakl-public-professionnels.CoiRxr_Z",
+              "alt": "Des professionnels invités suivent les présentations depuis l’amphithéâtre du campus",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-public-professionnels.CoiRxr_Z.webp"
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_06_des-etudiants-deugenia-school-pend",
-              "alt": "Des étudiants d’Eugenia School pendant les présentations du hackathon"
+              "name": "l3_mirakl-equipes-sourires.BK2T8C1L",
+              "alt": "Des étudiants d’Eugenia School pendant les présentations du hackathon",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/mirakl-equipes-sourires.BK2T8C1L.webp"
             }
           ],
           "eyebrow": "sur place",
@@ -4724,26 +4873,30 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_07_image",
-              "alt": ""
+              "name": "l3_3m-hackathon-hero.wOeYXqeO",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/3m-hackathon-hero.wOeYXqeO.webp"
             },
             {
               "type": "image",
-              "name": "lg_mistral",
+              "name": "l3_logo_mistral",
               "alt": "Mistral AI",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-mistral.S352d8cl.png"
             },
             {
               "type": "image",
-              "name": "lg_make",
+              "name": "l3_logo_make",
               "alt": "Make",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-make.ChYWbrKD.png"
             },
             {
               "type": "image",
-              "name": "lg_malt",
+              "name": "l3_logo_malt",
               "alt": "Malt",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-malt.DgRjoudl.png"
             },
             {
               "type": "paragraph",
@@ -4769,14 +4922,16 @@
             },
             {
               "type": "image",
-              "name": "l3_projets-entreprises-openai-hackathon_08_image",
-              "alt": ""
+              "name": "l3_dust-equipe-eugenia.CV2laFM4",
+              "alt": "",
+              "liveSrc": "https://www.eugeniaschool.com/_astro/dust-equipe-eugenia.CV2laFM4.webp"
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_logo_dust",
               "alt": "Dust",
-              "logo": true
+              "logo": true,
+              "liveSrc": "https://www.eugeniaschool.com/_astro/logo-dust.3jzXmb8n.png"
             },
             {
               "type": "paragraph",
@@ -4931,7 +5086,7 @@
                   "name": "Jennie Ansellem",
                   "text": "Automatisation & no-code",
                   "href": "https://jennieansellem.vercel.app/index.html",
-                  "image": "l3_portfolio_01_portfolio-de-jennie-ansellem",
+                  "image": "l3_jennie-ansellem",
                   "alt": "Portfolio de Jennie Ansellem",
                   "filters": {
                     "stack": [
@@ -4945,13 +5100,14 @@
                       "Projet client",
                       "Alternance"
                     ]
-                  }
+                  },
+                  "liveSrc": "https://www.eugeniaschool.com/portfolio/sites/jennie-ansellem.webp"
                 },
                 {
                   "name": "Binta Kande",
                   "text": "Automatisations, agents IA et marketing digital",
                   "href": "http://bintakande.com/",
-                  "image": "l3_portfolio_02_portfolio-de-binta-kande",
+                  "image": "l3_binta-kande",
                   "alt": "Portfolio de Binta Kande",
                   "filters": {
                     "stack": [
@@ -4964,13 +5120,14 @@
                     "type": [
                       "Projet client"
                     ]
-                  }
+                  },
+                  "liveSrc": "https://www.eugeniaschool.com/portfolio/sites/binta-kande.webp"
                 },
                 {
                   "name": "Ian Laurent",
                   "text": "Développement full-stack",
                   "href": "http://ianlaurent.com/",
-                  "image": "l3_portfolio_03_portfolio-de-ian-laurent",
+                  "image": "l3_ian-laurent",
                   "alt": "Portfolio de Ian Laurent",
                   "filters": {
                     "stack": [
@@ -4985,13 +5142,14 @@
                       "Projet perso",
                       "Alternance"
                     ]
-                  }
+                  },
+                  "liveSrc": "https://www.eugeniaschool.com/portfolio/sites/ian-laurent.webp"
                 },
                 {
                   "name": "Jean-Li Sek",
                   "text": "Data & IA : build, learn, collab",
                   "href": "https://joliment.fr/",
-                  "image": "l3_portfolio_04_portfolio-de-jean-li-sek",
+                  "image": "l3_jean-li-sek",
                   "alt": "Portfolio de Jean-Li Sek",
                   "filters": {
                     "stack": [
@@ -5005,13 +5163,14 @@
                     "type": [
                       "Projet perso"
                     ]
-                  }
+                  },
+                  "liveSrc": "https://www.eugeniaschool.com/portfolio/sites/jean-li-sek.webp"
                 },
                 {
                   "name": "Samantha Asdrubal",
                   "text": "Un portfolio en version Windows XP",
                   "href": "https://samasdrr.github.io/portefolio/",
-                  "image": "l3_portfolio_05_portfolio-de-samantha-asdrubal",
+                  "image": "l3_samantha-asdrubal",
                   "alt": "Portfolio de Samantha Asdrubal",
                   "filters": {
                     "stack": [
@@ -5024,7 +5183,8 @@
                     "type": [
                       "Projet perso"
                     ]
-                  }
+                  },
+                  "liveSrc": "https://www.eugeniaschool.com/portfolio/sites/samantha-asdrubal.webp"
                 }
               ]
             },
