@@ -37,6 +37,8 @@ try {
   await page.goto("http://preview.local/", { waitUntil: "domcontentloaded", timeout: 15000 });
   await page.locator("img").evaluateAll((images) => Promise.all(images.map((img) => img.decode().catch(() => {}))));
   const root = page.locator("[data-logo-flow]");
+  assert.equal(await root.locator(".gray").count(), 0, "original colours in every view");
+  assert.equal(await root.locator(".logo-flow__cell img").first().evaluate((img) => getComputedStyle(img).filter), "none", "colour without hovering");
   await page.mouse.move(1439, 999);
   // Observe every rendered frame, including outgoing + incoming layers during replacement.
   await page.evaluate(() => {
@@ -122,11 +124,13 @@ try {
   const reduced = await browser.newPage({ reducedMotion: "reduce" });
   await routes(reduced); await reduced.goto("http://preview.local/", { waitUntil: "domcontentloaded" });
   assert.equal(await reduced.locator(".logo-flow__motion").isVisible(), false);
-  assert.equal(await reduced.locator(".logo-flow__static li .gray").count(), 36);
+  assert.equal(await reduced.locator(".logo-flow__static li").count(), 36);
+  assert.equal(await reduced.locator(".gray").count(), 0);
   const noJS = await browser.newPage({ javaScriptEnabled: false });
   await routes(noJS); await noJS.goto("http://preview.local/", { waitUntil: "domcontentloaded" });
   assert.equal(await noJS.locator(".logo-flow__motion").isVisible(), false);
-  assert.equal(await noJS.locator(".logo-flow__static li .gray").count(), 36);
+  assert.equal(await noJS.locator(".logo-flow__static li").count(), 36);
+  assert.equal(await noJS.locator(".gray").count(), 0);
   writeFileSync(`${output}/checks.json`, JSON.stringify(report, null, 2));
-  console.log("PASS: 60s uniqueness/coverage, one nonadjacent replacement, fixed geometry, gray/hover, pause, responsive counts, show all, reduced motion and no JS.");
+  console.log("PASS: 60s uniqueness/coverage, one nonadjacent replacement, fixed geometry, original colours, hover/pause, responsive counts, show all, reduced motion and no JS.");
 } finally { await browser.close(); }

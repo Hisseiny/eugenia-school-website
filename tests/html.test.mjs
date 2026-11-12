@@ -29,14 +29,14 @@ for (const page of ["index", "entreprises", "carrieres"]) {
     assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*>Mettre en pause<\/button>/);
   });
 }
-test("career logo wall has 12 fixed slots, the full gray list and a show-all link", () => {
+test("career logo wall has 12 fixed slots, the full colour list and a show-all link", () => {
   const h = html("carrieres");
   const employers = h.match(/<ul class="logo-flow__static"[\s\S]*?<\/ul>/)?.[0] ?? "";
   for (const company of ["Accenture", "Alan", "Carrefour", "Air France", "Microsoft", "Salesforce"]) {
     assert.ok(employers.includes(company));
   }
   assert.equal(count(employers, /<li[\s>]/g), 36);
-  assert.equal(count(employers, /class="gray"/g), 36);
+  assert.equal(count(employers, /class="gray"/g), 0);
   assert.equal(count(h, /class="logo-flow__cell"/g), 12);
   assert.match(h, /class="logo-flow__motion" aria-hidden="true"/);
   assert.match(h, /class="logo-flow__pause"/);

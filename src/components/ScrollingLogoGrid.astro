@@ -8,11 +8,11 @@ const visible = logos.slice(0, 12);
 <div class="logo-flow" data-logo-flow>
   <div id={id}>
     <ul class="logo-flow__static" aria-label="Entreprises qui recrutent nos étudiants">
-      {logos.map((logo, index) => <li data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} gray /></li>)}
+      {logos.map((logo, index) => <li data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} /></li>)}
     </ul>
     <div class="logo-flow__motion" aria-hidden="true">
       {visible.map((logo, index) => <div class="logo-flow__cell" data-slot={index}>
-        <div class="logo-flow__layer" data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} gray decorative /></div>
+        <div class="logo-flow__layer" data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} decorative /></div>
       </div>)}
     </div>
   </div>
@@ -38,9 +38,6 @@ const visible = logos.slice(0, 12);
   .logo-flow__pause { visibility: hidden; margin-left: auto; min-height: 44px; padding: 8px 14px; font: inherit; font-size: 14px; color: inherit; border: 1px solid currentColor; border-radius: 4px; background: transparent; cursor: pointer; }
   .is-enhanced .logo-flow__pause { visibility: visible; }
   .logo-flow__pause:focus-visible, .logo-flow__more a:focus-visible { outline: 2px solid #75192b; outline-offset: 4px; }
-  @media (hover: hover) and (pointer: fine) {
-    .logo-flow__cell:hover :global(.gray img), .logo-flow__static li:hover :global(.gray img) { filter: none; opacity: 1; }
-  }
   @media (prefers-reduced-motion: no-preference) {
     :global(html.js) .logo-flow:not(.is-static) .logo-flow__static { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
     :global(html.js) .logo-flow:not(.is-static) .logo-flow__motion { display: grid; }
