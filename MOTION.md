@@ -29,7 +29,7 @@ Principles followed (nothing is decorative or random). Sources read before the l
 
 | Where | What | Duration / easing | Why |
 |---|---|---|---|
-| Titres partenaires (accueil, Entreprises) et « Ils sont devenus » (Carrières) | L'élément final monte depuis un masque, toutes les 2,6 s, 3 boucles max, pause au survol/focus + bouton | 620 ms, `--ease-out-expo` ; sortie 150 ms | Montre la diversité sans liste à lire ; même langage de masque que le reveal des logos |
+| Titres partenaires (accueil, Entreprises), recruteurs et « Ils sont devenus » (Carrières) | L'élément final monte depuis un masque, toutes les 2,6 s, 3 boucles max, pause au survol/focus + bouton | 620 ms, `--ease-out-expo` ; sortie 150 ms | Montre la diversité sans liste à lire ; même langage de masque que le reveal des logos |
 | Page top (hero, every inner page, form pages) | Title, lead, buttons rise 16 px with a fade, 150 ms apart (`.r1 .r2 .r3`) | 0.9 s, `cubic-bezier(.23,1,.32,1)` | The one entrance animation of the brief: sets the reading order |
 | Card and image grid items (`data-reveal`) | Rise 12 px with a fade the first time they enter the viewport; siblings in a grid follow each other by 60 ms. What is already on screen at load appears at once | 0.5 s, ease-out | Guides the eye down the page, gives rhythm to long pages; happens once, never on scroll-up; nothing waits above the fold |
 | Key figures (`S1 / 48 h / 15`, `4 étapes`) | Numbers count up from 0 when 60 % visible, in tabular digits so nothing jitters | 0.9 s, cubic ease-out | Draws attention to the proof numbers; text values are untouched |

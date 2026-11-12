@@ -15,8 +15,9 @@ const count = (s, re) => (s.match(re) ?? []).length;
 for (const page of ["index", "entreprises", "carrieres"]) {
   test(`${page}: rotating heading has static fallback, complete accessible labels and pause`, () => {
     const h = html(page);
-    const heading = h.match(/<h2[^>]*class="rot h2"[\s\S]*?<\/h2>/)?.[0];
-    assert.ok(heading, "rotating h2 present");
+    const headings = h.match(/<h2[^>]*class="rot h2"[\s\S]*?<\/h2>/g) ?? [];
+    assert.equal(headings.length, page === "carrieres" ? 2 : 1);
+    for (const heading of headings) {
     assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
     assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
     assert.match(heading, /aria-hidden="true"/);
@@ -24,9 +25,19 @@ for (const page of ["index", "entreprises", "carrieres"]) {
     for (const match of heading.matchAll(/alt="([^"]+)"/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
     for (const match of heading.matchAll(/<span>([^<]+)<\/span>/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
     assert.doesNotMatch(heading, /aria-live/);
+    }
     assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*>Mettre en pause<\/button>/);
   });
 }
+test("career employer heading retains the full recruiter grid and the separate role heading", () => {
+  const h = html("carrieres");
+  const employers = h.match(/<h2 id="dest-title"[\s\S]*?<\/h2>/)?.[0] ?? "";
+  for (const company of ["Accenture", "Alan", "Carrefour", "Air France", "Microsoft", "Salesforce"]) {
+    assert.ok(employers.includes(company));
+  }
+  assert.match(h, /class="logo-grid"/);
+  assert.match(h, /id="alumni-title"/);
+});
 const filesUnder = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const path = `${directory}/${entry.name}`;
