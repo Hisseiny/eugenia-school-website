@@ -4,7 +4,8 @@ import Base from "@/layouts/Base.astro";
 import PageTop from "@/components/PageTop.astro";
 import Logo from "@/components/Logo.astro";
 import RotatingLine from "@/components/RotatingLine.astro";
-import { CAREER_ITEMS, EMPLOYER_ITEMS } from "@/data/rotating-lines";
+import { CAREER_ITEMS } from "@/data/rotating-lines";
+import ScrollingLogoGrid from "@/components/ScrollingLogoGrid.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
 import ShareLink from "@/components/ShareLink.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
@@ -28,18 +29,10 @@ import { ROUTES } from "@/data/site";
 
   <section class="container dest" aria-labelledby="dest-title">
     <div class="section-head">
-      <RotatingLine id="dest-title" lead="Ils recrutent nos étudiants en alternance :" items={EMPLOYER_ITEMS} tone="light" srLabel="Entreprises qui recrutent nos étudiants" />
+      <h2 id="dest-title" class="h2 dest__title">Mêmes bases. Des destinations qui n'ont rien à voir.</h2>
       <p class="dest__sub">Startups et grands groupes : chacun construit sa trajectoire, avec ses projets, ses hackathons et son alternance.</p>
     </div>
-    <ul class="logo-grid">
-      {
-        EMPLOYERS.map((l) => (
-          <li class="logo-grid__cell">
-            <Logo name={l.name} alt={l.alt} height={l.height} gray />
-          </li>
-        ))
-      }
-    </ul>
+    <ScrollingLogoGrid id="career-recruiters" logos={EMPLOYERS} />
   </section>
 
   <section id="alumni" class="dark alumni" aria-labelledby="alumni-title">

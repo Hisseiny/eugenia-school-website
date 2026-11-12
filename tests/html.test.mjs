@@ -16,7 +16,7 @@ for (const page of ["index", "entreprises", "carrieres"]) {
   test(`${page}: rotating heading has static fallback, complete accessible labels and pause`, () => {
     const h = html(page);
     const headings = h.match(/<h2[^>]*class="rot h2"[\s\S]*?<\/h2>/g) ?? [];
-    assert.equal(headings.length, page === "carrieres" ? 2 : 1);
+    assert.equal(headings.length, 1);
     for (const heading of headings) {
     assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
     assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
@@ -29,13 +29,15 @@ for (const page of ["index", "entreprises", "carrieres"]) {
     assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*>Mettre en pause<\/button>/);
   });
 }
-test("career employer heading retains the full recruiter grid and the separate role heading", () => {
+test("career recruiter grid scrolls all logos with an accessible static list", () => {
   const h = html("carrieres");
-  const employers = h.match(/<h2 id="dest-title"[\s\S]*?<\/h2>/)?.[0] ?? "";
+  const employers = h.match(/<ul class="logo-flow__static"[\s\S]*?<\/ul>/)?.[0] ?? "";
   for (const company of ["Accenture", "Alan", "Carrefour", "Air France", "Microsoft", "Salesforce"]) {
     assert.ok(employers.includes(company));
   }
-  assert.match(h, /class="logo-grid"/);
+  assert.equal(count(employers, /<li[\s>]/g), 36);
+  assert.match(h, /class="logo-flow__motion" aria-hidden="true"/);
+  assert.match(h, /class="logo-flow__pause"/);
   assert.match(h, /id="alumni-title"/);
 });
 const filesUnder = (directory) =>
