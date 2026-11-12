@@ -10,6 +10,7 @@ import { page as alternance } from "@/data/pages/alternance";
 import { page as financement } from "@/data/pages/financement";
 import { page as processus } from "@/data/pages/processus-admission";
 import { page as faq } from "@/data/pages/faq";
+import lot3 from "@/data/pages/lot3.json";
 
 const absolute = (path: string) => new URL(path, `${SITE.url}/`).href;
 const pages = [
@@ -21,6 +22,9 @@ const pages = [
 ] as const;
 const programmeLines = pages.map(
   ([page, path]) => `- [${page.h1}](${absolute(path)}): ${page.lead ?? page.description}`,
+);
+const lot3Lines = Object.entries(lot3).map(([route, { page }]) =>
+  `- [${page.h1}](${absolute(`/${route}`)}): ${page.lead ?? page.description}`,
 );
 const contactLinks = [
   ["Admissions", ROUTES.admissions],
@@ -42,6 +46,8 @@ const overview = [
   ...programmeLines,
   "## Admissions et contact",
   ...contactLinks.map(([name, path]) => `- [${name}](${absolute(path)})`),
+  "## École et entreprises",
+  ...lot3Lines,
 ];
 const pageFacts = [bachelor, bachelor3, msc, architecte, noCode].flatMap((page) => [
   `### ${page.h1}`,

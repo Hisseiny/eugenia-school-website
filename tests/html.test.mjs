@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 
-const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq"];
+const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq", "notre-adn", "campus/paris", "vie-etudiante", "entrepreneuriat", "approche-pedagogique", "methode-eugenia", "entreprises-partenaires", "recruter-nos-etudiants", "projets-entreprises", "projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon", "portfolio"];
 const html = (name) => {
   const file = `dist/${name}.html`;
   const nestedFile = `dist/${name}/index.html`;
@@ -129,8 +129,8 @@ test("form pages embed the school's existing HubSpot forms", () => {
   }
 });
 
-test("redirects exist for the old URLs named in the brief", () => {
-  for (const file of ["dist/trajectoires.html", "dist/campus/paris.html"]) {
+test("remaining legacy redirect exists and is configured for static hosting", () => {
+  for (const file of ["dist/trajectoires.html"]) {
     assert.ok(existsSync(file), `${file} missing`);
   }
   const r = readFileSync("public/_redirects", "utf8");
@@ -246,12 +246,24 @@ const NEW_PAGES = [
   ["processus-admission", "Candidater. Bachelor ou MSc."],
   ["faq", "Tu as des questions."],
 ];
+const lot3 = JSON.parse(readFileSync("src/data/pages/lot3.json", "utf8"));
+const LOT3_PAGES = Object.entries(lot3).map(([route, entry]) => [route, entry.page.h1]);
+
+test("lot 3 pages do not repeat content image sources", () => {
+  for (const [route] of Object.entries(lot3)) {
+    const images = html(route).match(/<img\b[^>]*>/g) ?? [];
+    const sources = images
+      .map((image) => image.match(/\bsrc="([^"]*l3_[^"]+)"/)?.[1])
+      .filter((source) => source && !source.includes("l3_logo_"));
+    assert.equal(new Set(sources).size, sources.length, `${route}: duplicate content image source`);
+  }
+});
 
 const plainText = (htmlText) =>
   decodeEntities(htmlText.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim());
 
 test("new routes are real pages with their live H1 and visible breadcrumbs", () => {
-  for (const [route, expectedH1] of NEW_PAGES) {
+  for (const [route, expectedH1] of [...NEW_PAGES, ...LOT3_PAGES]) {
     const source = html(route);
     assert.ok(!/http-equiv="refresh"/i.test(source), `${route} is a redirect stub`);
     const h1 = source.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "";
@@ -259,6 +271,251 @@ test("new routes are real pages with their live H1 and visible breadcrumbs", () 
     assert.match(source, /<nav\b[^>]*aria-label="Fil d'Ariane"/, `${route}: missing visible breadcrumb`);
     assert.ok(source.includes('aria-current="page"'), `${route}: current breadcrumb is not marked`);
   }
+});
+
+test("lot 3 metadata matches the extraction and stays within the live length targets", () => {
+  const titles = new Set();
+  const descriptions = new Set();
+  for (const [route, { page }] of Object.entries(lot3)) {
+    const source = html(route);
+    const title = decodeEntities(source.match(/<title>([^<]+)<\/title>/)?.[1] ?? "");
+    const description = decodeEntities(source.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "");
+    assert.equal(title, page.title, `${route}: title differs from extraction`);
+    assert.equal(description, page.description, `${route}: description differs from extraction`);
+    assert.ok(title.length >= 50 && title.length <= 60, `${route}: title length ${title.length}`);
+    assert.ok(description.length >= 140 && description.length <= 155, `${route}: description length ${description.length}`);
+    assert.ok(!titles.has(title), `${route}: duplicate title`);
+    assert.ok(!descriptions.has(description), `${route}: duplicate description`);
+    titles.add(title);
+    descriptions.add(description);
+  }
+});
+
+test("lot 3 project breadcrumbs match the live hierarchy", () => {
+  const expected = {
+    "projets-entreprises": ["Accueil", "Entreprises", "Projets avec les entreprises"],
+    "projets-entreprises/mistral-ai-hackathon": ["Accueil", "Entreprises", "Projets avec les entreprises", "Hackathon Mistral AI, Make et Malt"],
+    "projets-entreprises/openai-hackathon": ["Accueil", "Entreprises", "Projets avec les entreprises", "Hackathon Mirakl et OpenAI"],
+    "projets-entreprises/dust-hackathon": ["Accueil", "Entreprises", "Projets avec les entreprises", "Hackathon Dust"],
+  };
+  const expectedHrefs = {
+    "projets-entreprises": ["/", "/entreprises"],
+    "projets-entreprises/mistral-ai-hackathon": ["/", "/entreprises", "/projets-entreprises"],
+    "projets-entreprises/openai-hackathon": ["/", "/entreprises", "/projets-entreprises"],
+    "projets-entreprises/dust-hackathon": ["/", "/entreprises", "/projets-entreprises"],
+  };
+  for (const [route, labels] of Object.entries(expected)) {
+    const source = html(route);
+    const nav = source.match(/<nav\b(?=[^>]*aria-label="Fil d'Ariane")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+    const crumbs = [...nav.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>|<span\b[^>]*aria-current="page"[^>]*>([\s\S]*?)<\/span>/g)]
+      .map((match) => plainText(match[1] ?? match[2] ?? ""));
+    assert.deepEqual(crumbs, labels, `${route}: breadcrumb labels differ`);
+    const hrefs = [...nav.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]);
+    assert.deepEqual(hrefs, expectedHrefs[route], `${route}: breadcrumb links differ`);
+  }
+});
+
+test("lot 3 route anchors are stored in page data", () => {
+  for (const [route, id] of [
+    ["approche-pedagogique", "equipe"],
+    ["methode-eugenia", "cas"],
+    ["entreprises-partenaires", "devenir-partenaire"],
+    ["projets-entreprises", "projets"],
+    ["portfolio", "portfolios"],
+    ["recruter-nos-etudiants", "formulaire"],
+    ["recruter-nos-etudiants", "besoin"],
+  ]) {
+    assert.ok(html(route).includes(`id="${id}"`), `${route}: missing ${id} anchor`);
+  }
+});
+
+test("recruiter page renders the live HubSpot form at the formulaire anchor", () => {
+  const source = html("recruter-nos-etudiants");
+  const formSection = source.match(/<section\b(?=[^>]*id="formulaire")[^>]*>([\s\S]*?)<\/section>/)?.[1] ?? "";
+  assert.ok(formSection, "recruiter page: #formulaire must resolve to a section");
+  assert.match(formSection, /class="hs-form"[^>]*data-hs-portal="25517078"[^>]*data-hs-region="eu1"[^>]*data-hs-form-id="b98543e3-c9ae-49d6-99bc-7c0418dd95ba"/);
+  assert.ok(formSection.includes('id="besoin"'), "recruiter page: #besoin must also resolve inside the form section");
+  assert.doesNotMatch(source, /<h1\b[^>]*id="formulaire"/, "the formulaire anchor belongs to the form section, not the hero");
+  const ctas = [...source.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+    .map(([, attributes, label]) => ({ href: attributes.match(/\bhref="([^"]+)"/)?.[1], label: plainText(label) }))
+    .filter(({ label }) => ["Décrire mon besoin ↑", "Déposer une offre"].includes(label));
+  assert.ok(ctas.some(({ label }) => label === "Décrire mon besoin ↑"), "recruiter page: missing upward need CTA");
+  for (const cta of ctas) assert.equal(cta.href, "#formulaire", `${cta.label} must point to #formulaire`);
+});
+
+test("portfolio card-group content is visible inside main", () => {
+  const source = html("portfolio");
+  const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+  const visible = plainText(main);
+  for (const title of [
+    "RAG sur la documentation Claude Code",
+    "Synapse",
+    "IKORY",
+    "Shine Santé, plateforme B2B",
+  ]) {
+    assert.ok(visible.includes(title), `portfolio: missing visible card title ${title}`);
+  }
+  for (const copy of [
+    "Un workflow n8n qui ingère la documentation de Claude Code et répond aux questions en temps réel.",
+    "Un chatbot RAG pour explorer les thèses de theses.fr.",
+    "Des workflows n8n et des agents IA qui ramènent l’analyse de plus de 150 biens immobiliers de plusieurs heures à moins de 5 minutes.",
+    "Une plateforme e-commerce B2B sur Shopify pour un importateur de parapharmacie : prix par palier, vérification SIRET, précommandes et stock synchronisé en temps réel avec Axonaut.",
+  ]) {
+    assert.ok(visible.includes(copy), `portfolio: missing card text ${copy}`);
+  }
+});
+
+test("project and related hackathon récit cards link to their case studies", () => {
+  const targets = {
+    "projets-entreprises": [
+      "/projets-entreprises/mistral-ai-hackathon",
+      "/projets-entreprises/openai-hackathon",
+      "/projets-entreprises/dust-hackathon",
+    ],
+    "projets-entreprises/mistral-ai-hackathon": [
+      "/projets-entreprises/openai-hackathon",
+      "/projets-entreprises/dust-hackathon",
+    ],
+    "projets-entreprises/openai-hackathon": [
+      "/projets-entreprises/mistral-ai-hackathon",
+      "/projets-entreprises/dust-hackathon",
+    ],
+    "projets-entreprises/dust-hackathon": [
+      "/projets-entreprises/mistral-ai-hackathon",
+      "/projets-entreprises/openai-hackathon",
+    ],
+  };
+  for (const [route, hrefs] of Object.entries(targets)) {
+    const main = html(route).match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+    const links = [...main.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+      .map(([, attributes, label]) => ({
+        href: attributes.match(/\bhref="([^"]+)"/)?.[1],
+        label: plainText(label),
+      }));
+    for (const href of hrefs) {
+      assert.ok(links.some((link) => link.href === href && link.label === "Lire le récit"), `${route}: missing Lire le récit link to ${href}`);
+    }
+  }
+});
+
+test("portfolio filter chips match items in the live first-seen order", () => {
+  const source = html("portfolio");
+  const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+  const items = lot3.portfolio.page.sections.flatMap((section) =>
+    section.blocks.filter((block) => block.type === "card-group").flatMap((block) => block.cards),
+  );
+  const cards = [...main.matchAll(/<(?:a|article)\b([^>]*class="[^"]*portfolio-gallery__card[^"]*"[^>]*)>/g)]
+    .map(([, attributes]) => Object.fromEntries(["stack", "program", "type"].map((key) => [
+      key,
+      decodeEntities(attributes.match(new RegExp(`\\bdata-${key}="([^"]*)"`))?.[1] ?? "").split("|").filter(Boolean),
+    ])));
+  const groups = [...main.matchAll(/<fieldset\b[^>]*data-filter-group="([^"]+)"[^>]*>([\s\S]*?)<\/fieldset>/g)];
+  for (const [, key, contents] of groups) {
+    const expected = [...new Set(items.flatMap((item) => item.filters[key] ?? []))];
+    const actual = [...contents.matchAll(/data-filter-value="([^"]+)"/g)].map(([, value]) => decodeEntities(value));
+    assert.deepEqual(actual, expected, `${key}: chips must follow first-seen item values`);
+    for (const value of actual) {
+      assert.ok(cards.some((card) => card[key].includes(value)), `${key}=${value} must match at least one portfolio`);
+    }
+  }
+  assert.equal(groups.length, 3, "portfolio must render all filter groups");
+});
+
+test("lot 3 ContinueVisit cards follow non-self built routes and destination metadata", () => {
+  for (const entry of Object.values(lot3)) {
+    const ownPath = `/${entry.route.replace(/^\/+/, "")}`;
+    const { href, title, text } = entry.page.next;
+    assert.notEqual(href, ownPath, `${ownPath}: ContinueVisit must not link to itself`);
+    const destination = html(href.replace(/^\/+/, ""));
+    const h1 = destination.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "";
+    const description = destination.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1] ?? "";
+    assert.equal(plainText(h1), title, `${ownPath}: ContinueVisit title must match ${href}`);
+    assert.equal(decodeEntities(description), text, `${ownPath}: ContinueVisit text must match ${href}`);
+  }
+});
+
+test("lot 3 image assets derive from each live source basename", () => {
+  const images = [];
+  const collect = (value) => {
+    if (Array.isArray(value)) return value.forEach(collect);
+    if (!value || typeof value !== "object") return;
+    if (value.type === "image") images.push({ ...value, assetName: value.name });
+    if (value.type === "portfolio-grid") images.push(...value.items.map((item) => ({ ...item, assetName: item.image })));
+    Object.values(value).forEach(collect);
+  };
+  Object.values(lot3).forEach((entry) => collect(entry.page.sections));
+  for (const image of images) {
+    assert.ok(image.liveSrc, `missing liveSrc for ${image.name}`);
+    const sourceBase = new URL(image.liveSrc).pathname.split("/").pop().replace(/\.[^.]+$/, "");
+    const expected = image.logo
+      ? `l3_logo_${sourceBase.replace(/\.[a-z0-9_-]{8}$/i, "").replace(/^(?:partner-|dd-|logo-)/i, "").replace(/-logo$/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`
+      : `l3_${sourceBase}`;
+    assert.equal(image.assetName, expected, `${image.liveSrc} must determine the local asset name`);
+    assert.ok(existsSync(`src/assets/images/${image.assetName}.webp`), `missing asset ${image.assetName}.webp`);
+  }
+  assert.ok(images.length > 100, "all lot-3 page images should be covered");
+});
+
+test("school and company hubs use the requested link cards", () => {
+  const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+  const schoolLinks = [
+    ["Notre ADN", lot3["notre-adn"].page.description],
+    ["Le campus de Paris", lot3["campus/paris"].page.description],
+    ["Vie étudiante", lot3["vie-etudiante"].page.description],
+    ["Approche pédagogique et professeurs", lot3["approche-pedagogique"].page.description],
+    ["La méthode QCOR", lot3["methode-eugenia"].page.description],
+    ["Entrepreneuriat", lot3.entrepreneuriat.page.description],
+    ["Portfolios étudiants", lot3.portfolio.page.description],
+  ];
+  assert.ok(schoolNav.includes("Explorer l'école"));
+  assert.doesNotMatch(html("ecole"), /class="lnk-row"/);
+  for (const [label, description] of schoolLinks) {
+    assert.ok(plainText(schoolNav).includes(label), `/ecole: missing ${label}`);
+    assert.ok(plainText(schoolNav).includes(description), `/ecole: missing live description for ${label}`);
+  }
+
+  const companySource = html("entreprises");
+  const companyNav = companySource.match(/<nav\b(?=[^>]*aria-labelledby="hack-title")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+  const projectLinks = [
+    ["Tous les projets avec les entreprises", lot3["projets-entreprises"].page.description],
+    ["Hackathon Mistral AI, Make et Malt", lot3["projets-entreprises/mistral-ai-hackathon"].page.description],
+    ["Hackathon Mirakl × OpenAI", lot3["projets-entreprises/openai-hackathon"].page.description],
+    ["Dust Customers Hackathon", lot3["projets-entreprises/dust-hackathon"].page.description],
+  ];
+  assert.doesNotMatch(companySource, /class="lnk-row"/);
+  for (const [label, description] of projectLinks) {
+    assert.ok(plainText(companyNav).includes(label), `/entreprises: missing ${label}`);
+    assert.ok(plainText(companyNav).includes(description), `/entreprises: missing live description for ${label}`);
+  }
+});
+
+test("case studies mirror live Article fields without inferred dates", () => {
+  for (const route of ["projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon"]) {
+    const source = html(route);
+    const canonical = source.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+    const article = schema["@graph"].find((entity) => entity["@type"] === "Article");
+    assert.ok(article, `${route}: Article schema missing`);
+    assert.equal(article.author["@id"], "https://www.eugeniaschool.com/#organization");
+    assert.equal(article.publisher["@id"], "https://www.eugeniaschool.com/#organization");
+    assert.equal(article.mainEntityOfPage, canonical);
+    assert.ok(article.image.startsWith("https://www.eugeniaschool.com/"), `${route}: Article image must be an absolute site URL`);
+    assert.match(article.image, /^https:\/\/www\.eugeniaschool\.com\/_astro\/.+\.(?:webp|avif|png|jpg)$/);
+    assert.ok(!("datePublished" in article));
+    assert.ok(!("dateModified" in article));
+  }
+});
+
+test("projects collection lists all three case-study URLs", () => {
+  const source = html("projets-entreprises");
+  const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+  const collection = schema["@graph"].find((entity) => entity["@type"] === "CollectionPage");
+  const items = collection?.mainEntity?.itemListElement?.map((item) => item.url) ?? [];
+  assert.deepEqual(items.sort(), [
+    "https://www.eugeniaschool.com/projets-entreprises/dust-hackathon",
+    "https://www.eugeniaschool.com/projets-entreprises/mistral-ai-hackathon",
+    "https://www.eugeniaschool.com/projets-entreprises/openai-hackathon",
+  ].sort());
 });
 
 test("financing fee tables follow their programme headings", () => {

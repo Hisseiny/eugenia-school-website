@@ -1,0 +1,31 @@
+---
+import { getImage } from "astro:assets";
+import LivePage from "@/components/LivePage.astro";
+import lot3 from "@/data/pages/lot3.json";
+import type { LivePage as LivePageData } from "@/data/pages/types";
+import { img } from "@/data/images";
+import { ROUTES, SITE } from "@/data/site";
+
+interface Entry {
+  route: string;
+  page: LivePageData;
+  crumbs: { name: string; path?: string }[];
+}
+
+export function getStaticPaths() {
+  return Object.entries(lot3).map(([slug, entry]) => ({
+    params: { slug },
+    props: { ...entry, route: slug } as Entry,
+  }));
+}
+
+const { route, page, crumbs } = Astro.props as Entry;
+const isCompanyRoute = route.startsWith("entreprises") || route.startsWith("projets-entreprises") || route === "recruter-nos-etudiants";
+const jsonLd = await Promise.all((page.jsonLd ?? []).map(async (item) => {
+  if (item["@type"] !== "Article" || !page.image) return item;
+  const builtImage = await getImage({ src: img(page.image), format: "webp" });
+  return { ...item, image: new URL(builtImage.src, SITE.url).href };
+}));
+---
+
+<LivePage page={page} crumbs={crumbs} current={isCompanyRoute ? ROUTES.entreprises : ROUTES.ecole} jsonLd={jsonLd} />

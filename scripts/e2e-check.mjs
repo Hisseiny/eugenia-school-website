@@ -96,6 +96,33 @@ const blockTracking = async (page) => {
   await page.close();
 }
 
+// Portfolio filters remain optional without JavaScript and filter cards accessibly with JavaScript.
+{
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await blockTracking(page);
+  await page.goto(base + "/portfolio", { waitUntil: "load" });
+  const cards = page.locator(".portfolio-gallery__card");
+  check("portfolio shows all four projects", (await cards.count()) === 4);
+  check("portfolio filters are visible with JavaScript", await page.locator("[data-portfolio-filters]").isVisible());
+  await page.getByRole("button", { name: "Python", exact: true }).click();
+  check("portfolio filter updates aria-pressed", (await page.getByRole("button", { name: "Python", exact: true }).getAttribute("aria-pressed")) === "true");
+  check("portfolio filter hides nonmatching projects", (await cards.evaluateAll((items) => items.filter((item) => !item.hidden).length)) === 1);
+  check("portfolio filter count is announced", (await page.locator("[data-filter-count]").textContent()) === "1 résultats");
+  await page.locator("[data-filter-reset]").click();
+  check("portfolio reset restores all projects", (await cards.evaluateAll((items) => items.filter((item) => !item.hidden).length)) === 4);
+  await page.close();
+}
+
+{
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 800 } });
+  const page = await context.newPage();
+  await blockTracking(page);
+  await page.goto(base + "/portfolio", { waitUntil: "load" });
+  check("portfolio without JavaScript keeps all projects visible", (await page.locator(".portfolio-gallery__card:visible").count()) === 4);
+  check("portfolio without JavaScript hides filters", await page.locator("[data-portfolio-filters]").isHidden());
+  await context.close();
+}
+
 // Premium application form (HubSpot API mocked: no real submission)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -241,12 +268,57 @@ const blockTracking = async (page) => {
     "/financement",
     "/processus-admission",
     "/faq",
+    "/notre-adn",
+    "/campus/paris",
+    "/vie-etudiante",
+    "/entrepreneuriat",
+    "/approche-pedagogique",
+    "/methode-eugenia",
+    "/entreprises-partenaires",
+    "/recruter-nos-etudiants",
+    "/projets-entreprises",
+    "/projets-entreprises/dust-hackathon",
+    "/projets-entreprises/mistral-ai-hackathon",
+    "/projets-entreprises/openai-hackathon",
+    "/portfolio",
   ];
+  const lot3Routes = new Set([
+    "/notre-adn",
+    "/campus/paris",
+    "/vie-etudiante",
+    "/entrepreneuriat",
+    "/approche-pedagogique",
+    "/methode-eugenia",
+    "/entreprises-partenaires",
+    "/recruter-nos-etudiants",
+    "/projets-entreprises",
+    "/projets-entreprises/dust-hackathon",
+    "/projets-entreprises/mistral-ai-hackathon",
+    "/projets-entreprises/openai-hackathon",
+    "/portfolio",
+  ]);
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await blockTracking(page);
   for (const route of routes) {
     await page.goto(base + route, { waitUntil: "load" });
     await page.evaluate(() => window.scrollTo(0, 0));
+    if (lot3Routes.has(route)) {
+      const glue = await page.locator("main").evaluate((main) => {
+        const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT);
+        const ignored = ["JavaScript", "TypeScript", "YouTube", "LinkedIn", "OpenAI", "Mistral AI", "Dataworkers", "AI Corner", "QCOR", "n8n", "Power BI", "Webflow", "Station F", "VivaTech", "Anthropic", "Microsoft", "Carrefour", "Doctolib", "Spendesk", "Mirakl", "Snapchat", "LVMH", "Eugenia School", "Albert School", "L’Oréal", "l’État", "l’Est", "d’Eau", "d’Albert", "d’Eugenia", "d’Intégration", "l’École 42"];
+        const findings = [];
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.parentElement?.closest("script, style")) continue;
+          const text = ignored.reduce((value, token) => value.replaceAll(token, ""), node.textContent ?? "");
+          const matches = text.match(/[a-zà-ÿ’.!?»][A-ZÀ-Ý«][a-zà-ÿ]/gu) ?? [];
+          if (matches.length) findings.push(`${node.textContent?.trim()}: ${matches.join(", ")}`);
+        }
+        return { text: main.innerText ?? "", findings };
+      });
+      check(`${route}: "verrièreL" is absent`, !glue.text.includes("verrièreL"));
+      check(`${route}: no glued text nodes`, glue.findings.length === 0, glue.findings.slice(0, 8).join(" | "));
+    }
     check(`${route}: extraction link inventory is not rendered`, (await page.locator(".live-links").count()) === 0);
     let step = 0;
     while (true) {

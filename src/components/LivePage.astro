@@ -3,9 +3,12 @@ import Base from "@/layouts/Base.astro";
 import AudienceToggle from "@/components/AudienceToggle.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import EndOfPage from "@/components/EndOfPage.astro";
+import HubspotForm from "@/components/HubspotForm.astro";
 import LiveSections from "@/components/LiveSections.astro";
 import PageTop from "@/components/PageTop.astro";
+import PremiumForm from "@/components/PremiumForm.astro";
 import ProgramFacts from "@/components/ProgramFacts.astro";
+import { HUBSPOT } from "@/data/site";
 import type { LivePage as LivePageData } from "@/data/pages/types";
 
 interface Crumb {
@@ -22,6 +25,9 @@ interface Props {
 }
 
 const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } = Astro.props;
+const premiumForm = page.form
+  ? (Object.entries(HUBSPOT.forms).find(([, formId]) => formId === page.form?.formId)?.[0] as keyof typeof HUBSPOT.forms | undefined)
+  : undefined;
 ---
 
 <Base
@@ -33,14 +39,34 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
 >
   <PageTop
     title={page.h1}
+    id={page.heroId}
     lead={page.lead}
     dataAnswer={dataAnswer}
+    liveHero
     nativeImage
     image={page.image}
     alt={page.imageAlt}
     eyebrow={page.eyebrow?.replace(/^\/\/\s*/, "")}
   />
   {page.audience && <AudienceToggle copy={page.audience} />}
+  {page.heroCtas && page.heroCtas.length > 0 && (
+    <div class="container live-page__hero-actions">
+      {page.heroCtas.map((action, index) => (
+        <a class:list={["btn-outline", index === 0 && "live-page__hero-primary"]} href={action.href}>{action.label}</a>
+      ))}
+    </div>
+  )}
+  {page.form && (
+    <section id="formulaire" class="container live-form" aria-label={page.form.label}>
+      {page.form.anchorId && <span id={page.form.anchorId} class="live-anchor" aria-hidden="true"></span>}
+      <p class="eyebrow live-form__label">{page.form.label}</p>
+      {premiumForm ? (
+        <PremiumForm form={premiumForm} />
+      ) : (
+        <HubspotForm formId={page.form.formId} portalId={page.form.portalId} region={page.form.region} />
+      )}
+    </section>
+  )}
   {
     page.badges && page.badges.length > 0 && (
       <ul class="live-badges container">
@@ -59,12 +85,13 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
   }
   {page.facts && page.facts.length > 0 && <ProgramFacts facts={page.facts} />}
   {page.postFacts && <p class="container live-page__post-facts">{page.postFacts}</p>}
+  {page.anchorIds?.map((id) => <span id={id} class="live-anchor" aria-hidden="true"></span>)}
   <LiveSections sections={page.sections} />
   <EndOfPage
     title={page.footer.title}
     text={page.footer.text}
-    primary={{ href: page.footer.primary.href, label: page.footer.primary.label }}
-    secondary={{ href: page.footer.secondary.href, label: page.footer.secondary.label }}
+    primary={page.footer.primary}
+    secondary={page.footer.secondary}
     image="p_arches"
   />
   <ContinueVisit {...page.next} />
@@ -75,6 +102,27 @@ const { page, crumbs, current, jsonLd = page.jsonLd ?? [], dataAnswer = false } 
     max-width: 920px;
     padding-bottom: var(--section-y-sm);
     color: var(--ink-70);
+  }
+  .live-anchor {
+    display: block;
+    height: 0;
+    scroll-margin-top: 96px;
+  }
+  .live-page__hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: var(--section-y-sm);
+  }
+  .live-page__hero-primary {
+    border-color: var(--plum);
+  }
+  .live-form {
+    max-width: 920px;
+    padding-block: var(--section-y);
+  }
+  .live-form__label {
+    margin-bottom: 20px;
   }
   .live-badges {
     display: flex;

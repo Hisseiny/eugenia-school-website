@@ -15,7 +15,12 @@ const { sections } = Astro.props;
 let faqGroup = 0;
 const cleanText = (text: string) => text.replace(/\*\*(.*?)\*\*/gu, "$1");
 
-type CardGroup = { type: "card-group"; cards: { number?: string; title: string; blocks: PageBlock[] }[] };
+type CardGroup = {
+  type: "card-group";
+  filters?: { label: string; key: string }[];
+  emptyText?: string;
+  cards: { number?: string; title: string; blocks: PageBlock[]; filters?: Record<string, string[]> }[];
+};
 type ProfileGroup = { type: "profile-group"; profiles: { image: PageBlock & { type: "image" }; blocks: PageBlock[] }[] };
 type LogoGroup = { type: "logo-group"; items: { name: string; alt: string }[] };
 type ImageGroup = { type: "image-group"; items: { name: string; alt: string }[] };
@@ -49,7 +54,7 @@ const groupFaqBlocks = (blocks: PageBlock[]): RenderBlock[] => {
 };
 const groupContent = (blocks: PageBlock[], title: string): RenderBlock[] => {
   const profiles: RenderBlock[] = [];
-  if (/ce qu['’]ils en disent|ils sont passés par là/i.test(title)) {
+  if (/ce qu['’]ils en disent|ils sont passés par là|fondateur|professeur|témoignage|étudiants, ils reviennent enseigner/i.test(title)) {
     for (let index = 0; index < blocks.length;) {
       const block = blocks[index];
       if (block?.type !== "image" || !/^Portrait/i.test(block.alt)) {
@@ -105,13 +110,19 @@ const groupContent = (blocks: PageBlock[], title: string): RenderBlock[] => {
 
   const withCards: RenderBlock[] = [];
   for (let index = 0; index < grouped.length;) {
+    if (grouped[index]?.type === "card-group") {
+      withCards.push(grouped[index] as CardGroup);
+      index++;
+      continue;
+    }
     const start = index;
     const cards: CardGroup["cards"] = [];
     while (index < grouped.length) {
       let number: string | undefined;
       const current = grouped[index];
-      if (current?.type === "paragraph" && /^Bloc \d{2}$/i.test(current.text) && grouped[index + 1]?.type === "heading") {
-        number = current.text;
+      const numbered = current?.type === "paragraph" ? current.text.match(/^(?:Bloc\s*)?(\d{2})$/i) : null;
+      if (numbered && grouped[index + 1]?.type === "heading") {
+        number = numbered[1];
         index++;
       }
       const heading = grouped[index];
@@ -120,7 +131,7 @@ const groupContent = (blocks: PageBlock[], title: string): RenderBlock[] => {
       const content: PageBlock[] = [];
       while (index < grouped.length) {
         const currentContent = grouped[index];
-        if (!currentContent || currentContent.type === "heading" || (currentContent.type === "paragraph" && /^Bloc \d{2}$/i.test(currentContent.text) && grouped[index + 1]?.type === "heading")) break;
+        if (!currentContent || currentContent.type === "heading" || (currentContent.type === "paragraph" && /^(?:Bloc\s*)?\d{2}$/i.test(currentContent.text) && grouped[index + 1]?.type === "heading")) break;
         content.push(currentContent as PageBlock);
         index++;
       }
@@ -157,10 +168,33 @@ const groupedSections = sections.map((section) => {
           {section.blocks.map((block) => {
             if (block.type === "faq-group") return <FaqList items={block.items} idPrefix={block.idPrefix} openFirstItem={block.openFirst} />;
             if (block.type === "card-group") {
+              const filterable = Boolean(block.filters?.length);
               return (
-                <div class="live-card-grid">
+                <div class="live-card-grid" data-portfolio-gallery={filterable ? "" : undefined}>
+                  {filterable && (
+                    <>
+                      <div class="portfolio-gallery__filters" data-portfolio-filters hidden>
+                        {block.filters?.map((group) => (
+                          <fieldset class="portfolio-gallery__group" data-filter-group={group.key}>
+                            <legend>{group.label}</legend>
+                            <div class="portfolio-gallery__chips">
+                              {[...new Set(block.cards.flatMap((card) => card.filters?.[group.key] ?? []))].map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
+                            </div>
+                          </fieldset>
+                        ))}
+                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
+                      </div>
+                      <p class="sr-only" aria-live="polite" data-filter-count></p>
+                      <span hidden data-filter-empty>{block.emptyText}</span>
+                    </>
+                  )}
                   {block.cards.map((card) => (
-                    <article class="live-card">
+                    <article
+                      class:list={["live-card", filterable && "portfolio-gallery__card"]}
+                      data-stack={filterable ? card.filters?.stack?.join("|") : undefined}
+                      data-program={filterable ? card.filters?.program?.join("|") : undefined}
+                      data-type={filterable ? card.filters?.type?.join("|") : undefined}
+                    >
                       {card.number && <span class="live-card__number">{card.number}</span>}
                       <h3 class="h3-sm">{card.title}</h3>
                       {card.blocks.map((content) => {
@@ -197,22 +231,59 @@ const groupedSections = sections.map((section) => {
               return <div class="live-logo-grid">{items.map((item) => <div class="logo-grid__cell"><Logo name={item.name} alt={item.alt} height={36} /></div>)}</div>;
             }
             if (block.type === "image-group") {
-              return <div class="live-image-grid">{block.items.map((item) => <figure class="live-section__image"><Pic src={img(item.name)} alt={item.alt} sizes="(min-width: 1024px) 360px, 100vw" /></figure>)}</div>;
+              return <div class="live-image-grid">{block.items.map((item) => <figure class="live-section__image"><Pic src={img(item.name)} alt={item.alt} ratio="4 / 3" sizes="(min-width: 1024px) 360px, 100vw" /></figure>)}</div>;
             }
             if (block.type === "cards") {
               return (
                 <div class="live-card-grid">
                   {block.items.map((card) => (
                     <article class="live-card">
-                      {card.number && <span class="live-card__number">{card.number}</span>}
-                      {card.image && card.alt && <Pic src={img(card.image)} alt={card.alt} sizes="(min-width: 1024px) 360px, 100vw" />}
+                      {card.image && <Pic src={img(card.image)} alt={card.alt ?? ""} ratio="4 / 3" sizes="(min-width: 1024px) 360px, 100vw" />}
+                      {(card.eyebrow || card.number) && <span class="live-card__number">{card.eyebrow ?? card.number}</span>}
                       {card.title && <h3 class="h3-sm">{card.title}</h3>}
-                      <p class="live-section__text">{cleanText(card.text)}</p>
+                      {card.salary && <span class="live-card__number">{card.salary}</span>}
+                      {card.text && <p class="live-section__text">{cleanText(card.text)}</p>}
+                      {card.responsibilities && <ul class="live-section__list live-section__list--compact">{card.responsibilities.map((item) => <li>{cleanText(item)}</li>)}</ul>}
+                      {card.details?.map((detail) => <p class="live-section__text">{cleanText(detail)}</p>)}
                       {card.action && <a class="lnk live-card__link" href={card.action.href}>{card.action.label}</a>}
                       {card.logo && card.logoAlt && <Logo name={card.logo} alt={card.logoAlt} height={24} />}
                       {card.tags && <ul class="live-card__tags">{card.tags.map((tag) => <li>{tag}</li>)}</ul>}
                     </article>
                   ))}
+                </div>
+              );
+            }
+            if (block.type === "portfolio-grid") {
+              const filterable = block.filters.length > 0;
+              return (
+                <div class="portfolio-gallery" data-portfolio-gallery={filterable ? "" : undefined}>
+                  {filterable && (
+                    <>
+                      <div class="portfolio-gallery__filters" data-portfolio-filters hidden>
+                        {block.filters.map((group) => (
+                          <fieldset class="portfolio-gallery__group" data-filter-group={group.key}>
+                            <legend>{group.label}</legend>
+                            <div class="portfolio-gallery__chips">
+                              {[...new Set(block.items.flatMap((item) => item.filters[group.key] ?? []))].map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
+                            </div>
+                          </fieldset>
+                        ))}
+                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
+                      </div>
+                      <p class="sr-only" aria-live="polite" data-filter-count></p>
+                      <span hidden data-filter-empty>{block.emptyText}</span>
+                    </>
+                  )}
+                  <div class="live-card-grid">
+                    {block.items.map((item) => (
+                      <a class:list={["live-related-card", filterable && "portfolio-gallery__card"]} href={item.href} target="_blank" rel="noopener" data-stack={filterable ? item.filters.stack.join("|") : undefined} data-program={filterable ? item.filters.program.join("|") : undefined} data-type={filterable ? item.filters.type.join("|") : undefined}>
+                        <Pic src={img(item.image)} alt={item.alt} sizes="(min-width: 1024px) 360px, 100vw" />
+                        <h3 class="h3-sm">{item.name}</h3>
+                        <p class="live-section__text">{item.text}</p>
+                        <span class="lnk">Voir le portfolio ↗</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               );
             }
@@ -232,7 +303,7 @@ const groupedSections = sections.map((section) => {
             }
             if (block.type === "curriculum") return <Curriculum curriculum={CURRICULA[block.id]} />;
             if (block.type === "paragraph") return <p class="live-section__text">{cleanText(block.text)}</p>;
-            if (block.type === "heading") return <h3 id={block.id} class="h3-sm live-section__h3">{block.text}</h3>;
+            if (block.type === "heading") return block.level === 4 ? <h4 id={block.id} class="h3-sm live-section__h3">{block.text}</h4> : <h3 id={block.id} class="h3-sm live-section__h3">{block.text}</h3>;
             if (block.type === "eyebrow") return <p class="eyebrow live-section__eyebrow">{block.text.replace(/^\/\/\s*/, "")}</p>;
             if (block.type === "list") {
               const List = block.ordered ? "ol" : "ul";
@@ -309,7 +380,7 @@ const groupedSections = sections.map((section) => {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-    max-width: 1100px;
+    max-width: none;
   }
   .live-section__blocks > * {
     min-width: 0;
@@ -405,6 +476,17 @@ const groupedSections = sections.map((section) => {
     height: auto;
     border-radius: calc(var(--radius) - 4px);
   }
+  .live-section__image .pic,
+  .live-card .pic {
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 4px);
+  }
+  .live-section__image .pic :global(img),
+  .live-card .pic :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .live-card-grid,
   .live-logo-grid,
   .live-testimonial-grid,
@@ -414,8 +496,25 @@ const groupedSections = sections.map((section) => {
     gap: 20px;
     width: 100%;
   }
+  .live-card-grid,
+  .live-image-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 600px) {
+    .live-card-grid,
+    .live-image-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .live-card-grid,
+    .live-image-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
   .live-card {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-content: start;
     gap: 14px;
     padding: 28px;
@@ -440,6 +539,55 @@ const groupedSections = sections.map((section) => {
   .live-related-card .lnk {
     justify-self: start;
     margin-top: 4px;
+  }
+  .portfolio-gallery__filters {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+  }
+  .portfolio-gallery__filters[hidden] {
+    display: none;
+  }
+  .portfolio-gallery__group {
+    display: grid;
+    gap: 10px;
+    border: 0;
+  }
+  .portfolio-gallery__group legend {
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .portfolio-gallery__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .portfolio-gallery__chips button {
+    cursor: pointer;
+    background: var(--white);
+  }
+  .portfolio-gallery__chips button[aria-pressed="true"] {
+    color: var(--white);
+    background: var(--plum);
+    border-color: var(--plum);
+  }
+  .portfolio-gallery__reset {
+    justify-self: start;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .portfolio-gallery__card[hidden] {
+    display: none;
+  }
+  .portfolio-gallery__card .pic {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: calc(var(--radius) - 4px);
   }
   .live-card__number {
     color: var(--red);
@@ -547,3 +695,39 @@ const groupedSections = sections.map((section) => {
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-portfolio-gallery]").forEach((gallery) => {
+    const filters = gallery.querySelector<HTMLElement>("[data-portfolio-filters]");
+    const buttons = [...gallery.querySelectorAll<HTMLButtonElement>("[data-filter-value]")];
+    const cards = [...gallery.querySelectorAll<HTMLElement>(".portfolio-gallery__card")];
+    const count = gallery.querySelector<HTMLElement>("[data-filter-count]");
+    const emptyText = gallery.querySelector<HTMLElement>("[data-filter-empty]")?.textContent?.trim();
+    if (!filters || !count || !emptyText) return;
+    filters.hidden = false;
+    const update = () => {
+      const selected = new Map<string, string[]>();
+      for (const button of buttons) {
+        if (button.getAttribute("aria-pressed") !== "true") continue;
+        const group = button.closest<HTMLElement>("[data-filter-group]")?.dataset.filterGroup;
+        if (group) selected.set(group, [...(selected.get(group) ?? []), button.dataset.filterValue ?? ""]);
+      }
+      let visible = 0;
+      for (const card of cards) {
+        const matches = [...selected].every(([group, values]) => values.some((value) => (card.dataset[group] ?? "").split("|").includes(value)));
+        card.hidden = !matches;
+        if (matches) visible++;
+      }
+      count.textContent = visible === 0 ? emptyText : `${visible} résultats`;
+    };
+    buttons.forEach((button) => button.addEventListener("click", () => {
+      button.setAttribute("aria-pressed", button.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      update();
+    }));
+    gallery.querySelector<HTMLButtonElement>("[data-filter-reset]")?.addEventListener("click", () => {
+      buttons.forEach((button) => button.setAttribute("aria-pressed", "false"));
+      update();
+    });
+    update();
+  });
+</script>

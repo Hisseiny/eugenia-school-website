@@ -7,24 +7,46 @@ export interface FaqItem {
 
 export type PageBlock =
   | { type: "paragraph"; text: string }
-  | { type: "heading"; level: 3; text: string; id?: string }
+  | { type: "heading"; level: 3 | 4; text: string; id?: string }
   | { type: "eyebrow"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
   | { type: "table"; rows: string[][] }
-  | { type: "cards"; items: { number?: string; title?: string; text: string; tags?: string[]; image?: string; alt?: string; logo?: string; logoAlt?: string; action?: { label: string; href: string } }[] }
+  | { type: "cards"; items: { number?: string; eyebrow?: string; title?: string; salary?: string; text?: string; responsibilities?: string[]; details?: string[]; tags?: string[]; image?: string; alt?: string; logo?: string; logoAlt?: string; action?: { label: string; href: string } }[] }
+  | {
+      type: "card-group";
+      filters?: { label: string; key: string }[];
+      emptyText?: string;
+      cards: {
+        number?: string;
+        title: string;
+        filters?: Record<string, string[]>;
+        blocks: (
+          | { type: "paragraph"; text: string }
+          | { type: "list"; ordered: boolean; items: string[] }
+          | { type: "quote"; text: string }
+        )[];
+      }[];
+    }
   | { type: "logos"; items: { name: string; alt: string }[] }
   | { type: "related-cards"; items: { eyebrow: string; title: string; text: string; label: string; href: string }[] }
   | { type: "cta" | "link"; label: string; href: string }
   | { type: "button"; label: string }
-  | { type: "image"; name: string; alt: string; logo?: boolean }
+  | { type: "image"; name: string; alt: string; logo?: boolean; liveSrc?: string }
   | { type: "quote"; text: string }
   | { type: "faq"; items: FaqItem[]; idPrefix?: string }
+  | {
+      type: "portfolio-grid";
+      filters: { label: string; key: string; values: string[] }[];
+      emptyText: string;
+      items: { name: string; text: string; href: string; image: string; alt: string; liveSrc?: string; filters: Record<string, string[]> }[];
+    }
   | { type: "curriculum"; id: CurriculumProgram["id"] };
 
 export interface LiveSection {
-  eyebrow?: string;
-  title?: string;
   id?: string;
+  eyebrow?: string;
+  heroCtas?: { label: string; href: string }[];
+  title?: string;
   blocks: PageBlock[];
 }
 
@@ -51,20 +73,24 @@ export interface LivePage {
   image?: string;
   imageAlt?: string;
   eyebrow?: string;
+  heroId?: string;
+  anchorIds?: string[];
+  heroCtas?: { type: "link"; label: string; href: string }[];
   lead?: string;
   postFacts?: string;
   audience?: AudienceCopy;
   badges?: string[];
   stats?: { value: string; label: string }[];
   facts?: ProgramFact[];
+  form?: { formId: string; portalId: string; region: string; label: string; anchorId?: string };
   jsonLd?: Record<string, unknown>[];
   sections: LiveSection[];
   internalLinks: { label: string; href: string }[];
   footer: {
     title: string;
     text?: string;
-    primary: { label: string; href: string };
-    secondary: { label: string; href: string };
+    primary?: { label: string; href: string };
+    secondary?: { label: string; href: string };
   };
   next: { href: string; title: string; text: string; image: string };
 }

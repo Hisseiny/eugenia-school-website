@@ -6,22 +6,24 @@
 import { HUBSPOT, SITE } from "@/data/site";
 
 interface Props {
-  form: keyof typeof HUBSPOT.forms;
-  minHeight?: number;
+  form?: keyof typeof HUBSPOT.forms;
+  formId?: string;
+  portalId?: string;
+  region?: string;
 }
-const { form, minHeight = 420 } = Astro.props;
-const formId = HUBSPOT.forms[form];
-const id = `hs-form-${form}`;
+const { form, formId: publicFormId, portalId = HUBSPOT.portalId, region = HUBSPOT.region } = Astro.props;
+const formId = publicFormId ?? (form ? HUBSPOT.forms[form] : undefined);
+if (!formId) throw new Error("HubspotForm requires a form key or public form id.");
+const id = `hs-form-${form ?? formId}`;
 const { email, phone, phoneHref } = SITE.contact;
 ---
 
 <div
   id={id}
   class="hs-form"
-  data-hs-portal={HUBSPOT.portalId}
-  data-hs-region={HUBSPOT.region}
+  data-hs-portal={portalId}
+  data-hs-region={region}
   data-hs-form-id={formId}
-  style={`min-height: ${minHeight}px`}
 >
   <noscript>
     <p>
@@ -91,5 +93,142 @@ const { email, phone, phoneHref } = SITE.contact;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 32px;
+  }
+  .hs-form :global(form.hs-form) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-family: var(--font-text);
+  }
+  .hs-form :global(fieldset) {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .hs-form :global(fieldset.form-columns-2) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 20px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .hs-form :global(fieldset.form-columns-2 > .hs-form-field) {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0;
+    float: none;
+  }
+  .hs-form :global(.hs-form-field) {
+    min-width: 0;
+    margin-bottom: 16px;
+  }
+  .hs-form :global(.input) {
+    width: 100%;
+    margin-right: 0;
+  }
+  .hs-form :global(label),
+  .hs-form :global(legend) {
+    display: block;
+    margin: 0 0 6px;
+    color: var(--ink-65);
+    font-family: var(--font-text);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .hs-form :global(input.hs-input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"])),
+  .hs-form :global(select.hs-input),
+  .hs-form :global(textarea.hs-input) {
+    display: block;
+    box-sizing: border-box;
+    width: 100% !important;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--plum);
+    background: var(--white);
+    font-family: var(--font-text);
+    font-size: 16px;
+    line-height: 1.4;
+    transition: border-color var(--dur-ui) ease;
+  }
+  .hs-form :global(.hs-input::placeholder) {
+    color: var(--ink-55);
+    opacity: 1;
+  }
+  .hs-form :global(.hs-input:focus-visible) {
+    outline: 2px solid var(--red);
+    outline-offset: 1px;
+    border-color: var(--plum);
+  }
+  .hs-form :global(.hs-input[aria-invalid="true"]) {
+    border-color: var(--red);
+  }
+  .hs-form :global(textarea.hs-input) {
+    resize: vertical;
+  }
+  .hs-form :global(.hs-error-msgs) {
+    margin: 14px 0 0;
+    padding: 0;
+    color: var(--red-dark);
+    font-family: var(--font-text);
+    font-size: 14px;
+    line-height: 1.5;
+    list-style: none;
+  }
+  .hs-form :global(.hs-error-msgs li) {
+    list-style: none;
+  }
+  .hs-form :global(.hs-error-msg) {
+    color: var(--red-dark);
+    font-family: var(--font-text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .hs-form :global(.hs-submit) {
+    margin-top: 8px;
+  }
+  .hs-form :global(.hs-button) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 11px 22px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    color: var(--white);
+    background: var(--red);
+    font-family: var(--font-text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    transition:
+      transform 0.16s var(--ease-out),
+      background-color 0.2s ease-out;
+  }
+  .hs-form :global(.hs-button:hover) {
+    color: var(--white);
+    background: var(--red-hover);
+  }
+  .hs-form :global(.hs-button:active) {
+    transform: scale(0.97);
+  }
+  .hs-form :global(.hs-button:focus-visible) {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+  }
+  @media (max-width: 767px) {
+    .hs-form {
+      padding: 24px;
+    }
+    .hs-form :global(fieldset.form-columns-2) {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 </style>

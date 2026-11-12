@@ -11,6 +11,19 @@ const routes = [
   "/financement",
   "/processus-admission",
   "/faq",
+  "/notre-adn",
+  "/campus/paris",
+  "/vie-etudiante",
+  "/entrepreneuriat",
+  "/approche-pedagogique",
+  "/methode-eugenia",
+  "/entreprises-partenaires",
+  "/recruter-nos-etudiants",
+  "/projets-entreprises",
+  "/projets-entreprises/dust-hackathon",
+  "/projets-entreprises/mistral-ai-hackathon",
+  "/projets-entreprises/openai-hackathon",
+  "/portfolio",
 ];
 const widths = [320, 375, 768, 1024, 1440];
 const executablePath = process.env.CHROME_PATH ?? "/home/ubuntu/.local/bin/google-chrome";

@@ -5,8 +5,8 @@ import { img } from "@/data/images";
 
 interface Props {
   title: string;
-  primary: { href: string; label: string };
-  secondary: { href: string; label: string };
+  primary?: { href: string; label: string };
+  secondary?: { href: string; label: string };
   image: string;
   position?: string;
   text?: string;
@@ -19,10 +19,10 @@ const { title, primary, secondary, image, position, text } = Astro.props;
     <div>
       <h2 class="cta-title end__title">{title}</h2>
       {text && <p class="end__text">{text}</p>}
-      <div class="btn-row end__actions">
-        <a href={primary.href} class="btn btn--lg">{primary.label}</a>
-        <a href={secondary.href} class="btn-outline">{secondary.label}</a>
-      </div>
+      {(primary || secondary) && <div class="btn-row end__actions">
+        {primary && <a href={primary.href} class="btn btn--lg">{primary.label}</a>}
+        {secondary && <a href={secondary.href} class="btn-outline">{secondary.label}</a>}
+      </div>}
     </div>
     <Pic src={img(image)} alt="" decorative position={position} sizes="(min-width: 1024px) 640px, 100vw" />
   </div>

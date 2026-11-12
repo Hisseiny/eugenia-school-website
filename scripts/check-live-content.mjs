@@ -17,7 +17,35 @@ const pages = [
   ["_financement.md", "financement"],
   ["_processus-admission.md", "processus-admission"],
   ["_faq.md", "faq"],
+  ["_notre-adn.md", "notre-adn"],
+  ["_campus_paris.md", "campus/paris"],
+  ["_vie-etudiante.md", "vie-etudiante"],
+  ["_entrepreneuriat.md", "entrepreneuriat"],
+  ["_approche-pedagogique.md", "approche-pedagogique"],
+  ["_methode-eugenia.md", "methode-eugenia"],
+  ["_entreprises-partenaires.md", "entreprises-partenaires"],
+  ["_recruter-nos-etudiants.md", "recruter-nos-etudiants"],
+  ["_projets-entreprises.md", "projets-entreprises"],
+  ["_projets-entreprises_dust-hackathon.md", "projets-entreprises/dust-hackathon"],
+  ["_projets-entreprises_mistral-ai-hackathon.md", "projets-entreprises/mistral-ai-hackathon"],
+  ["_projets-entreprises_openai-hackathon.md", "projets-entreprises/openai-hackathon"],
+  ["_portfolio.md", "portfolio"],
 ];
+const requiredLot3Routes = new Set([
+  "notre-adn",
+  "campus/paris",
+  "vie-etudiante",
+  "entrepreneuriat",
+  "approche-pedagogique",
+  "methode-eugenia",
+  "entreprises-partenaires",
+  "recruter-nos-etudiants",
+  "projets-entreprises",
+  "projets-entreprises/dust-hackathon",
+  "projets-entreprises/mistral-ai-hackathon",
+  "projets-entreprises/openai-hackathon",
+  "portfolio",
+]);
 
 const entities = {
   amp: "&",
@@ -129,21 +157,28 @@ const htmlText = (html) => {
 
 let failed = false;
 for (const [sourceName, route] of pages) {
-  const markdownPath = join(directory, sourceName);
+  const markdownPath = [
+    join(directory, sourceName),
+    join(directory, "live", sourceName),
+    join(directory, "live3", sourceName),
+  ].find(existsSync);
   const builtPath = join("dist", `${route}.html`);
   const fallbackPath = join("dist", route, "index.html");
-  if (!existsSync(markdownPath)) throw new Error(`Missing extraction: ${markdownPath}`);
+  if (!markdownPath) {
+    if (requiredLot3Routes.has(route)) throw new Error(`Missing extraction: ${sourceName} under ${directory}`);
+    continue;
+  }
   const htmlPath = existsSync(builtPath) ? builtPath : fallbackPath;
   if (!existsSync(htmlPath)) throw new Error(`Missing built page: ${builtPath}`);
   const lines = extractLines(readFileSync(markdownPath, "utf8"));
   const content = withoutWhitespace(htmlText(readFileSync(htmlPath, "utf8")));
   const missing = lines.filter((line) => !content.includes(withoutWhitespace(line)));
   const coverage = lines.length ? ((lines.length - missing.length) / lines.length) * 100 : 100;
-  console.log(`${coverage >= 98 ? "OK" : "FAIL"} ${route}: ${lines.length - missing.length}/${lines.length} (${coverage.toFixed(1)}%)`);
+  console.log(`${coverage === 100 ? "OK" : "FAIL"} ${route}: ${lines.length - missing.length}/${lines.length} (${coverage.toFixed(1)}%)`);
   if (missing.length) {
     for (const line of missing) console.log(`  MISSING ${line}`);
   }
-  if (coverage < 98) failed = true;
+  if (coverage < 100) failed = true;
 }
 console.log("Intentional omissions: CTA/button/image inventory lines are excluded; closing CTA bands are represented by EndOfPage.");
 process.exit(failed ? 1 : 0);
