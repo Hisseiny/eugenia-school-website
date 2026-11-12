@@ -14,9 +14,12 @@ export type PageBlock =
   | { type: "cards"; items: { number?: string; eyebrow?: string; title?: string; salary?: string; text?: string; responsibilities?: string[]; details?: string[]; tags?: string[]; image?: string; alt?: string; logo?: string; logoAlt?: string; action?: { label: string; href: string } }[] }
   | {
       type: "card-group";
+      filters?: { label: string; key: string }[];
+      emptyText?: string;
       cards: {
         number?: string;
         title: string;
+        filters?: Record<string, string[]>;
         blocks: (
           | { type: "paragraph"; text: string }
           | { type: "list"; ordered: boolean; items: string[] }

@@ -15,7 +15,12 @@ const { sections } = Astro.props;
 let faqGroup = 0;
 const cleanText = (text: string) => text.replace(/\*\*(.*?)\*\*/gu, "$1");
 
-type CardGroup = { type: "card-group"; cards: { number?: string; title: string; blocks: PageBlock[] }[] };
+type CardGroup = {
+  type: "card-group";
+  filters?: { label: string; key: string }[];
+  emptyText?: string;
+  cards: { number?: string; title: string; blocks: PageBlock[]; filters?: Record<string, string[]> }[];
+};
 type ProfileGroup = { type: "profile-group"; profiles: { image: PageBlock & { type: "image" }; blocks: PageBlock[] }[] };
 type LogoGroup = { type: "logo-group"; items: { name: string; alt: string }[] };
 type ImageGroup = { type: "image-group"; items: { name: string; alt: string }[] };
@@ -163,10 +168,33 @@ const groupedSections = sections.map((section) => {
           {section.blocks.map((block) => {
             if (block.type === "faq-group") return <FaqList items={block.items} idPrefix={block.idPrefix} openFirstItem={block.openFirst} />;
             if (block.type === "card-group") {
+              const filterable = Boolean(block.filters?.length);
               return (
-                <div class="live-card-grid">
+                <div class="live-card-grid" data-portfolio-gallery={filterable ? "" : undefined}>
+                  {filterable && (
+                    <>
+                      <div class="portfolio-gallery__filters" data-portfolio-filters hidden>
+                        {block.filters?.map((group) => (
+                          <fieldset class="portfolio-gallery__group" data-filter-group={group.key}>
+                            <legend>{group.label}</legend>
+                            <div class="portfolio-gallery__chips">
+                              {[...new Set(block.cards.flatMap((card) => card.filters?.[group.key] ?? []))].map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
+                            </div>
+                          </fieldset>
+                        ))}
+                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
+                      </div>
+                      <p class="sr-only" aria-live="polite" data-filter-count></p>
+                      <span hidden data-filter-empty>{block.emptyText}</span>
+                    </>
+                  )}
                   {block.cards.map((card) => (
-                    <article class="live-card">
+                    <article
+                      class:list={["live-card", filterable && "portfolio-gallery__card"]}
+                      data-stack={filterable ? card.filters?.stack?.join("|") : undefined}
+                      data-program={filterable ? card.filters?.program?.join("|") : undefined}
+                      data-type={filterable ? card.filters?.type?.join("|") : undefined}
+                    >
                       {card.number && <span class="live-card__number">{card.number}</span>}
                       <h3 class="h3-sm">{card.title}</h3>
                       {card.blocks.map((content) => {
@@ -226,24 +254,29 @@ const groupedSections = sections.map((section) => {
               );
             }
             if (block.type === "portfolio-grid") {
+              const filterable = block.filters.length > 0;
               return (
-                <div class="portfolio-gallery" data-portfolio-gallery>
-                  <div class="portfolio-gallery__filters" data-portfolio-filters hidden>
-                    {block.filters.map((group) => (
-                      <fieldset class="portfolio-gallery__group" data-filter-group={group.key}>
-                        <legend>{group.label}</legend>
-                        <div class="portfolio-gallery__chips">
-                          {[...new Set(block.items.flatMap((item) => item.filters[group.key] ?? []))].map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
-                        </div>
-                      </fieldset>
-                    ))}
-                    <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
-                  </div>
-                  <p class="sr-only" aria-live="polite" data-filter-count></p>
-                  <span hidden data-filter-empty>{block.emptyText}</span>
+                <div class="portfolio-gallery" data-portfolio-gallery={filterable ? "" : undefined}>
+                  {filterable && (
+                    <>
+                      <div class="portfolio-gallery__filters" data-portfolio-filters hidden>
+                        {block.filters.map((group) => (
+                          <fieldset class="portfolio-gallery__group" data-filter-group={group.key}>
+                            <legend>{group.label}</legend>
+                            <div class="portfolio-gallery__chips">
+                              {[...new Set(block.items.flatMap((item) => item.filters[group.key] ?? []))].map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
+                            </div>
+                          </fieldset>
+                        ))}
+                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
+                      </div>
+                      <p class="sr-only" aria-live="polite" data-filter-count></p>
+                      <span hidden data-filter-empty>{block.emptyText}</span>
+                    </>
+                  )}
                   <div class="live-card-grid">
                     {block.items.map((item) => (
-                      <a class="live-related-card portfolio-gallery__card" href={item.href} target="_blank" rel="noopener" data-stack={item.filters.stack.join("|")} data-program={item.filters.program.join("|")} data-type={item.filters.type.join("|")}>
+                      <a class:list={["live-related-card", filterable && "portfolio-gallery__card"]} href={item.href} target="_blank" rel="noopener" data-stack={filterable ? item.filters.stack.join("|") : undefined} data-program={filterable ? item.filters.program.join("|") : undefined} data-type={filterable ? item.filters.type.join("|") : undefined}>
                         <Pic src={img(item.image)} alt={item.alt} sizes="(min-width: 1024px) 360px, 100vw" />
                         <h3 class="h3-sm">{item.name}</h3>
                         <p class="live-section__text">{item.text}</p>

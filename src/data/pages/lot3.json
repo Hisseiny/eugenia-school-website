@@ -5044,43 +5044,7 @@
             {
               "type": "portfolio-grid",
               "emptyText": "Rien pour cette combinaison. Essaie un autre filtre.",
-              "filters": [
-                {
-                  "label": "Technologie",
-                  "key": "stack",
-                  "values": [
-                    "Python",
-                    "TypeScript",
-                    "React",
-                    "Next.js",
-                    "Tailwind CSS",
-                    "Shopify",
-                    "Liquid",
-                    "API",
-                    "n8n",
-                    "Agents IA",
-                    "RAG",
-                    "Claude"
-                  ]
-                },
-                {
-                  "label": "Programme",
-                  "key": "program",
-                  "values": [
-                    "Bachelor",
-                    "MSc"
-                  ]
-                },
-                {
-                  "label": "Type de projet",
-                  "key": "type",
-                  "values": [
-                    "Alternance",
-                    "Projet client",
-                    "Projet perso"
-                  ]
-                }
-              ],
+              "filters": [],
               "items": [
                 {
                   "name": "Jennie Ansellem",
@@ -5206,7 +5170,20 @@
                       "type": "paragraph",
                       "text": "Bachelor B3 · Paris"
                     }
-                  ]
+                  ],
+                  "filters": {
+                    "stack": [
+                      "n8n",
+                      "RAG",
+                      "Claude"
+                    ],
+                    "program": [
+                      "Bachelor"
+                    ],
+                    "type": [
+                      "Projet perso"
+                    ]
+                  }
                 },
                 {
                   "title": "Synapse",
@@ -5223,7 +5200,19 @@
                       "type": "paragraph",
                       "text": "MSc M1 · Paris"
                     }
-                  ]
+                  ],
+                  "filters": {
+                    "stack": [
+                      "RAG",
+                      "Python"
+                    ],
+                    "program": [
+                      "MSc"
+                    ],
+                    "type": [
+                      "Projet perso"
+                    ]
+                  }
                 },
                 {
                   "title": "IKORY",
@@ -5240,7 +5229,19 @@
                       "type": "paragraph",
                       "text": "Bachelor B3 · Paris"
                     }
-                  ]
+                  ],
+                  "filters": {
+                    "stack": [
+                      "n8n",
+                      "Agents IA"
+                    ],
+                    "program": [
+                      "Bachelor"
+                    ],
+                    "type": [
+                      "Alternance"
+                    ]
+                  }
                 },
                 {
                   "title": "Shine Santé, plateforme B2B",
@@ -5253,9 +5254,41 @@
                       "type": "paragraph",
                       "text": "Bachelor B3 · Paris"
                     }
-                  ]
+                  ],
+                  "filters": {
+                    "stack": [
+                      "Shopify",
+                      "Liquid",
+                      "API",
+                      "React",
+                      "Next.js",
+                      "TypeScript",
+                      "Tailwind CSS"
+                    ],
+                    "program": [
+                      "Bachelor"
+                    ],
+                    "type": [
+                      "Projet client"
+                    ]
+                  }
                 }
-              ]
+              ],
+              "filters": [
+                {
+                  "label": "Technologie",
+                  "key": "stack"
+                },
+                {
+                  "label": "Programme",
+                  "key": "program"
+                },
+                {
+                  "label": "Type de projet",
+                  "key": "type"
+                }
+              ],
+              "emptyText": "Rien pour cette combinaison. Essaie un autre filtre."
             }
           ],
           "eyebrow": "leurs sites",

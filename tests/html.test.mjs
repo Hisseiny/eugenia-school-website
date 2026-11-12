@@ -11,7 +11,6 @@ const html = (name) => {
   assert.ok(existsSync(output), `${file} missing: run pnpm build`);
   return readFileSync(output, "utf8");
 };
-const lot3 = JSON.parse(readFileSync("src/data/pages/lot3.json", "utf8"));
 const count = (s, re) => (s.match(re) ?? []).length;
 const filesUnder = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -223,7 +222,7 @@ test("lot 3 pages do not repeat content image sources", () => {
     const images = html(route).match(/<img\b[^>]*>/g) ?? [];
     const sources = images
       .map((image) => image.match(/\bsrc="([^"]*l3_[^"]+)"/)?.[1])
-      .filter(Boolean);
+      .filter((source) => source && !source.includes("l3_logo_"));
     assert.equal(new Set(sources).size, sources.length, `${route}: duplicate content image source`);
   }
 });
@@ -371,9 +370,9 @@ test("portfolio filter chips match items in the live first-seen order", () => {
   const source = html("portfolio");
   const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
   const items = lot3.portfolio.page.sections.flatMap((section) =>
-    section.blocks.filter((block) => block.type === "portfolio-grid").flatMap((block) => block.items),
+    section.blocks.filter((block) => block.type === "card-group").flatMap((block) => block.cards),
   );
-  const cards = [...main.matchAll(/<a\b([^>]*class="[^"]*portfolio-gallery__card[^"]*"[^>]*)>/g)]
+  const cards = [...main.matchAll(/<(?:a|article)\b([^>]*class="[^"]*portfolio-gallery__card[^"]*"[^>]*)>/g)]
     .map(([, attributes]) => Object.fromEntries(["stack", "program", "type"].map((key) => [
       key,
       decodeEntities(attributes.match(new RegExp(`\\bdata-${key}="([^"]*)"`))?.[1] ?? "").split("|").filter(Boolean),
@@ -408,8 +407,8 @@ test("lot 3 image assets derive from each live source basename", () => {
   const collect = (value) => {
     if (Array.isArray(value)) return value.forEach(collect);
     if (!value || typeof value !== "object") return;
-    if (value.type === "image") images.push(value);
-    if (value.type === "portfolio-grid") images.push(...value.items);
+    if (value.type === "image") images.push({ ...value, assetName: value.name });
+    if (value.type === "portfolio-grid") images.push(...value.items.map((item) => ({ ...item, assetName: item.image })));
     Object.values(value).forEach(collect);
   };
   Object.values(lot3).forEach((entry) => collect(entry.page.sections));
@@ -419,8 +418,8 @@ test("lot 3 image assets derive from each live source basename", () => {
     const expected = image.logo
       ? `l3_logo_${sourceBase.replace(/\.[a-z0-9_-]{8}$/i, "").replace(/^(?:partner-|dd-|logo-)/i, "").replace(/-logo$/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`
       : `l3_${sourceBase}`;
-    assert.equal(image.name, expected, `${image.liveSrc} must determine the local asset name`);
-    assert.ok(existsSync(`src/assets/images/${image.name}.webp`), `missing asset ${image.name}.webp`);
+    assert.equal(image.assetName, expected, `${image.liveSrc} must determine the local asset name`);
+    assert.ok(existsSync(`src/assets/images/${image.assetName}.webp`), `missing asset ${image.assetName}.webp`);
   }
   assert.ok(images.length > 100, "all lot-3 page images should be covered");
 });
