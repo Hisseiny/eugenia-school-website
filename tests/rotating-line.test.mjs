@@ -8,7 +8,7 @@ const source = ts.transpileModule(readFileSync("src/scripts/rotating-line.ts", "
   compilerOptions: { target: ts.ScriptTarget.ES2022 },
 }).outputText;
 
-function fixture() {
+function fixture({ withButton = true } = {}) {
   const listeners = new Map(), timers = new Map();
   let observer, nextId = 0;
   const on = (name, fn) => listeners.set(name, fn);
@@ -20,11 +20,11 @@ function fixture() {
       animate: () => ({ playState: "running", play() {}, pause() {}, finish() {}, cancel() {} }),
     };
   });
-  const button = { disabled: true, addEventListener: on, setAttribute() {}, textContent: "" };
+  const button = withButton ? { disabled: true, addEventListener: on, setAttribute() {}, textContent: "" } : null;
   const heading = {};
   const root = {
     dataset: {}, classList: { add() {} }, addEventListener: on, contains: () => false,
-    querySelectorAll: () => items, querySelector: (selector) => selector === "h2" ? heading : button,
+    querySelectorAll: () => items, querySelector: (selector) => selector === "h2" ? heading : withButton ? button : null,
   };
   const reduced = { matches: false, addEventListener: (_, fn) => listeners.set("reduce", fn) };
   const document = { hidden: false, querySelectorAll: () => [root], addEventListener: on };
@@ -67,4 +67,19 @@ test("reduced motion restores the first item and suppresses timers", () => {
   const f = fixture(); f.visible(1); f.tick(); assert.equal(f.active(), 1);
   f.reduced.matches = true; f.event("reduce");
   assert.equal(f.active(), 0); assert.equal(f.timers.size, 0); assert.equal(f.button.disabled, true);
+});
+test("rotation completes and reduced motion works without a pause button", () => {
+  const f = fixture({ withButton: false });
+  f.visible(1);
+  f.tick();
+  assert.equal(f.active(), 1);
+  f.reduced.matches = true;
+  f.event("reduce");
+  assert.equal(f.active(), 0);
+  assert.equal(f.timers.size, 0);
+  f.reduced.matches = false;
+  f.event("reduce");
+  for (let i = 0; i < 17; i++) f.tick();
+  assert.equal(f.active(), 5);
+  assert.equal(f.timers.size, 0);
 });

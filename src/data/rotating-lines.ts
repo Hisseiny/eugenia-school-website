@@ -1,12 +1,11 @@
 import { ALUMNI, APPRENTICES } from "./carrieres";
-import { PARTNERS, type LogoSpec } from "./logos";
+import type { LogoSpec } from "./logos";
 
 export type RotatingItem =
   | { kind: "text"; text: string }
   | { kind: "logo"; logo: LogoSpec }
   | { kind: "text+logo"; text: string; logo: LogoSpec };
 
-export const PARTNER_ITEMS: RotatingItem[] = PARTNERS.slice(0, 6).map((logo) => ({ kind: "logo", logo }));
 const seen = new Set<string>();
 export const CAREER_ITEMS: RotatingItem[] = [
   ...ALUMNI.map((person) => ({ text: person.job.replace(/, en CDI$/, ""), logo: person.logo })),
