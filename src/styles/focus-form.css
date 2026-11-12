@@ -1,0 +1,120 @@
+/* Focused transactional shell. No changes to marketing-page layouts. */
+body:has([data-focus-shell]) { background: var(--mist); }
+body:has([data-focus-shell]) .crumbs { display: none; }
+.focus-shell { display: grid; grid-template-columns: 1fr 1fr; min-height: 100svh; }
+.focus-left { display: flex; flex-direction: column; min-width: 0; }
+.focus-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 32px 40px; }
+.focus-logo img { width: 170px; height: auto; }
+.focus-return { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; text-decoration: none; }
+.focus-content { width: min(100% - 64px, 400px); margin: auto; padding-block: 36px; }
+.focus-help { padding: 24px 32px; text-align: center; font-size: 13px; color: var(--ink-70); }
+.focus-help p { margin: 0; }
+.focus-help a { text-underline-offset: 4px; }
+.focus-help__privacy { padding-top: 10px; font-size: 12px; }
+.focus-visual { position: sticky; top: 0; height: 100svh; background: var(--plum); overflow: hidden; }
+.focus-story { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 400ms ease; pointer-events: none; }
+.focus-story.is-active { opacity: 1; }
+.focus-story:not(.is-active):not(.is-loaded) { display: none; }
+.focus-story > img { width: 100%; height: 100%; object-fit: cover; }
+.focus-story::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 22%, rgba(31,13,25,.25) 45%, rgba(31,13,25,.96) 100%); }
+.focus-story figcaption { position: absolute; z-index: 1; inset: auto 40px 44px; color: white; padding: 24px; background: rgba(31,13,25,.85); border-radius: 4px; }
+.focus-story__text { margin: 0 0 22px; font-family: var(--font-display); font-size: clamp(26px, 2.8vw, 42px); font-weight: 300; line-height: 1.2; letter-spacing: -.03em; }
+.focus-story__caption { font-size: 14px; line-height: 1.5; margin: 0; color: white; }
+.focus-story__logo { margin-top: 16px; background: white; padding: 6px 12px; border-radius: 3px; width: auto; max-width: 160px; height: 40px; object-fit: contain; }
+.focus-mobile-story { display: none; }
+.pf.pf--focus { border: 0; padding: 0; border-radius: 0; overflow: visible; background: transparent; min-height: 480px; }
+.pf.pf--focus::before, .pf--focus .pf__mark { display: none; }
+.pf--focus .pf__head { display: flex; flex-direction: column-reverse; align-items: stretch; gap: 12px; margin-bottom: 32px; }
+.pf--focus .pf__progress { font-size: 13px; color: var(--ink-70); }
+.pf--focus .pf__progress-sep { margin: 0; color: inherit; }
+.pf--focus .pf__bar { flex: auto; height: 3px; background: rgba(31,13,25,.12); }
+.pf--focus .pf__bar span { background: var(--plum); }
+.focus-shell .pf.pf--focus .pf__bar span { background: var(--plum); }
+.pf--focus .pf__legend { font-size: clamp(29px, 3vw, 36px); line-height: 1.18; margin-bottom: 28px; max-width: none; outline-offset: 6px; }
+.pf--focus .pf__legend:focus-visible { outline: 2px solid var(--plum); }
+.pf--focus .pf__choices { grid-template-columns: 1fr; gap: 12px; }
+.pf--focus .pf__choices--years { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.pf--focus .pf__choice { position: relative; }
+.pf--focus .pf__choice-box { position: relative; border: 0; background: white; border-radius: 12px; padding: 20px 20px 20px 48px; min-height: 64px; justify-content: center; }
+.pf--focus .pf__choice-icon { position: absolute; left: 18px; top: 20px; font-size: 20px; line-height: 24px; }
+.pf--focus .pf__choice-label { font-size: 16px; line-height: 1.4; font-weight: 600; }
+.pf--focus .pf__choice-hint { font-size: 13px; line-height: 1.4; color: var(--ink-70); }
+.pf--focus .pf__choice input:checked + .pf__choice-box { background: white; box-shadow: inset 0 0 0 2px var(--plum); }
+.pf--focus .pf__choice input:focus-visible + .pf__choice-box { outline: 2px solid var(--plum); outline-offset: 4px; }
+.pf--focus .pf__choices--years .pf__choice-box { min-height: 52px; padding: 14px 12px; text-align: center; }
+.pf--focus .pf__choices--years .pf__choice-icon { display: none; }
+.pf--focus .pf__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+.pf--focus .pf__grid > :nth-child(n+3) { grid-column: 1 / -1; }
+.pf--focus .pf__field { display: grid; gap: 6px; min-width: 0; }
+.pf--focus .pf__label { font-size: 14px; color: var(--plum); }
+.pf--focus .pf__input { display: block; width: 100%; min-height: 52px; border: 1px solid var(--line-strong); border-radius: 10px; background: white; color: var(--plum); padding: 13px 14px; font: inherit; font-size: 16px; }
+.pf--focus .pf__input:focus-visible { outline-color: var(--plum); border-color: var(--plum); }
+.pf--focus .pf__input[aria-invalid="true"] { border-color: var(--plum); box-shadow: 0 0 0 1px var(--plum); }
+.pf--focus .pf__error, .pf__field-error { font-size: 13px; color: var(--plum); line-height: 1.45; }
+.pf__field-error:empty { display: none; }
+.pf--focus .pf__nav { flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.pf--focus .pf__back { width: 100%; text-align: left; border: 0; font-size: 14px; font-weight: 400; padding: 0; }
+.pf--focus .pf__next { width: 100%; border: 0; background: var(--plum); color: white; min-height: 52px; border-radius: 12px; }
+/* Exact brand red: 19px/700 is large text under WCAG, exceeding the 3:1 AA threshold. */
+.pf--focus .pf__submit { width: 100%; min-height: 56px; border-radius: 12px; background: #e33054; color: white; font-size: 19px; font-weight: 700; padding: 14px 16px; line-height: 1.3; }
+.pf--focus .pf__submit:hover { background: var(--red-hover); }
+.pf--focus .pf__submit[aria-busy="true"] { opacity: 1; cursor: wait; }
+.pf__spinner { display: none; }
+.pf__submit[aria-busy="true"] .pf__spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; margin-right: 8px; animation: pf-loading .7s linear infinite; }
+@keyframes pf-loading { to { transform: rotate(360deg); } }
+.pf--focus .pf__privacy { font-size: 13px; color: var(--ink-70); line-height: 1.5; }
+html.js .pf--focus:not([data-last-step="true"]) .pf__privacy { display: none; }
+.pf__draft-note { font-size: 12px; color: var(--ink-70); line-height: 1.5; margin: 20px 0 0; }
+.pf__draft-note button, .pf__suggestion { font: inherit; background: none; border: 0; padding: 4px 0; text-decoration: underline; text-underline-offset: 3px; color: var(--plum); cursor: pointer; }
+.pf__draft-note button { display: block; }
+.pf__suggestion { text-align: left; font-size: 13px; }
+.pf__suggestion[hidden] { display: none; }
+.pf__reassurance { font-size: 13px; color: var(--ink-70); margin: 20px 0 0; }
+.pf--focus .pf__note { background: white; padding: 14px; font-size: 13px; }
+.pf--focus .pf__done-mark { background: var(--plum); }
+.focus-shell .pf.pf--focus .pf__done-mark { display: grid; place-items: center; color: white; }
+.focus-shell .pf.pf--focus .pf__done-mark::after { display: none; }
+.pf__done-mark svg path { stroke-dasharray: 28; stroke-dashoffset: 0; transition: stroke-dashoffset 500ms ease-out; }
+@starting-style { .pf__done:not([hidden]) .pf__done-mark svg path { stroke-dashoffset: 28; } }
+html:not(.js) .pf__draft-note { display: none; }
+.pf--focus .pf__done-lines li::before { color: var(--plum); }
+.focus-shell .pf.pf--focus .pf__done-lines li::before { color: var(--plum); }
+.pf__next-steps { margin-top: 28px; font-size: 14px; }
+.pf__next-steps h2 { font-family: var(--font-display); font-weight: 400; font-size: 19px; margin: 0 0 16px; }
+.pf__received { color: var(--plum); font-weight: 600; }
+.pf__next-steps ol { list-style: decimal; padding-left: 20px; display: grid; gap: 8px; color: var(--ink-70); }
+.pf__timeline-note, .pf__event-date { color: var(--ink-70); font-size: 13px; margin: 16px 0; }
+.pf__next-steps .btn-outline { width: 100%; border-radius: 10px; font-size: 14px; }
+.pf__next-steps [data-student-share] .share { width: 100%; margin-top: 12px; }
+.pf--focus [data-student-share][hidden], .pf__draft-note[hidden] { display: none; }
+html.js .pf--focus .pf__step { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
+@starting-style {
+  html.js .pf--focus .pf__step:not([hidden]) { opacity: 0; transform: translateX(var(--step-direction, 12px)); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .pf--focus .pf__choice-box:hover { background: #ebe6e9; }
+}
+@media (max-width: 1023px) {
+  .focus-shell { display: block; }
+  .focus-left { min-height: 100svh; }
+  .focus-visual { display: none; }
+  .focus-header { padding: 20px 24px; }
+  .focus-logo img { width: 148px; }
+  .focus-content { width: min(100% - 40px, 440px); padding-block: 12px 28px; }
+  .focus-mobile-story { display: flex; align-items: center; gap: 14px; margin: 0 0 30px; }
+  .focus-mobile-story p { margin: 0; font-size: 15px; line-height: 1.4; color: var(--ink-70); }
+  .focus-avatars { display: flex; padding-left: 8px; flex-shrink: 0; }
+  .focus-avatars img { width: 40px; height: 40px; border: 2px solid var(--mist); border-radius: 50%; object-fit: cover; margin-left: -8px; }
+  .pf.pf--focus { min-height: 0; }
+  .pf--focus .pf__grid { grid-template-columns: 1fr; }
+  .pf--focus .pf__head { margin-bottom: 24px; }
+  .pf--focus[data-last-step="true"] .pf__nav { position: sticky; bottom: 0; z-index: 3; background: var(--mist); padding-block: 8px max(12px, env(safe-area-inset-bottom)); }
+  .pf--focus .pf__submit { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .focus-story { transition: none; }
+  html.js .pf--focus .pf__step { transition: opacity 100ms linear; }
+  @starting-style { html.js .pf--focus .pf__step:not([hidden]) { transform: none; } }
+  .pf__submit[aria-busy="true"] .pf__spinner { animation: none; }
+  .pf__done-mark svg path { transition: none; }
+}

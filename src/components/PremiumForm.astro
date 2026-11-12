@@ -7,50 +7,59 @@
  */
 import { FORMS, WHO } from "@/data/forms";
 import { HUBSPOT, ROUTES, SITE } from "@/data/site";
+import FocusField from "./FocusField.astro";
+import ShareLink from "./ShareLink.astro";
+import { ADMISSION_TIMELINE } from "@/data/focus-forms";
+import { EVENTS_OPTIONS } from "@/data/forms";
 
 interface Props {
   form: keyof typeof FORMS;
+  focus?: boolean;
 }
-const { form } = Astro.props;
+const { form, focus = false } = Astro.props;
 const cfg = FORMS[form];
 const total = cfg.steps.length;
 ---
 
 <form
-  class="pf"
+  class:list={["pf", focus && "pf--focus"]}
   data-premium-form
+  data-focus-form={focus || undefined}
+  data-form-kind={form}
   data-hs-portal={HUBSPOT.portalId}
   data-hs-form-id={cfg.formId}
   data-page-name={cfg.pageName}
+  data-form-tone={form === "contact" ? "vous" : "tu"}
   data-done-title={cfg.done.title}
   data-done-title-parent={cfg.doneParent?.title}
   novalidate
-  aria-labelledby="pf-title"
+  aria-labelledby={`pf-${form}-title-0`}
 >
   <div class="pf__head">
     <div class="pf__mark" aria-hidden="true"></div>
-    <p class="pf__progress"><span data-pf-step>1</span><span class="pf__progress-sep">/</span>{total}</p>
+    <p class="pf__progress" aria-live="polite" aria-atomic="true"><span class:list={[!focus && "sr-only"]}>Étape </span><span data-pf-step>1</span><span class="pf__progress-sep">{focus ? " sur " : "/"}</span>{total}</p>
     <div class="pf__bar" aria-hidden="true"><span data-pf-bar style={`width: ${100 / total}%`}></span></div>
   </div>
 
   {
     cfg.steps.map((step, i) => (
       <fieldset class="pf__step" data-pf-panel={i} hidden={i !== 0}>
-        <legend class="pf__legend" id={i === 0 ? "pf-title" : undefined} data-tone data-tu={step.title} data-vous={step.titleParent}>{step.title}</legend>
-        {step.kind === "choice" && (
-          <div class:list={["pf__choices", step.cards && "pf__choices--cards"]} role="radiogroup">
-            {(step.name === "all_type_multiple_checkboxes" ? cfg.who.map((w) => WHO[w]) : step.options).map((o, k) => (
+        <legend class="pf__legend" id={`pf-${form}-title-${i}`} tabindex="-1" data-tone data-tu={step.title} data-vous={step.titleParent}>{step.title}</legend>
+        {(step.kind === "choice" || (focus && step.kind === "select")) && (
+          <div class:list={["pf__choices", step.kind === "choice" && step.cards && "pf__choices--cards", step.kind === "select" && "pf__choices--years"]} role="radiogroup" aria-labelledby={`pf-${form}-title-${i}`}>
+            {(step.name === "all_type_multiple_checkboxes" ? cfg.who.map((w) => WHO[w]) : step.options).map((o) => (
               <label class="pf__choice">
-                <input type="radio" name={step.name} value={o.value} required data-autonext />
+                <input type="radio" name={step.name} value={o.value} required data-quick-choice={focus || undefined} />
                 <span class="pf__choice-box">
-                  <span class="pf__choice-label">{o.label}</span>
+                  {focus && <span class="pf__choice-icon" aria-hidden="true">{step.name === "all_type_multiple_checkboxes" ? (o.value === "All.Parent" ? "◎" : "↗") : "→"}</span>}
+                  <span class="pf__choice-label">{focus && form === "candidature" && o.value === "All.Student" ? "Je suis futur·e étudiant·e" : focus && form === "candidature" && o.value === "All.Parent" ? "Je suis parent" : o.label}</span>
                   {o.hint && <span class="pf__choice-hint">{o.hint}</span>}
                 </span>
               </label>
             ))}
           </div>
         )}
-        {step.kind === "select" && (
+        {step.kind === "select" && !focus && (
           <div class="pf__field">
             <label class="pf__label" for={`pf-${form}-${step.name}`} data-tone data-tu={step.label} data-vous={step.labelParent}>{step.label}</label>
             <select class="pf__input" id={`pf-${form}-${step.name}`} name={step.name} required>
@@ -63,7 +72,12 @@ const total = cfg.steps.length;
         )}
         {step.kind === "contact" && (
           <div class="pf__grid">
-            <div class="pf__field">
+            {focus ? <>
+              <FocusField form={form} name="firstname" label="Prénom" autocomplete="given-name" />
+              <FocusField form={form} name="lastname" label="Nom" autocomplete="family-name" />
+              <FocusField form={form} name="email" label="E-mail" type="email" autocomplete="email" />
+              <FocusField form={form} name="phone" label="Téléphone" type="tel" autocomplete="tel" />
+            </> : <><div class="pf__field">
               <label class="pf__label" for={`pf-${form}-firstname`}>Prénom</label>
               <input class="pf__input" id={`pf-${form}-firstname`} name="firstname" type="text" autocomplete="given-name" required />
             </div>
@@ -79,6 +93,7 @@ const total = cfg.steps.length;
               <label class="pf__label" for={`pf-${form}-phone`}>Téléphone</label>
               <input class="pf__input" id={`pf-${form}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" required />
             </div>
+            </>}
             {step.message && (
               <div class="pf__field pf__field--full">
                 <label class="pf__label" for={`pf-${form}-message`}>Votre question</label>
@@ -92,21 +107,23 @@ const total = cfg.steps.length;
             {cfg.parentNote} <a href={ROUTES.contact + "?pour=parent"} class="lnk">Poser une question</a>
           </p>
         )}
-        <p class="pf__error" data-pf-error role="alert" hidden></p>
+        <p class="pf__error" id={`pf-${form}-error-${i}`} data-pf-error role="alert" hidden></p>
+        {focus && form === "candidature" && step.kind !== "contact" && <p class="pf__reassurance">{i === 0 ? "Hors Parcoursup et hors Mon Master" : i === 1 ? "Candidature gratuite pour les résidents de l'Union européenne" : "Rentrée en septembre"}</p>}
       </fieldset>
     ))
   }
 
   <div class="pf__nav">
-    <button type="button" class="pf__back" data-pf-back hidden>Retour</button>
+    <button type="button" class="pf__back" data-pf-back hidden>{focus ? "← Étape précédente" : "Retour"}</button>
     <button type="button" class="btn pf__next" data-pf-next>Continuer</button>
-    <button type="submit" class="btn pf__submit" data-pf-submit hidden>{cfg.submitLabel}</button>
+    <button type="submit" class="btn pf__submit" data-pf-submit hidden><span class="pf__spinner" aria-hidden="true"></span>{cfg.submitLabel}</button>
   </div>
-  <p class="pf__privacy">Tes informations servent uniquement à l'équipe d'admission d'Eugenia School pour te répondre.</p>
+  <p class="pf__privacy">Les choix et les coordonnées sont obligatoires ; le message libre est facultatif. <a href={SITE.privacyUrl}>Confidentialité et utilisation des données</a>.</p>
+  {focus && <p class="pf__draft-note" data-draft-note role="status"><span data-draft-status>Les réponses sont conservées dans cet onglet jusqu'à l'envoi, pendant 12 heures maximum.</span> <button type="button" data-clear-draft>Effacer mes réponses</button></p>}
 
   <div class="pf__done" data-pf-done hidden aria-live="polite">
-    <div class="pf__done-mark" aria-hidden="true"></div>
-    <p class="pf__done-title" data-pf-done-title></p>
+    <div class="pf__done-mark" aria-hidden="true">{focus && <svg viewBox="0 0 32 32" width="32" height="32"><path d="m8 16 5 5 11-11" fill="none" stroke="currentColor" stroke-width="2" /></svg>}</div>
+    <p class="pf__done-title" id={`pf-${form}-done-title`} data-pf-done-title tabindex="-1"></p>
     <ul class="pf__done-lines" data-pf-done-lines>
       {cfg.done.lines.map((l) => <li>{l}</li>)}
     </ul>
@@ -114,6 +131,17 @@ const total = cfg.steps.length;
       <ul class="pf__done-lines" data-pf-done-lines-parent hidden>
         {cfg.doneParent.lines.map((l) => <li>{l}</li>)}
       </ul>
+    )}
+    {focus && form === "candidature" && (
+      <div class="pf__next-steps">
+        <h2>Ce qui se passe ensuite</h2>
+        <p class="pf__received">✓ Demande transmise</p>
+        <ol>{ADMISSION_TIMELINE.map((title) => <li>{title}</li>)}</ol>
+        <p class="pf__timeline-note">L'envoi de ce formulaire ne constitue pas encore un dossier complet.</p>
+        <a class="btn-outline" href={ROUTES.evenements}>Venir à un événement</a>
+        {Date.now() < Date.parse("2026-12-12T10:30:00+01:00") && <p class="pf__event-date">{EVENTS_OPTIONS[0].hint}</p>}
+        <div data-student-share><ShareLink path="/parents" label="Partager avec mes parents" title="Découvrir Eugenia School" text="Les informations pour découvrir Eugenia School ensemble." event="share_to_parent" /></div>
+      </div>
     )}
   </div>
 

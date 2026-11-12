@@ -1,7 +1,7 @@
 ---
 /** Shared layout for the four form pages: title + context left, existing HubSpot form right. */
 import Base from "@/layouts/Base.astro";
-import PremiumForm from "@/components/PremiumForm.astro";
+import FocusFormShell from "@/components/FocusFormShell.astro";
 import type { HUBSPOT } from "@/data/site";
 
 interface Props {
@@ -20,37 +20,7 @@ const { title, description, crumbs, heading, lead, form, facts = [], formLabel, 
 ---
 
 <Base title={title} description={description} crumbs={crumbs}>
-  <section class="mist formpage">
-    <div class="container formpage__grid">
-      <div>
-        <h1 class="r1 display formpage__title">{heading}</h1>
-        <p class="r2 lead formpage__lead">{lead}</p>
-        {
-          facts.length > 0 && (
-            <ul class="r3 formpage__facts">
-              {facts.map((f) => (
-                <li>{f}</li>
-              ))}
-            </ul>
-          )
-        }
-        <slot />
-      </div>
-      <div class="r3">
-        <p class="eyebrow formpage__label">{formLabel}</p>
-        {
-          next.length > 0 && (
-            <ul class="formpage__next" aria-label="Ce qui se passe ensuite">
-              {next.map((n) => (
-                <li>{n}</li>
-              ))}
-            </ul>
-          )
-        }
-        <PremiumForm form={form} />
-      </div>
-    </div>
-  </section>
+  <FocusFormShell {...{ heading, lead, form, facts, formLabel, next }} />
 </Base>
 
 <style>
