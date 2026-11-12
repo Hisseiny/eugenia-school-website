@@ -9,6 +9,7 @@ import ContinueVisit from "@/components/ContinueVisit.astro";
 import { img } from "@/data/images";
 import { CAMPUS, EVENTS, PRINCIPLES, STUDENT_LIFE, TEACHERS } from "@/data/ecole";
 import { ORG_ID, ROUTES, SITE } from "@/data/site";
+import lot3 from "@/data/pages/lot3.json";
 
 const eventsLd = EVENTS.map((e) => ({
   "@type": "Event",
@@ -20,6 +21,15 @@ const eventsLd = EVENTS.map((e) => ({
   isAccessibleForFree: true,
   organizer: { "@id": ORG_ID },
 }));
+const SCHOOL_LINKS = [
+  { label: "Notre ADN", href: ROUTES.notreAdn, text: lot3["notre-adn"].page.description },
+  { label: "Le campus de Paris", href: ROUTES.campusParis, text: lot3["campus/paris"].page.description },
+  { label: "Vie étudiante", href: ROUTES.vieEtudiante, text: lot3["vie-etudiante"].page.description },
+  { label: "Approche pédagogique et professeurs", href: ROUTES.approchePedagogique, text: lot3["approche-pedagogique"].page.description },
+  { label: "La méthode QCOR", href: ROUTES.methodeEugenia, text: lot3["methode-eugenia"].page.description },
+  { label: "Entrepreneuriat", href: ROUTES.entrepreneuriat, text: lot3.entrepreneuriat.page.description },
+  { label: "Portfolios étudiants", href: ROUTES.portfolio, text: lot3.portfolio.page.description },
+];
 ---
 
 <Base
@@ -73,8 +83,6 @@ const eventsLd = EVENTS.map((e) => ({
     </div>
   </section>
 
-  <p class="container lnk-row"><a class="lnk" href={ROUTES.campusParis}>Un campus qui vit.</a></p>
-
   <section id="professeurs" class="container teachers" aria-labelledby="teachers-title">
     <div class="section-head teachers__head">
       <h2 id="teachers-title" class="h2 teachers__title">Ils enseignent ce qu'ils font.</h2>
@@ -95,8 +103,6 @@ const eventsLd = EVENTS.map((e) => ({
     </ul>
   </section>
 
-  <p class="container lnk-row"><a class="lnk" href={ROUTES.approchePedagogique}>Apprendre avec ceux qui font.</a></p>
-
   <section class="mist entre" aria-labelledby="entre-title">
     <div class="container entre__grid">
       <div>
@@ -116,8 +122,6 @@ const eventsLd = EVENTS.map((e) => ({
     </div>
   </section>
 
-  <p class="container lnk-row"><a class="lnk" href={ROUTES.entrepreneuriat}>Lancer. Tester. Recommencer.</a></p>
-
   <section id="vie" class="container life" aria-labelledby="life-title">
     <Pic src={img("p_team")} alt="Une équipe d'étudiants en t-shirts Dust et Eugenia, sur les gradins du campus" ratio="16 / 9" position="50% 45%" sizes="(min-width: 1440px) 1376px, 100vw" />
     <div class="life__grid">
@@ -134,8 +138,6 @@ const eventsLd = EVENTS.map((e) => ({
       </dl>
     </div>
   </section>
-
-  <p class="container lnk-row"><a class="lnk" href={ROUTES.vieEtudiante}>Une école jeune. Une communauté prospère.</a></p>
 
   <section id="evenements" class="container events" aria-labelledby="events-title">
     <div class="events__top">
@@ -168,12 +170,16 @@ const eventsLd = EVENTS.map((e) => ({
     </ul>
   </section>
 
-  <nav class="container" aria-label="Explorer l'école">
-    <p class="lnk-row">
-      <a class="lnk" href={ROUTES.notreAdn}>Des profils qui se distinguent.</a> ·
-      <a class="lnk" href={ROUTES.methodeEugenia}>Partir du problème. Arriver au livrable.</a> ·
-      <a class="lnk" href={ROUTES.portfolio}>Portfolios des étudiants, en accès libre.</a>
-    </p>
+  <nav class="container school-explore" aria-labelledby="school-explore-label">
+    <p class="eyebrow" id="school-explore-label">Explorer l'école</p>
+    <div class="school-explore__grid">
+      {SCHOOL_LINKS.map((link) => (
+        <a class="school-explore__card" href={link.href}>
+          <h2 class="h4">{link.label}</h2>
+          <p>{link.text}</p>
+        </a>
+      ))}
+    </div>
   </nav>
 
   <EndOfPage
@@ -346,6 +352,40 @@ const eventsLd = EVENTS.map((e) => ({
 
   .events {
     padding-bottom: 150px;
+  }
+  .school-explore {
+    padding-block: 120px;
+  }
+  .school-explore__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .school-explore__card {
+    display: block;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: inherit;
+    text-decoration: none;
+  }
+  .school-explore__card p {
+    margin-top: 12px;
+    color: var(--ink-70);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  @media (min-width: 600px) {
+    .school-explore__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .school-explore__grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
   }
   .events__top {
     display: grid;

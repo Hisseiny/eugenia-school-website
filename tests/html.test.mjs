@@ -217,6 +217,16 @@ const NEW_PAGES = [
 const lot3 = JSON.parse(readFileSync("src/data/pages/lot3.json", "utf8"));
 const LOT3_PAGES = Object.entries(lot3).map(([route, entry]) => [route, entry.page.h1]);
 
+test("lot 3 pages do not repeat content image sources", () => {
+  for (const [route] of Object.entries(lot3)) {
+    const images = html(route).match(/<img\b[^>]*>/g) ?? [];
+    const sources = images
+      .map((image) => image.match(/\bsrc="([^"]*l3_[^"]+)"/)?.[1])
+      .filter(Boolean);
+    assert.equal(new Set(sources).size, sources.length, `${route}: duplicate content image source`);
+  }
+});
+
 const plainText = (htmlText) =>
   decodeEntities(htmlText.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim());
 
@@ -249,6 +259,77 @@ test("lot 3 metadata matches the extraction and stays within the live length tar
   }
 });
 
+test("lot 3 project breadcrumbs match the live hierarchy", () => {
+  const expected = {
+    "projets-entreprises": ["Accueil", "Entreprises", "Projets avec les entreprises"],
+    "projets-entreprises/mistral-ai-hackathon": ["Accueil", "Entreprises", "Projets avec les entreprises", "Hackathon Mistral AI, Make et Malt"],
+    "projets-entreprises/openai-hackathon": ["Accueil", "Entreprises", "Projets avec les entreprises", "Hackathon Mirakl et OpenAI"],
+    "projets-entreprises/dust-hackathon": ["Accueil", "Entreprises", "Projets avec les entreprises", "Hackathon Dust"],
+  };
+  const expectedHrefs = {
+    "projets-entreprises": ["/", "/entreprises"],
+    "projets-entreprises/mistral-ai-hackathon": ["/", "/entreprises", "/projets-entreprises"],
+    "projets-entreprises/openai-hackathon": ["/", "/entreprises", "/projets-entreprises"],
+    "projets-entreprises/dust-hackathon": ["/", "/entreprises", "/projets-entreprises"],
+  };
+  for (const [route, labels] of Object.entries(expected)) {
+    const source = html(route);
+    const nav = source.match(/<nav\b(?=[^>]*aria-label="Fil d'Ariane")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+    const crumbs = [...nav.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>|<span\b[^>]*aria-current="page"[^>]*>([\s\S]*?)<\/span>/g)]
+      .map((match) => plainText(match[1] ?? match[2] ?? ""));
+    assert.deepEqual(crumbs, labels, `${route}: breadcrumb labels differ`);
+    const hrefs = [...nav.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]);
+    assert.deepEqual(hrefs, expectedHrefs[route], `${route}: breadcrumb links differ`);
+  }
+});
+
+test("lot 3 route anchors are stored in page data", () => {
+  for (const [route, id] of [
+    ["approche-pedagogique", "equipe"],
+    ["methode-eugenia", "cas"],
+    ["entreprises-partenaires", "devenir-partenaire"],
+    ["projets-entreprises", "projets"],
+    ["portfolio", "portfolios"],
+    ["recruter-nos-etudiants", "formulaire"],
+    ["recruter-nos-etudiants", "besoin"],
+  ]) {
+    assert.ok(html(route).includes(`id="${id}"`), `${route}: missing ${id} anchor`);
+  }
+});
+
+test("school and company hubs use the requested link cards", () => {
+  const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+  const schoolLinks = [
+    ["Notre ADN", lot3["notre-adn"].page.description],
+    ["Le campus de Paris", lot3["campus/paris"].page.description],
+    ["Vie étudiante", lot3["vie-etudiante"].page.description],
+    ["Approche pédagogique et professeurs", lot3["approche-pedagogique"].page.description],
+    ["La méthode QCOR", lot3["methode-eugenia"].page.description],
+    ["Entrepreneuriat", lot3.entrepreneuriat.page.description],
+    ["Portfolios étudiants", lot3.portfolio.page.description],
+  ];
+  assert.ok(schoolNav.includes("Explorer l'école"));
+  assert.doesNotMatch(html("ecole"), /class="lnk-row"/);
+  for (const [label, description] of schoolLinks) {
+    assert.ok(plainText(schoolNav).includes(label), `/ecole: missing ${label}`);
+    assert.ok(plainText(schoolNav).includes(description), `/ecole: missing live description for ${label}`);
+  }
+
+  const companySource = html("entreprises");
+  const companyNav = companySource.match(/<nav\b(?=[^>]*aria-labelledby="hack-title")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+  const projectLinks = [
+    ["Tous les projets avec les entreprises", lot3["projets-entreprises"].page.description],
+    ["Hackathon Mistral AI, Make et Malt", lot3["projets-entreprises/mistral-ai-hackathon"].page.description],
+    ["Hackathon Mirakl × OpenAI", lot3["projets-entreprises/openai-hackathon"].page.description],
+    ["Dust Customers Hackathon", lot3["projets-entreprises/dust-hackathon"].page.description],
+  ];
+  assert.doesNotMatch(companySource, /class="lnk-row"/);
+  for (const [label, description] of projectLinks) {
+    assert.ok(plainText(companyNav).includes(label), `/entreprises: missing ${label}`);
+    assert.ok(plainText(companyNav).includes(description), `/entreprises: missing live description for ${label}`);
+  }
+});
+
 test("case studies mirror live Article fields without inferred dates", () => {
   for (const route of ["projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon"]) {
     const source = html(route);
@@ -259,6 +340,7 @@ test("case studies mirror live Article fields without inferred dates", () => {
     assert.equal(article.author["@id"], "https://www.eugeniaschool.com/#organization");
     assert.equal(article.publisher["@id"], "https://www.eugeniaschool.com/#organization");
     assert.equal(article.mainEntityOfPage, canonical);
+    assert.ok(article.image.startsWith("https://www.eugeniaschool.com/"), `${route}: Article image must be an absolute site URL`);
     assert.match(article.image, /^https:\/\/www\.eugeniaschool\.com\/_astro\/.+\.(?:webp|avif|png|jpg)$/);
     assert.ok(!("datePublished" in article));
     assert.ok(!("dateModified" in article));

@@ -21,27 +21,11 @@ export function getStaticPaths() {
 
 const { route, page, crumbs } = Astro.props as Entry;
 const isCompanyRoute = route.startsWith("entreprises") || route.startsWith("projets-entreprises") || route === "recruter-nos-etudiants";
-const sectionAnchors: Record<string, [string, string][]> = {
-  "approche-pedagogique": [["Des métiers, des visages.", "equipe"]],
-  "methode-eugenia": [["Quatre entreprises, quatre cas réels.", "cas"]],
-  "entreprises-partenaires": [["Devenir partenaire.", "devenir-partenaire"]],
-  "projets-entreprises": [["« Automatisation et scoring de lead »", "projets"]],
-  portfolio: [["Cinq portfolios, cinq univers", "portfolios"]],
-};
-for (const [title, id] of sectionAnchors[route] ?? []) {
-  const section = page.sections.find((item) => item.title?.startsWith(title));
-  if (section) section.id = id;
-}
-if (route === "recruter-nos-etudiants") {
-  page.heroId = "formulaire";
-  page.anchorIds = ["besoin"];
-}
-const jsonLd = [...(page.jsonLd ?? [])];
-const articleIndex = jsonLd.findIndex((item) => item["@type"] === "Article");
-if (articleIndex >= 0 && page.image) {
+const jsonLd = await Promise.all((page.jsonLd ?? []).map(async (item) => {
+  if (item["@type"] !== "Article" || !page.image) return item;
   const builtImage = await getImage({ src: img(page.image), format: "webp" });
-  jsonLd[articleIndex] = { ...jsonLd[articleIndex], image: new URL(builtImage.src, SITE.url).href };
-}
+  return { ...item, image: new URL(builtImage.src, SITE.url).href };
+}));
 ---
 
 <LivePage page={page} crumbs={crumbs} current={isCompanyRoute ? ROUTES.entreprises : ROUTES.ecole} jsonLd={jsonLd} />

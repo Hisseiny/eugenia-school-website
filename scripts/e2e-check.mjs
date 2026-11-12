@@ -282,11 +282,43 @@ const blockTracking = async (page) => {
     "/projets-entreprises/openai-hackathon",
     "/portfolio",
   ];
+  const lot3Routes = new Set([
+    "/notre-adn",
+    "/campus/paris",
+    "/vie-etudiante",
+    "/entrepreneuriat",
+    "/approche-pedagogique",
+    "/methode-eugenia",
+    "/entreprises-partenaires",
+    "/recruter-nos-etudiants",
+    "/projets-entreprises",
+    "/projets-entreprises/dust-hackathon",
+    "/projets-entreprises/mistral-ai-hackathon",
+    "/projets-entreprises/openai-hackathon",
+    "/portfolio",
+  ]);
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await blockTracking(page);
   for (const route of routes) {
     await page.goto(base + route, { waitUntil: "load" });
     await page.evaluate(() => window.scrollTo(0, 0));
+    if (lot3Routes.has(route)) {
+      const glue = await page.locator("main").evaluate((main) => {
+        const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT);
+        const ignored = ["JavaScript", "TypeScript", "YouTube", "LinkedIn", "OpenAI", "Mistral AI", "Dataworkers", "AI Corner", "QCOR", "n8n", "Power BI", "Webflow", "Station F", "VivaTech", "Anthropic", "Microsoft", "Carrefour", "Doctolib", "Spendesk", "Mirakl", "Snapchat", "LVMH", "Eugenia School", "Albert School", "L’Oréal", "l’État", "l’Est", "d’Eau", "d’Albert", "d’Eugenia", "d’Intégration", "l’École 42"];
+        const findings = [];
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.parentElement?.closest("script, style")) continue;
+          const text = ignored.reduce((value, token) => value.replaceAll(token, ""), node.textContent ?? "");
+          const matches = text.match(/[a-zà-ÿ’.!?»][A-ZÀ-Ý«][a-zà-ÿ]/gu) ?? [];
+          if (matches.length) findings.push(`${node.textContent?.trim()}: ${matches.join(", ")}`);
+        }
+        return { text: main.innerText ?? "", findings };
+      });
+      check(`${route}: "verrièreL" is absent`, !glue.text.includes("verrièreL"));
+      check(`${route}: no glued text nodes`, glue.findings.length === 0, glue.findings.slice(0, 8).join(" | "));
+    }
     check(`${route}: extraction link inventory is not rendered`, (await page.locator(".live-links").count()) === 0);
     let step = 0;
     while (true) {

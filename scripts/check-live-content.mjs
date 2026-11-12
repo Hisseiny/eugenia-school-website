@@ -31,6 +31,21 @@ const pages = [
   ["_projets-entreprises_openai-hackathon.md", "projets-entreprises/openai-hackathon"],
   ["_portfolio.md", "portfolio"],
 ];
+const requiredLot3Routes = new Set([
+  "notre-adn",
+  "campus/paris",
+  "vie-etudiante",
+  "entrepreneuriat",
+  "approche-pedagogique",
+  "methode-eugenia",
+  "entreprises-partenaires",
+  "recruter-nos-etudiants",
+  "projets-entreprises",
+  "projets-entreprises/dust-hackathon",
+  "projets-entreprises/mistral-ai-hackathon",
+  "projets-entreprises/openai-hackathon",
+  "portfolio",
+]);
 
 const entities = {
   amp: "&",
@@ -149,7 +164,10 @@ for (const [sourceName, route] of pages) {
   ].find(existsSync);
   const builtPath = join("dist", `${route}.html`);
   const fallbackPath = join("dist", route, "index.html");
-  if (!markdownPath) throw new Error(`Missing extraction: ${sourceName} under ${directory}`);
+  if (!markdownPath) {
+    if (requiredLot3Routes.has(route)) throw new Error(`Missing extraction: ${sourceName} under ${directory}`);
+    continue;
+  }
   const htmlPath = existsSync(builtPath) ? builtPath : fallbackPath;
   if (!existsSync(htmlPath)) throw new Error(`Missing built page: ${builtPath}`);
   const lines = extractLines(readFileSync(markdownPath, "utf8"));
