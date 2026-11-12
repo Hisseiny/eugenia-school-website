@@ -3,57 +3,66 @@ import Logo from "./Logo.astro";
 import type { LogoSpec } from "@/data/logos";
 interface Props { logos: LogoSpec[]; id: string; }
 const { logos, id } = Astro.props;
+const visible = logos.slice(0, 12);
 ---
 <div class="logo-flow" data-logo-flow>
   <div id={id}>
     <ul class="logo-flow__static" aria-label="Entreprises qui recrutent nos étudiants">
-      {logos.map((logo) => <li><Logo {...logo} /></li>)}
+      {logos.map((logo, index) => <li data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} gray /></li>)}
     </ul>
     <div class="logo-flow__motion" aria-hidden="true">
-      {logos.map((logo, index) => (
-        <div class="logo-flow__cell" style={`--offset:-${620 + (index % 6) * 90 + Math.floor(index / 6) * 45}ms`}>
-          <div class="logo-flow__layer"><Logo {...logo} decorative /></div>
-          <div class="logo-flow__layer logo-flow__layer--next"><Logo {...logos[(index + 6) % logos.length]} decorative /></div>
-        </div>
-      ))}
+      {visible.map((logo, index) => <div class="logo-flow__cell" data-slot={index}>
+        <div class="logo-flow__layer" data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} gray decorative /></div>
+      </div>)}
     </div>
   </div>
-  <button class="logo-flow__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Mettre en pause</button>
+  <div class="logo-flow__controls">
+    <p class="logo-flow__more">Et <span data-remaining>{logos.length - visible.length}</span> autres entreprises · <a href={`#${id}`} data-show-all>Voir toutes les entreprises</a></p>
+    <button class="logo-flow__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Mettre en pause</button>
+  </div>
 </div>
-<script>
-  import "../scripts/scrolling-logo-grid";
-</script>
+<script>import "../scripts/scrolling-logo-grid";</script>
 <style>
   .logo-flow { margin-top: 48px; }
-  .logo-flow__static { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid #e8e5e7; border-left: 1px solid #e8e5e7; }
+  .logo-flow__static, .logo-flow__motion { grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid #e8e5e7; border-left: 1px solid #e8e5e7; }
+  .logo-flow__static { display: grid; margin: 0; padding: 0; list-style: none; }
   .logo-flow__static li, .logo-flow__cell { height: 110px; border-bottom: 1px solid #e8e5e7; border-right: 1px solid #e8e5e7; }
   .logo-flow__static li, .logo-flow__layer { display: flex; align-items: center; justify-content: center; padding: 20px; }
   .logo-flow__cell { position: relative; overflow: hidden; }
-  .logo-flow__layer { position: absolute; inset: 0; }
-  .logo-flow__static :global(img), .logo-flow__cell :global(img) { object-fit: contain; max-width: 100%; }
+  .logo-flow__layer { position: absolute; inset: 0; transform: translateY(0); opacity: 1; }
+  .logo-flow__static :global(img), .logo-flow__cell :global(img) { object-fit: contain; max-width: 100%; transition: filter 200ms ease, opacity 200ms ease; }
   .logo-flow__motion { display: none; }
-  .logo-flow__pause { display: block; visibility: hidden; margin: 16px 0 0 auto; min-height: 44px; padding: 8px 14px; font: inherit; font-size: 14px; color: inherit; border: 1px solid currentColor; border-radius: 4px; background: transparent; cursor: pointer; }
+  .logo-flow__controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; }
+  .logo-flow__more { display: none; margin: 0; font-size: 14px; color: var(--ink-65); }
+  .logo-flow__more a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .logo-flow__pause { visibility: hidden; margin-left: auto; min-height: 44px; padding: 8px 14px; font: inherit; font-size: 14px; color: inherit; border: 1px solid currentColor; border-radius: 4px; background: transparent; cursor: pointer; }
   .is-enhanced .logo-flow__pause { visibility: visible; }
-  .logo-flow__pause:focus-visible { outline: 2px solid #75192b; outline-offset: 4px; }
+  .logo-flow__pause:focus-visible, .logo-flow__more a:focus-visible { outline: 2px solid #75192b; outline-offset: 4px; }
+  @media (hover: hover) and (pointer: fine) {
+    .logo-flow__cell:hover :global(.gray img), .logo-flow__static li:hover :global(.gray img) { filter: none; opacity: 1; }
+  }
   @media (prefers-reduced-motion: no-preference) {
-    :global(html.js) .logo-flow__static { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-    :global(html.js) .logo-flow__motion { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid #e8e5e7; border-left: 1px solid #e8e5e7; }
-    .logo-flow__layer { animation: logo-cell-replace 5200ms var(--ease-out-expo) infinite; animation-delay: var(--offset); animation-play-state: paused; }
-    .logo-flow__layer--next { animation-delay: calc(var(--offset) - 2600ms); }
-    .is-running .logo-flow__layer { animation-play-state: running; }
-    @keyframes logo-cell-replace {
-      0% { transform: translateY(100%); opacity: 0; }
-      11.923%, 50% { transform: translateY(0); opacity: 1; }
-      52.885%, 99.999% { transform: translateY(0); opacity: 0; }
-      100% { transform: translateY(100%); opacity: 0; }
-    }
+    :global(html.js) .logo-flow:not(.is-static) .logo-flow__static { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    :global(html.js) .logo-flow:not(.is-static) .logo-flow__motion { display: grid; }
+    :global(html.js) .logo-flow:not(.is-static) .logo-flow__more { display: block; }
   }
-  @media (max-width: 900px) {
-    .logo-flow__static { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    :global(html.js) .logo-flow__motion { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (min-width: 640px) and (max-width: 1024px) {
+    .logo-flow__motion { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .logo-flow__cell:nth-child(n+10) { display: none; }
   }
-  @media (max-width: 480px) {
-    .logo-flow__static { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    :global(html.js) .logo-flow__motion { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 639px) {
+    .logo-flow__motion { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .logo-flow__cell:nth-child(n+7) { display: none; }
+    .logo-flow__static li { padding: 6px; }
+  }
+</style>
+<!-- Global selectors also style layers created by the controller. -->
+<style is:global>
+  .logo-flow .logo-flow__layer { transition: transform 300ms var(--ease-out-expo), opacity 300ms var(--ease-out-expo); }
+  .logo-flow .logo-flow__cell .logo-flow__layer--incoming { transform: translateY(100%); opacity: 0; transition-duration: 620ms; transition-delay: 80ms; }
+  .logo-flow .logo-flow__cell.is-changing .logo-flow__layer--outgoing { transform: translateY(-100%); opacity: 0; }
+  .logo-flow .logo-flow__cell.is-changing .logo-flow__layer--incoming { transform: translateY(0); opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-flow .logo-flow__layer { transition: none; }
   }
 </style>
