@@ -3060,8 +3060,9 @@
               "text": "1000€ de crédits Make pour les vainqueurs et 2 offres de stage."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/mistral-ai-hackathon"
             },
             {
               "type": "paragraph",
@@ -3093,8 +3094,9 @@
               "text": "Des solutions directement actionnables, pitchées devant Philippe Corrot, CEO de Mirakl, et OpenAI."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/openai-hackathon"
             },
             {
               "type": "paragraph",
@@ -3125,8 +3127,9 @@
               "text": "Une équipe d’Eugenia sur le podium (3e place), face à une trentaine d’entreprises."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/dust-hackathon"
             }
           ],
           "eyebrow": "pourquoi on fait ça",
@@ -3902,8 +3905,9 @@
               "text": "1000€ de crédits Make pour les vainqueurs et 2 offres de stage."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/mistral-ai-hackathon"
             },
             {
               "type": "paragraph",
@@ -3940,8 +3944,9 @@
               "text": "Des solutions directement actionnables, pitchées devant Philippe Corrot, CEO de Mirakl, et OpenAI."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/openai-hackathon"
             },
             {
               "type": "paragraph",
@@ -4325,8 +4330,9 @@
               "text": "Des solutions directement actionnables, pitchées devant Philippe Corrot, CEO de Mirakl, et OpenAI."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/openai-hackathon"
             },
             {
               "type": "paragraph",
@@ -4357,8 +4363,9 @@
               "text": "Une équipe d’Eugenia sur le podium (3e place), face à une trentaine d’entreprises."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/dust-hackathon"
             },
             {
               "type": "paragraph",
@@ -4752,8 +4759,9 @@
               "text": "1000€ de crédits Make pour les vainqueurs et 2 offres de stage."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/mistral-ai-hackathon"
             },
             {
               "type": "paragraph",
@@ -4784,8 +4792,9 @@
               "text": "Une équipe d’Eugenia sur le podium (3e place), face à une trentaine d’entreprises."
             },
             {
-              "type": "paragraph",
-              "text": "Lire le récit"
+              "type": "link",
+              "label": "Lire le récit",
+              "href": "/projets-entreprises/dust-hackathon"
             },
             {
               "type": "paragraph",

@@ -333,6 +333,39 @@ test("portfolio card-group content is visible inside main", () => {
   }
 });
 
+test("project and related hackathon récit cards link to their case studies", () => {
+  const targets = {
+    "projets-entreprises": [
+      "/projets-entreprises/mistral-ai-hackathon",
+      "/projets-entreprises/openai-hackathon",
+      "/projets-entreprises/dust-hackathon",
+    ],
+    "projets-entreprises/mistral-ai-hackathon": [
+      "/projets-entreprises/openai-hackathon",
+      "/projets-entreprises/dust-hackathon",
+    ],
+    "projets-entreprises/openai-hackathon": [
+      "/projets-entreprises/mistral-ai-hackathon",
+      "/projets-entreprises/dust-hackathon",
+    ],
+    "projets-entreprises/dust-hackathon": [
+      "/projets-entreprises/mistral-ai-hackathon",
+      "/projets-entreprises/openai-hackathon",
+    ],
+  };
+  for (const [route, hrefs] of Object.entries(targets)) {
+    const main = html(route).match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+    const links = [...main.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+      .map(([, attributes, label]) => ({
+        href: attributes.match(/\bhref="([^"]+)"/)?.[1],
+        label: plainText(label),
+      }));
+    for (const href of hrefs) {
+      assert.ok(links.some((link) => link.href === href && link.label === "Lire le récit"), `${route}: missing Lire le récit link to ${href}`);
+    }
+  }
+});
+
 test("school and company hubs use the requested link cards", () => {
   const schoolNav = html("ecole").match(/<nav\b(?=[^>]*aria-labelledby="school-explore-label")[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
   const schoolLinks = [
