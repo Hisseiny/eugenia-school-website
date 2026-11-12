@@ -13,20 +13,29 @@ const html = (name) => {
 };
 const count = (s, re) => (s.match(re) ?? []).length;
 for (const page of ["index", "entreprises", "carrieres"]) {
-  test(`${page}: rotating heading has static fallback, complete accessible labels and pause`, () => {
+  test(`${page}: rotating heading has a static fallback and complete accessible labels`, () => {
     const h = html(page);
-    const headings = h.match(/<h2[^>]*class="rot h2"[\s\S]*?<\/h2>/g) ?? [];
+    const headings = h.match(/<h2[^>]*class="rot h2[^"]*"[\s\S]*?<\/h2>/g) ?? [];
     assert.equal(headings.length, 1);
     for (const heading of headings) {
-    assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
-    assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
-    assert.match(heading, /aria-hidden="true"/);
-    const accessible = decodeEntities(heading.match(/class="sr-only"[^>]*>([^<]+)</)?.[1] ?? "");
-    for (const match of heading.matchAll(/alt="([^"]+)"/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
-    for (const match of heading.matchAll(/<span>([^<]+)<\/span>/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
-    assert.doesNotMatch(heading, /aria-live/);
+      assert.equal(count(heading, /class="rot__item is-active"/g), 1, "one visible item without JS");
+      assert.equal(count(heading, /class="rot__item(?: is-active)?"/g), 6);
+      assert.match(heading, /aria-hidden="true"/);
+      const accessible = decodeEntities(heading.match(/class="sr-only"[^>]*>([^<]+)</)?.[1] ?? "");
+      assert.ok(accessible.length, "heading retains its sr-only label");
+      for (const match of heading.matchAll(/alt="([^"]+)"/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
+      for (const match of heading.matchAll(/<span>([^<]+)<\/span>/g)) assert.ok(accessible.includes(decodeEntities(match[1])));
+      assert.doesNotMatch(heading, /aria-live/);
     }
-    assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*>Mettre en pause<\/button>/);
+    if (page === "carrieres") {
+      assert.match(headings[0], /<span class="rot__lead"[^>]*>Ils sont devenus<\/span>/);
+      assert.match(h, /<button[^>]*class="rot__pause"[^>]*aria-pressed="false"[^>]*aria-controls="alumni-title"[^>]*>Mettre en pause<\/button>/);
+    } else {
+      assert.doesNotMatch(headings[0], /class="rot__lead"/);
+      const label = decodeEntities(headings[0].match(/class="sr-only"[^>]*>([^<]+)/)?.[1] ?? "");
+      assert.ok(label.startsWith("Partenaires de l'école"));
+      assert.doesNotMatch(h, /<button[^>]*class="rot__pause"/);
+    }
   });
 }
 test("career logo wall has 12 fixed slots, the full colour list and a show-all link", () => {
@@ -49,6 +58,13 @@ const filesUnder = (directory) =>
     const path = `${directory}/${entry.name}`;
     return entry.isDirectory() ? filesUnder(path) : [path];
   });
+
+test("dist contains no Replit ambassador mention", () => {
+  const textFiles = filesUnder("dist").filter((file) => /\.(?:html|txt|xml|json|js|css)$/i.test(file));
+  for (const file of textFiles) {
+    assert.doesNotMatch(readFileSync(file, "utf8"), /ambassadeurs Replit/i, `${file} contains the removed mention`);
+  }
+});
 const decodeEntities = (value) =>
   value
     .replace(/&amp;/g, "&")

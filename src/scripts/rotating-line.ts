@@ -1,7 +1,7 @@
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) => {
   const items = [...root.querySelectorAll<HTMLElement>(".rot__item")];
-  const button = root.querySelector<HTMLButtonElement>(".rot__pause")!;
+  const button = root.querySelector<HTMLButtonElement>(".rot__pause");
   const heading = root.querySelector<HTMLElement>("h2")!;
   if (items.length < 2 || !("IntersectionObserver" in window)) return;
   let index = 0, changes = 0;
@@ -22,9 +22,11 @@ document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) =>
   };
   const sync = () => {
     clear();
-    button.disabled = reduced.matches || changes >= items.length * 3 - 1;
-    button.textContent = reduced.matches ? "Animation désactivée" : changes >= items.length * 3 - 1 ? "Rotation terminée" : paused ? "Reprendre" : "Mettre en pause";
-    button.setAttribute("aria-pressed", String(paused));
+    if (button) {
+      button.disabled = reduced.matches || changes >= items.length * 3 - 1;
+      button.textContent = reduced.matches ? "Animation désactivée" : changes >= items.length * 3 - 1 ? "Rotation terminée" : paused ? "Reprendre" : "Mettre en pause";
+      button.setAttribute("aria-pressed", String(paused));
+    }
     animations.forEach((animation) => {
       if (changes >= items.length * 3 - 1) animation.finish();
       else if (animation.playState !== "finished") allowed() ? animation.play() : animation.pause();
@@ -56,8 +58,10 @@ document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) =>
     changes++;
     // Let the last entrance finish before freezing.
     if (changes === items.length * 3 - 1) {
-      button.disabled = true;
-      button.textContent = "Rotation terminée";
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Rotation terminée";
+      }
     } else sync();
   };
   new IntersectionObserver(([entry]) => { visible = entry.intersectionRatio >= .5; sync(); }, { threshold: [0, .5] }).observe(heading);
@@ -65,7 +69,7 @@ document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) =>
   root.addEventListener("mouseleave", () => { hovered = false; sync(); });
   root.addEventListener("focusin", () => { focused = true; sync(); });
   root.addEventListener("focusout", (event) => { if (!root.contains(event.relatedTarget as Node | null)) { focused = false; sync(); } });
-  button.addEventListener("click", () => { paused = !paused; sync(); });
+  button?.addEventListener("click", () => { paused = !paused; sync(); });
   document.addEventListener("visibilitychange", sync);
   reduced.addEventListener("change", () => { if (reduced.matches) reset(); sync(); });
   window.addEventListener("pagehide", clear);
