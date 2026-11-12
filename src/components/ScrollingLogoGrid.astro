@@ -26,6 +26,7 @@ const columns = Array.from({ length: 6 }, (_, column) => logos.filter((_, i) => 
   import "../scripts/scrolling-logo-grid";
 </script>
 <style>
+  .logo-flow { margin-top: 48px; }
   .logo-flow__static { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid #e8e5e7; border-left: 1px solid #e8e5e7; }
   .logo-flow__static li, .logo-flow__cell { height: 110px; display: flex; align-items: center; justify-content: center; padding: 20px; border-bottom: 1px solid #e8e5e7; border-right: 1px solid #e8e5e7; }
   .logo-flow__static :global(img), .logo-flow__cell :global(img) { object-fit: contain; max-width: 100%; }
@@ -36,7 +37,7 @@ const columns = Array.from({ length: 6 }, (_, column) => logos.filter((_, i) => 
   @media (prefers-reduced-motion: no-preference) {
     :global(html.js) .logo-flow__static { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
     :global(html.js) .logo-flow__motion { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid #e8e5e7; border-left: 1px solid #e8e5e7; }
-    .logo-flow__window { height: 330px; overflow: hidden; }
+    .logo-flow__window { height: 330px; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, #000 22px, #000 calc(100% - 22px), transparent); }
     .logo-flow__track { animation: logo-flow-up var(--duration) linear infinite; animation-delay: var(--offset); animation-play-state: paused; }
     .is-running .logo-flow__track { animation-play-state: running; }
     @keyframes logo-flow-up { to { transform: translateY(-50%); } }
