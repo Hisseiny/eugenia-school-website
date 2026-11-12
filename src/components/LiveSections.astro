@@ -233,7 +233,7 @@ const groupedSections = sections.map((section) => {
                       <fieldset class="portfolio-gallery__group" data-filter-group={group.key}>
                         <legend>{group.label}</legend>
                         <div class="portfolio-gallery__chips">
-                          {group.values.map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
+                          {[...new Set(block.items.flatMap((item) => item.filters[group.key] ?? []))].map((value) => <button type="button" class="chip" data-filter-value={value} aria-pressed="false">{value}</button>)}
                         </div>
                       </fieldset>
                     ))}

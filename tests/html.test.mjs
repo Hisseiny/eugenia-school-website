@@ -11,6 +11,7 @@ const html = (name) => {
   assert.ok(existsSync(output), `${file} missing: run pnpm build`);
   return readFileSync(output, "utf8");
 };
+const lot3 = JSON.parse(readFileSync("src/data/pages/lot3.json", "utf8"));
 const count = (s, re) => (s.match(re) ?? []).length;
 const filesUnder = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -364,6 +365,29 @@ test("project and related hackathon récit cards link to their case studies", ()
       assert.ok(links.some((link) => link.href === href && link.label === "Lire le récit"), `${route}: missing Lire le récit link to ${href}`);
     }
   }
+});
+
+test("portfolio filter chips match items in the live first-seen order", () => {
+  const source = html("portfolio");
+  const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
+  const items = lot3.portfolio.page.sections.flatMap((section) =>
+    section.blocks.filter((block) => block.type === "portfolio-grid").flatMap((block) => block.items),
+  );
+  const cards = [...main.matchAll(/<a\b([^>]*class="[^"]*portfolio-gallery__card[^"]*"[^>]*)>/g)]
+    .map(([, attributes]) => Object.fromEntries(["stack", "program", "type"].map((key) => [
+      key,
+      decodeEntities(attributes.match(new RegExp(`\\bdata-${key}="([^"]*)"`))?.[1] ?? "").split("|").filter(Boolean),
+    ])));
+  const groups = [...main.matchAll(/<fieldset\b[^>]*data-filter-group="([^"]+)"[^>]*>([\s\S]*?)<\/fieldset>/g)];
+  for (const [, key, contents] of groups) {
+    const expected = [...new Set(items.flatMap((item) => item.filters[key] ?? []))];
+    const actual = [...contents.matchAll(/data-filter-value="([^"]+)"/g)].map(([, value]) => decodeEntities(value));
+    assert.deepEqual(actual, expected, `${key}: chips must follow first-seen item values`);
+    for (const value of actual) {
+      assert.ok(cards.some((card) => card[key].includes(value)), `${key}=${value} must match at least one portfolio`);
+    }
+  }
+  assert.equal(groups.length, 3, "portfolio must render all filter groups");
 });
 
 test("school and company hubs use the requested link cards", () => {
