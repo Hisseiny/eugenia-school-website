@@ -198,17 +198,20 @@ const groupedSections = sections.map((section) => {
               return <div class="live-logo-grid">{items.map((item) => <div class="logo-grid__cell"><Logo name={item.name} alt={item.alt} height={36} /></div>)}</div>;
             }
             if (block.type === "image-group") {
-              return <div class="live-image-grid">{block.items.map((item) => <figure class="live-section__image"><Pic src={img(item.name)} alt={item.alt} sizes="(min-width: 1024px) 360px, 100vw" /></figure>)}</div>;
+              return <div class="live-image-grid">{block.items.map((item) => <figure class="live-section__image"><Pic src={img(item.name)} alt={item.alt} ratio="4 / 3" sizes="(min-width: 1024px) 360px, 100vw" /></figure>)}</div>;
             }
             if (block.type === "cards") {
               return (
                 <div class="live-card-grid">
                   {block.items.map((card) => (
                     <article class="live-card">
-                      {card.number && <span class="live-card__number">{card.number}</span>}
-                      {card.image && card.alt && <Pic src={img(card.image)} alt={card.alt} sizes="(min-width: 1024px) 360px, 100vw" />}
+                      {card.image && <Pic src={img(card.image)} alt={card.alt ?? ""} ratio="4 / 3" sizes="(min-width: 1024px) 360px, 100vw" />}
+                      {(card.eyebrow || card.number) && <span class="live-card__number">{card.eyebrow ?? card.number}</span>}
                       {card.title && <h3 class="h3-sm">{card.title}</h3>}
-                      <p class="live-section__text">{cleanText(card.text)}</p>
+                      {card.salary && <span class="live-card__number">{card.salary}</span>}
+                      {card.text && <p class="live-section__text">{cleanText(card.text)}</p>}
+                      {card.responsibilities && <ul class="live-section__list live-section__list--compact">{card.responsibilities.map((item) => <li>{cleanText(item)}</li>)}</ul>}
+                      {card.details?.map((detail) => <p class="live-section__text">{cleanText(detail)}</p>)}
                       {card.action && <a class="lnk live-card__link" href={card.action.href}>{card.action.label}</a>}
                       {card.logo && card.logoAlt && <Logo name={card.logo} alt={card.logoAlt} height={24} />}
                       {card.tags && <ul class="live-card__tags">{card.tags.map((tag) => <li>{tag}</li>)}</ul>}
@@ -339,7 +342,7 @@ const groupedSections = sections.map((section) => {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-    max-width: 1100px;
+    max-width: none;
   }
   .live-section__blocks > * {
     min-width: 0;
@@ -435,6 +438,17 @@ const groupedSections = sections.map((section) => {
     height: auto;
     border-radius: calc(var(--radius) - 4px);
   }
+  .live-section__image .pic,
+  .live-card .pic {
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 4px);
+  }
+  .live-section__image .pic :global(img),
+  .live-card .pic :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .live-card-grid,
   .live-logo-grid,
   .live-testimonial-grid,
@@ -444,8 +458,25 @@ const groupedSections = sections.map((section) => {
     gap: 20px;
     width: 100%;
   }
+  .live-card-grid,
+  .live-image-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 600px) {
+    .live-card-grid,
+    .live-image-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .live-card-grid,
+    .live-image-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
   .live-card {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-content: start;
     gap: 14px;
     padding: 28px;

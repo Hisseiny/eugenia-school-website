@@ -12,13 +12,14 @@ interface Props {
   eyebrow?: string;
   dataAnswer?: boolean;
   nativeImage?: boolean;
+  liveHero?: boolean;
   ratio?: string;
   position?: string;
 }
-const { title, id, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage = false, ratio, position } = Astro.props;
+const { title, id, lead, image, alt = "", eyebrow, dataAnswer = false, nativeImage = false, liveHero = false, ratio, position } = Astro.props;
 ---
 
-<section id={id} class:list={["container", "pagetop", !lead && "pagetop--single"]}>
+<section id={id} class:list={["container", "pagetop", !lead && "pagetop--single", liveHero && "pagetop--live"]}>
   <div class="pagetop__title-wrap">
     {eyebrow && <p class="eyebrow pagetop__eyebrow">{eyebrow}</p>}
     <h1 class="r1 display">{title}</h1>
@@ -52,6 +53,9 @@ const { title, id, lead, image, alt = "", eyebrow, dataAnswer = false, nativeIma
   .pagetop__eyebrow {
     margin-bottom: 18px;
   }
+  .pagetop .display {
+    overflow-wrap: break-word;
+  }
   /* The title column takes the width of the word; the lead gets the rest. */
   @media (min-width: 1024px) {
     .pagetop {
@@ -73,8 +77,8 @@ const { title, id, lead, image, alt = "", eyebrow, dataAnswer = false, nativeIma
       padding-bottom: 36px;
       gap: 20px;
     }
-    .pagetop .display {
-      font-size: clamp(36px, 11vw, 96px);
+    .pagetop--live .display {
+      font-size: clamp(32px, 11vw, 96px);
     }
   }
 </style>
