@@ -5,7 +5,7 @@
       "title": "Notre ADN : école IA, tech et growth | Eugenia School",
       "description": "L'ADN d'Eugenia School : des profils hybrides tech et business qui construisent, testent et lancent. Découvrez nos valeurs, nos fondateurs et notre vision.",
       "h1": "Des profils qui se distinguent.",
-      "image": "pr3_hero-cert",
+      "image": "l3_notre-adn_01_une-etudiante-souriante-cahier-ouv",
       "imageAlt": "Une étudiante souriante, cahier ouvert, pendant un cours sur le campus.",
       "eyebrow": "// notre adn",
       "lead": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
@@ -56,17 +56,14 @@
               "text": "Maths appliquées, approche quantitative."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "L’IA et la data à un niveau très technique : data science, data engineering."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Des compétences quantitatives appliquées au business."
+                {
+                  "text": "L’IA et la data à un niveau très technique : data science, data engineering."
+                },
+                {
+                  "title": "Des compétences quantitatives appliquées au business."
+                }
               ]
             },
             {
@@ -85,17 +82,14 @@
               "text": "Opérationnels, entrepreneuriaux, généralistes."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Des couteaux suisses de l’IA appliquée au business, sans maths avancées."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Des profils qui construisent, lancent et s’adaptent : IA, data et no-code au service du terrain."
+                {
+                  "text": "Des couteaux suisses de l’IA appliquée au business, sans maths avancées."
+                },
+                {
+                  "text": "Des profils qui construisent, lancent et s’adaptent : IA, data et no-code au service du terrain."
+                }
               ]
             }
           ],
@@ -109,31 +103,24 @@
               "text": "Quatre convictions, et tout le reste en découle."
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "01L’adaptabilité vaut plus que la spécialisation."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "02L’IA est le socle de tous les métiers à venir."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "03On peut être résolument tech et profondément humain."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "04Les meilleurs profils naviguent entre la tech et le business."
+                {
+                  "number": "01",
+                  "title": "L’adaptabilité vaut plus que la spécialisation."
+                },
+                {
+                  "number": "02",
+                  "title": "L’IA est le socle de tous les métiers à venir."
+                },
+                {
+                  "number": "03",
+                  "title": "On peut être résolument tech et profondément humain."
+                },
+                {
+                  "number": "04",
+                  "title": "Les meilleurs profils naviguent entre la tech et le business."
+                }
               ]
             },
             {
@@ -141,29 +128,22 @@
               "text": "Former des profils hybrides tech & business : ils maîtrisent l’IA, construisent du concret et s’adaptent à n’importe quel marché."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Bachelor · 3 ans"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "MSc · 2 ans"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Reconnus par l’État"
+                {
+                  "title": "Bachelor · 3 ans"
+                },
+                {
+                  "title": "MSc · 2 ans"
+                },
+                {
+                  "title": "Reconnus par l’État"
+                }
               ]
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_notre-adn_02_cinq-participants-dun-hackathon-as",
               "alt": "Cinq participants d’un hackathon, assis dans l’amphithéâtre, aux couleurs d’Eugenia School et de Dust."
             }
           ],
@@ -173,76 +153,37 @@
         {
           "blocks": [
             {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Une étudiante présente le projet de son équipe, micro en main, devant la promo."
-            },
-            {
-              "type": "paragraph",
-              "text": "01"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Lancer sans attendre."
-            },
-            {
-              "type": "paragraph",
-              "text": "Une idée devient un livrable avant d’être parfaite. L’erreur fait partie du chemin : on la repère, on la corrige, on relance."
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Un étudiant attentif pendant un cours, une promo derrière lui."
-            },
-            {
-              "type": "paragraph",
-              "text": "02"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Aller voir de plus près."
-            },
-            {
-              "type": "paragraph",
-              "text": "Un outil inconnu, un marché neuf, un problème sans réponse évidente : le réflexe consiste à ouvrir, tester, comprendre."
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Un étudiant commente un tableau de bord affiché à l’écran devant son groupe."
-            },
-            {
-              "type": "paragraph",
-              "text": "03"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Se remettre à jour."
-            },
-            {
-              "type": "paragraph",
-              "text": "Ce qui est vrai aujourd’hui sera peut-être à revoir dans six mois. Questionner ses certitudes devient une habitude de chaque semaine."
-            },
-            {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Trois étudiants en sweat Eugenia School, pouces levés, devant une affiche d’événement."
-            },
-            {
-              "type": "paragraph",
-              "text": "04"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Une trajectoire à soi."
-            },
-            {
-              "type": "paragraph",
-              "text": "Mêmes bases pour tous, puis chacun trace sa route. Les intitulés de poste changent vite ; savoir s’adapter reste."
+              "type": "cards",
+              "items": [
+                {
+                  "number": "01",
+                  "title": "Lancer sans attendre.",
+                  "text": "Une idée devient un livrable avant d’être parfaite. L’erreur fait partie du chemin : on la repère, on la corrige, on relance.",
+                  "image": "l3_notre-adn_03_une-etudiante-presente-le-projet-d",
+                  "alt": "Une étudiante présente le projet de son équipe, micro en main, devant la promo."
+                },
+                {
+                  "number": "02",
+                  "title": "Aller voir de plus près.",
+                  "text": "Un outil inconnu, un marché neuf, un problème sans réponse évidente : le réflexe consiste à ouvrir, tester, comprendre.",
+                  "image": "l3_notre-adn_04_un-etudiant-attentif-pendant-un-co",
+                  "alt": "Un étudiant attentif pendant un cours, une promo derrière lui."
+                },
+                {
+                  "number": "03",
+                  "title": "Se remettre à jour.",
+                  "text": "Ce qui est vrai aujourd’hui sera peut-être à revoir dans six mois. Questionner ses certitudes devient une habitude de chaque semaine.",
+                  "image": "l3_notre-adn_05_un-etudiant-commente-un-tableau-de",
+                  "alt": "Un étudiant commente un tableau de bord affiché à l’écran devant son groupe."
+                },
+                {
+                  "number": "04",
+                  "title": "Une trajectoire à soi.",
+                  "text": "Mêmes bases pour tous, puis chacun trace sa route. Les intitulés de poste changent vite ; savoir s’adapter reste.",
+                  "image": "l3_notre-adn_06_trois-etudiants-en-sweat-eugenia-s",
+                  "alt": "Trois étudiants en sweat Eugenia School, pouces levés, devant une affiche d’événement."
+                }
+              ]
             }
           ],
           "eyebrow": "03 · valeurs",
@@ -251,58 +192,30 @@
         {
           "blocks": [
             {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Deux étudiants rient ensemble devant un écran."
-            },
-            {
-              "type": "paragraph",
-              "text": "Petits groupes"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Chacun a un prénom."
-            },
-            {
-              "type": "paragraph",
-              "text": "Des classes à taille humaine, pensées pour que chacun soit accompagné de près."
-            },
-            {
-              "type": "image",
-              "name": "pr3_hero-cert",
-              "alt": "Une intervenante sourit en écoutant une question pendant un cours."
-            },
-            {
-              "type": "paragraph",
-              "text": "Mentors en poste"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Des pros à portée de question."
-            },
-            {
-              "type": "paragraph",
-              "text": "Des intervenants qui exercent leur métier et répondent, dans la salle comme après le cours."
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "Deux étudiants jouent au baby-foot dans un espace de détente du campus."
-            },
-            {
-              "type": "paragraph",
-              "text": "Suivi individuel"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Un cap, pas à pas."
-            },
-            {
-              "type": "paragraph",
-              "text": "Un suivi individuel pour ajuster la trajectoire de chacun, du premier semestre au premier poste."
+              "type": "cards",
+              "items": [
+                {
+                  "eyebrow": "Petits groupes",
+                  "title": "Chacun a un prénom.",
+                  "text": "Des classes à taille humaine, pensées pour que chacun soit accompagné de près.",
+                  "image": "l3_notre-adn_07_deux-etudiants-rient-ensemble-deva",
+                  "alt": "Deux étudiants rient ensemble devant un écran."
+                },
+                {
+                  "eyebrow": "Mentors en poste",
+                  "title": "Des pros à portée de question.",
+                  "text": "Des intervenants qui exercent leur métier et répondent, dans la salle comme après le cours.",
+                  "image": "l3_notre-adn_08_une-intervenante-sourit-en-ecoutan",
+                  "alt": "Une intervenante sourit en écoutant une question pendant un cours."
+                },
+                {
+                  "eyebrow": "Suivi individuel",
+                  "title": "Un cap, pas à pas.",
+                  "text": "Un suivi individuel pour ajuster la trajectoire de chacun, du premier semestre au premier poste.",
+                  "image": "l3_notre-adn_09_deux-etudiants-jouent-au-baby-foot",
+                  "alt": "Deux étudiants jouent au baby-foot dans un espace de détente du campus."
+                }
+              ]
             }
           ],
           "eyebrow": "04 · le côté humain",
@@ -316,7 +229,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_hero-cert",
+              "name": "l3_notre-adn_10_image",
               "alt": ""
             },
             {
@@ -339,7 +252,7 @@
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_notre-adn_11_une-promo-en-sweat-eugenia-school-",
               "alt": "Une promo en sweat Eugenia School, réunie devant l’atrium du campus."
             }
           ],
@@ -349,112 +262,54 @@
         {
           "blocks": [
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Remise des diplômes"
+                {
+                  "title": "Remise des diplômes",
+                  "image": "l3_notre-adn_12_des-diplomes-lancent-leurs-toques-",
+                  "alt": "Des diplômés lancent leurs toques dans une pluie de confettis."
+                },
+                {
+                  "title": "Week-end d’intégration",
+                  "image": "l3_notre-adn_13_des-etudiants-sur-une-plage-lors-d",
+                  "alt": "Des étudiants sur une plage lors du week-end d’intégration."
+                },
+                {
+                  "title": "Running Club",
+                  "image": "l3_notre-adn_14_deux-coureuses-en-pleine-course-su",
+                  "alt": "Deux coureuses en pleine course sur une piste d’athlétisme."
+                },
+                {
+                  "title": "MSc",
+                  "image": "l3_notre-adn_15_un-groupe-detudiants-du-msc-souria",
+                  "alt": "Un groupe d’étudiants du MSc, souriants, pouces levés."
+                },
+                {
+                  "title": "L’amphithéâtre",
+                  "image": "l3_notre-adn_16_lamphitheatre-du-campus-sous-la-ve",
+                  "alt": "L’amphithéâtre du campus sous la verrière."
+                },
+                {
+                  "title": "Hackathon",
+                  "image": "l3_notre-adn_17_les-etudiants-suivent-des-presenta",
+                  "alt": "Les étudiants suivent des présentations dans l’amphithéâtre."
+                },
+                {
+                  "title": "Pause baby-foot",
+                  "image": "l3_notre-adn_18_une-partie-de-baby-foot-entre-etud",
+                  "alt": "Une partie de baby-foot entre étudiants."
+                },
+                {
+                  "title": "Après le pitch",
+                  "image": "l3_notre-adn_19_des-etudiants-souriants-dans-le-pu",
+                  "alt": "Des étudiants souriants dans le public d’une présentation."
+                },
+                {
+                  "title": "Entre étudiants",
+                  "image": "l3_notre-adn_20_deux-etudiants-echangent-autour-du",
+                  "alt": "Deux étudiants échangent autour d’un ordinateur portable."
+                }
               ]
-            },
-            {
-              "type": "image",
-              "name": "pr3_hero-cert",
-              "alt": "Des diplômés lancent leurs toques dans une pluie de confettis."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Week-end d’intégration"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Des étudiants sur une plage lors du week-end d’intégration."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Running Club"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "pr3_hero-cert",
-              "alt": "Deux coureuses en pleine course sur une piste d’athlétisme."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "MSc"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Un groupe d’étudiants du MSc, souriants, pouces levés."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "L’amphithéâtre"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "L’amphithéâtre du campus sous la verrière."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Hackathon"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "Les étudiants suivent des présentations dans l’amphithéâtre."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Pause baby-foot"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Une partie de baby-foot entre étudiants."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Après le pitch"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Des étudiants souriants dans le public d’une présentation."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Entre étudiants"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Deux étudiants échangent autour d’un ordinateur portable."
             }
           ],
           "eyebrow": "l’école, vue de l’intérieur",
@@ -496,7 +351,7 @@
       "title": "Campus de Paris 10e : école IA et tech | Eugenia School",
       "description": "Le campus d'Eugenia School à Paris 10e : amphithéâtre, salles de projet, vie associative et quartier étudiant. Venez le visiter avec l'équipe.",
       "h1": "Un campus qui vit.",
-      "image": "p_atrium_wide",
+      "image": "l3_campus-paris_01_des-diplomes-en-toge-rouge-lancent",
       "imageAlt": "Des diplômés en toge rouge lancent leurs toques dans une pluie de confettis, devant le logo Eugenia School",
       "eyebrow": "// campus · paris 10e",
       "lead": "Le campus d’une école IA hors Parcoursup : une verrière, un amphithéâtre, des salles où l’on construit. 2 500 m² dans un quartier d’étudiants, vivant et plein d’énergie.",
@@ -538,63 +393,51 @@
         {
           "blocks": [
             {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "L’amphithéâtre du campus sous la verrière, vu depuis le bas"
-            },
-            {
-              "type": "paragraph",
-              "text": "01 · sous la verrièreL’amphithéâtreLe même campus qu’Albert School : deux fois plus d’énergie, une vie associative deux fois plus grande."
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": "Une salle de classe aux tables en bois et aux chaises bleues"
-            },
-            {
-              "type": "paragraph",
-              "text": "02 · en coursLes salles de classeDe grandes tables en bois, de la lumière, des classes à échelle humaine."
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "L’amphithéâtre du campus : un intervenant au micro devant un grand mur de carrelage ancien et un escalier blanc"
-            },
-            {
-              "type": "paragraph",
-              "text": "03 · en conférenceLa scène des intervenantsUn intervenant au micro, des étudiants qui posent leurs questions : l’amphithéâtre sert aussi de scène."
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Des étudiants jouent au babyfoot dans le salon étudiant"
-            },
-            {
-              "type": "paragraph",
-              "text": "04 · en pauseLe salonLe babyfoot a ses habitués, et ses rivalités."
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "L’escalier en pierre du campus, devant de grandes fresques en carrelage ancien"
-            },
-            {
-              "type": "paragraph",
-              "text": "05 · à chaque palierLe grand escalierCarrelages anciens, fresques et haute lumière : un escalier de caractère au milieu du campus."
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "Deux étudiants échangent autour d’un ordinateur portable, à une table du campus"
-            },
-            {
-              "type": "paragraph",
-              "text": "06 · à deuxLes coins de travailUn ordinateur, un café, et la bonne idée qui arrive à deux."
-            },
-            {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Cinq étudiants d’Eugenia School souriants, côte à côte devant un mur clair"
+              "type": "cards",
+              "items": [
+                {
+                  "number": "01 · sous la verrière",
+                  "title": "L’amphithéâtre",
+                  "text": "Le même campus qu’Albert School : deux fois plus d’énergie, une vie associative deux fois plus grande.",
+                  "image": "l3_campus-paris_02_lamphitheatre-du-campus-sous-la-ve",
+                  "alt": "L’amphithéâtre du campus sous la verrière, vu depuis le bas"
+                },
+                {
+                  "number": "02 · en cours",
+                  "title": "Les salles de classe",
+                  "text": "De grandes tables en bois, de la lumière, des classes à échelle humaine.",
+                  "image": "l3_campus-paris_03_une-salle-de-classe-aux-tables-en-",
+                  "alt": "Une salle de classe aux tables en bois et aux chaises bleues"
+                },
+                {
+                  "number": "03 · en conférence",
+                  "title": "La scène des intervenants",
+                  "text": "Un intervenant au micro, des étudiants qui posent leurs questions : l’amphithéâtre sert aussi de scène.",
+                  "image": "l3_campus-paris_04_lamphitheatre-du-campus-un-interve",
+                  "alt": "L’amphithéâtre du campus : un intervenant au micro devant un grand mur de carrelage ancien et un escalier blanc"
+                },
+                {
+                  "number": "04 · en pause",
+                  "title": "Le salon",
+                  "text": "Le babyfoot a ses habitués, et ses rivalités.",
+                  "image": "l3_campus-paris_05_des-etudiants-jouent-au-babyfoot-d",
+                  "alt": "Des étudiants jouent au babyfoot dans le salon étudiant"
+                },
+                {
+                  "number": "05 · à chaque palier",
+                  "title": "Le grand escalier",
+                  "text": "Carrelages anciens, fresques et haute lumière : un escalier de caractère au milieu du campus.",
+                  "image": "l3_campus-paris_06_lescalier-en-pierre-du-campus-deva",
+                  "alt": "L’escalier en pierre du campus, devant de grandes fresques en carrelage ancien"
+                },
+                {
+                  "number": "06 · à deux",
+                  "title": "Les coins de travail",
+                  "text": "Un ordinateur, un café, et la bonne idée qui arrive à deux.",
+                  "image": "l3_campus-paris_07_deux-etudiants-echangent-autour-du",
+                  "alt": "Deux étudiants échangent autour d’un ordinateur portable, à une table du campus"
+                }
+              ]
             }
           ],
           "eyebrow": "les lieux",
@@ -603,24 +446,28 @@
         {
           "blocks": [
             {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "01Des classes à échelle humaineAssez d’espace pour travailler, assez peu de monde pour que chacun prenne la parole."
-              ]
+              "type": "image",
+              "name": "l3_campus-paris_08_cinq-etudiants-deugenia-school-sou",
+              "alt": "Cinq étudiants d’Eugenia School souriants, côte à côte devant un mur clair"
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "02Des portes qui s’ouvrentProfesseurs et équipe administrative sont sur place, à quelques mètres des salles."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "03Des lieux pour tout faireTravailler, pitcher, déjeuner, souffler : chaque coin du campus a son usage."
+                {
+                  "number": "01",
+                  "title": "Des classes à échelle humaine",
+                  "text": "Assez d’espace pour travailler, assez peu de monde pour que chacun prenne la parole."
+                },
+                {
+                  "number": "02",
+                  "title": "Des portes qui s’ouvrent",
+                  "text": "Professeurs et équipe administrative sont sur place, à quelques mètres des salles."
+                },
+                {
+                  "number": "03",
+                  "title": "Des lieux pour tout faire",
+                  "text": "Travailler, pitcher, déjeuner, souffler : chaque coin du campus a son usage."
+                }
               ]
             }
           ],
@@ -630,220 +477,54 @@
         {
           "blocks": [
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "soirée"
+                {
+                  "title": "soirée",
+                  "image": "l3_campus-paris_09_une-etudiante-hume-un-verre-de-vin",
+                  "alt": "Une étudiante hume un verre de vin lors d’une dégustation"
+                },
+                {
+                  "title": "running club",
+                  "image": "l3_campus-paris_10_deux-coureuses-sur-une-piste-dathl",
+                  "alt": "Deux coureuses sur une piste d’athlétisme"
+                },
+                {
+                  "title": "podcast",
+                  "image": "l3_campus-paris_11_un-groupe-damis-autour-dun-micro-d",
+                  "alt": "Un groupe d’amis autour d’un micro de podcast"
+                },
+                {
+                  "title": "amphi",
+                  "image": "l3_campus-paris_12_une-promo-en-pull-marine-assise-da",
+                  "alt": "Une promo en pull marine, assise dans l’amphithéâtre"
+                },
+                {
+                  "title": "babyfoot",
+                  "image": "l3_campus-paris_13_deux-etudiants-concentres-devant-u",
+                  "alt": "Deux étudiants concentrés devant un babyfoot"
+                },
+                {
+                  "title": "équipes",
+                  "image": "l3_campus-paris_14_des-etudiants-souriants-pendant-le",
+                  "alt": "Des étudiants souriants pendant les présentations"
+                },
+                {
+                  "title": "dehors",
+                  "image": "l3_campus-paris_15_une-promo-en-chemise-blanche-photo",
+                  "alt": "Une promo en chemise blanche, photographiée devant un bâtiment vitré"
+                },
+                {
+                  "title": "pitch",
+                  "image": "l3_campus-paris_16_une-etudiante-presente-le-projet-d",
+                  "alt": "Une étudiante présente le projet de son équipe, micro en main"
+                },
+                {
+                  "title": "rencontres",
+                  "image": "l3_campus-paris_17_une-etudiante-pose-avec-un-invite-",
+                  "alt": "Une étudiante pose avec un invité devant un portant de vêtements"
+                }
               ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Une étudiante hume un verre de vin lors d’une dégustation"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "running club"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": "Deux coureuses sur une piste d’athlétisme"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "podcast"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": "Un groupe d’amis autour d’un micro de podcast"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "amphi"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium",
-              "alt": "Une promo en pull marine, assise dans l’amphithéâtre"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "babyfoot"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Deux étudiants concentrés devant un babyfoot"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "équipes"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Des étudiants souriants pendant les présentations"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "dehors"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": "Une promo en chemise blanche, photographiée devant un bâtiment vitré"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "pitch"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Une étudiante présente le projet de son équipe, micro en main"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "rencontres"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Une étudiante pose avec un invité devant un portant de vêtements"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "soirée"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "running club"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "podcast"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "amphi"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "babyfoot"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "équipes"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "dehors"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "pitch"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "rencontres"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": ""
             }
           ],
           "eyebrow": "moments de campus",
@@ -857,7 +538,7 @@
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_campus-paris_27_un-intervenant-prend-la-parole-dev",
               "alt": "Un intervenant prend la parole devant une bannière, dans une salle du campus"
             },
             {
@@ -875,7 +556,7 @@
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_campus-paris_28_lamphitheatre-rempli-detudiants-pe",
               "alt": "L’amphithéâtre rempli d’étudiants pendant un hackathon"
             },
             {
@@ -893,7 +574,7 @@
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_campus-paris_29_des-etudiants-en-tenue-de-ville-ti",
               "alt": "Des étudiants en tenue de ville tiennent leur CV lors d’un job dating"
             },
             {
@@ -911,7 +592,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_campus-paris_30_une-equipe-sur-scene-avec-le-troph",
               "alt": "Une équipe sur scène avec le trophée du hackathon"
             },
             {
@@ -929,7 +610,7 @@
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_campus-paris_31_les-diplomes-en-toge-rouge-et-etol",
               "alt": "Les diplômés en toge rouge et étole jaune, diplôme en main, devant le logo Eugenia School"
             }
           ],
@@ -954,7 +635,7 @@
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_campus-paris_32_la-facade-du-campus-deugenia-schoo",
               "alt": "La façade du campus d’Eugenia School, rue de Paradis"
             },
             {
@@ -1047,58 +728,26 @@
               "text": "Entre la gare de l’Est et le canal Saint-Martin, le 10e déborde de terrasses, de restaurants, de bars et de cafés. Les pauses et les fins de journée se vivent dehors, en bande."
             },
             {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": "Une promo en chemise blanche, réunie devant un bâtiment vitré"
-            },
-            {
-              "type": "paragraph",
-              "text": "se retrouver"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Le point de rendez-vous"
-            },
-            {
-              "type": "paragraph",
-              "text": "Une terrasse, un café, et la promo qui grossit au fil des minutes."
-            },
-            {
-              "type": "image",
-              "name": "p_duo",
-              "alt": "Deux étudiants échangent autour d’un ordinateur, à une table"
-            },
-            {
-              "type": "paragraph",
-              "text": "déjeuner"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "La pause du midi"
-            },
-            {
-              "type": "paragraph",
-              "text": "Des adresses pour tous les goûts, à deux pas : on change de table chaque semaine."
-            },
-            {
-              "type": "image",
-              "name": "p_atrium_wide",
-              "alt": "Le comptoir d’un bar du quartier, éclairé en rose et violet"
-            },
-            {
-              "type": "paragraph",
-              "text": "sortir"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Après les cours"
-            },
-            {
-              "type": "paragraph",
-              "text": "Dégustations, tournois, soirées : le quartier prolonge la journée."
+              "type": "cards",
+              "items": [
+                {
+                  "eyebrow": "se retrouver",
+                  "title": "Le point de rendez-vous",
+                  "text": "Une terrasse, un café, et la promo qui grossit au fil des minutes."
+                },
+                {
+                  "eyebrow": "déjeuner",
+                  "title": "La pause du midi",
+                  "text": "Des adresses pour tous les goûts, à deux pas : on change de table chaque semaine."
+                },
+                {
+                  "eyebrow": "sortir",
+                  "title": "Après les cours",
+                  "text": "Dégustations, tournois, soirées : le quartier prolonge la journée.",
+                  "image": "l3_campus-paris_35_le-comptoir-dun-bar-du-quartier-ec",
+                  "alt": "Le comptoir d’un bar du quartier, éclairé en rose et violet"
+                }
+              ]
             },
             {
               "type": "paragraph",
@@ -1144,7 +793,7 @@
       "title": "Vie étudiante : associations, WEI, événements | Eugenia",
       "description": "La vie étudiante à Eugenia School : associations, événements, WEI, bureau des étudiants et des sports, conférences. Découvrez une communauté soudée.",
       "h1": "Une école jeune. Une communauté prospère.",
-      "image": "n_soiree",
+      "image": "l3_vie-etudiante_01_la-vie-etudiante-deugenia-school-e",
       "imageAlt": "La vie étudiante d’Eugenia School, entre les différents niveaux",
       "eyebrow": "// la vie étudiante",
       "lead": "À Eugenia, la vie étudiante déborde des cours : associations, événements, projets collectifs, moments de convivialité. Dans cette école hors Parcoursup, une communauté soudée construit des souvenirs et un réseau professionnel solide.",
@@ -1167,89 +816,42 @@
         {
           "blocks": [
             {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Le week-end d’intégration d’Eugenia School"
-            },
-            {
-              "type": "paragraph",
-              "text": "WEI"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Weekend d’intégration"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Week-end d’Intégration réunit les nouveaux étudiants dans une ambiance festive et conviviale. Chaque année la destination change, du sud de la France à la plage espagnole : tout le monde retourne en vacances."
-            },
-            {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Le running club d’Eugenia School"
-            },
-            {
-              "type": "paragraph",
-              "text": "Run"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Running Club"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le club de course de l’école réunit des coureurs confirmés et des débutants motivés à rester en forme. Le club se développe et prévoit de concourir à des compétitions d’athlétisme."
-            },
-            {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "La Junior Entreprise d’Eugenia School"
-            },
-            {
-              "type": "paragraph",
-              "text": "Consulting"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Junior Entreprise"
-            },
-            {
-              "type": "paragraph",
-              "text": "La Junior-Entreprise est une association étudiante de consulting : elle réalise des missions pour les entreprises et offre aux étudiants une expérience professionnelle enrichissante."
-            },
-            {
-              "type": "paragraph",
-              "text": "BDS"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Bureau Des Sports"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Bureau des Sports (BDS) développe la culture sportive de l’école : sports variés, compétitions, tournois et entraînements. Il encourage un mode de vie actif, en équilibre avec les cours, et fédère les étudiants autour de nouvelles disciplines."
-            },
-            {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Le Bureau des Étudiants d’Eugenia School"
-            },
-            {
-              "type": "paragraph",
-              "text": "BDE"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Bureau Des Étudiants"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Bureau des Étudiants (BDE) est THE association de l’école : il anime la vie étudiante et toutes les autres associations. Les étudiants d’Albert et d’Eugenia travaillent main dans la main pour proposer les meilleurs projets, événements et activités. Le BDE représente aussi les étudiants auprès de l’administration et crée un espace chill pour respirer."
+              "type": "cards",
+              "items": [
+                {
+                  "eyebrow": "WEI",
+                  "title": "Weekend d’intégration",
+                  "text": "Le Week-end d’Intégration réunit les nouveaux étudiants dans une ambiance festive et conviviale. Chaque année la destination change, du sud de la France à la plage espagnole : tout le monde retourne en vacances.",
+                  "image": "l3_vie-etudiante_02_le-week-end-dintegration-deugenia-",
+                  "alt": "Le week-end d’intégration d’Eugenia School"
+                },
+                {
+                  "eyebrow": "Run",
+                  "title": "Running Club",
+                  "text": "Le club de course de l’école réunit des coureurs confirmés et des débutants motivés à rester en forme. Le club se développe et prévoit de concourir à des compétitions d’athlétisme.",
+                  "image": "l3_vie-etudiante_03_le-running-club-deugenia-school",
+                  "alt": "Le running club d’Eugenia School"
+                },
+                {
+                  "eyebrow": "Consulting",
+                  "title": "Junior Entreprise",
+                  "text": "La Junior-Entreprise est une association étudiante de consulting : elle réalise des missions pour les entreprises et offre aux étudiants une expérience professionnelle enrichissante.",
+                  "image": "l3_vie-etudiante_04_la-junior-entreprise-deugenia-scho",
+                  "alt": "La Junior Entreprise d’Eugenia School"
+                },
+                {
+                  "eyebrow": "BDS",
+                  "title": "Bureau Des Sports",
+                  "text": "Le Bureau des Sports (BDS) développe la culture sportive de l’école : sports variés, compétitions, tournois et entraînements. Il encourage un mode de vie actif, en équilibre avec les cours, et fédère les étudiants autour de nouvelles disciplines."
+                },
+                {
+                  "eyebrow": "BDE",
+                  "title": "Bureau Des Étudiants",
+                  "text": "Le Bureau des Étudiants (BDE) est THE association de l’école : il anime la vie étudiante et toutes les autres associations. Les étudiants d’Albert et d’Eugenia travaillent main dans la main pour proposer les meilleurs projets, événements et activités. Le BDE représente aussi les étudiants auprès de l’administration et crée un espace chill pour respirer.",
+                  "image": "l3_vie-etudiante_05_le-bureau-des-etudiants-deugenia-s",
+                  "alt": "Le Bureau des Étudiants d’Eugenia School"
+                }
+              ]
             }
           ],
           "eyebrow": "opportunités",
@@ -1259,7 +861,7 @@
           "blocks": [
             {
               "type": "image",
-              "name": "n_soiree",
+              "name": "l3_vie-etudiante_06_image",
               "alt": ""
             },
             {
@@ -1277,93 +879,45 @@
               "text": "Sport, business, rencontres : il y a une association pour toi, et tu peux en créer une."
             },
             {
-              "type": "heading",
-              "level": 3,
-              "text": "Bureau des Étudiants"
-            },
-            {
-              "type": "paragraph",
-              "text": "Organise des événements et des fêtes pour les étudiants"
-            },
-            {
-              "type": "image",
-              "name": "n_soiree",
-              "alt": ""
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Bureau des Sports"
-            },
-            {
-              "type": "paragraph",
-              "text": "Organise des événements sportifs et des participations à des rencontres de haut niveau"
-            },
-            {
-              "type": "image",
-              "name": "n_soiree",
-              "alt": ""
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Junior Entreprise"
-            },
-            {
-              "type": "paragraph",
-              "text": "Travaille sur de véritables missions de conseil pour les entreprises"
-            },
-            {
-              "type": "image",
-              "name": "n_soiree",
-              "alt": ""
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Integration Weekend"
-            },
-            {
-              "type": "paragraph",
-              "text": "Une expérience incroyable pour les nouveaux étudiants"
-            },
-            {
-              "type": "image",
-              "name": "n_soiree",
-              "alt": ""
-            },
-            {
-              "type": "image",
-              "name": "n_soiree",
-              "alt": ""
-            },
-            {
-              "type": "image",
-              "name": "n_soiree",
-              "alt": ""
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Running Club"
-            },
-            {
-              "type": "paragraph",
-              "text": "Séances hebdomadaires et entraînement au marathon"
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Wine Tasting Club"
-            },
-            {
-              "type": "paragraph",
-              "text": "Découvrir et apprécier les grands vins"
-            },
-            {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Une étudiante en pleine partie de ping-pong sur le campus d’Eugenia School"
+              "type": "cards",
+              "items": [
+                {
+                  "title": "Bureau des Étudiants",
+                  "text": "Organise des événements et des fêtes pour les étudiants",
+                  "image": "l3_vie-etudiante_07_image",
+                  "alt": ""
+                },
+                {
+                  "title": "Bureau des Sports",
+                  "text": "Organise des événements sportifs et des participations à des rencontres de haut niveau",
+                  "image": "l3_vie-etudiante_08_image",
+                  "alt": ""
+                },
+                {
+                  "title": "Junior Entreprise",
+                  "text": "Travaille sur de véritables missions de conseil pour les entreprises",
+                  "image": "l3_vie-etudiante_09_image",
+                  "alt": ""
+                },
+                {
+                  "title": "Integration Weekend",
+                  "text": "Une expérience incroyable pour les nouveaux étudiants",
+                  "image": "l3_vie-etudiante_10_image",
+                  "alt": ""
+                },
+                {
+                  "title": "Running Club",
+                  "text": "Séances hebdomadaires et entraînement au marathon",
+                  "image": "l3_vie-etudiante_11_image",
+                  "alt": ""
+                },
+                {
+                  "title": "Wine Tasting Club",
+                  "text": "Découvrir et apprécier les grands vins",
+                  "image": "l3_vie-etudiante_12_image",
+                  "alt": ""
+                }
+              ]
             }
           ],
           "eyebrow": "associations étudiantes & clubs",
@@ -1376,38 +930,23 @@
               "text": "Des espaces conçus pour collaborer et pour se retrouver, dans un quartier dynamique, à proximité de bars, de restaurants et d’espaces de travail."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Salle BDE"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Zones de détente"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Cafétéria"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Salles de classe modernes"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Espaces de travail pour les projets d’équipe et entrepreneuriaux"
+                {
+                  "title": "Salle BDE"
+                },
+                {
+                  "title": "Zones de détente"
+                },
+                {
+                  "title": "Cafétéria"
+                },
+                {
+                  "title": "Salles de classe modernes"
+                },
+                {
+                  "title": "Espaces de travail pour les projets d’équipe et entrepreneuriaux"
+                }
               ]
             },
             {
@@ -1417,13 +956,18 @@
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_vie-etudiante_14_deux-etudiants-deugenia-school-sou",
               "alt": "Deux étudiants d’Eugenia School souriants, bras sur les épaules, dans le hall du campus"
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_vie-etudiante_15_des-etudiants-et-des-invites-echan",
               "alt": "Des étudiants et des invités échangent et rient autour d’un café sur le campus"
+            },
+            {
+              "type": "image",
+              "name": "l3_vie-etudiante_13_une-etudiante-en-pleine-partie-de-",
+              "alt": "Une étudiante en pleine partie de ping-pong sur le campus d’Eugenia School"
             }
           ],
           "eyebrow": "expérience étudiante",
@@ -1432,24 +976,20 @@
         {
           "blocks": [
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Une administration solidaireUne équipe à l’écoute, à portée de main."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Un mentorat personnaliséPour t’orienter dans ton parcours scolaire et professionnel."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Un accompagnement en santé mentaleCentré sur la réussite scolaire et l’épanouissement personnel."
+                {
+                  "title": "Une administration solidaire",
+                  "text": "Une équipe à l’écoute, à portée de main."
+                },
+                {
+                  "title": "Un mentorat personnalisé",
+                  "text": "Pour t’orienter dans ton parcours scolaire et professionnel."
+                },
+                {
+                  "title": "Un accompagnement en santé mentale",
+                  "text": "Centré sur la réussite scolaire et l’épanouissement personnel."
+                }
               ]
             },
             {
@@ -1465,7 +1005,7 @@
           "blocks": [
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_vie-etudiante_16_deux-jeunes-hommes-complices-bras-",
               "alt": "Deux jeunes hommes complices, bras sur les épaules, sur le campus pendant une conférence"
             },
             {
@@ -1483,7 +1023,7 @@
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_vie-etudiante_17_jokariz-au-micro-face-aux-etudiant",
               "alt": "Jokariz au micro, face aux étudiants, pendant sa conférence sur le campus"
             },
             {
@@ -1501,7 +1041,7 @@
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_vie-etudiante_18_un-etudiant-ou-un-invite-prend-la-",
               "alt": "Un étudiant ou un invité prend la parole au micro devant l’écran de présentation, dans l’amphithéâtre"
             }
           ],
@@ -1544,7 +1084,7 @@
       "title": "Entrepreneuriat : Station F, hackathons | Eugenia School",
       "description": "L'entrepreneuriat à Eugenia School : projet d'entreprise, hackathons, Station F et réseau de startups. Lancez votre premier projet dès la 1re année.",
       "h1": "Lancer. Tester. Recommencer.",
-      "image": "hq_stationf_hall",
+      "image": "l3_entrepreneuriat_01_le-grand-hall-vitre-de-station-f-s",
       "imageAlt": "Le grand hall vitré de Station F, sa verrière et sa sculpture colorée",
       "eyebrow": "// entrepreneuriat · Paris 10e",
       "lead": "Une école growth pensée comme un espace de coworking : partenariats avec Station F et l’incubateur HEC, fondateurs invités sur scène. L’envie de monter un projet trouve ici tout ce qu’il lui faut pour démarrer.",
@@ -1629,64 +1169,33 @@
         {
           "blocks": [
             {
-              "type": "image",
-              "name": "lg_eugenia",
-              "alt": "Groupe d’étudiants d’Eugenia School dans le grand hall vitré de Station F, devant la sculpture colorée"
-            },
-            {
-              "type": "image",
-              "name": "lg_stationf",
-              "alt": "Station F",
-              "logo": true
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Station F"
-            },
-            {
-              "type": "paragraph",
-              "text": "Hackathons et Business Deep Dives aux côtés de startups. Et dès la rentrée, deux semaines d’intégration qui plongent les nouveaux dans l’écosystème, de Station F à Make Sense."
-            },
-            {
-              "type": "image",
-              "name": "lg_hec",
-              "alt": "Bâtiment du campus HEC Paris"
-            },
-            {
-              "type": "image",
-              "name": "lg_hec",
-              "alt": "Incubateur HEC",
-              "logo": true
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "Incubateur HEC"
-            },
-            {
-              "type": "paragraph",
-              "text": "Un accès privilégié à des projets académiques et à l’écosystème entrepreneurial de l’incubateur HEC."
-            },
-            {
-              "type": "image",
-              "name": "lg_vivatech",
-              "alt": "Le grand logo VIVA de VivaTech au milieu de la foule"
-            },
-            {
-              "type": "image",
-              "name": "lg_vivatech",
-              "alt": "START Paris & VivaTech",
-              "logo": true
-            },
-            {
-              "type": "heading",
-              "level": 3,
-              "text": "START Paris & VivaTech"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le campus accueille START Paris, hub de l’entrepreneuriat. Étudiants et alumni plongent aussi dans VivaTech, le grand rendez-vous européen de la tech."
+              "type": "cards",
+              "items": [
+                {
+                  "title": "Station F",
+                  "text": "Hackathons et Business Deep Dives aux côtés de startups. Et dès la rentrée, deux semaines d’intégration qui plongent les nouveaux dans l’écosystème, de Station F à Make Sense.",
+                  "image": "l3_entrepreneuriat_02_groupe-detudiants-deugenia-school-",
+                  "alt": "Groupe d’étudiants d’Eugenia School dans le grand hall vitré de Station F, devant la sculpture colorée",
+                  "logo": "lg_stationf",
+                  "logoAlt": "Station F"
+                },
+                {
+                  "title": "Incubateur HEC",
+                  "text": "Un accès privilégié à des projets académiques et à l’écosystème entrepreneurial de l’incubateur HEC.",
+                  "image": "l3_entrepreneuriat_03_batiment-du-campus-hec-paris",
+                  "alt": "Bâtiment du campus HEC Paris",
+                  "logo": "lg_hec",
+                  "logoAlt": "Incubateur HEC"
+                },
+                {
+                  "title": "START Paris & VivaTech",
+                  "text": "Le campus accueille START Paris, hub de l’entrepreneuriat. Étudiants et alumni plongent aussi dans VivaTech, le grand rendez-vous européen de la tech.",
+                  "image": "l3_entrepreneuriat_04_le-grand-logo-viva-de-vivatech-au-",
+                  "alt": "Le grand logo VIVA de VivaTech au milieu de la foule",
+                  "logo": "lg_vivatech",
+                  "logoAlt": "START Paris & VivaTech"
+                }
+              ]
             }
           ],
           "eyebrow": "l’écosystème",
@@ -1709,32 +1218,32 @@
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_entrepreneuriat_05_une-etudiante-pitche-son-projet-au",
               "alt": "Une étudiante pitche son projet au micro devant les autres équipes"
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_entrepreneuriat_06_un-intervenant-prend-la-parole-au-",
               "alt": "Un intervenant prend la parole au micro dans l’amphithéâtre du campus"
             },
             {
               "type": "image",
-              "name": "hq_stationf_hall",
+              "name": "l3_entrepreneuriat_07_trois-personnes-en-pull-eugenia-po",
               "alt": "Trois personnes en pull Eugenia posent devant un panneau de Géniathon"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_entrepreneuriat_08_equipe-dun-hackathon-en-t-shirts-a",
               "alt": "Équipe d’un hackathon en t-shirts aux couleurs de ses partenaires"
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_entrepreneuriat_09_une-etudiante-prend-la-parole-au-m",
               "alt": "Une étudiante prend la parole au micro dans le hall du campus"
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_entrepreneuriat_10_un-intervenant-echange-avec-des-et",
               "alt": "Un intervenant échange avec des étudiants dans l’amphithéâtre du campus"
             },
             {
@@ -1818,7 +1327,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Entrepreneuriat7 idées de business à lancer pendant ses étudesLire l’article → EntrepreneuriatLes erreurs classiques des jeunes entrepreneurs, et comment les éviterLire l’article →"
+              "text": "Entrepreneuriat7 idées de business à lancer pendant ses études Lire l’article → Entrepreneuriat Les erreurs classiques des jeunes entrepreneurs, et comment les éviter Lire l’article →"
             }
           ],
           "eyebrow": "à lire dans le tech hub",
@@ -1860,7 +1369,7 @@
       "title": "Pédagogie et professeurs : la méthode QCOR | Eugenia",
       "description": "L'approche pédagogique d'Eugenia School : la méthode QCOR, des professeurs en poste et des projets avec les entreprises. Découvrez comment on apprend.",
       "h1": "Apprendre avec ceux qui font.",
-      "image": "pr3_sec-professeurs",
+      "image": "l3_approche-pedagogique_01_une-conversation-entre-etudiants-e",
       "imageAlt": "Une conversation entre étudiants et intervenants dans l’amphithéâtre du campus, devant de grandes fresques en carrelage",
       "eyebrow": "// profs · méthode",
       "lead": "Dans cette école tech et growth, des data analysts, CEO, city managers et consultants SEO mènent les cours. Chaque séance part d’un cas réel et se termine sur un livrable.",
@@ -1881,7 +1390,7 @@
           "blocks": [
             {
               "type": "image",
-              "name": "pr3_sec-professeurs",
+              "name": "l3_approche-pedagogique_02_stephane-velasquez-directeur-de-le",
               "alt": "Stéphane Velasquez, directeur de l’école"
             },
             {
@@ -1901,24 +1410,23 @@
               "text": "Stéphane Velasquez veut changer l’approche pédagogique des écoles : partir de chaque étudiant, et faire de la variété des profils une force."
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "01Centrer l’école sur l’étudiantSes envies, son rythme, ses projets : la pédagogie se construit autour de lui, avec des mentors, un suivi individuel et des trajectoires qui divergent après les mêmes bases."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "02Encourager les profils variésTerminale générale ou technologique, STMG, Bac+3 d’une autre filière : chaque parcours apporte une façon différente d’aborder un problème, et l’école s’en nourrit."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "03Laisser chaque profil singulierChaque profil garde sa singularité à Eugenia. Cette conviction se ressent dans le recrutement des professeurs, des praticiens aux parcours variés, et dans une pédagogie faite de projets, de hackathons et de mentorat."
+                {
+                  "number": "01",
+                  "title": "Centrer l’école sur l’étudiant",
+                  "text": "Ses envies, son rythme, ses projets : la pédagogie se construit autour de lui, avec des mentors, un suivi individuel et des trajectoires qui divergent après les mêmes bases."
+                },
+                {
+                  "number": "02",
+                  "title": "Encourager les profils variés",
+                  "text": "Terminale générale ou technologique, STMG, Bac+3 d’une autre filière : chaque parcours apporte une façon différente d’aborder un problème, et l’école s’en nourrit."
+                },
+                {
+                  "number": "03",
+                  "title": "Laisser chaque profil singulier Chaque profil garde sa singularité à Eugenia.",
+                  "text": "Cette conviction se ressent dans le recrutement des professeurs, des praticiens aux parcours variés, et dans une pédagogie faite de projets, de hackathons et de mentorat."
+                }
               ]
             }
           ],
@@ -1932,124 +1440,103 @@
               "text": "Ces profs exercent aujourd’hui encore chez Spendesk, Groupon, Dataworkers ou AI Corner. Ce qui s’apprend en cours se pratique le lendemain, au bureau."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Fait parler le web : collecter, structurer, décider.Georgina Abi SejaanProfesseure Python & Scrapping"
+                {
+                  "eyebrow": "Fait parler le web : collecter, structurer, décider.",
+                  "title": "Georgina Abi Sejaan",
+                  "text": "Professeure Python & Scrapping",
+                  "image": "l3_approche-pedagogique_03_portrait-de-georgina-abi-sejaan",
+                  "alt": "Portrait de Georgina Abi Sejaan"
+                },
+                {
+                  "eyebrow": "Automatise pour libérer du temps de réflexion.",
+                  "title": "Marie Bernard",
+                  "text": "Professeure d'Automatisation No Code",
+                  "image": "l3_approche-pedagogique_04_portrait-de-marie-bernard",
+                  "alt": "Portrait de Marie Bernard",
+                  "tags": [
+                    "Ambassadrice Notion"
+                  ]
+                },
+                {
+                  "eyebrow": "Pilote chaque euro de campagne avec la data.",
+                  "title": "Thomas Escot",
+                  "text": "Professeur Marketing Digital",
+                  "image": "l3_approche-pedagogique_05_portrait-de-thomas-escot",
+                  "alt": "Portrait de Thomas Escot",
+                  "tags": [
+                    "Consultant SEO"
+                  ]
+                },
+                {
+                  "eyebrow": "De la requête SQL au tableau de bord qui parle.",
+                  "title": "Sébastien Albou",
+                  "text": "Professeur SQL & Tableau",
+                  "image": "l3_approche-pedagogique_06_portrait-de-sebastien-albou",
+                  "alt": "Portrait de Sébastien Albou"
+                },
+                {
+                  "eyebrow": "Apprend à raconter ce qu’on sait faire.",
+                  "title": "Justine Lambert",
+                  "text": "Professeure Pitch & Personal Branding",
+                  "image": "l3_approche-pedagogique_07_portrait-de-justine-lambert",
+                  "alt": "Portrait de Justine Lambert",
+                  "tags": [
+                    "Conférencière en incubateurs"
+                  ]
+                },
+                {
+                  "eyebrow": "Transforme des chiffres complexes en dashboards lisibles.",
+                  "title": "Jules Guillot",
+                  "text": "Professeur Finance by Power BI",
+                  "image": "l3_approche-pedagogique_08_portrait-de-jules-guillot",
+                  "alt": "Portrait de Jules Guillot",
+                  "tags": [
+                    "Data analyst chez Spendesk"
+                  ]
+                },
+                {
+                  "eyebrow": "Bâtit des landing pages qui convertissent, dans Webflow.",
+                  "title": "Ellina Chaay",
+                  "text": "Professeure Growth Marketing",
+                  "image": "l3_approche-pedagogique_09_portrait-de-ellina-chaay",
+                  "alt": "Portrait de Ellina Chaay",
+                  "tags": [
+                    "Ambassadrice Webflow"
+                  ]
+                },
+                {
+                  "eyebrow": "De la prospection à la signature, méthode et données.",
+                  "title": "Boubakar Ba",
+                  "text": "Professeur Business Développement",
+                  "image": "l3_approche-pedagogique_10_portrait-de-boubakar-ba",
+                  "alt": "Portrait de Boubakar Ba",
+                  "tags": [
+                    "City Manager chez Groupon"
+                  ]
+                },
+                {
+                  "eyebrow": "Excel et Sheets pour passer du tableau à la décision.",
+                  "title": "Kevin Rosamont Prombo",
+                  "text": "Professeur d'Analyse de données by Excel",
+                  "image": "l3_approche-pedagogique_11_portrait-de-kevin-rosamont-prombo",
+                  "alt": "Portrait de Kevin Rosamont Prombo",
+                  "tags": [
+                    "CEO de Dataworkers"
+                  ]
+                },
+                {
+                  "eyebrow": "Écrit des prompts nets et pilote des agents IA.",
+                  "title": "Lionel Louis",
+                  "text": "Professeur d'IA & Prompt Engineering",
+                  "image": "l3_approche-pedagogique_12_portrait-de-lionel-louis",
+                  "alt": "Portrait de Lionel Louis",
+                  "tags": [
+                    "Nocode & Agentic Builder chez AI Corner"
+                  ]
+                }
               ]
-            },
-            {
-              "type": "image",
-              "name": "f_justine",
-              "alt": "Portrait de Georgina Abi Sejaan"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Automatise pour libérer du temps de réflexion.Marie BernardProfesseure d'Automatisation No CodeAmbassadrice Notion"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_georgina",
-              "alt": "Portrait de Marie Bernard"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Pilote chaque euro de campagne avec la data.Thomas EscotProfesseur Marketing DigitalConsultant SEO"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_georgina",
-              "alt": "Portrait de Thomas Escot"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "De la requête SQL au tableau de bord qui parle.Sébastien AlbouProfesseur SQL & Tableau"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_jules",
-              "alt": "Portrait de Sébastien Albou"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Apprend à raconter ce qu’on sait faire.Justine LambertProfesseure Pitch & Personal BrandingConférencière en incubateurs"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_jules",
-              "alt": "Portrait de Justine Lambert"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Transforme des chiffres complexes en dashboards lisibles.Jules GuillotProfesseur Finance by Power BIData analyst chez Spendesk"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_jules",
-              "alt": "Portrait de Jules Guillot"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Bâtit des landing pages qui convertissent, dans Webflow.Ellina ChaayProfesseure Growth MarketingAmbassadrice Webflow"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_jules",
-              "alt": "Portrait de Ellina Chaay"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "De la prospection à la signature, méthode et données.Boubakar BaProfesseur Business DéveloppementCity Manager chez Groupon"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_justine",
-              "alt": "Portrait de Boubakar Ba"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Excel et Sheets pour passer du tableau à la décision.Kevin Rosamont PromboProfesseur d'Analyse de données by ExcelCEO de Dataworkers"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_thomas",
-              "alt": "Portrait de Kevin Rosamont Prombo"
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Écrit des prompts nets et pilote des agents IA.Lionel LouisProfesseur d'IA & Prompt EngineeringNocode & Agentic Builder chez AI Corner"
-              ]
-            },
-            {
-              "type": "image",
-              "name": "f_thomas",
-              "alt": "Portrait de Lionel Louis"
             },
             {
               "type": "heading",
@@ -2096,7 +1583,8 @@
             }
           ],
           "eyebrow": "l’équipe",
-          "title": "Des métiers, des visages."
+          "title": "Des métiers, des visages.",
+          "id": "equipe"
         },
         {
           "blocks": [
@@ -2105,24 +1593,23 @@
               "text": "QCOR : Question, Concept, Outils, Réponse. Quatre temps pour chaque séance, de l’énoncé d’un problème d’entreprise jusqu’à la solution présentée à des professionnels."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "01Le problème ouvre la séance.Les notions arrivent au moment où elles servent à avancer."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "02Les outils sont ceux des équipes.Outils et licences compris, pour travailler comme au bureau."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "03Les cas sont ceux d’aujourd’hui.Des business cases actuels, présentés devant des experts du métier."
+                {
+                  "number": "01",
+                  "title": "Le problème ouvre la séance.",
+                  "text": "Les notions arrivent au moment où elles servent à avancer."
+                },
+                {
+                  "number": "02",
+                  "title": "Les outils sont ceux des équipes.",
+                  "text": "Outils et licences compris, pour travailler comme au bureau."
+                },
+                {
+                  "number": "03",
+                  "title": "Les cas sont ceux d’aujourd’hui.",
+                  "text": "Des business cases actuels, présentés devant des experts du métier."
+                }
               ]
             },
             {
@@ -2131,7 +1618,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_sec-professeurs",
+              "name": "l3_approche-pedagogique_13_image",
               "alt": ""
             },
             {
@@ -2197,7 +1684,7 @@
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_approche-pedagogique_14_un-intervenant-face-a-une-promo-re",
               "alt": "Un intervenant face à une promo réunie dans l’amphithéâtre du campus"
             },
             {
@@ -2206,12 +1693,12 @@
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_approche-pedagogique_15_un-etudiant-presente-un-tableau-de",
               "alt": "Un étudiant présente un tableau de bord sur écran, face à deux professionnels"
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_approche-pedagogique_16_des-etudiants-en-discussion-avec-d",
               "alt": "Des étudiants en discussion avec des recruteurs lors d’un job dating"
             }
           ],
@@ -2221,24 +1708,23 @@
         {
           "blocks": [
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "01Des portes qui s’ouvrentUn stage, une alternance, un premier poste : les profs mettent leur carnet d’adresses sur la table."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "02Un œil sur les projetsUn pitch à affûter, une idée d’entreprise à challenger : des retours francs, par des gens du métier."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "03Un suivi à hauteur d’humainDes classes à taille humaine, donc des échanges individuels tout au long de l’année, en Bachelor comme en MSc."
+                {
+                  "number": "01",
+                  "title": "Des portes qui s’ouvrent",
+                  "text": "Un stage, une alternance, un premier poste : les profs mettent leur carnet d’adresses sur la table."
+                },
+                {
+                  "number": "02",
+                  "title": "Un œil sur les projets",
+                  "text": "Un pitch à affûter, une idée d’entreprise à challenger : des retours francs, par des gens du métier."
+                },
+                {
+                  "number": "03",
+                  "title": "Un suivi à hauteur d’humain",
+                  "text": "Des classes à taille humaine, donc des échanges individuels tout au long de l’année, en Bachelor comme en MSc."
+                }
               ]
             }
           ],
@@ -2253,22 +1739,22 @@
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_approche-pedagogique_17_une-etudiante-presente-le-projet-d",
               "alt": "Une étudiante présente le projet de son équipe pendant un hackathon"
             },
             {
               "type": "image",
-              "name": "lg_openai",
+              "name": "l3_approche-pedagogique_18_le-directeur-de-lecole-et-un-respo",
               "alt": "Le directeur de l’école et un responsable d’OpenAI, côte à côte et souriants, lors d’un événement sur le campus"
             },
             {
               "type": "image",
-              "name": "lg_dust",
+              "name": "l3_approche-pedagogique_19_participants-du-dust-customers-hac",
               "alt": "Participants du Dust Customers Hackathon assis dans l’amphithéâtre du campus"
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_approche-pedagogique_20_une-etudiante-prend-la-parole-au-m",
               "alt": "Une étudiante prend la parole au micro pendant la restitution du hackathon des 3M"
             },
             {
@@ -2315,7 +1801,7 @@
       "title": "La méthode QCOR : apprendre par des cas réels | Eugenia",
       "description": "La méthode QCOR d'Eugenia School : Question, Concept, Outils, Réponse. Quatre temps par séance, des cas d'entreprise réels. Découvrez-la en détail.",
       "h1": "Partir du problème. Arriver au livrable.",
-      "image": "pr3_eug-atelier",
+      "image": "l3_methode-eugenia_01_deux-etudiantes-concentrees-devant",
       "imageAlt": "Deux étudiantes concentrées devant un ordinateur portable",
       "eyebrow": "// la méthode eugenia",
       "lead": "Dans cette école tech, un cours démarre par une vraie question d’entreprise et s’achève devant celles et ceux qui l’ont posée. Voici ce que cette méthode change, et ce qu’elle donne sur des cas réels.",
@@ -2411,7 +1897,7 @@
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_methode-eugenia_02_un-etudiant-ecoute-attentivement-p",
               "alt": "Un étudiant écoute attentivement pendant une séance de projet, une salle de réunion en arrière-plan"
             },
             {
@@ -2434,36 +1920,29 @@
               "text": "Doctolib"
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "La questionSur le campus, les équipes data de Doctolib exposent un cas business que l’IA peut faire progresser."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les conceptsStructurer des bases SQL, repérer les bonnes relations entre les tables, bâtir un modèle qui tient."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les outilsDes bases SQL et un modèle de données, avec les experts de Doctolib en coaching."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "La réponseDémonstration en direct devant les équipes de Doctolib, lecture des résultats, pistes d’amélioration."
+                {
+                  "eyebrow": "La question",
+                  "text": "Sur le campus, les équipes data de Doctolib exposent un cas business que l’IA peut faire progresser."
+                },
+                {
+                  "eyebrow": "Les concepts",
+                  "text": "Structurer des bases SQL, repérer les bonnes relations entre les tables, bâtir un modèle qui tient."
+                },
+                {
+                  "eyebrow": "Les outils",
+                  "text": "Des bases SQL et un modèle de données, avec les experts de Doctolib en coaching."
+                },
+                {
+                  "eyebrow": "La réponse",
+                  "text": "Démonstration en direct devant les équipes de Doctolib, lecture des résultats, pistes d’amélioration."
+                }
               ]
             },
             {
               "type": "image",
-              "name": "lg_carrefour",
+              "name": "l3_methode-eugenia_03_une-etudiante-presente-son-projet-",
               "alt": "Une étudiante présente son projet au micro, devant la bannière « Carrefour Links · Data collaboration »"
             },
             {
@@ -2486,36 +1965,29 @@
               "text": "Carrefour"
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "La questionL’équipe exécutive de Carrefour présente un cas business et data, face aux étudiants réunis sur le campus."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les conceptsLes enjeux business liés aux achats, et le traitement des bases de données qui les portent."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les outilsDu code, corrigé séance après séance aux côtés de data analysts de Carrefour."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "La réponseRestitution à Carrefour : les KPIs retenus et une proposition d’amélioration de process par l’automatisation."
+                {
+                  "eyebrow": "La question",
+                  "text": "L’équipe exécutive de Carrefour présente un cas business et data, face aux étudiants réunis sur le campus."
+                },
+                {
+                  "eyebrow": "Les concepts",
+                  "text": "Les enjeux business liés aux achats, et le traitement des bases de données qui les portent."
+                },
+                {
+                  "eyebrow": "Les outils",
+                  "text": "Du code, corrigé séance après séance aux côtés de data analysts de Carrefour."
+                },
+                {
+                  "eyebrow": "La réponse",
+                  "text": "Restitution à Carrefour : les KPIs retenus et une proposition d’amélioration de process par l’automatisation."
+                }
               ]
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_methode-eugenia_04_une-presentation-devant-un-public-",
               "alt": "Une présentation devant un public, au milieu de l’amphithéâtre du campus"
             },
             {
@@ -2538,36 +2010,29 @@
               "text": "Spendesk"
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "La questionLes équipes Analytics Engineer de Spendesk posent les enjeux de la data visualisation pour piloter des finances."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les conceptsStructurer les données, puis choisir les KPIs qui comptent vraiment."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les outilsPower BI, pour concevoir des dashboards interactifs."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "La réponseLes dashboards sont présentés aux experts de Spendesk : insights, pistes pour améliorer les visualisations."
+                {
+                  "eyebrow": "La question",
+                  "text": "Les équipes Analytics Engineer de Spendesk posent les enjeux de la data visualisation pour piloter des finances."
+                },
+                {
+                  "eyebrow": "Les concepts",
+                  "text": "Structurer les données, puis choisir les KPIs qui comptent vraiment."
+                },
+                {
+                  "eyebrow": "Les outils",
+                  "text": "Power BI, pour concevoir des dashboards interactifs."
+                },
+                {
+                  "eyebrow": "La réponse",
+                  "text": "Les dashboards sont présentés aux experts de Spendesk : insights, pistes pour améliorer les visualisations."
+                }
               ]
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_methode-eugenia_05_un-jury-et-des-equipes-detudiants-",
               "alt": "Un jury et des équipes d’étudiants réunis dans l’amphithéâtre du campus"
             },
             {
@@ -2590,31 +2055,24 @@
               "text": "Malt"
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "La questionMalt expose ses enjeux d’automatisation marketing et le potentiel de l’IA générative pour optimiser les campagnes."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les conceptsIntégrer des modèles d’IA générative dans des workflows d’automatisation."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Les outilsLes modèles de Mistral AI, branchés dans des workflows Make."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "La réponseDémonstration devant un jury réunissant Malt, Mistral AI et Make : performances et recommandations."
+                {
+                  "eyebrow": "La question",
+                  "text": "Malt expose ses enjeux d’automatisation marketing et le potentiel de l’IA générative pour optimiser les campagnes."
+                },
+                {
+                  "eyebrow": "Les concepts",
+                  "text": "Intégrer des modèles d’IA générative dans des workflows d’automatisation."
+                },
+                {
+                  "eyebrow": "Les outils",
+                  "text": "Les modèles de Mistral AI, branchés dans des workflows Make."
+                },
+                {
+                  "eyebrow": "La réponse",
+                  "text": "Démonstration devant un jury réunissant Malt, Mistral AI et Make : performances et recommandations."
+                }
               ]
             },
             {
@@ -2623,7 +2081,7 @@
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_methode-eugenia_06_des-etudiants-suivent-des-presenta",
               "alt": "Des étudiants suivent des présentations dans l’amphithéâtre du campus"
             },
             {
@@ -2632,7 +2090,8 @@
             }
           ],
           "eyebrow": "un cas de a à z",
-          "title": "Quatre entreprises, quatre cas réels."
+          "title": "Quatre entreprises, quatre cas réels.",
+          "id": "cas"
         }
       ],
       "internalLinks": [],
@@ -2670,7 +2129,7 @@
       "title": "Entreprises partenaires : hackathons et cas réels | Eugenia",
       "description": "Travaillez avec Eugenia School : Business Deep Dives et hackathons avec Doctolib, Carrefour, Spendesk, Malt et un large réseau tech. Contactez l'équipe.",
       "h1": "Vos cas réels, nos équipes.",
-      "image": "pr3_eug-hackathon",
+      "image": "l3_entreprises-partenaires_01_presentation-d-un-projet-devant-le",
       "imageAlt": "Présentation d'un projet devant le jury du hackathon",
       "eyebrow": "// entreprises partenaires",
       "lead": "Les Géniathons connectent les étudiants de cette école IA, en Bachelor et en master tech en alternance, avec les meilleures entreprises : une expérience pratique, sur des défis qui comptent pour vous.",
@@ -2692,12 +2151,14 @@
             {
               "type": "image",
               "name": "lg_malt",
-              "alt": "Malt"
+              "alt": "Malt",
+              "logo": true
             },
             {
               "type": "image",
               "name": "lg_dust",
-              "alt": "Doctolib"
+              "alt": "Doctolib",
+              "logo": true
             },
             {
               "type": "image",
@@ -2708,12 +2169,14 @@
             {
               "type": "image",
               "name": "pr3_eug-hackathon",
-              "alt": "Capgemini"
+              "alt": "Capgemini",
+              "logo": true
             },
             {
               "type": "image",
               "name": "pr3_eug-hackathon",
-              "alt": "Snapchat"
+              "alt": "Snapchat",
+              "logo": true
             },
             {
               "type": "image",
@@ -2724,17 +2187,20 @@
             {
               "type": "image",
               "name": "lg_airfrance",
-              "alt": "Air France"
+              "alt": "Air France",
+              "logo": true
             },
             {
               "type": "image",
               "name": "lg_carrefour",
-              "alt": "Carrefour"
+              "alt": "Carrefour",
+              "logo": true
             },
             {
               "type": "image",
               "name": "lg_microsoft",
-              "alt": "Microsoft"
+              "alt": "Microsoft",
+              "logo": true
             }
           ]
         },
@@ -2750,7 +2216,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_entreprises-partenaires_02_image",
               "alt": ""
             },
             {
@@ -2772,24 +2238,23 @@
               "text": "Trois semaines pour résoudre un défi réel alliant IA, data et business."
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "semaine 1Présentation des enjeux actuels de l'entrepriseDévoilement du sujet data et business donné aux élèvesFormation des équipes"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "semaine 2Ateliers de travail en groupeCoaching par les équipes métiers de l'entrepriseAmbassadeurs d'outils techniques aident les élèves"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "semaine 3Présentation finale des projets devant le juryDélibération pour annoncer le groupe vainqueurRemise des récompenses"
+                {
+                  "eyebrow": "semaine 1",
+                  "title": "Présentation des enjeux actuels de l'entreprise",
+                  "text": "Dévoilement du sujet data et business donné aux élèves Formation des équipes"
+                },
+                {
+                  "eyebrow": "semaine 2",
+                  "title": "Ateliers de travail en groupe",
+                  "text": "Coaching par les équipes métiers de l'entreprise Ambassadeurs d'outils techniques aident les élèves"
+                },
+                {
+                  "eyebrow": "semaine 3",
+                  "title": "Présentation finale des projets devant le jury",
+                  "text": "Délibération pour annoncer le groupe vainqueur Remise des récompenses"
+                }
               ]
             },
             {
@@ -2801,24 +2266,23 @@
               "text": "Un à trois jours en mode hackathon sur des cas data et business proposés par nos partenaires."
             },
             {
-              "type": "list",
-              "ordered": true,
+              "type": "cards",
               "items": [
-                "Jour 1Présentation de l'entrepriseDévoilement du cas du GéniathonPremières sessions de travail en équipe"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Jour 2Ateliers business pour appréhender les enjeuxAteliers data pour réaliser la solution techniqueCoaching avec les ambassadeurs des outils présents"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": true,
-              "items": [
-                "Jour 3Pitch des finalistes devant le juryAnnonce du groupe vainqueurCocktail et networking"
+                {
+                  "eyebrow": "Jour 1",
+                  "title": "Présentation de l'entreprise",
+                  "text": "Dévoilement du cas du Géniathon Premières sessions de travail en équipe"
+                },
+                {
+                  "eyebrow": "Jour 2",
+                  "title": "Ateliers business pour appréhender les enjeux",
+                  "text": "Ateliers data pour réaliser la solution technique Coaching avec les ambassadeurs des outils présents"
+                },
+                {
+                  "eyebrow": "Jour 3",
+                  "title": "Pitch des finalistes devant le jury",
+                  "text": "Annonce du groupe vainqueur Cocktail et networking"
+                }
               ]
             },
             {
@@ -2876,22 +2340,22 @@
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_entreprises-partenaires_03_directrice-qui-donne-une-conferenc",
               "alt": "Directrice qui donne une conférence"
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_entreprises-partenaires_04_des-etudiants-pendant-le-jobdating",
               "alt": "Des étudiants pendant le jobdating"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_entreprises-partenaires_05_image",
               "alt": ""
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_entreprises-partenaires_06_image",
               "alt": ""
             },
             {
@@ -2918,274 +2382,117 @@
               "text": "Notre priorité : développer chez les étudiants la curiosité du monde professionnel et les accompagner vers des métiers qu'ils choisissent."
             },
             {
-              "type": "paragraph",
-              "text": "Business Analyst40-75k"
-            },
-            {
-              "type": "paragraph",
-              "text": "Business et Data"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Business Analyst associe analyse de marché et expertise opérationnelle pour améliorer les processus d'affaires et aligner les stratégies sur les objectifs organisationnels."
-            },
-            {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Optimisation des processus d'affaires."
+                {
+                  "title": "Business Analyst",
+                  "text": "Le Business Analyst associe analyse de marché et expertise opérationnelle pour améliorer les processus d'affaires et aligner les stratégies sur les objectifs organisationnels.",
+                  "details": [
+                    "Salaire : entre 40 000€ et 50 000€ à l'entrée, entre 65 000€ et 75 000€ après 5 ans.",
+                    "Compétences : Analyse, Stratégie, Communication",
+                    "Évolution : Chef de projet, Chief Of Operations, Directeur marketing"
+                  ],
+                  "tags": [
+                    "Business et Data"
+                  ],
+                  "salary": "40-75k",
+                  "responsibilities": [
+                    "Optimisation des processus d'affaires.",
+                    "Liaison entre les parties prenantes pour aligner les objectifs d'affaires.",
+                    "Analyse de marché et modélisation financière."
+                  ]
+                },
+                {
+                  "title": "Data Analyst",
+                  "text": "Le Data Analyst est un expert de l'analyse qui transforme les données complexes en insights stratégiques pour guider les décisions d'affaires et optimiser les performances organisationnelles.",
+                  "details": [
+                    "Salaire : entre 45 000€ et 50 000€ à l'entrée, entre 70 000€ et 100 000€ après 5 ans.",
+                    "Compétences : Analyse, Rigueur, Compréhension business",
+                    "Évolution : Lead data analyst, consultant Business Intelligence, Chief Technology Officer"
+                  ],
+                  "tags": [
+                    "Data"
+                  ],
+                  "salary": "45-100k",
+                  "responsibilities": [
+                    "Interpréter les données et analyser les résultats en utilisant des techniques statistiques.",
+                    "Développer et implémenter des bases de données et des systèmes de collecte de données.",
+                    "Identifier, analyser et interpréter les tendances ou les modèles dans des ensembles de données complexes."
+                  ]
+                },
+                {
+                  "title": "Customer Success Manager",
+                  "text": "Le CSM travaille étroitement avec les clients pour assurer leur satisfaction et succès continu, en agissant comme un pont stratégique entre le produit et la clientèle pour favoriser la fidélisation et la croissance.",
+                  "details": [
+                    "Salaire : entre 40 000€ et 50 000€ à l'entrée, entre 65 000€ et 75 000€ après 5 ans.",
+                    "Compétences : Stratégie, Agilité, Proactivité",
+                    "Évolution : Account manager, responsable expérience client, Directeur commercial"
+                  ],
+                  "tags": [
+                    "Business"
+                  ],
+                  "salary": "40-75k",
+                  "responsibilities": [
+                    "Assurer la satisfaction et la fidélisation des clients",
+                    "Identifier et répondre aux besoins des clients pour favoriser leur succès",
+                    "Collaborer avec les équipes de vente et de produit pour améliorer l'expérience client"
+                  ]
+                },
+                {
+                  "title": "Sales Ops",
+                  "text": "Le Sales Ops est en charge de l'amélioration des process de vente afin de soutenir la croissance d'une société.",
+                  "details": [
+                    "Salaire : entre 40 000€ et 50 000€ à l'entrée, entre 60 000€ et 85 000€ après 5 ans.",
+                    "Compétences : Analyse, Stratégie, Communication",
+                    "Évolution : Chief Of Operations, CRM manager, Chief Marketing Officer"
+                  ],
+                  "tags": [
+                    "Business"
+                  ],
+                  "salary": "40-85k",
+                  "responsibilities": [
+                    "Automatiser la prospection — mettre en place un outil de personnalisation des séquences ou harmoniser les templates d'e-mails",
+                    "Identifier des comptes clés à prospecter, à la manière d'un profil lead generation ou growth",
+                    "Automatiser des tâches récurrentes — par exemple le reporting (tableaux de bord) ou les e-mails de relance"
+                  ]
+                },
+                {
+                  "title": "Growth Hacker",
+                  "text": "Le Growth Hacker stimule la croissance rapide d'une entreprise en utilisant des techniques créatives et analytiques axées sur l'acquisition, l'engagement et la rétention des clients, notamment à travers les réseaux sociaux.",
+                  "details": [
+                    "Salaire : entre 40 000€ et 55 000€ à l'entrée, entre 70 000€ et 85 000€ après 5 ans.",
+                    "Compétences : Analyse, Créativité, Suivi des tendances",
+                    "Évolution : Responsable expérience client, responsable web marketing, Directeur marketing"
+                  ],
+                  "tags": [
+                    "Business et Data"
+                  ],
+                  "salary": "40-85k",
+                  "responsibilities": [
+                    "Utilisation de stratégies marketing innovantes pour attirer de nouveaux utilisateurs.",
+                    "Maintien de l'intérêt des clients existants via du contenu attractif et des fonctionnalités optimisées.",
+                    "Fidélisation des clients en résolvant les problèmes, offrant un service client exceptionnel et des incitations à la fidélité."
+                  ]
+                },
+                {
+                  "title": "Consultant",
+                  "text": "Le Consultant fournit des conseils spécialisés et des solutions stratégiques aux entreprises pour les aider à résoudre des problèmes ou à atteindre leurs objectifs.",
+                  "details": [
+                    "Salaire : entre 45 000€ et 60 000€ à l'entrée, entre 70 000€ et 100 000€ après 5 ans.",
+                    "Compétences : Analyse, Communication, Adaptabilité",
+                    "Évolution : Chef de projet, Chief Of Operations, Directeur marketing, Entrepreneur"
+                  ],
+                  "tags": [
+                    "Business"
+                  ],
+                  "salary": "45-100k",
+                  "responsibilities": [
+                    "Collaboration avec les équipes internes pour mettre en œuvre les solutions proposées, fournir un soutien opérationnel et assurer le suivi des progrès.",
+                    "Accompagnement continu et des conseils stratégiques pour garantir la réussite à long terme et l'optimisation des résultats.",
+                    "Analyse les besoins et les défis spécifiques des clients pour proposer des recommandations adaptées et des plans d’action."
+                  ]
+                }
               ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Liaison entre les parties prenantes pour aligner les objectifs d'affaires."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Analyse de marché et modélisation financière."
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Salaire : entre 40 000€ et 50 000€ à l'entrée, entre 65 000€ et 75 000€ après 5 ans."
-            },
-            {
-              "type": "paragraph",
-              "text": "Compétences : Analyse, Stratégie, Communication"
-            },
-            {
-              "type": "paragraph",
-              "text": "Évolution : Chef de projet, Chief Of Operations, Directeur marketing"
-            },
-            {
-              "type": "paragraph",
-              "text": "Data Analyst45-100k"
-            },
-            {
-              "type": "paragraph",
-              "text": "Data"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Data Analyst est un expert de l'analyse qui transforme les données complexes en insights stratégiques pour guider les décisions d'affaires et optimiser les performances organisationnelles."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Interpréter les données et analyser les résultats en utilisant des techniques statistiques."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Développer et implémenter des bases de données et des systèmes de collecte de données."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Identifier, analyser et interpréter les tendances ou les modèles dans des ensembles de données complexes."
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Salaire : entre 45 000€ et 50 000€ à l'entrée, entre 70 000€ et 100 000€ après 5 ans."
-            },
-            {
-              "type": "paragraph",
-              "text": "Compétences : Analyse, Rigueur, Compréhension business"
-            },
-            {
-              "type": "paragraph",
-              "text": "Évolution : Lead data analyst, consultant Business Intelligence, Chief Technology Officer"
-            },
-            {
-              "type": "paragraph",
-              "text": "Customer Success Manager40-75k"
-            },
-            {
-              "type": "paragraph",
-              "text": "Business"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le CSM travaille étroitement avec les clients pour assurer leur satisfaction et succès continu, en agissant comme un pont stratégique entre le produit et la clientèle pour favoriser la fidélisation et la croissance."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Assurer la satisfaction et la fidélisation des clients"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Identifier et répondre aux besoins des clients pour favoriser leur succès"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Collaborer avec les équipes de vente et de produit pour améliorer l'expérience client"
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Salaire : entre 40 000€ et 50 000€ à l'entrée, entre 65 000€ et 75 000€ après 5 ans."
-            },
-            {
-              "type": "paragraph",
-              "text": "Compétences : Stratégie, Agilité, Proactivité"
-            },
-            {
-              "type": "paragraph",
-              "text": "Évolution : Account manager, responsable expérience client, Directeur commercial"
-            },
-            {
-              "type": "paragraph",
-              "text": "Sales Ops40-85k"
-            },
-            {
-              "type": "paragraph",
-              "text": "Business"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Sales Ops est en charge de l'amélioration des process de vente afin de soutenir la croissance d'une société."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Automatiser la prospection — mettre en place un outil de personnalisation des séquences ou harmoniser les templates d'e-mails"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Identifier des comptes clés à prospecter, à la manière d'un profil lead generation ou growth"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Automatiser des tâches récurrentes — par exemple le reporting (tableaux de bord) ou les e-mails de relance"
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Salaire : entre 40 000€ et 50 000€ à l'entrée, entre 60 000€ et 85 000€ après 5 ans."
-            },
-            {
-              "type": "paragraph",
-              "text": "Compétences : Analyse, Stratégie, Communication"
-            },
-            {
-              "type": "paragraph",
-              "text": "Évolution : Chief Of Operations, CRM manager, Chief Marketing Officer"
-            },
-            {
-              "type": "paragraph",
-              "text": "Growth Hacker40-85k"
-            },
-            {
-              "type": "paragraph",
-              "text": "Business et Data"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Growth Hacker stimule la croissance rapide d'une entreprise en utilisant des techniques créatives et analytiques axées sur l'acquisition, l'engagement et la rétention des clients, notamment à travers les réseaux sociaux."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Utilisation de stratégies marketing innovantes pour attirer de nouveaux utilisateurs."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Maintien de l'intérêt des clients existants via du contenu attractif et des fonctionnalités optimisées."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Fidélisation des clients en résolvant les problèmes, offrant un service client exceptionnel et des incitations à la fidélité."
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Salaire : entre 40 000€ et 55 000€ à l'entrée, entre 70 000€ et 85 000€ après 5 ans."
-            },
-            {
-              "type": "paragraph",
-              "text": "Compétences : Analyse, Créativité, Suivi des tendances"
-            },
-            {
-              "type": "paragraph",
-              "text": "Évolution : Responsable expérience client, responsable web marketing, Directeur marketing"
-            },
-            {
-              "type": "paragraph",
-              "text": "Consultant45-100k"
-            },
-            {
-              "type": "paragraph",
-              "text": "Business"
-            },
-            {
-              "type": "paragraph",
-              "text": "Le Consultant fournit des conseils spécialisés et des solutions stratégiques aux entreprises pour les aider à résoudre des problèmes ou à atteindre leurs objectifs."
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Collaboration avec les équipes internes pour mettre en œuvre les solutions proposées, fournir un soutien opérationnel et assurer le suivi des progrès."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Accompagnement continu et des conseils stratégiques pour garantir la réussite à long terme et l'optimisation des résultats."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Analyse les besoins et les défis spécifiques des clients pour proposer des recommandations adaptées et des plans d’action."
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Salaire : entre 45 000€ et 60 000€ à l'entrée, entre 70 000€ et 100 000€ après 5 ans."
-            },
-            {
-              "type": "paragraph",
-              "text": "Compétences : Analyse, Communication, Adaptabilité"
-            },
-            {
-              "type": "paragraph",
-              "text": "Évolution : Chef de projet, Chief Of Operations, Directeur marketing, Entrepreneur"
             }
           ],
           "eyebrow": "débouchés d'avenir",
@@ -3199,17 +2506,17 @@
             },
             {
               "type": "image",
-              "name": "lg_stationf",
+              "name": "l3_entreprises-partenaires_07_station-f",
               "alt": "Station F"
             },
             {
               "type": "image",
-              "name": "lg_hec",
+              "name": "l3_entreprises-partenaires_08_incubateur-hec",
               "alt": "Incubateur HEC"
             },
             {
               "type": "image",
-              "name": "pr3_eug-hackathon",
+              "name": "l3_entreprises-partenaires_09_viva-technology",
               "alt": "VIVA Technology"
             }
           ],
@@ -3254,7 +2561,8 @@
             }
           ],
           "eyebrow": "devenir partenaire",
-          "title": "Devenir partenaire."
+          "title": "Devenir partenaire.",
+          "id": "devenir-partenaire"
         }
       ],
       "internalLinks": [],
@@ -3305,24 +2613,17 @@
         {
           "blocks": [
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Stage"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Alternance"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "CDI"
+                {
+                  "title": "Stage"
+                },
+                {
+                  "title": "Alternance"
+                },
+                {
+                  "title": "CDI"
+                }
               ]
             }
           ]
@@ -3458,164 +2759,77 @@
               "logo": true
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Decathlon Digital"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Carrefour"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Chanel"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "L’Oréal"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Moët Hennessy"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Engie"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Société Générale"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Stellantis"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Euro Disney"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Generali"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Sia Partners"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "La Française des Jeux"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "PMU"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Caceis"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Siemens Healthineers"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Valeo"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "BIC"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Electrolux"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Aéroports de Paris"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Chronopost"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Meetic"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Evaneos"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Kameleoon"
+                {
+                  "title": "Decathlon Digital"
+                },
+                {
+                  "title": "Carrefour"
+                },
+                {
+                  "title": "Chanel"
+                },
+                {
+                  "title": "L’Oréal"
+                },
+                {
+                  "title": "Moët Hennessy"
+                },
+                {
+                  "title": "Engie"
+                },
+                {
+                  "title": "Société Générale"
+                },
+                {
+                  "title": "Stellantis"
+                },
+                {
+                  "title": "Euro Disney"
+                },
+                {
+                  "title": "Generali"
+                },
+                {
+                  "title": "Sia Partners"
+                },
+                {
+                  "title": "La Française des Jeux"
+                },
+                {
+                  "title": "PMU"
+                },
+                {
+                  "title": "Caceis"
+                },
+                {
+                  "title": "Siemens Healthineers"
+                },
+                {
+                  "title": "Valeo"
+                },
+                {
+                  "title": "BIC"
+                },
+                {
+                  "title": "Electrolux"
+                },
+                {
+                  "title": "Aéroports de Paris"
+                },
+                {
+                  "title": "Chronopost"
+                },
+                {
+                  "title": "Meetic"
+                },
+                {
+                  "title": "Evaneos"
+                },
+                {
+                  "title": "Kameleoon"
+                }
               ]
             },
             {
@@ -3638,17 +2852,14 @@
               "text": "Un stage pour tester et construire."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Bachelor : un premier stage d’au moins 6 semaines, l’été entre la 1re et la 2e année."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Puis un stage de 6 mois au début de la 3e année."
+                {
+                  "text": "Bachelor : un premier stage d’au moins 6 semaines, l’été entre la 1re et la 2e année."
+                },
+                {
+                  "title": "Puis un stage de 6 mois au début de la 3e année."
+                }
               ]
             },
             {
@@ -3661,24 +2872,17 @@
               "text": "Une alternance pour former au plus près du terrain."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "MSc en rythme alterné : 4 jours en entreprise, 1 jour à l’école, après un bootcamp de 5 semaines."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Bachelor : la 3e année peut se faire en alternance."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Contrats de professionnalisation et d’apprentissage acceptés."
+                {
+                  "text": "MSc en rythme alterné : 4 jours en entreprise, 1 jour à l’école, après un bootcamp de 5 semaines."
+                },
+                {
+                  "title": "Bachelor : la 3e année peut se faire en alternance."
+                },
+                {
+                  "title": "Contrats de professionnalisation et d’apprentissage acceptés."
+                }
               ]
             },
             {
@@ -3691,17 +2895,14 @@
               "text": "Un CDI pour accueillir un diplômé."
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Bachelor en 3 ans ou MSc en 2 ans, diplômes reconnus par l’État."
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Des diplômés ont déjà rejoint Accenture, LVMH, EFFY, Mister IA ou Licter."
+                {
+                  "title": "Bachelor en 3 ans ou MSc en 2 ans, diplômes reconnus par l’État."
+                },
+                {
+                  "text": "Des diplômés ont déjà rejoint Accenture, LVMH, EFFY, Mister IA ou Licter."
+                }
               ]
             }
           ],
@@ -3712,7 +2913,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "ProjetsCe que les étudiants construisent avec des entreprises.Voir les projets ParcoursDu bac au premier poste : des trajectoires à consulter.Voir les trajectoires PortfoliosDes livrables, du code et des liens vers les projets.Parcourir les portfolios"
+              "text": "Projets Ce que les étudiants construisent avec des entreprises. Voir les projets Parcours Du bac au premier poste : des trajectoires à consulter. Voir les trajectoires Portfolios Des livrables, du code et des liens vers les projets. Parcourir les portfolios"
             }
           ],
           "eyebrow": "les preuves",
@@ -3732,7 +2933,11 @@
         "title": "Des profils qui se distinguent.",
         "text": "Eugenia est une école IA, tech et growth, hors Parcoursup, née d’une conviction. Voici ce qu’elle change, concrètement, dans l’école.",
         "image": "p_team"
-      }
+      },
+      "heroId": "formulaire",
+      "anchorIds": [
+        "besoin"
+      ]
     },
     "crumbs": [
       {
@@ -3750,7 +2955,7 @@
       "title": "Hackathons IA en entreprise : projets étudiants | Eugenia",
       "description": "Malt, Mirakl, Dust avec Mistral AI, OpenAI et Make : des briefs réels et un jury externe. Découvrez ce que les étudiants ont livré en 3 à 5 jours.",
       "h1": "Des vrais briefs. Des vraies équipes.",
-      "image": "pr3_yt-mirakl",
+      "image": "l3_projets-entreprises_01_une-etudiante-deugenia-school-pres",
       "imageAlt": "Une étudiante d’Eugenia School présente le projet de son équipe pendant un hackathon avec une entreprise partenaire",
       "eyebrow": "// projets entreprises · hackathons · Paris 10e",
       "lead": "Une entreprise confie un problème réel, un éditeur logiciel ouvre ses outils : Malt avec Mistral AI et Make, par exemple. En 5 jours, les équipes prototypent une solution et la pitchent devant un jury externe. Voici ce que cela donne : des briefs vécus par des étudiants d’une école tech, en Bachelor comme en Master en alternance.",
@@ -3817,7 +3022,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_projets-entreprises_02_image",
               "alt": ""
             },
             {
@@ -3861,11 +3066,6 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
-              "alt": ""
-            },
-            {
-              "type": "image",
               "name": "lg_mirakl",
               "alt": "Mirakl",
               "logo": true
@@ -3899,7 +3099,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_projets-entreprises_04_image",
               "alt": ""
             },
             {
@@ -3927,7 +3127,8 @@
             }
           ],
           "eyebrow": "pourquoi on fait ça",
-          "title": "Des briefs réels, confiés par les entreprises."
+          "title": "Des briefs réels, confiés par les entreprises.",
+          "id": "projets"
         },
         {
           "blocks": [
@@ -4099,35 +3300,35 @@
             },
             {
               "type": "paragraph",
-              "text": "LVMHProjets data et automatisation en conditions réelles, au sein des marques du groupe."
+              "text": "LVMH Projets data et automatisation en conditions réelles, au sein des marques du groupe."
             },
             {
               "type": "paragraph",
-              "text": "PayFitCas d’usage IA appliqués aux produits RH, de l’analyse à l’automatisation de workflows."
+              "text": "Pay Fit Cas d’usage IA appliqués aux produits RH, de l’analyse à l’automatisation de workflows."
             },
             {
               "type": "paragraph",
-              "text": "MakeAutomatisation no-code intégrée dans le curriculum : les premiers workflows sont déployés dès le S1."
+              "text": "Make Automatisation no-code intégrée dans le curriculum : les premiers workflows sont déployés dès le S1."
             },
             {
               "type": "paragraph",
-              "text": "Partenaires des hackathonsTinder, PayFit, LVMH, Mirakl, Dust, Mistral AI, Microsoft, Licter, OpenAI, Anthropic · Claude, H Company, Make."
+              "text": "Partenaires des hackathons Tinder, Pay Fit, LVMH, Mirakl, Dust, Mistral AI, Microsoft, Licter, OpenAI, Anthropic · Claude, H Company, Make."
             },
             {
               "type": "paragraph",
-              "text": "Visites & talksMistral, Dust, OpenAI, Snapchat : on va voir comment ils travaillent, chez eux."
+              "text": "Visites & talks Mistral, Dust, OpenAI, Snapchat : on va voir comment ils travaillent, chez eux."
             },
             {
               "type": "paragraph",
-              "text": "Startups & scaleupsBinko, Go Fusion, Histia, Her Third Place, Licter, Ping Pang, Tech Invaders, Station F, Tech to Road, École 42, HEC Entrepreneurs, Road to Tech."
+              "text": "Startups & scaleups Binko, Go Fusion, Histia, Her Third Place, Licter, Ping Pang, Tech Invaders, Station F, Tech to Road, École 42, HEC Entrepreneurs, Road to Tech."
             },
             {
               "type": "paragraph",
-              "text": "« C’est super de voir qu’en France aussi, des écoles aussi innovantes font surface. Je suis très impressionné par le niveau des étudiants d’Eugenia School. »Spencer Rascoff · CEO, Match Group (Tinder, Hinge…) · traduit de l’anglais"
+              "text": "« C’est super de voir qu’en France aussi, des écoles aussi innovantes font surface. Je suis très impressionné par le niveau des étudiants d’Eugenia School. » Spencer Rascoff · CEO, Match Group (Tinder, Hinge…) · traduit de l’anglais"
             },
             {
               "type": "paragraph",
-              "text": "« Eugenia forme des profils capables de transformer la data en valeur business, en phase avec les besoins de Malt. »Anaïs Ghelfi · Data Director, Malt"
+              "text": "« Eugenia forme des profils capables de transformer la data en valeur business, en phase avec les besoins de Malt. » Anaïs Ghelfi · Data Director, Malt"
             }
           ],
           "title": "Autres partenaires"
@@ -4171,7 +3372,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Chaque équipe rend un Loom de présentation et sa documentation technique (repo GitHub). Une présélection désigne les équipes qui pitchent, le vendredi après-midi, devant un jury externe de professionnels. Puis délibération, remise des prix et cocktail."
+              "text": "Chaque équipe rend un Loom de présentation et sa documentation technique (repo Git Hub). Une présélection désigne les équipes qui pitchent, le vendredi après-midi, devant un jury externe de professionnels. Puis délibération, remise des prix et cocktail."
             },
             {
               "type": "paragraph",
@@ -4263,11 +3464,11 @@
             },
             {
               "type": "paragraph",
-              "text": "Au Bachelor, un projet fil rouge de 3 semaines sur un vrai sujet d’entreprise, 4 fois par an : 2 avec des grands groupes, 2 avec des startups. Kick-off avec l’entreprise, travail en équipe encadré par un professeur Eugenia dédié, puis rendu final devant ses équipes. Livrables : un Loom et un repo GitHub."
+              "text": "Au Bachelor, un projet fil rouge de 3 semaines sur un vrai sujet d’entreprise, 4 fois par an : 2 avec des grands groupes, 2 avec des startups. Kick-off avec l’entreprise, travail en équipe encadré par un professeur Eugenia dédié, puis rendu final devant ses équipes. Livrables : un Loom et un repo Git Hub."
             },
             {
               "type": "paragraph",
-              "text": "« Un hackathon, c’est l’apprentissage par l’échec : ton prototype plante, ton pitch n’est pas encore clair, et tu recommences, jusqu’à trouver la solution et les mots qui convaincront le jury. Les plus grandes difficultés forgent les plus belles réussites. »Noé Malagammana · Chief of Staff, Eugenia School"
+              "text": "« Un hackathon, c’est l’apprentissage par l’échec : ton prototype plante, ton pitch n’est pas encore clair, et tu recommences, jusqu’à trouver la solution et les mots qui convaincront le jury. Les plus grandes difficultés forgent les plus belles réussites. » Noé Malagammana · Chief of Staff, Eugenia School"
             }
           ],
           "eyebrow": "le format",
@@ -4285,7 +3486,7 @@
             },
             {
               "type": "image",
-              "name": "f_sebastien",
+              "name": "l3_projets-entreprises_05_portrait-de-ian-l",
               "alt": "Portrait de Ian L."
             },
             {
@@ -4310,7 +3511,7 @@
             },
             {
               "type": "image",
-              "name": "f_marie",
+              "name": "l3_projets-entreprises_06_portrait-de-robin-m",
               "alt": "Portrait de Robin M."
             },
             {
@@ -4335,7 +3536,7 @@
             },
             {
               "type": "image",
-              "name": "f_thomas",
+              "name": "l3_projets-entreprises_07_portrait-de-maxime-b",
               "alt": "Portrait de Maxime B."
             },
             {
@@ -4448,7 +3649,7 @@
         "path": "/entreprises"
       },
       {
-        "name": "Eugenia School"
+        "name": "Projets avec les entreprises"
       }
     ]
   },
@@ -4458,7 +3659,7 @@
       "title": "Dust Customers Hackathon : agents IA en production | Eugenia",
       "description": "Le Dust Customers Hackathon à Eugenia School : une trentaine d’entreprises clientes de Dust, deux équipes d’étudiants, une journée pour un cas d’usage IA.",
       "h1": "Dust Customers Hackathon : une journée pour passer un cas d’usage IA en production",
-      "image": "p_dustteam",
+      "image": "l3_projets-entreprises-dust-hackathon_01_cinq-participants-du-dust-customer",
       "imageAlt": "Cinq participants du Dust Customers Hackathon, aux couleurs de Dust et d’Eugenia School, dans l’amphithéâtre du campus",
       "eyebrow": "// Dust Customers Hackathon · 29 mai 2026 · Paris 10e",
       "lead": "200 participants et une trentaine d’entreprises clientes de Dust réunis à Eugenia autour d’un défi IA, avec deux équipes d’étudiants d’Eugenia en renfort. Résultat : une 3e place.",
@@ -4515,7 +3716,7 @@
             },
             {
               "type": "paragraph",
-              "text": "« Voir des étudiants tenir tête aux équipes IA de nos clients, et finir sur le podium, c’est la meilleure preuve que leur formation colle au terrain. »Léandre L., Dust"
+              "text": "« Voir des étudiants tenir tête aux équipes IA de nos clients, et finir sur le podium, c’est la meilleure preuve que leur formation colle au terrain. » Léandre L., Dust"
             }
           ],
           "eyebrow": "le contexte",
@@ -4532,31 +3733,20 @@
               "text": "Les critères du jury"
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Utilité réelle du cas d’usage"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Proximité avec la production"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Démo qui fonctionne"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Pitch"
+                {
+                  "title": "Utilité réelle du cas d’usage"
+                },
+                {
+                  "title": "Proximité avec la production"
+                },
+                {
+                  "title": "Démo qui fonctionne"
+                },
+                {
+                  "title": "Pitch"
+                }
               ]
             }
           ],
@@ -4584,11 +3774,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackDust"
+              "text": "Stack Dust"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueTout construire directement dans Dust, pour passer du prototype à un agent utilisable en production dans la journée."
+              "text": "Choix technique Tout construire directement dans Dust, pour passer du prototype à un agent utilisable en production dans la journée."
             },
             {
               "type": "paragraph",
@@ -4641,7 +3831,7 @@
             },
             {
               "type": "paragraph",
-              "text": "« On était les seuls étudiants au milieu d’une trentaine d’entreprises. Finir 3e nous a prouvé qu’on avait le niveau. »Jean-Christophe D."
+              "text": "« On était les seuls étudiants au milieu d’une trentaine d’entreprises. Finir 3e nous a prouvé qu’on avait le niveau. » Jean-Christophe D."
             }
           ],
           "eyebrow": "les résultats",
@@ -4655,7 +3845,7 @@
             },
             {
               "type": "image",
-              "name": "p_dustteam",
+              "name": "l3_projets-entreprises-dust-hackathon_02_image",
               "alt": ""
             },
             {
@@ -4674,7 +3864,7 @@
             },
             {
               "type": "image",
-              "name": "p_dustteam",
+              "name": "l3_projets-entreprises-dust-hackathon_03_image",
               "alt": ""
             },
             {
@@ -4718,7 +3908,7 @@
             },
             {
               "type": "image",
-              "name": "p_dustteam",
+              "name": "l3_projets-entreprises-dust-hackathon_04_image",
               "alt": ""
             },
             {
@@ -4752,7 +3942,7 @@
             },
             {
               "type": "paragraph",
-              "text": "← Tous les projetsHackathons à Eugenia : comment ça marche"
+              "text": "← Tous les projets Hackathons à Eugenia : comment ça marche"
             }
           ],
           "eyebrow": "lire aussi",
@@ -4784,7 +3974,6 @@
           "@type": "Article",
           "headline": "Dust Customers Hackathon : une journée pour passer un cas d’usage IA en production",
           "description": "Le Dust Customers Hackathon à Eugenia School : une trentaine d’entreprises clientes de Dust, deux équipes d’étudiants, une journée pour un cas d’usage IA.",
-          "image": "",
           "inLanguage": "fr-FR",
           "mainEntityOfPage": "https://www.eugeniaschool.com/projets-entreprises/dust-hackathon",
           "author": {
@@ -4799,11 +3988,15 @@
     },
     "crumbs": [
       {
+        "name": "Entreprises",
+        "path": "/entreprises"
+      },
+      {
         "name": "Projets avec les entreprises",
         "path": "/projets-entreprises"
       },
       {
-        "name": "Eugenia School"
+        "name": "Hackathon Dust"
       }
     ]
   },
@@ -4813,7 +4006,7 @@
       "title": "Hackathon des 3M : Mistral AI, Make et Malt | Eugenia School",
       "description": "Le hackathon des 3M, c’est Mistral AI, Make et Malt : plus de 80 étudiants d’Eugenia ont travaillé 5 jours sur l’automatisation et le scoring de lead.",
       "h1": "Mistral AI, Make et Malt : le hackathon des 3M",
-      "image": "pr3_yt-mistral",
+      "image": "l3_projets-entreprises-mistral-ai-hackathon_01_le-hackathon-des-3m-sur-le-campus-",
       "imageAlt": "Le hackathon des 3M sur le campus : un intervenant présente le sujet devant l’écran « Géniathon des 3M »",
       "eyebrow": "// Hackathon des 3M · Mistral AI × Make × Malt · Février 2025 · Paris 10e",
       "lead": "Les 3M, ce sont trois entreprises : Mistral AI, Make et Malt. Plus de 80 étudiants, 5 jours, un vrai sujet confié par Malt : automatiser la qualification des leads avec les outils de Mistral AI et de Make.",
@@ -4886,7 +4079,7 @@
             },
             {
               "type": "paragraph",
-              "text": "« Eugenia forme des profils capables de transformer la data en valeur business, en phase avec les besoins de Malt. »Anaïs Ghelfi, Data Director, Malt"
+              "text": "« Eugenia forme des profils capables de transformer la data en valeur business, en phase avec les besoins de Malt. » Anaïs Ghelfi, Data Director, Malt"
             }
           ],
           "eyebrow": "le contexte",
@@ -4903,31 +4096,20 @@
               "text": "Les critères du jury"
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Pertinence pour Malt"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Qualité de l’automatisation"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Démo qui fonctionne"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Pitch"
+                {
+                  "title": "Pertinence pour Malt"
+                },
+                {
+                  "title": "Qualité de l’automatisation"
+                },
+                {
+                  "title": "Démo qui fonctionne"
+                },
+                {
+                  "title": "Pitch"
+                }
               ]
             }
           ],
@@ -4955,11 +4137,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackMake, Mistral AI, Google Sheets"
+              "text": "Stack Make, Mistral AI, Google Sheets"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueUn modèle Mistral AI note chaque lead et Make enchaîne les étapes sans code : un workflow simple à reprendre par l’équipe de Malt."
+              "text": "Choix technique Un modèle Mistral AI note chaque lead et Make enchaîne les étapes sans code : un workflow simple à reprendre par l’équipe de Malt."
             },
             {
               "type": "paragraph",
@@ -4980,11 +4162,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackMake, Mistral AI, Slack"
+              "text": "Stack Make, Mistral AI, Slack"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueLes 3 questions sont générées par Mistral AI selon la demande, et Make relie le formulaire, le modèle et Slack."
+              "text": "Choix technique Les 3 questions sont générées par Mistral AI selon la demande, et Make relie le formulaire, le modèle et Slack."
             },
             {
               "type": "paragraph",
@@ -5005,11 +4187,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackMake, Mistral AI, Looker Studio"
+              "text": "Stack Make, Mistral AI, Looker Studio"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueLe score est calculé en amont par Make et Mistral AI : le tableau de bord ne fait qu’afficher les priorités, il reste rapide et lisible."
+              "text": "Choix technique Le score est calculé en amont par Make et Mistral AI : le tableau de bord ne fait qu’afficher les priorités, il reste rapide et lisible."
             },
             {
               "type": "paragraph",
@@ -5062,7 +4244,7 @@
             },
             {
               "type": "paragraph",
-              "text": "« En 5 jours, on est passés d’une idée sur un post-it à un workflow qui tourne vraiment sur des données de Malt. »Nicolas S."
+              "text": "« En 5 jours, on est passés d’une idée sur un post-it à un workflow qui tourne vraiment sur des données de Malt. » Nicolas S."
             }
           ],
           "eyebrow": "les résultats",
@@ -5076,7 +4258,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mistral",
+              "name": "l3_projets-entreprises-mistral-ai-hackathon_02_image",
               "alt": ""
             },
             {
@@ -5091,12 +4273,12 @@
           "blocks": [
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_projets-entreprises-mistral-ai-hackathon_03_deux-etudiants-deugenia-school-bra",
               "alt": "Deux étudiants d’Eugenia School, bras croisés, devant l’escalier en bois de l’amphithéâtre"
             },
             {
               "type": "image",
-              "name": "p_duo",
+              "name": "l3_projets-entreprises-mistral-ai-hackathon_04_une-etudiante-prend-la-parole-au-m",
               "alt": "Une étudiante prend la parole au micro pendant la restitution du hackathon"
             }
           ],
@@ -5111,7 +4293,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mistral",
+              "name": "l3_projets-entreprises-mistral-ai-hackathon_05_image",
               "alt": ""
             },
             {
@@ -5149,7 +4331,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mistral",
+              "name": "l3_projets-entreprises-mistral-ai-hackathon_06_image",
               "alt": ""
             },
             {
@@ -5177,7 +4359,7 @@
             },
             {
               "type": "paragraph",
-              "text": "← Tous les projetsHackathons à Eugenia : comment ça marche"
+              "text": "← Tous les projets Hackathons à Eugenia : comment ça marche"
             }
           ],
           "eyebrow": "lire aussi",
@@ -5209,7 +4391,6 @@
           "@type": "Article",
           "headline": "Mistral AI, Make et Malt : le hackathon des 3M",
           "description": "Le hackathon des 3M, c’est Mistral AI, Make et Malt : plus de 80 étudiants d’Eugenia ont travaillé 5 jours sur l’automatisation et le scoring de lead.",
-          "image": "",
           "inLanguage": "fr-FR",
           "mainEntityOfPage": "https://www.eugeniaschool.com/projets-entreprises/mistral-ai-hackathon",
           "author": {
@@ -5224,11 +4405,15 @@
     },
     "crumbs": [
       {
+        "name": "Entreprises",
+        "path": "/entreprises"
+      },
+      {
         "name": "Projets avec les entreprises",
         "path": "/projets-entreprises"
       },
       {
-        "name": "Eugenia School"
+        "name": "Hackathon Mistral AI, Make et Malt"
       }
     ]
   },
@@ -5238,7 +4423,7 @@
       "title": "Hackathon Mirakl × OpenAI : IA agentique | Eugenia School",
       "description": "Hackathon Mirakl avec OpenAI à Eugenia School : 85 étudiants, 5 jours, 3 cas d’usage réels d’IA agentique pitchés devant les équipes de Mirakl et d’OpenAI.",
       "h1": "Mirakl × OpenAI : trois défis d’IA agentique",
-      "image": "pr3_yt-mirakl",
+      "image": "l3_projets-entreprises-openai-hackathon_01_une-etudiante-deugenia-school-pres",
       "imageAlt": "Une étudiante d’Eugenia School présente le projet de son équipe pendant le hackathon Mirakl × OpenAI",
       "eyebrow": "// Hackathon · Mirakl × OpenAI · Avril 2026 · Paris 10e",
       "lead": "85 étudiants, 5 jours, 3 cas d’usage réels d’IA agentique confiés par Mirakl, avec Dust, n8n, OpenAI et Make.",
@@ -5322,31 +4507,20 @@
               "text": "Les critères du jury"
             },
             {
-              "type": "list",
-              "ordered": false,
+              "type": "cards",
               "items": [
-                "Impact pour Mirakl"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Qualité de l’agent"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Démo qui fonctionne"
-              ]
-            },
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "Pitch"
+                {
+                  "title": "Impact pour Mirakl"
+                },
+                {
+                  "title": "Qualité de l’agent"
+                },
+                {
+                  "title": "Démo qui fonctionne"
+                },
+                {
+                  "title": "Pitch"
+                }
               ]
             }
           ],
@@ -5374,11 +4548,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackDust, n8n, OpenAI, Make"
+              "text": "Stack Dust, n8n, OpenAI, Make"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueDust pour l’agent et sa base de connaissances, n8n pour le relier aux outils de la marketplace : l’agent agit."
+              "text": "Choix technique Dust pour l’agent et sa base de connaissances, n8n pour le relier aux outils de la marketplace : l’agent agit."
             },
             {
               "type": "paragraph",
@@ -5399,11 +4573,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackDust, n8n, OpenAI, Make"
+              "text": "Stack Dust, n8n, OpenAI, Make"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueUn moteur d’acquisition autonome construit sur n8n : il enchaîne recherche, enrichissement et rédaction, et OpenAI personnalise chaque e-mail à partir des données du vendeur."
+              "text": "Choix technique Un moteur d’acquisition autonome construit sur n8n : il enchaîne recherche, enrichissement et rédaction, et OpenAI personnalise chaque e-mail à partir des données du vendeur."
             },
             {
               "type": "paragraph",
@@ -5424,11 +4598,11 @@
             },
             {
               "type": "paragraph",
-              "text": "StackDust, n8n, OpenAI, Make"
+              "text": "Stack Dust, n8n, OpenAI, Make"
             },
             {
               "type": "paragraph",
-              "text": "Choix techniqueDes agents Dust croisent offres d’emploi et profils publics, et Make livre chaque semaine une veille prête à l’emploi."
+              "text": "Choix technique Des agents Dust croisent offres d’emploi et profils publics, et Make livre chaque semaine une veille prête à l’emploi."
             },
             {
               "type": "paragraph",
@@ -5481,7 +4655,7 @@
             },
             {
               "type": "paragraph",
-              "text": "« Travailler sur un vrai problème de Mirakl, avec Dust et n8n, puis pitcher devant leur CEO : on n’apprend pas ça dans un cours magistral. »Victorien A., MSc"
+              "text": "« Travailler sur un vrai problème de Mirakl, avec Dust et n8n, puis pitcher devant leur CEO : on n’apprend pas ça dans un cours magistral. » Victorien A., MSc"
             }
           ],
           "eyebrow": "les résultats",
@@ -5495,7 +4669,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_projets-entreprises-openai-hackathon_02_image",
               "alt": ""
             },
             {
@@ -5510,22 +4684,22 @@
           "blocks": [
             {
               "type": "image",
-              "name": "lg_mirakl",
+              "name": "l3_projets-entreprises-openai-hackathon_03_un-intervenant-prend-la-parole-dan",
               "alt": "Un intervenant prend la parole dans l’amphithéâtre du campus pendant le hackathon Mirakl × OpenAI"
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_projets-entreprises-openai-hackathon_04_les-etudiants-suivent-les-presenta",
               "alt": "Les étudiants suivent les présentations depuis l’amphithéâtre du campus"
             },
             {
               "type": "image",
-              "name": "p_atrium",
+              "name": "l3_projets-entreprises-openai-hackathon_05_des-professionnels-invites-suivent",
               "alt": "Des professionnels invités suivent les présentations depuis l’amphithéâtre du campus"
             },
             {
               "type": "image",
-              "name": "lg_eugenia",
+              "name": "l3_projets-entreprises-openai-hackathon_06_des-etudiants-deugenia-school-pend",
               "alt": "Des étudiants d’Eugenia School pendant les présentations du hackathon"
             }
           ],
@@ -5540,7 +4714,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_projets-entreprises-openai-hackathon_07_image",
               "alt": ""
             },
             {
@@ -5584,7 +4758,7 @@
             },
             {
               "type": "image",
-              "name": "pr3_yt-mirakl",
+              "name": "l3_projets-entreprises-openai-hackathon_08_image",
               "alt": ""
             },
             {
@@ -5612,7 +4786,7 @@
             },
             {
               "type": "paragraph",
-              "text": "← Tous les projetsHackathons à Eugenia : comment ça marche"
+              "text": "← Tous les projets Hackathons à Eugenia : comment ça marche"
             }
           ],
           "eyebrow": "lire aussi",
@@ -5644,7 +4818,6 @@
           "@type": "Article",
           "headline": "Mirakl × OpenAI : trois défis d’IA agentique",
           "description": "Hackathon Mirakl avec OpenAI à Eugenia School : 85 étudiants, 5 jours, 3 cas d’usage réels d’IA agentique pitchés devant les équipes de Mirakl et d’OpenAI.",
-          "image": "",
           "inLanguage": "fr-FR",
           "mainEntityOfPage": "https://www.eugeniaschool.com/projets-entreprises/openai-hackathon",
           "author": {
@@ -5659,11 +4832,15 @@
     },
     "crumbs": [
       {
+        "name": "Entreprises",
+        "path": "/entreprises"
+      },
+      {
         "name": "Projets avec les entreprises",
         "path": "/projets-entreprises"
       },
       {
-        "name": "Eugenia School"
+        "name": "Hackathon Mirakl et OpenAI"
       }
     ]
   },
@@ -5697,10 +4874,10 @@
               "type": "paragraph",
               "text": "4portfolios en ligne"
             },
-        {
-          "type": "portfolio-grid",
-          "emptyText": "Rien pour cette combinaison. Essaie un autre filtre.",
-          "filters": [
+            {
+              "type": "portfolio-grid",
+              "emptyText": "Rien pour cette combinaison. Essaie un autre filtre.",
+              "filters": [
                 {
                   "label": "Technologie",
                   "key": "stack",
@@ -5742,7 +4919,7 @@
                   "name": "Jennie Ansellem",
                   "text": "Automatisation & no-code",
                   "href": "https://jennieansellem.vercel.app/index.html",
-                  "image": "pr4_portfolio_jennie",
+                  "image": "l3_portfolio_01_portfolio-de-jennie-ansellem",
                   "alt": "Portfolio de Jennie Ansellem",
                   "filters": {
                     "stack": [
@@ -5762,7 +4939,7 @@
                   "name": "Binta Kande",
                   "text": "Automatisations, agents IA et marketing digital",
                   "href": "http://bintakande.com/",
-                  "image": "pr4_portfolio_binta",
+                  "image": "l3_portfolio_02_portfolio-de-binta-kande",
                   "alt": "Portfolio de Binta Kande",
                   "filters": {
                     "stack": [
@@ -5781,7 +4958,7 @@
                   "name": "Ian Laurent",
                   "text": "Développement full-stack",
                   "href": "http://ianlaurent.com/",
-                  "image": "pr4_portfolio_ian",
+                  "image": "l3_portfolio_03_portfolio-de-ian-laurent",
                   "alt": "Portfolio de Ian Laurent",
                   "filters": {
                     "stack": [
@@ -5802,7 +4979,7 @@
                   "name": "Jean-Li Sek",
                   "text": "Data & IA : build, learn, collab",
                   "href": "https://joliment.fr/",
-                  "image": "pr4_portfolio_jean-li",
+                  "image": "l3_portfolio_04_portfolio-de-jean-li-sek",
                   "alt": "Portfolio de Jean-Li Sek",
                   "filters": {
                     "stack": [
@@ -5822,7 +4999,7 @@
                   "name": "Samantha Asdrubal",
                   "text": "Un portfolio en version Windows XP",
                   "href": "https://samasdrr.github.io/portefolio/",
-                  "image": "pr4_portfolio_samantha",
+                  "image": "l3_portfolio_05_portfolio-de-samantha-asdrubal",
                   "alt": "Portfolio de Samantha Asdrubal",
                   "filters": {
                     "stack": [
@@ -5910,7 +5087,8 @@
             }
           ],
           "eyebrow": "leurs sites",
-          "title": "Cinq portfolios, cinq univers."
+          "title": "Cinq portfolios, cinq univers.",
+          "id": "portfolios"
         }
       ],
       "internalLinks": [],
