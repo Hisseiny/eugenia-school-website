@@ -8,7 +8,7 @@ mockup (six pages) as a fully static [Astro](https://astro.build) site.
 - Astro 7 (static output), TypeScript strict, pnpm, pinned versions.
 - Fonts: Sora and Work Sans, self-hosted via `@fontsource`.
 - Images: WebP with `srcset`, generated at build time from `src/assets/images`.
-- Formulaires : visibles mais désactivés par défaut sur la démo (aucun script ni envoi HubSpot).
+- Forms: local demos for applications, brochures, events, contact and recruiters. Submitting validates the answers and displays a confirmation without sending data.
 - No framework on the client: the carousel, the accordion and the mobile menu are a few lines of
   plain TypeScript, and every page reads without JavaScript.
 
@@ -26,26 +26,9 @@ node scripts/screenshot.mjs http://127.0.0.1:4321 1440 375   # full-page screens
 
 ## Sécurité des formulaires de démo
 
-Un build standard (`pnpm build`) ne charge aucun script HubSpot et n'envoie aucune
-demande aux admissions. Les formulaires restent visibles ; une tentative d'envoi
-affiche « Formulaire désactivé sur la démo ». Sans JavaScript, leur méthode
-`dialog` empêche aussi tout envoi natif.
-
-La réactivation exige **exactement** `PUBLIC_ENABLE_HUBSPOT_FORMS=true` au build :
-
-```sh
-PUBLIC_ENABLE_HUBSPOT_FORMS=true pnpm build
-```
-
-Attention : cette option réactive les **vrais formulaires de l'école**, avec les
-mêmes identifiants de portail et de formulaire. Ne jamais l'activer sur le
-déploiement de démonstration ou pour les tests de l'agent H. Toute autre valeur
-(ou l'absence de variable) laisse les envois désactivés. Après un changement,
-reconstruire et redéployer les fichiers statiques ; une variable au runtime
-ne peut pas réactiver un build de démo.
-
-`pnpm test` vérifie que `dist/` est sûr pour la démo : lancer les tests après
-un build **sans** cette variable.
+Les formulaires valident les réponses et affichent une confirmation locale,
+sans transmettre de données. Sans JavaScript, leur méthode `dialog` empêche
+aussi tout envoi natif.
 
 ### Traçage également désactivé par défaut
 
@@ -59,9 +42,8 @@ PUBLIC_ENABLE_ANALYTICS=true pnpm build
 
 Cette option réactive le vrai GTM et GA de l'école, et les traceurs qu'ils chargent
 (notamment HubSpot et Facebook). Ne jamais l'activer sur la démo ou les
-prévisualisations destinées à l'agent H. Elle est indépendante de
-`PUBLIC_ENABLE_HUBSPOT_FORMS` : laisser **les deux variables absentes** pour un
-build de démo. Toute autre valeur que `true` laisse le traçage désactivé.
+prévisualisations destinées à l'agent H. Toute autre valeur que `true` (ou
+l'absence de la variable) laisse le traçage désactivé.
 Reconstruire puis redéployer après tout changement ; `pnpm test` vérifie aussi
 l'absence des domaines et identifiants de traçage dans les artefacts par défaut.
 
@@ -72,7 +54,7 @@ src/
   layouts/Base.astro       <head>, SEO, JSON-LD, header, footer, skip link
   components/              Header, Footer, Pic (ratio-safe image), Logo, LogoMarquee,
                            Testimonials (carousel), PageTop, EndOfPage, ContinueVisit,
-                           HubspotForm, FormPage
+                           PremiumForm, FormPage
   pages/                   index, programmes, carrieres, ecole, admissions, entreprises
                            + brochure, candidature, evenements, contact (forms)
   data/                    all texts and lists of the mockup, as typed data

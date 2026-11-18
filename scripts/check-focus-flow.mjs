@@ -9,14 +9,11 @@ const ok = (value, label) => { assert.ok(value, label); console.log(`PASS ${labe
 try {
   for (const width of (process.env.FOCUS_WIDTHS ?? "390,1440").split(",").map(Number)) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: "reduce" });
-    const payloads = [];
+    const submissions = [];
     await context.route("**/*", (route) => {
       const url = new URL(route.request().url());
+      if (route.request().method() !== "GET") submissions.push(url.pathname);
       if (url.origin === "http://127.0.0.1:4322") return serveBuild(route);
-      if (url.hostname === "api.hsforms.com") {
-        payloads.push({ url: route.request().url(), body: route.request().postDataJSON() });
-        return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
-      }
       return route.abort();
     });
     const page = await context.newPage();
@@ -33,8 +30,8 @@ try {
     await page.locator('label:has(input[value="Y3"])').click();
     ok(await page.locator("[data-pf-step]").textContent() === "4", `${width}: contact in three clicks`);
     const inputBox = await page.locator('[name="email"]').boundingBox();
-    const formBox = await page.locator("[data-premium-form]").boundingBox();
-    ok(inputBox.height >= 52 && inputBox.width >= formBox.width - 2, `${width}: full-width contact inputs`);
+    const gridBox = await page.locator(".pf__grid").boundingBox();
+    ok(inputBox.height >= 52 && Math.abs(inputBox.width - gridBox.width) <= 2, `${width}: full-width contact inputs`);
     await page.locator('[name="firstname"]').fill("Camille");
     await page.locator('[name="lastname"]').fill("Exemple");
     await page.locator('[name="email"]').fill("camille@gmial.com");
@@ -51,13 +48,12 @@ try {
     await page.screenshot({ path: `../attached_assets/eugenia-preview/focus-contact-${width}.png`, fullPage: true });
     await page.locator("[data-pf-submit]").click();
     await page.locator("[data-pf-done]").waitFor({ state: "visible" });
-    const fields = Object.fromEntries(payloads[0].body.fields.map((f) => [f.name, f.value]));
-    assert.deepEqual(fields, { all_type_multiple_checkboxes: "All.Parent", one_targetted_training: "MSc Gamma", all_current_academic_year: "Y3", firstname: "Camille", lastname: "Exemple", email: "camille@gmail.com", phone: "0612345678" });
-    ok(payloads[0].url.endsWith("/636c087a-248a-470d-8e70-b50dd08a73b8"), `${width}: same destination and field contract`);
+    ok((await page.locator("[data-pf-done-title]").textContent()) === "Simulation terminée, Camille.", `${width}: personalized local confirmation`);
+    ok(submissions.length === 0, `${width}: no network submissions`);
     ok(await page.evaluate(() => sessionStorage.getItem("eugenia:form:v2:candidature")) === null, `${width}: draft cleared after success`);
     ok(await page.locator("[data-student-share]").isHidden(), `${width}: no student CTA for parents`);
     const metrics = [...initialMetrics, ...await page.evaluate(() => window.dataLayer)];
-    ok(["form_start", "form_step_view", "form_step_complete", "form_submit"].every((name) => metrics.some((e) => e.event === name)), `${width}: funnel events`);
+    ok(["form_start", "form_step_view", "form_step_complete"].every((name) => metrics.some((e) => e.event === name)), `${width}: funnel events`);
     ok(!JSON.stringify(metrics).includes("Camille") && !JSON.stringify(metrics).includes("gmail"), `${width}: no personal data in analytics`);
     await page.screenshot({ path: `../attached_assets/eugenia-preview/focus-done-${width}.png`, fullPage: true });
     await context.close();

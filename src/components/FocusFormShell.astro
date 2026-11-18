@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import { img } from "@/data/images";
-import { SITE, type HUBSPOT } from "@/data/site";
+import { SITE } from "@/data/site";
+import type { FocusFormKind } from "@/data/forms";
 import { DEFAULT_STORY, FOCUS_STORIES } from "@/data/focus-forms";
 import PremiumForm from "./PremiumForm.astro";
 import "@/styles/focus-form.css";
-interface Props { form: keyof typeof HUBSPOT.forms; heading: string; lead?: string; facts?: readonly string[]; next?: readonly string[]; formLabel?: string }
+interface Props { form: FocusFormKind; heading: string; lead?: string; facts?: readonly string[]; next?: readonly string[]; formLabel?: string }
 const { form, heading } = Astro.props;
 const initial = DEFAULT_STORY[form];
 ---

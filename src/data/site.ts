@@ -54,18 +54,6 @@ export const WEBSITE = {
   publisher: { "@id": ORG_ID },
 } as const;
 
-/** Public HubSpot embed identifiers, read from the live eugeniaschool.com pages (not secrets). */
-export const HUBSPOT = {
-  portalId: "25517078",
-  region: "eu1",
-  forms: {
-    brochure: "6a2d0bc7-da08-4fc0-a33b-57c7901f0d8d",
-    candidature: "636c087a-248a-470d-8e70-b50dd08a73b8",
-    evenement: "2a34a111-a00d-45dc-8eb8-f2f3def58085",
-    contact: "43012bf9-3f27-415c-a452-e5351d4c9299",
-  },
-} as const;
-
 /** Routes rendered by this build. */
 export const ROUTES = {
   home: "/",

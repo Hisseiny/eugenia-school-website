@@ -1,8 +1,8 @@
 ---
-/** Shared layout for the four form pages: title + context left, existing HubSpot form right. */
+/** Shared layout for the four focused form pages. */
 import Base from "@/layouts/Base.astro";
 import FocusFormShell from "@/components/FocusFormShell.astro";
-import type { HUBSPOT } from "@/data/site";
+import type { FocusFormKind } from "@/data/forms";
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
   crumbs: { name: string; path?: string }[];
   heading: string;
   lead: string;
-  form: keyof typeof HUBSPOT.forms;
+  form: FocusFormKind;
   facts?: readonly string[];
   formLabel: string;
   /** What happens after sending: shown above the form so the last step of the journey reassures. */

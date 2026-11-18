@@ -56,13 +56,18 @@ const { title, id, lead, image, alt = "", eyebrow, dataAnswer = false, nativeIma
   .pagetop .display {
     overflow-wrap: break-word;
   }
-  /* The title column takes the width of the word; the lead gets the rest. */
   @media (min-width: 1024px) {
     .pagetop {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
     .pagetop--single {
       grid-template-columns: 1fr;
+    }
+    .pagetop:not(.pagetop--single) .pagetop__title-wrap {
+      container-type: inline-size;
+    }
+    .pagetop:not(.pagetop--single) .display {
+      font-size: clamp(48px, 14.5cqi, 108px);
     }
   }
   @media (max-width: 1023px) {

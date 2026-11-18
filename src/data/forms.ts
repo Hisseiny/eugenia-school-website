@@ -1,11 +1,5 @@
-/**
- * The four HubSpot forms, rebuilt as Eugenia-styled multi-step forms. Field names and option
- * values are exactly those of the school's HubSpot forms (read from the live embeds and checked
- * against the Forms API validation); only the labels shown to the visitor are ours.
- */
-import { HUBSPOT } from "@/data/site";
-
-export const HUBSPOT_FORMS_ENABLED = import.meta.env.PUBLIC_ENABLE_HUBSPOT_FORMS === "true";
+export type FocusFormKind = "candidature" | "brochure" | "evenement" | "contact";
+export type FormKind = FocusFormKind | "recruteur";
 
 export type Option = { value: string; label: string; hint?: string };
 
@@ -13,7 +7,6 @@ export const WHO: Record<string, Option> = {
   "All.Student": { value: "All.Student", label: "Lycéen·ne ou étudiant·e", hint: "Je candidate pour moi" },
   "All.Parent": { value: "All.Parent", label: "Parent", hint: "Je me renseigne pour mon enfant" },
   "All.ProfessionalTrainee": { value: "All.ProfessionalTrainee", label: "En activité ou en reconversion", hint: "Je veux me former" },
-  "All.Corporate": { value: "All.Corporate", label: "Entreprise", hint: "Recruter, co-construire" },
 };
 
 export const YEARS: Option[] = [
@@ -35,7 +28,6 @@ export const TRAININGS: Option[] = [
   { value: "MSc Gamma", label: "MSc IA Applied to Business", hint: "2 ans en alternance, après un Bac+3" },
 ];
 
-/** Upcoming events only (the HubSpot dropdown also lists past dates: June and July 2026). */
 export const EVENTS_OPTIONS: Option[] = [
   { value: "12 Décembre 2026 - Journée Portes Ouvertes - 12 déc - 10h30", label: "Journée portes ouvertes", hint: "12 décembre, 10 h 30" },
   { value: "12 Décembre 2026 - Atelier : Entrepreneur - 13h30", label: "Atelier entrepreneuriat", hint: "12 décembre, 13 h 30" },
@@ -45,45 +37,37 @@ export const EVENTS_OPTIONS: Option[] = [
 export type Step =
   | { kind: "choice"; name: string; title: string; titleParent?: string; options: Option[]; cards?: boolean }
   | { kind: "select"; name: string; title: string; titleParent?: string; label: string; labelParent?: string; options: Option[] }
-  | { kind: "contact"; title: string; titleParent?: string; message?: boolean };
+  | { kind: "contact"; title: string; titleParent?: string; message?: boolean; jobTitle?: boolean };
 
 export interface FormConfig {
-  formId: string;
   submitLabel: string;
   pageName: string;
   who: string[];
   steps: Step[];
   /** Confirmation: title uses {firstname}; lines come from validated facts only. */
   done: { title: string; lines: string[] };
-  doneParent?: { title: string; lines: string[] };
   /** Shown on the last step when Parent is chosen (candidature): never blocks. */
   parentNote?: string;
 }
 
-export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
+export const FORMS: Record<FormKind, FormConfig> = {
   candidature: {
-    formId: HUBSPOT.forms.candidature,
-    submitLabel: "Créer mon espace candidat",
+    submitLabel: "Envoyer ma demande",
     pageName: "Candidature",
     who: ["All.Student", "All.Parent"],
     steps: [
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Commençons par toi.", titleParent: "Commençons par vous.", options: [], cards: true },
       { kind: "choice", name: "one_targetted_training", title: "Quel programme t'attire ?", titleParent: "Quel programme l'attire ?", options: TRAININGS, cards: true },
       { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Ton année actuelle", labelParent: "Son année actuelle", options: YEARS },
-      { kind: "contact", title: "Créons ton espace candidat.", titleParent: "Créons l'espace candidat de votre enfant." },
+      { kind: "contact", title: "Tes coordonnées pour envoyer ta demande", titleParent: "Vos coordonnées pour envoyer la demande" },
     ],
     done: {
-      title: "C'est envoyé, {firstname}.",
-      lines: ["Ta demande a été transmise à l'équipe d'admission.", "La création de l'espace et le dépôt du dossier restent à confirmer avec l'équipe."],
-    },
-    doneParent: {
-      title: "C'est envoyé, {firstname}.",
-      lines: ["Votre demande a été transmise à l'équipe d'admission.", "La création de l'espace et le dépôt du dossier restent à confirmer avec l'équipe."],
+      title: "Simulation terminée, {firstname}.",
+      lines: ["Aucun espace candidat ni dossier n’a été créé."],
     },
     parentNote: "La candidature se fait au nom de votre enfant : vous pouvez la remplir avec lui, ou nous poser d'abord vos questions.",
   },
   brochure: {
-    formId: HUBSPOT.forms.brochure,
     submitLabel: "Recevoir la brochure",
     pageName: "Brochure",
     who: ["All.Student", "All.Parent", "All.ProfessionalTrainee"],
@@ -93,11 +77,9 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
       { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Année actuelle", labelParent: "Son année actuelle", options: YEARS },
       { kind: "contact", title: "Où envoyer la brochure ?" },
     ],
-    done: { title: "Merci, {firstname}.", lines: ["La brochure arrive dans ta boîte mail.", "Aucun engagement : c'est juste la brochure.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
-    doneParent: { title: "Merci, {firstname}.", lines: ["La brochure arrive dans votre boîte mail.", "Aucun engagement : c'est juste la brochure.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
+    done: { title: "Simulation terminée, {firstname}.", lines: ["Aucune brochure n’a été envoyée par e-mail."] },
   },
   evenement: {
-    formId: HUBSPOT.forms.evenement,
     submitLabel: "Réserver ma place",
     pageName: "Événements",
     who: ["All.Student", "All.Parent"],
@@ -108,20 +90,33 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
       { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Année actuelle", labelParent: "Son année actuelle", options: YEARS },
       { kind: "contact", title: "Tes coordonnées, pour confirmer ta place", titleParent: "Vos coordonnées, pour confirmer votre place" },
     ],
-    done: { title: "Ta place est réservée, {firstname}.", lines: ["L'équipe te confirme ta place par e-mail.", "Sur le campus, 18 rue de Paradis, Paris 10e. Gratuit.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
-    doneParent: { title: "Votre place est réservée, {firstname}.", lines: ["L'équipe vous confirme votre place par e-mail.", "Sur le campus, 18 rue de Paradis, Paris 10e. Gratuit.", "Une question ? admission@eugeniaschool.com · 01 31 67 73 88"] },
+    done: { title: "Simulation terminée, {firstname}.", lines: ["Aucune place n’a été réservée."] },
   },
   contact: {
-    formId: HUBSPOT.forms.contact,
     submitLabel: "Être recontacté·e",
     pageName: "Contact",
-    who: ["All.Student", "All.Parent", "All.Corporate"],
+    who: ["All.Student", "All.Parent"],
     steps: [
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Qui êtes-vous ?", options: [], cards: true },
       { kind: "choice", name: "one_targetted_training", title: "Quel programme vous concerne ?", options: TRAININGS, cards: true },
       { kind: "select", name: "all_current_academic_year", title: "Où en êtes-vous aujourd'hui ?", label: "Année actuelle (ou celle de votre enfant)", options: YEARS },
       { kind: "contact", title: "Vos coordonnées et votre question", message: true },
     ],
-    done: { title: "Message reçu, {firstname}.", lines: ["L'équipe admission vous répond.", "Aussi par téléphone : 01 31 67 73 88", "Ou par e-mail : admission@eugeniaschool.com"] },
+    done: { title: "Simulation terminée, {firstname}.", lines: ["Le message n’a pas été transmis à l’équipe."] },
+  },
+  recruteur: {
+    submitLabel: "Envoyer la demande",
+    pageName: "Recrutement",
+    who: [],
+    steps: [
+      { kind: "choice", name: "reason", title: "Quel est votre besoin ?", options: [
+        { value: "recruit", label: "Recruter des profils Eugenia School" },
+        { value: "deep-dive", label: "Participer à un Business Deep Dive" },
+        { value: "training", label: "Former mes équipes" },
+        { value: "other", label: "Autre demande" },
+      ], cards: true },
+      { kind: "contact", title: "Vos coordonnées professionnelles", message: true, jobTitle: true },
+    ],
+    done: { title: "Simulation terminée, {firstname}.", lines: ["La demande n’a pas été transmise à l’équipe."] },
   },
 };
