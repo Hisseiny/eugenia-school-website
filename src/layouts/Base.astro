@@ -55,7 +55,7 @@ const og = new URL(ogResult.src, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -85,7 +85,7 @@ const og = new URL(ogResult.src, Astro.site).href;
   </head>
   <body>
     <Analytics position="body" />
-    <a href="#main" class="skip-link">Aller au contenu</a>
+    <a href="#main" class="skip-link">Zum Inhalt springen</a>
     {!/^\/(candidature|brochure|evenements|contact)(\.html|\/)?$/.test(Astro.url.pathname) && <Header tone={headerTone} current={current} />}
     <main id="main">
       {crumbs?.length && <Breadcrumbs items={crumbs} />}

@@ -97,9 +97,9 @@ export const EXTERNAL = {
 } as const;
 
 export const NAV = [
-  { href: ROUTES.programmes, label: "Programmes" },
-  { href: ROUTES.carrieres, label: "Carrières" },
-  { href: ROUTES.ecole, label: "L'école" },
-  { href: ROUTES.admissions, label: "Admissions" },
-  { href: ROUTES.entreprises, label: "Entreprises" },
+  { href: ROUTES.programmes, label: "Studienprogramme" },
+  { href: ROUTES.carrieres, label: "Karriere" },
+  { href: ROUTES.ecole, label: "Die Hochschule" },
+  { href: ROUTES.admissions, label: "Studienzulassung" },
+  { href: ROUTES.entreprises, label: "Unternehmen" },
 ] as const;

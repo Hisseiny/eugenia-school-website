@@ -1,78 +1,78 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Master IA en alternance : MSc à Paris | Eugenia School",
+  "title": "Dualer KI-Master: MSc in Paris | Eugenia School",
   "description": "MSc IA à Paris, le master tech en alternance : 4 jours en entreprise, 1 jour à l'école, un Bac+5 reconnu par l'État. Découvrez le programme et candidatez.",
-  "h1": "MSc IA Appliquée au Business",
+  "h1": "MSc Angewandte KI für Unternehmen",
   "image": "pr3_hero-msc",
-  "imageAlt": "Un étudiant d’Eugenia School devant la bannière de l’école, bras croisés",
-  "lead": "Le MSc IA Appliquée au Business est un Bac+5 en deux ans (120 ECTS), 100 % en alternance, à Paris, accessible après un Bac+3 en M1 ou un Bac+4 en M2. Après un bootcamp de 5 semaines : 4 jours en entreprise, 1 jour à l'école. Titre RNCP 41993 (niveau 7), Architecte en intelligence artificielle, délivré par JEDHA.",
-  "eyebrow": "Master of Science · Bac+5 · Rentrée 2027",
+  "imageAlt": "Ein Schüler der Eugenia School vor dem Schulbanner mit verschränkten Armen",
+  "lead": "Der MSc Angewandte KI für Unternehmen ist ein Bac+5 in zwei Jahren (120 ECTS), 100 % berufsbegleitendes Studium, in Paris, zugänglich nach einem Bac+3 in M1 oder einem Bac+4 in M2. Nach einem 5-wöchigen Bootcamp: 4 Tage Arbeit, 1 Tag Schule. RNCP 41993-Titel (Stufe 7), Architekt für künstliche Intelligenz, ausgestellt von JEDHA.",
+  "eyebrow": "Master of Science · Bac+5 · Studienbeginn 2027",
   "audience": {
-    "student": "Le Master en alternance de l’école de l’IA appliquée au business : quatre jours en entreprise, un jour à l’école, pour allier business, IA et data et décrocher un Bac+5 reconnu par l’État.",
-    "parent": "Le Master en alternance de l’école de l’IA appliquée au business : quatre jours en entreprise, un jour à l’école. Votre enfant acquiert une vraie expérience professionnelle, allie business, IA et data et obtient un Bac+5 reconnu par l’État, avec des mentors et un suivi individuel.",
-    "studentCta": "Candidater →",
-    "parentCta": "Créer l’espace candidat de mon enfant →",
+    "student": "Der berufsbegleitende Master-Abschluss der School of AI bezog sich auf die Wirtschaft: vier Tage in einem Unternehmen, ein Tag in der Schule, um Wirtschaft, KI und Daten zu kombinieren und einen staatlich anerkannten Bac+5 zu erhalten.",
+    "parent": "Der berufsbegleitende Master-Abschluss der School of AI wurde auf die Wirtschaft angewendet: vier Tage in der Wirtschaft, ein Tag in der Schule. Ihr Kind erwirbt echte Berufserfahrung, kombiniert Wirtschaft, KI und Daten und erhält einen staatlich anerkannten Bac+5 mit Mentoren und individueller Betreuung.",
+    "studentCta": "Jetzt bewerben →",
+    "parentCta": "Bewerbungskonto für mein Kind einrichten →",
     "href": "/candidature"
   },
   "badges": [
-    "Bac+5 · RNCP niveau 7",
+    "Bac+5 · RNCP Level 7",
     "120 ECTS",
     "Paris",
-    "100 % alternance",
-    "2 ans"
+    "100 % duales Studium",
+    "2 Jahre"
   ],
   "facts": [
     {
-      "label": "Durée",
-      "value": "2 ans · 120 ECTS"
+      "label": "Studiendauer",
+      "value": "2 Jahre · 120 ECTS"
     },
     {
-      "label": "Rythme",
-      "value": "5 semaines de bootcamp, puis 4 jours en entreprise et 1 jour à l’école"
+      "label": "Studienrhythmus",
+      "value": "5 Wochen Bootcamp, dann 4 Tage im Unternehmen und 1 Tag in der Schule"
     },
     {
-      "label": "Admission",
-      "value": "Bac+3 (M1) · Bac+4 ou M1 (M2) · SQL et Python requis"
+      "label": "Zulassung",
+      "value": "Bac+3 (M1) · Bac+4 oder M1 (M2) · SQL und Python erforderlich"
     },
     {
-      "label": "Certification",
-      "value": "Titre RNCP 41993 (niveau 7), Architecte en intelligence artificielle, JEDHA"
+      "label": "Zertifizierung",
+      "value": "Titel RNCP 41993 (Stufe 7), Architekt für künstliche Intelligenz, JEDHA"
     },
     {
-      "label": "Lieu",
+      "label": "Studienort",
       "value": "Paris, 18 rue de Paradis"
     },
     {
-      "label": "Rentrée",
+      "label": "Studienbeginn",
       "value": "2027"
     },
     {
-      "label": "Frais de scolarité",
-      "value": "0 €, pris en charge par l’employeur",
+      "label": "Studiengebühren",
+      "value": "0 €, übernimmt der Arbeitgeber",
       "href": "/financement"
     }
   ],
   "sections": [
     {
-      "title": "4 blocs de compétences, tous opérationnels.",
+      "title": "4 Kompetenzbereiche für die Praxis.",
       "blocks": [
         {
           "type": "heading",
           "level": 3,
-          "text": "Business & ops"
+          "text": "Geschäft und Betrieb"
         },
         {
           "type": "paragraph",
-          "text": "Digital marketing, RevOps, design thinking, gestion de projet, gouvernance de l’IA et RGPD. Comprendre comment tourne une entreprise, l’outiller et piloter ses projets."
+          "text": "Digitales Marketing, RevOps, Design Thinking, Projektmanagement, KI-Governance und DSGVO. Verstehen Sie, wie ein Unternehmen läuft, rüsten Sie es aus und verwalten Sie seine Projekte."
         },
         {
           "type": "paragraph",
-          "text": "Outils"
+          "text": "Werkzeuge"
         },
         {
           "type": "paragraph",
-          "text": "Digital Marketing"
+          "text": "Digitales Marketing"
         },
         {
           "type": "paragraph",
@@ -84,24 +84,24 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "RGPD"
+          "text": "DSGVO"
         },
         {
           "type": "paragraph",
-          "text": "Personal Branding"
+          "text": "Persönliches Branding"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Exécution"
+          "text": "Ausführung"
         },
         {
           "type": "paragraph",
-          "text": "No-code, vibe coding, gestion de projet. Passer de l’idée au livrable, vite et bien."
+          "text": "No-Code, Vibe-Coding, Projektmanagement. Gehen Sie schnell und effizient von der Idee zum Ergebnis."
         },
         {
           "type": "paragraph",
-          "text": "Outils"
+          "text": "Werkzeuge"
         },
         {
           "type": "paragraph",
@@ -113,7 +113,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "No-code"
+          "text": "Kein Code"
         },
         {
           "type": "paragraph",
@@ -121,20 +121,20 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Gestion de projet"
+          "text": "Projektmanagement"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Data & analyse"
+          "text": "Daten & Analyse"
         },
         {
           "type": "paragraph",
-          "text": "Du SQL avancé à l’architecture de données pour l’IA. Faire parler la donnée pour aider à décider."
+          "text": "Von fortgeschrittenem SQL bis hin zur Datenarchitektur für KI. Lassen Sie Daten sprechen, um bei der Entscheidung zu helfen."
         },
         {
           "type": "paragraph",
-          "text": "Outils"
+          "text": "Werkzeuge"
         },
         {
           "type": "paragraph",
@@ -142,7 +142,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "SQL avancé"
+          "text": "Erweitertes SQL"
         },
         {
           "type": "paragraph",
@@ -158,24 +158,24 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Data pipelines"
+          "text": "Datenpipelines"
         },
         {
           "type": "paragraph",
-          "text": "Machine Learning"
+          "text": "Maschinelles Lernen"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "IA & agents"
+          "text": "KI & Agenten"
         },
         {
           "type": "paragraph",
-          "text": "Agents IA, RAG, fine-tuning de LLM : concevoir des agents et des automatisations qui tournent vraiment en entreprise, jusqu’au déploiement."
+          "text": "KI-Agenten, RAG, Feinabstimmung von LLM: Entwerfen Sie Agenten und Automatisierungen, die im Geschäft wirklich funktionieren, bis hin zur Bereitstellung."
         },
         {
           "type": "paragraph",
-          "text": "Outils"
+          "text": "Werkzeuge"
         },
         {
           "type": "paragraph",
@@ -191,11 +191,11 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Prompt engineering"
+          "text": "Prompte Technik"
         },
         {
           "type": "paragraph",
-          "text": "Agents IA"
+          "text": "KI-Agenten"
         },
         {
           "type": "paragraph",
@@ -203,25 +203,25 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "LLM fine-tuning"
+          "text": "LLM-Feinabstimmung"
         },
         {
           "type": "paragraph",
           "text": "Vibe coding"
         }
       ],
-      "eyebrow": "le programme"
+      "eyebrow": "das Programm"
     },
     {
-      "title": "Deux ans. Quatre semestres.",
+      "title": "Zwei Jahre. Vier Semester.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Chaque année commence par un bootcamp de 5 semaines à temps plein à l’école, puis place à l’alternance : 4 jours en entreprise, 1 jour à l’école. 120 ECTS au total, et à la clé le titre RNCP de niveau 7 « Architecte en intelligence artificielle » (JEDHA, RNCP 41993). Ouvre un semestre pour voir les blocs et les cours, avec leurs heures et leurs ECTS."
+          "text": "Jedes Jahr beginnt mit einem 5-wöchigen Vollzeit-Bootcamp in der Schule, gefolgt von einem Arbeitsstudienprogramm: 4 Tage bei der Arbeit, 1 Tag in der Schule. Insgesamt 120 ECTS und der RNCP Level 7-Titel „Artificial Intelligence Architect“ (JEDHA, RNCP 41993). Öffnen Sie ein Semester, um die Blöcke und Kurse mit ihren Stunden und ECTS anzuzeigen."
         },
         {
           "type": "paragraph",
-          "text": "Année 1 · M1"
+          "text": "Jahr 1 · M1"
         },
         {
           "type": "curriculum",
@@ -230,58 +230,58 @@ export const page: LivePage = {
       ]
     },
     {
-      "title": "On apprend en faisant. Pour de vrai.",
+      "title": "Lernen durch Praxis. An echten Projekten.",
       "blocks": [
         {
           "type": "heading",
           "level": 3,
-          "text": "Des projets, en sprint."
+          "text": "Projekte, im Sprint."
         },
         {
           "type": "paragraph",
-          "text": "Chaque semaine, un nouveau cas business, en format bootcamp intensif. Comme en entreprise : en sprint, en équipe, sur un cas concret d’une à deux semaines."
+          "text": "Jede Woche ein neuer Business Case im intensiven Bootcamp-Format. Wie im Business: im Sprint, im Team, an einem konkreten Fall von ein bis zwei Wochen Dauer."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "3 à 5 hackathons par an"
+          "text": "3 bis 5 Hackathons pro Jahr"
         },
         {
           "type": "paragraph",
-          "text": "Une semaine avec l’école, une entreprise et un éditeur logiciel, pitch final le vendredi devant un jury de professionnels. Trois rendez-vous : l’Inter-Master en novembre (M1 et M2), l’Inter-Promo en février et l’Inter-Écoles en avril, avec Albert School, l’École 42 et XHEC."
+          "text": "Eine Woche mit der Schule, einem Unternehmen und einem Softwarehersteller, Abschluss-Pitch am Freitag vor einer Fachjury. Drei Treffen: das Inter-Master im November (M1 und M2), das Inter-Promo im Februar und das Inter-Écoles im April mit der Albert School, der École 42 und XHEC."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Des profs en activité"
+          "text": "Lehrer im Einsatz"
         },
         {
           "type": "paragraph",
-          "text": "Experts métier, start-uppers, ambassadeurs certifiés Anthropic, n8n ou Notion, entrepreneurs… et des alumni Eugenia, comme Nina Lemoine ou Antoine Goupil, qui reviennent enseigner."
+          "text": "Wirtschaftsexperten, Startups, zertifizierte Anthropic-, n8n- oder Notion-Botschafter, Unternehmer ... und Eugenia-Alumni wie Nina Lemoine oder Antoine Goupil, die zurückkehren, um zu unterrichten."
         },
         {
           "type": "image",
           "name": "pr3_eug-atelier",
-          "alt": "Atelier de travail en groupe",
+          "alt": "Gruppenarbeitsworkshop",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_eug-hackathon",
-          "alt": "Hackathon Eugenia School",
+          "alt": "Hackathon der Eugenia School",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_eug-promo",
-          "alt": "Promo Eugenia School sur le campus",
+          "alt": "Promo Eugenia School auf dem Campus",
           "logo": false
         }
       ],
-      "eyebrow": "dans et avec l'écosystème"
+      "eyebrow": "im und mit dem Ökosystem"
     },
     {
-      "title": "Tu travailles avec eux. Des projets qu’ils confient à l’école.",
+      "title": "Du arbeitest mit ihnen an Projekten, die sie der Hochschule anvertrauen.",
       "blocks": [
         {
           "type": "paragraph",
@@ -294,11 +294,11 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Projets data et automatisation au sein des marques du groupe."
+          "text": "Daten- und Automatisierungsprojekte innerhalb der Marken der Gruppe."
         },
         {
           "type": "cta",
-          "label": "Voir la vidéo LVMH",
+          "label": "Sehen Sie sich das LVMH-Video an",
           "href": "https://www.youtube.com/watch?v=W2Fd3UjRrpU"
         },
         {
@@ -312,11 +312,11 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Cas d’usage IA appliqués aux produits RH, de l’analyse à l’automatisation."
+          "text": "KI-Anwendungsfälle, angewendet auf HR-Produkte, von der Analyse bis zur Automatisierung."
         },
         {
           "type": "cta",
-          "label": "Voir la vidéo Payfit",
+          "label": "Sehen Sie sich das Payfit-Video an",
           "href": "https://www.youtube.com/watch?v=Pgv0g9DsiKY"
         },
         {
@@ -330,11 +330,11 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Trois défis d’IA agentique confiés par Mirakl lors d’un hackathon sur le campus, avec OpenAI."
+          "text": "Drei Agenten-KI-Herausforderungen, die Mirakl während eines Hackathons auf dem Campus mit OpenAI gestellt hat."
         },
         {
           "type": "cta",
-          "label": "Voir la vidéo Mirakl",
+          "label": "Sehen Sie sich das Mirakl-Video an",
           "href": "https://www.youtube.com/watch?v=zQFialKVcKU"
         },
         {
@@ -348,33 +348,33 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Workshops animés par les équipes qui construisent les LLMs européens."
+          "text": "Workshops, die von den Teams geleitet werden, die europäische LLMs aufbauen."
         },
         {
           "type": "cta",
-          "label": "Voir la vidéo Mistral",
+          "label": "Sehen Sie sich das Mistral-Video an",
           "href": "https://www.youtube.com/watch?v=vUuCjUozquI"
         },
         {
           "type": "paragraph",
-          "text": "« C’est super de voir qu’en France aussi des écoles aussi innovantes font surface, je suis très impressionné par le niveau des étudiants d’Eugenia School. »"
+          "text": "„Es ist großartig zu sehen, dass auch in Frankreich solch innovative Schulen entstehen. Ich bin sehr beeindruckt vom Niveau der Schüler an der Eugenia School.“"
         },
         {
           "type": "paragraph",
-          "text": "Spencer Rascoff · CEO, Match Group (traduit de l’anglais)"
+          "text": "Spencer Rascoff · CEO, Match Group"
         },
         {
           "type": "paragraph",
-          "text": "« Eugenia forme des profils capables de transformer la data en valeur business, en phase avec les besoins de Malt. »"
+          "text": "„Eugenia schult Profile, die in der Lage sind, Daten entsprechend den Anforderungen von Malt in Geschäftswert umzuwandeln.“"
         },
         {
           "type": "paragraph",
-          "text": "Anaïs Ghelfi · Data Director, Malt"
+          "text": "Anaïs Ghelfi · Datendirektorin, Malt"
         }
       ]
     },
     {
-      "title": "Aussi partenaires",
+      "title": "Weitere Partnerunternehmen",
       "blocks": [
         {
           "type": "image",
@@ -407,10 +407,10 @@ export const page: LivePage = {
           "logo": true
         }
       ],
-      "eyebrow": "après le msc"
+      "eyebrow": "nach dem msc"
     },
     {
-      "title": "Mêmes bases. Des trajectoires différentes.",
+      "title": "Gemeinsame Grundlagen. Unterschiedliche Karrierewege.",
       "blocks": [
         {
           "type": "paragraph",
@@ -419,17 +419,17 @@ export const page: LivePage = {
         {
           "type": "heading",
           "level": 3,
-          "text": "Data & IA"
+          "text": "Daten & KI"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "→ Data Scientist",
-            "→ ML Engineer",
-            "→ Data Analyst",
-            "→ AI Product Manager",
-            "→ Consultant data & IA"
+            "→ Datenwissenschaftler",
+            "→ ML-Ingenieur",
+            "→ Datenanalyst",
+            "→ KI-Produktmanager",
+            "→ Daten- und KI-Berater"
           ]
         },
         {
@@ -439,7 +439,7 @@ export const page: LivePage = {
         {
           "type": "heading",
           "level": 3,
-          "text": "Ops & growth"
+          "text": "Betrieb und Wachstum"
         },
         {
           "type": "list",
@@ -449,8 +449,8 @@ export const page: LivePage = {
             "→ BizOps",
             "→ Growth Ops",
             "→ DataOps",
-            "→ Product Owner IA",
-            "→ Chef de projet digital"
+            "→ Product Owner KI",
+            "→ Digitaler Projektmanager"
           ]
         },
         {
@@ -460,64 +460,64 @@ export const page: LivePage = {
         {
           "type": "heading",
           "level": 3,
-          "text": "Entrepreneuriat"
+          "text": "Unternehmertum"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "→ Fondateur tech",
-            "→ Builder no-code/IA",
+            "→ Tech-Gründer",
+            "→ No-Code/KI-Builder",
             "→ Intrapreneur",
-            "→ Consultant IA freelance"
+            "→ Freiberuflicher KI-Berater"
           ]
         },
         {
           "type": "paragraph",
-          "text": "→ Poursuite possible en thèse professionnelle. Ou directement en emploi."
+          "text": "→ Mögliches Anstreben einer berufsbezogenen Abschlussarbeit. Oder direkt ins Berufsleben."
         }
       ],
-      "eyebrow": "l'alternance"
+      "eyebrow": "das duale Studium"
     },
     {
-      "title": "4 jours en entreprise, 1 jour à Eugenia.",
+      "title": "4 Tage im Unternehmen, 1 Tag an der Eugenia School.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Le MSc est 100 % en alternance. Après un bootcamp de 5 semaines à temps plein : 4 jours en entreprise, 1 jour à l’école. Ce qu’on voit en cours, on l’applique en entreprise dans la foulée. Et ce qu’on apprend en entreprise nourrit directement ce qu’on construit à l’école."
+          "text": "Der MSc besteht zu 100 % aus einem berufsbegleitenden Studium. Nach einem 5-wöchigen Vollzeit-Bootcamp: 4 Tage bei der Arbeit, 1 Tag in der Schule. Was wir im Unterricht sehen, wenden wir sofort in der Wirtschaft an. Und was wir in der Wirtschaft lernen, fließt direkt in das ein, was wir in der Schule aufbauen."
         },
         {
           "type": "paragraph",
-          "text": "Ta scolarité est prise en charge par l’entreprise et tu es payé chaque mois. Pour trouver ton alternance : coaching collectif et individuel, suivi personnalisé et job datings sur le campus."
+          "text": "Ihre Ausbildung wird vom Unternehmen übernommen und Sie werden monatlich bezahlt. So finden Sie Ihren dualen Studiengang: kollektives und individuelles Coaching, personalisiertes Monitoring und Job-Dating auf dem Campus."
         },
         {
           "type": "paragraph",
-          "text": "À la sortie : deux ans d’expérience réelle, des projets concrets, un réseau dans l’écosystème IA. Le résultat : une trajectoire."
+          "text": "Am Ende: zwei Jahre echte Erfahrung, konkrete Projekte, ein Netzwerk im KI-Ökosystem. Das Ergebnis: eine Flugbahn."
         },
         {
           "type": "cta",
-          "label": "Voir la vidéo",
+          "label": "Sehen Sie sich das Video an",
           "href": "https://www.youtube.com/watch?v=n094k7YwggM"
         }
       ],
-      "eyebrow": "être étudiant à Eugenia"
+      "eyebrow": "Sei ein Student bei Eugenia"
     },
     {
-      "title": "Ils sont passés par là.",
+      "title": "Sie haben hier studiert.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Survole une carte pour en savoir plus"
+          "text": "Bewegen Sie den Mauszeiger über eine Karte, um mehr zu erfahren"
         },
         {
           "type": "image",
           "name": "pr3_portrait-victor",
-          "alt": "Portrait de Victor P.",
+          "alt": "Portrait von Victor P.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "Alumni · CDI"
+          "text": "Absolventen · Unbefristete Festanstellung"
         },
         {
           "type": "paragraph",
@@ -525,7 +525,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -539,15 +539,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Head of AI chez Licter"
+          "text": "Leiter KI bei Licter"
         },
         {
           "type": "paragraph",
-          "text": "Alumni · CDI"
+          "text": "Absolventen · Unbefristete Festanstellung"
         },
         {
           "type": "paragraph",
-          "text": "Venu d'un master en marketing pour se spécialiser en marketing digital grâce à l'IA. Il a mené un projet marketing entier pour son entreprise d'alternance."
+          "text": "Nach einem Master-Abschluss in Marketing habe ich mich auf digitales Marketing mit KI spezialisiert. Er leitete ein komplettes Marketingprojekt für sein duales Studium."
         },
         {
           "type": "paragraph",
@@ -556,12 +556,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-nina",
-          "alt": "Portrait de Nina L.",
+          "alt": "Portrait von Nina L.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "Alumni · CDI"
+          "text": "Absolventen · Unbefristete Festanstellung"
         },
         {
           "type": "paragraph",
@@ -569,7 +569,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -583,15 +583,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Data Analyst chez EFFY"
+          "text": "Datenanalyst bei EFFY"
         },
         {
           "type": "paragraph",
-          "text": "Alumni · CDI"
+          "text": "Absolventen · Unbefristete Festanstellung"
         },
         {
           "type": "paragraph",
-          "text": "Venue d'une licence éco-gestion pour avoir une vraie valeur ajoutée sur le marché du travail. Résultat : deux offres d'embauche grâce aux projets réalisés en classe."
+          "text": "Mit einer Ökomanagement-Lizenz einen echten Mehrwert auf dem Arbeitsmarkt erzielen. Ergebnis: zwei Stellenangebote dank der im Unterricht durchgeführten Projekte."
         },
         {
           "type": "paragraph",
@@ -600,12 +600,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-noah",
-          "alt": "Portrait de Noah S.",
+          "alt": "Portrait von Noah S.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "Alumni · CDI"
+          "text": "Absolventen · Unbefristete Festanstellung"
         },
         {
           "type": "paragraph",
@@ -613,7 +613,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -627,15 +627,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "HR Tech & Automation Lead chez Alan"
+          "text": "HR Tech & Automation Lead bei Alan"
         },
         {
           "type": "paragraph",
-          "text": "Alumni · CDI"
+          "text": "Absolventen · Unbefristete Festanstellung"
         },
         {
           "type": "paragraph",
-          "text": "Venu d'un bachelor en économie pour apprendre l'automatisation et l'agentic. Trois victoires en hackathon."
+          "text": "Kam von einem Bachelor-Abschluss in Wirtschaftswissenschaften, um Automatisierung und Agententechnik zu erlernen. Drei Hackathon-Siege."
         },
         {
           "type": "paragraph",
@@ -644,12 +644,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-ali",
-          "alt": "Portrait de Ali H.",
+          "alt": "Portrait von Ali H.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "M2 · Alternance"
+          "text": "M2 · Duales Studium"
         },
         {
           "type": "paragraph",
@@ -657,7 +657,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -671,15 +671,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Ingénieur d’études chez Accenture"
+          "text": "Forschungsingenieur bei Accenture"
         },
         {
           "type": "paragraph",
-          "text": "M2 · Alternance"
+          "text": "M2 · Duales Studium"
         },
         {
           "type": "paragraph",
-          "text": "Venu d'une licence en sciences de l'informatique pour mettre ses connaissances au service du business. Il construit des automatisations de suivi client."
+          "text": "Er hat ein Informatikstudium absolviert, um sein Wissen in den Dienst der Wirtschaft zu stellen. Es baut Automatisierungen zur Kundennachverfolgung auf."
         },
         {
           "type": "paragraph",
@@ -688,12 +688,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-victoria",
-          "alt": "Portrait de Victoria I.",
+          "alt": "Portrait von Victoria I.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "M1 · Alternance"
+          "text": "M1 · Duales Studium"
         },
         {
           "type": "paragraph",
@@ -701,7 +701,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -715,15 +715,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Business Developer, secteur public chez Mister IA"
+          "text": "Business Developer, öffentlicher Sektor bei Mister IA"
         },
         {
           "type": "paragraph",
-          "text": "M1 · Alternance"
+          "text": "M1 · Duales Studium"
         },
         {
           "type": "paragraph",
-          "text": "Venue d'une école de communication et de marketing digital pour développer l'IA dans les métiers du marketing. Elle réalise des implémentations IA en entreprise."
+          "text": "Ich komme von einer Schule für Kommunikation und digitales Marketing, um KI in Marketingberufen zu entwickeln. Sie führt KI-Implementierungen in Unternehmen durch."
         },
         {
           "type": "paragraph",
@@ -732,12 +732,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-lenja",
-          "alt": "Portrait de Lenja S.",
+          "alt": "Portrait von Lenja S.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "M1 · Alternance"
+          "text": "M1 · Duales Studium"
         },
         {
           "type": "paragraph",
@@ -745,7 +745,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -759,15 +759,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Conversion Rate Optimization Analyst chez LVMH"
+          "text": "Analyst für Conversion-Rate-Optimierung bei LVMH"
         },
         {
           "type": "paragraph",
-          "text": "M1 · Alternance"
+          "text": "M1 · Duales Studium"
         },
         {
           "type": "paragraph",
-          "text": "Venue d'un bachelor marketing pour améliorer le marché de la mode grâce à l'automatisation. Trois projets concrets en deux semaines de cours."
+          "text": "Ich komme aus einem Marketing-Bachelor-Studium, um den Modemarkt durch Automatisierung zu verbessern. Drei konkrete Projekte in zwei Unterrichtswochen."
         },
         {
           "type": "paragraph",
@@ -776,12 +776,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-bastian",
-          "alt": "Portrait de Bastian B.",
+          "alt": "Portrait von Bastian B.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "MSc · Alternance"
+          "text": "MSc · Duales Studium"
         },
         {
           "type": "paragraph",
@@ -789,12 +789,12 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
           "name": "lg_armees",
-          "alt": "Ministère des Armées",
+          "alt": "Ministerium der Streitkräfte",
           "logo": true
         },
         {
@@ -803,15 +803,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Chef de projet innovation chez Ministère des Armées"
+          "text": "Innovationsprojektmanager im Ministerium der Streitkräfte"
         },
         {
           "type": "paragraph",
-          "text": "MSc · Alternance"
+          "text": "MSc · Duales Studium"
         },
         {
           "type": "paragraph",
-          "text": "Venu d'une licence informatique pour mettre ses compétences au service de l'automatisation en entreprise."
+          "text": "Er kommt von einem Informatikstudium, um seine Fähigkeiten in den Dienst der Automatisierung in der Wirtschaft zu stellen."
         },
         {
           "type": "paragraph",
@@ -820,12 +820,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-maxime",
-          "alt": "Portrait de Maxime B.",
+          "alt": "Portrait von Maxime B.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "M1 · Alternance"
+          "text": "M1 · Duales Studium"
         },
         {
           "type": "paragraph",
@@ -833,7 +833,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -847,15 +847,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Chef de projet IA chez Mister IA"
+          "text": "KI-Projektmanager bei Mister IA"
         },
         {
           "type": "paragraph",
-          "text": "M1 · Alternance"
+          "text": "M1 · Duales Studium"
         },
         {
           "type": "paragraph",
-          "text": "« En alternance, j’automatise des process dès la première semaine. Ce que je vois en cours, je l’applique le lendemain. »"
+          "text": "„Berufsbegleitend automatisiere ich Prozesse ab der ersten Woche. Was ich im Unterricht sehe, wende ich am nächsten Tag an. »"
         },
         {
           "type": "paragraph",
@@ -864,12 +864,12 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_portrait-nathan",
-          "alt": "Portrait de Nathan S.",
+          "alt": "Portrait von Nathan S.",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "M2 · Alternance"
+          "text": "M2 · Duales Studium"
         },
         {
           "type": "paragraph",
@@ -877,7 +877,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "chez"
+          "text": "bei"
         },
         {
           "type": "image",
@@ -891,15 +891,15 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Data Specialist & business international chez Carrefour"
+          "text": "Datenspezialist und internationales Geschäft bei Carrefour"
         },
         {
           "type": "paragraph",
-          "text": "M2 · Alternance"
+          "text": "M2 · Duales Studium"
         },
         {
           "type": "paragraph",
-          "text": "« Je ne venais pas de la tech : mon parcours était très business. Aujourd’hui chez Carrefour, je fais de la data, de l’automatisation et de la tech au service du business. »"
+          "text": "„Ich komme nicht aus der Technikbranche: Mein Hintergrund war sehr geschäftlich. Heute arbeite ich bei Carrefour an Daten, Automatisierung und Technologie für Unternehmen.“"
         },
         {
           "type": "image",
@@ -928,7 +928,7 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "lg_armees",
-          "alt": "Ministère des Armées",
+          "alt": "Ministerium der Streitkräfte",
           "logo": true
         },
         {
@@ -950,103 +950,103 @@ export const page: LivePage = {
           "logo": true
         }
       ],
-      "eyebrow": "admission"
+      "eyebrow": "Zulassung"
     },
     {
-      "title": "Comment postuler ? Hors Mon Master.",
+      "title": "Wie bewirbst du dich? Ohne Mon Master.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Les candidatures se font directement sur notre site, hors Parcoursup et hors Mon Master. Réponse sous 10 jours."
+          "text": "Bewerbungen erfolgen direkt auf unserer Website, außerhalb von Parcoursup und außerhalb von Mon Master. Antwort innerhalb von 10 Tagen."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Full-track · entrée en M1"
+          "text": "Vollständiger Einstieg in M1"
         },
         {
           "type": "paragraph",
-          "text": "Avec un Bac+3 : des bases en marketing, finance ou business, et un vrai intérêt pour la data, le no-code et l’IA."
+          "text": "Mit einem Bachelor+3: Grundlagen in Marketing, Finanzen oder Wirtschaft und ein echtes Interesse an Daten, No-Code und KI."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Fast-track · entrée en M2"
+          "text": "Fast-Track · Einstieg in M2"
         },
         {
           "type": "paragraph",
-          "text": "Avec un Bac+4 ou un M1 : la maîtrise de SQL et de Python est requise."
+          "text": "Mit einem Bac+4 oder M1: Beherrschung von SQL und Python ist erforderlich."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "0 € de frais de scolarité"
+          "text": "0 € Studiengebühren"
         },
         {
           "type": "paragraph",
-          "text": "En alternance, l’entreprise prend en charge ta scolarité, et tu es rémunéré chaque mois."
+          "text": "Auf der Basis eines dualen Studiums bezahlt das Unternehmen Ihre Ausbildung und Sie erhalten jeden Monat ein Gehalt."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "1 · Candidature"
+          "text": "1 · Bewerbung"
         },
         {
           "type": "paragraph",
-          "text": "Directement sur notre site : ton CV et ton dernier relevé de notes."
+          "text": "Direkt auf unserer Seite: Ihr Lebenslauf und Ihr aktuelles Zeugnis."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "2 · Étude du dossier"
+          "text": "2 · Studium der Akte"
         },
         {
           "type": "paragraph",
-          "text": "L’équipe admission étudie ton profil. S’il nous intéresse, tu es invité à un entretien."
+          "text": "Das Zulassungsteam prüft Ihr Profil. Bei Interesse laden wir Sie gerne zu einem Vorstellungsgespräch ein."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "3 · Entretien"
+          "text": "3 · Wartung"
         },
         {
           "type": "paragraph",
-          "text": "Une discussion en trois temps : faire connaissance, un petit exercice de logique et tes motivations. On veut surtout savoir qui tu es et ce que tu veux construire."
+          "text": "Ein dreiteiliges Gespräch: Kennenlernen, eine kleine Logikübung und Ihre Beweggründe. Vor allem möchten wir wissen, wer Sie sind und was Sie aufbauen möchten."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "4 · Admission & inscription"
+          "text": "4 · Einlass und Registrierung"
         },
         {
           "type": "paragraph",
-          "text": "Tu reçois ta réponse sous 10 jours, puis tu finalises ton inscription."
+          "text": "Sie erhalten Ihre Antwort innerhalb von 10 Tagen und schließen dann Ihre Registrierung ab."
         },
         {
           "type": "paragraph",
-          "text": "→ Notre conseil : sois sincère. Tes échecs comptent, si tu sais ce que tu en as tiré."
+          "text": "→ Unser Rat: Seien Sie aufrichtig. Ihre Fehler zählen, wenn Sie wissen, was Sie daraus gelernt haben."
         }
       ]
     },
     {
-      "title": "Une vraie expérience professionnelle.",
+      "title": "Echte Berufserfahrung.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Candidatures ouvertes · Rentrée 2027"
+          "text": "Bewerbungen möglich · Zurück zur Schule 2027"
         },
         {
           "type": "paragraph",
-          "text": "Hors Mon Master"
+          "text": "Ohne Mon Master"
         },
         {
           "type": "cta",
-          "label": "Candidater →",
+          "label": "Jetzt bewerben →",
           "href": "/candidature"
         },
         {
           "type": "cta",
-          "label": "Voir un événement",
+          "label": "Sehen Sie sich ein Ereignis an",
           "href": "/evenements"
         }
       ]
@@ -1075,20 +1075,20 @@ export const page: LivePage = {
     }
   ],
   "footer": {
-    "title": "Une vraie expérience professionnelle.",
+    "title": "Echte Berufserfahrung.",
     "primary": {
-      "label": "Candidater →",
+      "label": "Jetzt bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/programmes",
-    "title": "Programmes",
-    "text": "Voir les programmes",
+    "title": "Studienprogramme",
+    "text": "Sehen Sie sich die Programme an",
     "image": "p_arches"
   },
   "jsonLd": [
@@ -1108,16 +1108,16 @@ export const page: LivePage = {
   ],
   "stats": [
     {
-      "value": "2 ans · 120 ECTS",
+      "value": "2 Jahre · 120 ECTS",
       "label": ""
     },
     {
-      "value": "5 semaines",
-      "label": "bootcamp"
+      "value": "5 Wochen",
+      "label": "Bootcamp"
     },
     {
-      "value": "4 jours · 1 jour",
-      "label": "entreprise · école"
+      "value": "4 Tage · 1 Tag",
+      "label": "Unternehmen · Hochschule"
     }
   ]
 };
