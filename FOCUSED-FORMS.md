@@ -1,7 +1,7 @@
 # Focused admission journeys
 
 Follow-up to the accessibility/recovery changes in PR #4. Covers candidature, brochure,
-event registration and contact, without changing the public HubSpot destinations or field values.
+event registration and contact. Those forms and the recruiter form run locally as demos.
 
 ## Interaction choices
 
@@ -12,7 +12,7 @@ event registration and contact, without changing the public HubSpot destinations
   Blur validation is deferred when clicking navigation to avoid moving the button under the pointer.
 - Answers are kept in sessionStorage, scoped to this form and tab, for up to 12 hours. An explicit
   clear action and successful submission remove them. Storage failure does not block submission.
-- Phone spacing is presentation-only for French national numbers. The original ten digits are sent.
+- French national phone numbers are spaced for readability.
 - Only known email typo domains are suggested, and correction always requires an explicit click.
 - Funnel events contain the form kind, step and field name, never answers or contact details.
   This change does not install analytics or change the consent implementation.
@@ -23,12 +23,10 @@ event registration and contact, without changing the public HubSpot destinations
   are not presented as direct quotations. General campus and programme copy uses existing data.
 - The live /candidature page was read during implementation: it mentions ten-day eligibility
   and decision responses, but not later submission of missing grades. The latter is not rendered.
-- A read-only browser inspection of the live candidature HubSpot embed found no
-  .legal-consent-container text. No consent sentence or consent checkbox was invented.
-  The existing public privacy-policy link remains. Have the school confirm its legal copy.
-- The confirmation checks **request transmitted**, not **complete application submitted**.
-  The remaining admission stages come from STEPS; a real dossier and account creation are
-  not inferred from a successful public Forms API response.
+- The public privacy-policy link remains. Have the school confirm its legal copy.
+- Confirmation means **simulation completed**. No data is sent, and no request, reservation
+  or candidate account is created. The application confirmation shows the real admission stages
+  for reference.
 - Brand red #e33054 is limited to the focused form's submit action. Its white text is 19px/700
   (large text under WCAG AA). Other controls use plum. The photo caption has a solid-enough
   plum backing in addition to the gradient, so readability does not depend on the photograph.
@@ -51,11 +49,11 @@ Both browser scripts intercept external traffic; no contact is created in the li
 Local page requests are fulfilled from dist by static-test-route.mjs, so the scripts also
 work without a running preview server. FOCUS_WIDTHS and FORM_WIDTHS can restrict a run
 to one viewport (for example FOCUS_WIDTHS=390).
-The focus-flow script verifies the unchanged candidature payload, three-click progression,
+The focus-flow script verifies local candidature confirmation, three-click progression,
 contextual images, email correction, reload/restore, draft removal, and analytics without PII.
 It also writes preview captures under attached_assets/eugenia-preview outside this repository.
 
-Do not equate a stubbed successful submission with verified HubSpot workflow/email delivery.
+Successful local validation does not trigger e-mail delivery.
 Do not claim the Lighthouse acceptance threshold until a completed measurement is available.
 
 On a memory-constrained sandbox, the integrated production build passed with

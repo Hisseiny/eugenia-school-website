@@ -1,19 +1,12 @@
 ---
-/**
- * Eugenia-styled multi-step form. Posts to the school's HubSpot form through the public Forms API
- * (same portal and form id as the embed), so nothing changes in the CRM. One question per screen,
- * progress shown, inline validation, a confirmation that says what happens next. Without
- * JavaScript, all steps are shown and the visitor is given the public contact instead.
- */
-import { FORMS, WHO, HUBSPOT_FORMS_ENABLED } from "@/data/forms";
-import { HUBSPOT, ROUTES, SITE } from "@/data/site";
+import { EVENTS_OPTIONS, FORMS, WHO, type FormKind } from "@/data/forms";
+import { ROUTES, SITE } from "@/data/site";
 import FocusField from "./FocusField.astro";
 import ShareLink from "./ShareLink.astro";
 import { ADMISSION_TIMELINE } from "@/data/focus-forms";
-import { EVENTS_OPTIONS } from "@/data/forms";
 
 interface Props {
-  form: keyof typeof FORMS;
+  form: FormKind;
   focus?: boolean;
 }
 const { form, focus = false } = Astro.props;
@@ -22,26 +15,23 @@ const total = cfg.steps.length;
 ---
 
 <form
-  method={HUBSPOT_FORMS_ENABLED ? "post" : "dialog"}
   class:list={["pf", focus && "pf--focus"]}
   data-premium-form
   data-focus-form={focus || undefined}
   data-form-kind={form}
-  data-hs-portal={HUBSPOT.portalId}
-  data-hs-form-id={cfg.formId}
   data-page-name={cfg.pageName}
-  data-form-tone={form === "contact" ? "vous" : "tu"}
+  data-form-tone={form === "contact" || form === "recruteur" ? "vous" : "tu"}
   data-done-title={cfg.done.title}
-  data-done-title-parent={cfg.doneParent?.title}
+  method="dialog"
   novalidate
   aria-labelledby={`pf-${form}-title-0`}
 >
-  {!HUBSPOT_FORMS_ENABLED && <p data-demo-form-message role="status" tabindex="-1">Formulaire désactivé sur la démo : aucune donnée n'est envoyée aux admissions.</p>}
   <div class="pf__head">
     <div class="pf__mark" aria-hidden="true"></div>
     <p class="pf__progress" aria-live="polite" aria-atomic="true"><span class:list={[!focus && "sr-only"]}>Étape </span><span data-pf-step>1</span><span class="pf__progress-sep">{focus ? " sur " : "/"}</span>{total}</p>
     <div class="pf__bar" aria-hidden="true"><span data-pf-bar style={`width: ${100 / total}%`}></span></div>
   </div>
+  <p class="pf__note" data-demo-notice>Mode démo : aucune réponse ne sera envoyée.</p>
 
   {
     cfg.steps.map((step, i) => (
@@ -88,7 +78,7 @@ const total = cfg.steps.length;
               <input class="pf__input" id={`pf-${form}-lastname`} name="lastname" type="text" autocomplete="family-name" required />
             </div>
             <div class="pf__field">
-              <label class="pf__label" for={`pf-${form}-email`}>E-mail</label>
+              <label class="pf__label" for={`pf-${form}-email`}>{form === "recruteur" ? "E-mail professionnel" : "E-mail"}</label>
               <input class="pf__input" id={`pf-${form}-email`} name="email" type="email" autocomplete="email" inputmode="email" required />
             </div>
             <div class="pf__field">
@@ -96,6 +86,12 @@ const total = cfg.steps.length;
               <input class="pf__input" id={`pf-${form}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" required />
             </div>
             </>}
+            {step.jobTitle && (
+              <div class="pf__field pf__field--full">
+                <label class="pf__label" for={`pf-${form}-job-title`}>Votre poste</label>
+                <input class="pf__input" id={`pf-${form}-job-title`} name="jobtitle" type="text" autocomplete="organization-title" />
+              </div>
+            )}
             {step.message && (
               <div class="pf__field pf__field--full">
                 <label class="pf__label" for={`pf-${form}-message`}>Votre question</label>
@@ -121,28 +117,21 @@ const total = cfg.steps.length;
   <div class="pf__nav">
     <button type="button" class="pf__back" data-pf-back hidden>{focus ? "← Étape précédente" : "Retour"}</button>
     <button type="button" class="btn pf__next" data-pf-next>Continuer</button>
-    <button type="submit" class="btn pf__submit" data-pf-submit hidden><span class="pf__spinner" aria-hidden="true"></span>{cfg.submitLabel}</button>
+    <button type="submit" class="btn pf__submit" data-pf-submit hidden>{cfg.submitLabel}</button>
   </div>
-  <p class="pf__privacy">Les choix et les coordonnées sont obligatoires ; le message libre est facultatif. <a href={SITE.privacyUrl}>Confidentialité et utilisation des données</a>.</p>
-  {focus && <p class="pf__draft-note" data-draft-note role="status"><span data-draft-status>Les réponses sont conservées dans cet onglet jusqu'à l'envoi, pendant 12 heures maximum.</span> <button type="button" data-clear-draft>Effacer mes réponses</button></p>}
+  <p class="pf__privacy">Les choix et les coordonnées sont obligatoires ; {form === "recruteur" ? "le poste et le message sont facultatifs" : "le message libre est facultatif"}. <a href={SITE.privacyUrl}>Confidentialité et utilisation des données</a>.</p>
+  {focus && <p class="pf__draft-note" data-draft-note role="status"><span data-draft-status>Les réponses sont conservées dans cet onglet jusqu'à la fin de la simulation, pendant 12 heures maximum.</span> <button type="button" data-clear-draft>Effacer mes réponses</button></p>}
 
   <div class="pf__done" data-pf-done hidden aria-live="polite">
     <div class="pf__done-mark" aria-hidden="true">{focus && <svg viewBox="0 0 32 32" width="32" height="32"><path d="m8 16 5 5 11-11" fill="none" stroke="currentColor" stroke-width="2" /></svg>}</div>
     <p class="pf__done-title" id={`pf-${form}-done-title`} data-pf-done-title tabindex="-1"></p>
-    <ul class="pf__done-lines" data-pf-done-lines>
+    <ul class="pf__done-lines">
       {cfg.done.lines.map((l) => <li>{l}</li>)}
     </ul>
-    {cfg.doneParent && (
-      <ul class="pf__done-lines" data-pf-done-lines-parent hidden>
-        {cfg.doneParent.lines.map((l) => <li>{l}</li>)}
-      </ul>
-    )}
     {focus && form === "candidature" && (
       <div class="pf__next-steps">
-        <h2>Ce qui se passe ensuite</h2>
-        <p class="pf__received">✓ Demande transmise</p>
+        <h2>Ce qui se passe lors d’une vraie candidature</h2>
         <ol>{ADMISSION_TIMELINE.map((title) => <li>{title}</li>)}</ol>
-        <p class="pf__timeline-note">L'envoi de ce formulaire ne constitue pas encore un dossier complet.</p>
         <a class="btn-outline" href={ROUTES.evenements}>Venir à un événement</a>
         {Date.now() < Date.parse("2026-12-12T10:30:00+01:00") && <p class="pf__event-date">{EVENTS_OPTIONS[0].hint}</p>}
         <div data-student-share><ShareLink path="/parents" label="Partager avec mes parents" title="Découvrir Eugenia School" text="Les informations pour découvrir Eugenia School ensemble." event="share_to_parent" /></div>
@@ -152,8 +141,8 @@ const total = cfg.steps.length;
 
   <noscript>
     <p class="pf__nojs">
-      {HUBSPOT_FORMS_ENABLED ? <>L'envoi du formulaire demande JavaScript. Écris-nous à <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
-      ou appelle le <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.</> : "Formulaire désactivé sur la démo, même sans JavaScript."}
+      La simulation demande JavaScript. Pour joindre l'école, écris-nous à <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      ou appelle le <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.
     </p>
   </noscript>
 </form>
@@ -340,8 +329,11 @@ const total = cfg.steps.length;
     line-height: 1.5;
   }
   .pf__note[hidden],
-  .pf__done-lines[hidden] {
+  [data-demo-notice][hidden] {
     display: none;
+  }
+  [data-demo-notice] {
+    margin: 0 0 20px;
   }
   .pf__error {
     margin: 14px 0 0;
@@ -376,10 +368,6 @@ const total = cfg.steps.length;
   .pf__head[hidden],
   .pf__privacy[hidden] {
     display: none;
-  }
-  .pf__submit[aria-busy="true"] {
-    opacity: 0.7;
-    pointer-events: none;
   }
   .pf__privacy {
     margin: 18px 0 0;

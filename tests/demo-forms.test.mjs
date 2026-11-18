@@ -22,21 +22,21 @@ test("default build contains no tracking identifiers, domains or HubSpot URLs, i
 
 test("every default form stays visible and cannot submit natively without JavaScript", () => {
   let premium = 0;
-  let embeds = 0;
+  let recruiter = 0;
   for (const path of files("dist").filter(path => path.endsWith(".html"))) {
     const html = readFileSync(path, "utf8");
     for (const [form] of html.matchAll(/<form\b[^>]*>[\s\S]*?<\/form>/g)) {
-      if (!/data-premium-form|data-demo-hubspot-form/.test(form)) continue;
+      if (!form.includes("data-premium-form")) continue;
       assert.match(form, /method="dialog"/, path);
       assert.doesNotMatch(form, /\baction=/, path);
-      assert.match(form, /data-demo-form-message[^>]*>Formulaire désactivé sur la démo/, path);
+      assert.match(form, /data-demo-notice[^>]*>Mode démo : aucune réponse ne sera envoyée\./, path);
       assert.match(form, /<input\b/, path);
       assert.match(form, /type="submit"/, path);
-      if (form.includes("data-premium-form")) premium++;
-      else embeds++;
+      if (form.includes('data-form-kind="recruteur"')) recruiter++;
+      else premium++;
     }
     assert.doesNotMatch(html, /<iframe[^>]*(?:hubspot|hsforms)/i, path);
   }
   assert.ok(premium >= 4, "the multi-step forms are still rendered");
-  assert.ok(embeds >= 1, "embedded forms have a local demo replacement");
+  assert.ok(recruiter >= 1, "the recruiter form is rendered locally");
 });

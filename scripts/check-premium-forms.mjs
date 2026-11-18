@@ -1,5 +1,5 @@
 // Run against a local preview: CHROME_PATH=/path/to/chromium node scripts/check-premium-forms.mjs
-// Every external request is intercepted. No submissions reach HubSpot.
+// Use a default build: any attempted external request fails the check.
 import assert from "node:assert/strict";
 import { chromium } from "playwright-core";
 import { serveBuild } from "./static-test-route.mjs";
@@ -20,36 +20,30 @@ const check = (condition, message) => {
 try {
   for (const width of (process.env.FORM_WIDTHS ?? "375,1440").split(",").map(Number)) {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
-    let requests = [];
-    let mode = "success";
+    const unexpected = [];
+    let observingSubmission = false;
     await context.route("**/*", async (route) => {
-      const url = new URL(route.request().url());
-      if (url.origin === new URL(base).origin) return serveBuild(route);
-      if (url.hostname === "api.hsforms.com") {
-        requests.push(route.request().postDataJSON());
-        if (mode === "timeout") return; // Browser aborts after the deadline.
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        return route.fulfill({
-          status: mode === "error" ? 500 : 200,
-          contentType: "application/json",
-          body: "{}",
-          headers: { "Access-Control-Allow-Origin": "*" },
-        });
+      const request = route.request();
+      const url = new URL(request.url());
+      if (request.method() === "GET" && url.origin === new URL(base).origin) {
+        if (observingSubmission && !["image", "font"].includes(request.resourceType())) unexpected.push(url.href);
+        return serveBuild(route);
       }
+      unexpected.push(url.href);
       return route.abort();
     });
     const page = await context.newPage();
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
-    for (const path of ["brochure", "candidature", "evenements", "contact"]) {
-      requests = [];
-      mode = path === "brochure" ? "error" : "success";
+    for (const path of ["brochure", "candidature", "evenements", "contact", "recruter-nos-etudiants"]) {
+      const recruiter = path === "recruter-nos-etudiants";
       await page.goto(`${base}/${path}?pour=parent`);
       const form = page.locator("[data-premium-form]");
       await form.waitFor();
+      check(await form.locator("[data-demo-notice]").isVisible(), `${path}/${width}: demo notice visible`);
       const panels = form.locator("[data-pf-panel]");
       const total = await panels.count();
-      check(await panels.first().locator(".pf__choice-box").evaluateAll(boxes => boxes.every(box => {
+      if (!recruiter) check(await panels.first().locator(".pf__choice-box").evaluateAll(boxes => boxes.every(box => {
         const icon = box.querySelector(".pf__choice-icon").getBoundingClientRect();
         const label = box.querySelector(".pf__choice-label").getBoundingClientRect();
         return icon.right <= label.left;
@@ -75,8 +69,9 @@ try {
         check(await panels.nth(index + 1).locator("legend").evaluate((el) => el === document.activeElement),
           `${path}/${width}: next question receives focus`);
       }
+      if (recruiter) check(await form.getByLabel("Téléphone").isVisible(), `${path}/${width}: labelled phone field`);
       await form.locator("[data-pf-submit]").click();
-      check(requests.length === 0, `${path}/${width}: invalid form never submitted`);
+      check(await form.locator("[data-pf-done]").isHidden(), `${path}/${width}: invalid form never confirmed`);
       check((await panels.last().locator("[data-pf-error]").textContent()).includes("votre prénom"),
         `${path}/${width}: parent validation uses vous`);
       await form.locator('[name="firstname"]').fill("   ");
@@ -84,42 +79,27 @@ try {
       await form.locator('[name="email"]').fill("test@example.com");
       await form.locator('[name="phone"]').fill("0612345678");
       await form.locator("[data-pf-submit]").click();
-      check(requests.length === 0, `${path}/${width}: whitespace-only required value rejected`);
+      check(await form.locator("[data-pf-done]").isHidden(), `${path}/${width}: whitespace-only required value rejected`);
       await form.locator('[name="firstname"]').fill("Test");
       await form.locator("[data-pf-back]").click();
       await form.locator("[data-pf-next]").click();
       check(await form.locator('[name="email"]').inputValue() === "test@example.com",
         `${path}/${width}: going back preserves answers`);
+      observingSubmission = true;
       await form.locator("[data-pf-submit]").click();
-      check(await form.locator("[data-pf-submit]").isDisabled(), `${path}/${width}: duplicate submit blocked`);
-      check(await form.locator('[name="email"]').isDisabled(), `${path}/${width}: pending payload cannot be edited`);
-      if (mode === "error") {
-        await page.waitForFunction(() => !document.querySelector("[data-pf-submit]").disabled);
-        check(await form.locator('[name="email"]').inputValue() === "test@example.com",
-          `${path}/${width}: server error preserves answers`);
-        check((await panels.last().locator("[data-pf-error]").textContent()).includes("Vos réponses"),
-          `${path}/${width}: actionable formal error`);
-        if (width === 1440) {
-          mode = "timeout";
-          await page.clock.install();
-          await form.locator("[data-pf-submit]").click();
-          await page.waitForFunction(() => document.querySelector("[data-pf-submit]").disabled);
-          await page.clock.fastForward(16000);
-          await page.waitForFunction(() => !document.querySelector("[data-pf-submit]").disabled);
-          check(await form.locator('[name="email"]').inputValue() === "test@example.com",
-            "timeout: answers preserved and controls unlocked");
-          check((await panels.last().locator("[data-pf-error]").textContent()).includes("Vérifiez votre e-mail"),
-            "timeout: ambiguous delivery is not presented as definite failure");
-        }
-        mode = "success";
-        await form.locator("[data-pf-submit]").click();
-      }
       await form.locator("[data-pf-done]").waitFor({ state: "visible" });
       check(await form.locator("[data-pf-done-title]").evaluate((el) => el === document.activeElement),
         `${path}/${width}: success confirmation receives focus`);
-      check(requests.length === (path === "brochure" ? (width === 1440 ? 3 : 2) : 1), `${path}/${width}: expected submission count`);
+      check(await form.locator("[data-pf-done-title]").textContent() === "Simulation terminée, Test.",
+        `${path}/${width}: confirmation states simulation and uses first name`);
       check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
         `${path}/${width}: no horizontal overflow`);
+      if (process.env.FORM_SCREENSHOTS_DIR) {
+        await form.scrollIntoViewIfNeeded();
+        await page.screenshot({ path: `${process.env.FORM_SCREENSHOTS_DIR}/${path}-${width}.png` });
+      }
+      check(unexpected.length === 0, `${path}/${width}: no submission or unexpected network requests (${unexpected.join(", ")})`);
+      observingSubmission = false;
     }
     check(errors.length === 0, `${width}: no browser script errors`);
     await context.close();
@@ -131,6 +111,8 @@ try {
   await page.goto(`${base}/brochure`);
   check(await page.locator("[data-pf-panel]:visible").count() === 4, "no JS: all questions visible");
   check(await page.locator(".pf__nojs").isVisible(), "no JS: public contact fallback visible");
+  await page.goto(`${base}/recruter-nos-etudiants`);
+  check(await page.locator("#formulaire .pf__nojs a[href^='mailto:']").isVisible(), "no JS: recruiter public contact fallback visible");
   await nojs.close();
   console.log(`${checks} checks passed; all external traffic intercepted.`);
 } finally {

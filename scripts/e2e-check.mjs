@@ -92,7 +92,7 @@ const blockTracking = async (page) => {
   await page.goto(base + "/admissions#parents", { waitUntil: "load" });
   check("parents block links to its confirmed questions", (await page.locator(".parents__questions a[href^='#faq-q-']").count()) === 5);
   await page.goto(base + "/candidature", { waitUntil: "load" });
-  check("form page shows what happens next", (await page.locator(".formpage__next li").count()) === 3);
+  check("form page explains that the demo sends nothing", await page.locator("[data-demo-notice]").isVisible());
   await page.close();
 }
 
@@ -123,12 +123,12 @@ const blockTracking = async (page) => {
   await context.close();
 }
 
-// Premium application form (HubSpot API mocked: no real submission)
+// Premium application form (local simulation)
 {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await blockTracking(page);
-  let posted = null;
-  await page.route(/api\.hsforms\.com/, async (route) => { posted = JSON.parse(route.request().postData()); await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ inlineMessage: "ok" }) }); });
+  const submissions = [];
+  page.on("request", (request) => { if (request.method() !== "GET") submissions.push(request.url()); });
   await page.goto(base + "/candidature", { waitUntil: "load" });
   check("form starts at step 1/4", (await page.locator("[data-pf-step]").textContent()) === "1" && (await page.locator("[data-pf-panel='0']").isVisible()));
   await page.click("[data-pf-next]");
@@ -136,9 +136,8 @@ const blockTracking = async (page) => {
   await page.click(".pf__choice:has(input[value='All.Student']) .pf__choice-box");
   await page.waitForTimeout(400);
   check("choosing a card moves to step 2", (await page.locator("[data-pf-step]").textContent()) === "2");
-  await page.selectOption("select[name='all_current_academic_year']", "Y-1 (terminale)");
-  await page.click("[data-pf-next]");
   await page.click(".pf__choice:has(input[value='Bachelor Gamma']) .pf__choice-box");
+  await page.click(".pf__choice:has(input[value='Y-1 (terminale)']) .pf__choice-box");
   await page.waitForTimeout(400);
   check("step 4 shows the submit button", await page.locator("[data-pf-submit]").isVisible());
   await page.fill("input[name='firstname']", "Test");
@@ -146,19 +145,16 @@ const blockTracking = async (page) => {
   await page.fill("input[name='email']", "not-an-email");
   await page.fill("input[name='phone']", "0612345678");
   await page.click("[data-pf-submit]");
-  check("invalid e-mail is caught before sending", posted === null && (await page.locator("input[name='email'][aria-invalid='true']").count()) === 1);
+  check("invalid e-mail is caught before confirmation", await page.locator("[data-pf-done]").isHidden() && (await page.locator("input[name='email'][aria-invalid='true']").count()) === 1);
   await page.fill("input[name='email']", "test@example.com");
   await page.click("[data-pf-submit]");
-  await page.waitForTimeout(600);
-  const names = posted ? posted.fields.map((f) => f.name).sort().join(",") : "";
-  check("payload has the HubSpot field names", names === "all_current_academic_year,all_type_multiple_checkboxes,email,firstname,lastname,one_targetted_training,phone", names);
+  await page.locator("[data-pf-done]").waitFor();
+  check("confirmation is local", submissions.length === 0);
   check("confirmation uses the first name", (await page.locator("[data-pf-done-title]").textContent()).includes("Test"));
-  const successEvent = await page.evaluate(() => window.dataLayer?.find((entry) => entry.event === "hubspot-form-success"));
-  check("successful form pushes its GUID to analytics", successEvent?.["event-data"]?.id === "636c087a-248a-470d-8e70-b50dd08a73b8");
+  const formEvents = await page.evaluate(() => window.dataLayer?.filter((entry) => entry.event?.startsWith?.("form_")) ?? []);
   check(
     "form analytics event contains no personal data",
-    Object.keys(successEvent ?? {}).sort().join(",") === "event,event-data" &&
-      Object.keys(successEvent?.["event-data"] ?? {}).sort().join(",") === "eventName,id,type",
+    formEvents.length > 0 && !JSON.stringify(formEvents).includes("test@example.com"),
   );
   await page.close();
 }
@@ -170,10 +166,10 @@ const blockTracking = async (page) => {
   await page.goto(base + "/candidature?pour=parent", { waitUntil: "load" });
   check("?pour=parent preselects Parent", await page.locator("input[value='All.Parent']").isChecked());
   await page.click("[data-pf-next]");
-  check("step 2 says « vous » for a parent", (await page.locator("[data-pf-panel='1'] legend").textContent()).includes("votre enfant"));
-  await page.selectOption("select[name='all_current_academic_year']", "Y-1 (terminale)");
-  await page.click("[data-pf-next]");
+  check("step 2 uses the parent variant", (await page.locator("[data-pf-panel='1'] legend").textContent()).includes("l'attire"));
   await page.click(".pf__choice:has(input[value='MSc Gamma']) .pf__choice-box");
+  check("step 3 says « vous » for a parent", (await page.locator("[data-pf-panel='2'] legend").textContent()).includes("votre enfant"));
+  await page.click(".pf__choice:has(input[value='Y-1 (terminale)']) .pf__choice-box");
   await page.waitForTimeout(400);
   check("parent note shown on the last step", await page.locator("[data-pf-parent-note]").isVisible());
   await page.goto(base + "/carrieres?pour=parent", { waitUntil: "load" });
@@ -252,7 +248,8 @@ const blockTracking = async (page) => {
   check("without JS student variant remains visible", await page.locator('[data-audience="student"]').first().isVisible());
   check("without JS audience controls stay hidden", await page.locator(".audience__switch").isHidden());
   check("without JS parent variant stays hidden", await page.locator('[data-audience="parent"]').first().isHidden());
-  check("without JS the form fallback does not link to itself", !(await page.goto(base + "/contact", { waitUntil: "load" })) || (await page.locator(".hs-form noscript a[href='/contact'], .hs-form a[href='/contact']").count()) === 0);
+  await page.goto(base + "/contact", { waitUntil: "load" });
+  check("without JS the form fallback does not link to itself", await page.locator('.pf__nojs a[href^="mailto:"]').isVisible() && (await page.locator('.pf__nojs a[href="/contact"]').count()) === 0);
   await ctx.close();
 }
 

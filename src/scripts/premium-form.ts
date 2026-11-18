@@ -1,19 +1,4 @@
-/**
- * Multi-step form: one question per screen, validation before moving on, submission to the
- * HubSpot Forms API (public endpoint, same portal/form id as the embed), then a confirmation
- * that says what happens next. Keyboard choices require confirmation; focused pointer choices advance.
- */
 import { track } from "@/scripts/track";
-import { HUBSPOT_FORMS_ENABLED } from "@/data/forms";
-
-const API = HUBSPOT_FORMS_ENABLED ? "https://api.hsforms.com/submissions/v3/integration/submit" : "";
-
-function cookie(name: string): string | undefined {
-  return document.cookie
-    .split("; ")
-    .find((c) => c.startsWith(name + "="))
-    ?.split("=")[1];
-}
 
 export function initPremiumForm(form: HTMLFormElement): void {
   const panels = Array.from(form.querySelectorAll<HTMLFieldSetElement>("[data-pf-panel]"));
@@ -24,7 +9,6 @@ export function initPremiumForm(form: HTMLFormElement): void {
   const bar = form.querySelector<HTMLElement>("[data-pf-bar]")!;
   const done = form.querySelector<HTMLElement>("[data-pf-done]")!;
   let index = 0;
-  let sending = false;
   let parent = false;
   const focused = form.hasAttribute("data-focus-form");
   const storageKey = `eugenia:form:v2:${form.dataset.formKind}`;
@@ -43,7 +27,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
   };
   const start = () => { if (!started) { started = true; metric("form_start"); } };
   const persist = () => {
-    if (!focused || completed || sending) return;
+    if (!focused || completed) return;
     try {
       const values = Object.fromEntries(new FormData(form).entries());
       sessionStorage.setItem(storageKey, JSON.stringify({ index, values, at: Date.now() }));
@@ -151,12 +135,12 @@ export function initPremiumForm(form: HTMLFormElement): void {
   };
 
   next.addEventListener("click", () => {
-    if (sending) return;
     start();
     if (validate(panels[index])) { metric("form_step_complete"); show(index + 1); }
   });
   back.addEventListener("click", () => {
-    if (!sending) { metric("form_back"); show(index - 1); }
+    metric("form_back");
+    show(index - 1);
   });
   form.addEventListener("change", (e) => {
     const t = e.target as HTMLInputElement;
@@ -169,7 +153,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
   // Native radio arrow keys remain local to their group; only deliberate pointer clicks advance.
   form.addEventListener("click", (event) => {
     const input = event.target;
-    if (focused && input instanceof HTMLInputElement && (event.detail > 0 || pointerChoice === input) && input.matches("[data-quick-choice]") && input.checked && !sending) {
+    if (focused && input instanceof HTMLInputElement && (event.detail > 0 || pointerChoice === input) && input.matches("[data-quick-choice]") && input.checked) {
       pointerChoice = null;
       start();
       const panel = input.closest("[data-pf-panel]");
@@ -193,7 +177,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
   });
   form.addEventListener("focusout", (event) => {
     const input = event.target;
-    if (!(input instanceof HTMLInputElement) || input.type === "radio" || sending || navigationPointer) return;
+    if (!(input instanceof HTMLInputElement) || input.type === "radio" || navigationPointer) return;
     if (input.name === "phone" && /^0[1-9]\d{8}$/.test(input.value.replace(/\s/g, ""))) {
       input.value = input.value.replace(/\s/g, "").match(/.{2}/g)!.join(" ");
     }
@@ -223,7 +207,6 @@ export function initPremiumForm(form: HTMLFormElement): void {
     persist();
   });
   form.querySelector("[data-clear-draft]")?.addEventListener("click", () => {
-    if (sending) return;
     clear();
     form.reset();
     form.querySelectorAll<HTMLInputElement>('[type="radio"]').forEach((input) => (input.checked = false));
@@ -235,17 +218,9 @@ export function initPremiumForm(form: HTMLFormElement): void {
     clear();
     form.dispatchEvent(new CustomEvent("pf:restored"));
   });
-
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (!HUBSPOT_FORMS_ENABLED) {
-      const message = form.querySelector<HTMLElement>("[data-demo-form-message]")!;
-      message.textContent = "Formulaire désactivé sur la démo : aucune donnée n'a été envoyée aux admissions.";
-      message.focus();
-      return;
-    }
-    if (sending) return;
-    // Enter must never send an incomplete wizard; only the final step submits.
+    if (completed) return;
     if (index < panels.length - 1) {
       next.click();
       return;
@@ -257,80 +232,18 @@ export function initPremiumForm(form: HTMLFormElement): void {
         return;
       }
     }
-    sending = true;
-    metric("form_submit");
-    const data = new FormData(form);
-    // Presentation-only spacing of a French national number never changes its submitted digits.
-    const phone = String(data.get("phone") ?? "");
-    if (/^0[1-9](?: ?\d){8}$/.test(phone)) data.set("phone", phone.replace(/\s/g, ""));
-    const fields = Array.from(data.entries())
-      .filter(([, v]) => String(v).trim() !== "")
-      .map(([name, value]) => ({ objectTypeId: "0-1", name, value: String(value).trim() }));
-    const body: Record<string, unknown> = {
-      fields,
-      context: { pageUri: location.href, pageName: form.dataset.pageName, hutk: cookie("hubspotutk") },
-    };
-    submit.setAttribute("aria-busy", "true");
-    form.setAttribute("aria-busy", "true");
-    submit.disabled = true;
-    back.disabled = true;
-    // Freeze the payload while waiting, but never clear entered answers on failure.
-    panels.forEach((p) => (p.disabled = true));
-    const error = panels[index].querySelector<HTMLElement>("[data-pf-error]")!;
-    error.hidden = true;
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 15000);
-    try {
-      const res = await fetch(`${API}/${form.dataset.hsPortal}/${form.dataset.hsFormId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-        signal: controller.signal,
-      });
-      if (!res.ok) throw new Error(`HubSpot ${res.status}`);
-      track("hubspot-form-success", {
-        "event-data": {
-          type: "hsFormCallback",
-          eventName: "onFormSubmit",
-          id: form.dataset.hsFormId,
-        },
-      });
-      const firstname = String(data.get("firstname") ?? "").trim();
-      const title = (parent && form.dataset.doneTitleParent) || form.dataset.doneTitle || "";
-      done.querySelector<HTMLElement>("[data-pf-done-title]")!.textContent = title.replace("{firstname}", firstname);
-      const linesParent = done.querySelector<HTMLElement>("[data-pf-done-lines-parent]");
-      if (linesParent) {
-        linesParent.hidden = !parent;
-        done.querySelector<HTMLElement>("[data-pf-done-lines]")!.hidden = parent;
-      }
-      panels.forEach((p) => (p.hidden = true));
-      form.querySelector<HTMLElement>(".pf__nav")!.hidden = true;
-      form.querySelector<HTMLElement>(".pf__privacy")!.hidden = true;
-      form.querySelector<HTMLElement>(".pf__head")!.hidden = true;
-      done.hidden = false;
-      const doneTitle = done.querySelector<HTMLElement>(".pf__done-title")!;
-      form.setAttribute("aria-labelledby", doneTitle.id);
-      doneTitle.focus();
-      completed = true;
-      clear();
-      const draftNote = form.querySelector<HTMLElement>("[data-draft-note]");
-      if (draftNote) draftNote.hidden = true;
-      form.dispatchEvent(new CustomEvent("pf:success"));
-    } catch {
-      error.textContent = formal()
-        ? "Nous n'avons pas pu confirmer l'envoi. Vos réponses sont conservées. Vérifiez votre e-mail avant de réessayer, ou contactez admission@eugeniaschool.com."
-        : "Nous n'avons pas pu confirmer l'envoi. Tes réponses sont conservées. Vérifie ton e-mail avant de réessayer, ou contacte admission@eugeniaschool.com.";
-      error.hidden = false;
-      metric("form_error", { field: "submission" });
-    } finally {
-      sending = false;
-      window.clearTimeout(timeout);
-      panels.forEach((p) => (p.disabled = false));
-      back.disabled = false;
-      submit.disabled = false;
-      form.removeAttribute("aria-busy");
-      submit.removeAttribute("aria-busy");
-    }
+    completed = true;
+    clear();
+    const firstname = String(new FormData(form).get("firstname") ?? "").trim();
+    const title = done.querySelector<HTMLElement>("[data-pf-done-title]")!;
+    title.textContent = (form.dataset.doneTitle ?? "").replace("{firstname}", () => firstname);
+    panels.forEach((panel) => (panel.hidden = true));
+    form.querySelectorAll<HTMLElement>(".pf__nav, .pf__privacy, .pf__head, [data-demo-notice], [data-draft-note]")
+      .forEach((element) => (element.hidden = true));
+    done.hidden = false;
+    form.setAttribute("aria-labelledby", title.id);
+    title.focus();
+    form.dispatchEvent(new CustomEvent("pf:success"));
   });
 
   let restoredIndex = 0;

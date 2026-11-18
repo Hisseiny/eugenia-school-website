@@ -155,17 +155,17 @@ test("admissions: FAQ accordion exposes aria-expanded and one FAQPage schema", (
   assert.ok(h.includes('"@type":"FAQPage"'));
 });
 
-test("form pages retain the school's form identifiers for explicit opt-in", () => {
+test("form pages render local simulations with no native network submission", () => {
   const expected = {
-    brochure: "6a2d0bc7-da08-4fc0-a33b-57c7901f0d8d",
-    candidature: "636c087a-248a-470d-8e70-b50dd08a73b8",
-    evenements: "2a34a111-a00d-45dc-8eb8-f2f3def58085",
-    contact: "43012bf9-3f27-415c-a452-e5351d4c9299",
+    brochure: "brochure",
+    candidature: "candidature",
+    evenements: "evenement",
+    contact: "contact",
   };
-  for (const [page, id] of Object.entries(expected)) {
+  for (const [page, kind] of Object.entries(expected)) {
     const h = html(page);
-    assert.ok(h.includes(`data-hs-form-id="${id}"`), `${page} does not embed form ${id}`);
-    assert.ok(h.includes('data-hs-portal="25517078"'));
+    assert.match(h, new RegExp(`<form\\b(?=[^>]*data-form-kind="${kind}")(?=[^>]*method="dialog")`));
+    assert.ok(h.includes("Mode démo : aucune réponse ne sera envoyée."));
   }
 });
 
@@ -367,13 +367,12 @@ test("lot 3 route anchors are stored in page data", () => {
   }
 });
 
-test("recruiter page renders a disabled demo form at the formulaire anchor", () => {
+test("recruiter page renders the local recruiter form at the formulaire anchor", () => {
   const source = html("recruter-nos-etudiants");
   const formSection = source.match(/<section\b(?=[^>]*id="formulaire")[^>]*>([\s\S]*?)<\/section>/)?.[1] ?? "";
   assert.ok(formSection, "recruiter page: #formulaire must resolve to a section");
-  assert.match(formSection, /class="hs-form"[^>]*data-hs-portal="25517078"[^>]*data-hs-region="eu1"[^>]*data-hs-form-id="b98543e3-c9ae-49d6-99bc-7c0418dd95ba"/);
-  assert.match(formSection, /data-demo-hubspot-form/);
-  assert.match(formSection, /Formulaire désactivé sur la démo/);
+  assert.match(formSection, /<form\b(?=[^>]*data-form-kind="recruteur")(?=[^>]*method="dialog")/);
+  assert.match(formSection, /<label[^>]*for="pf-recruteur-phone"[^>]*>Téléphone<\/label>/);
   assert.ok(formSection.includes('id="besoin"'), "recruiter page: #besoin must also resolve inside the form section");
   assert.doesNotMatch(source, /<h1\b[^>]*id="formulaire"/, "the formulaire anchor belongs to the form section, not the hero");
   const ctas = [...source.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
