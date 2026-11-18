@@ -4,8 +4,9 @@
  * that says what happens next. Keyboard choices require confirmation; focused pointer choices advance.
  */
 import { track } from "@/scripts/track";
+import { HUBSPOT_FORMS_ENABLED } from "@/data/forms";
 
-const API = "https://api.hsforms.com/submissions/v3/integration/submit";
+const API = HUBSPOT_FORMS_ENABLED ? "https://api.hsforms.com/submissions/v3/integration/submit" : "";
 
 function cookie(name: string): string | undefined {
   return document.cookie
@@ -237,6 +238,12 @@ export function initPremiumForm(form: HTMLFormElement): void {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (!HUBSPOT_FORMS_ENABLED) {
+      const message = form.querySelector<HTMLElement>("[data-demo-form-message]")!;
+      message.textContent = "Formulaire désactivé sur la démo : aucune donnée n'a été envoyée aux admissions.";
+      message.focus();
+      return;
+    }
     if (sending) return;
     // Enter must never send an incomplete wizard; only the final step submits.
     if (index < panels.length - 1) {

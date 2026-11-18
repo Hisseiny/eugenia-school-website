@@ -8,7 +8,7 @@ mockup (six pages) as a fully static [Astro](https://astro.build) site.
 - Astro 7 (static output), TypeScript strict, pnpm, pinned versions.
 - Fonts: Sora and Work Sans, self-hosted via `@fontsource`.
 - Images: WebP with `srcset`, generated at build time from `src/assets/images`.
-- Forms: the school's existing HubSpot forms (same portal, region and form ids as the live site).
+- Formulaires : visibles mais désactivés par défaut sur la démo (aucun script ni envoi HubSpot).
 - No framework on the client: the carousel, the accordion and the mobile menu are a few lines of
   plain TypeScript, and every page reads without JavaScript.
 
@@ -23,6 +23,29 @@ pnpm preview    # serve dist/
 pnpm test       # node:test checks on dist/ (one h1, meta, forbidden fonts, forms, schema...)
 node scripts/screenshot.mjs http://127.0.0.1:4321 1440 375   # full-page screenshots
 ```
+
+## Sécurité des formulaires de démo
+
+Un build standard (`pnpm build`) ne charge aucun script HubSpot et n'envoie aucune
+demande aux admissions. Les formulaires restent visibles ; une tentative d'envoi
+affiche « Formulaire désactivé sur la démo ». Sans JavaScript, leur méthode
+`dialog` empêche aussi tout envoi natif.
+
+La réactivation exige **exactement** `PUBLIC_ENABLE_HUBSPOT_FORMS=true` au build :
+
+```sh
+PUBLIC_ENABLE_HUBSPOT_FORMS=true pnpm build
+```
+
+Attention : cette option réactive les **vrais formulaires de l'école**, avec les
+mêmes identifiants de portail et de formulaire. Ne jamais l'activer sur le
+déploiement de démonstration ou pour les tests de l'agent H. Toute autre valeur
+(ou l'absence de variable) laisse les envois désactivés. Après un changement,
+reconstruire et redéployer les fichiers statiques ; une variable au runtime
+ne peut pas réactiver un build de démo.
+
+`pnpm test` vérifie que `dist/` est sûr pour la démo : lancer les tests après
+un build **sans** cette variable.
 
 ## Structure
 

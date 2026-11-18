@@ -5,6 +5,8 @@
  */
 import { HUBSPOT } from "@/data/site";
 
+export const HUBSPOT_FORMS_ENABLED = import.meta.env.PUBLIC_ENABLE_HUBSPOT_FORMS === "true";
+
 export type Option = { value: string; label: string; hint?: string };
 
 export const WHO: Record<string, Option> = {
