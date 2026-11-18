@@ -5,7 +5,7 @@
  * progress shown, inline validation, a confirmation that says what happens next. Without
  * JavaScript, all steps are shown and the visitor is given the public contact instead.
  */
-import { FORMS, WHO } from "@/data/forms";
+import { FORMS, WHO, HUBSPOT_FORMS_ENABLED } from "@/data/forms";
 import { HUBSPOT, ROUTES, SITE } from "@/data/site";
 import FocusField from "./FocusField.astro";
 import ShareLink from "./ShareLink.astro";
@@ -22,6 +22,7 @@ const total = cfg.steps.length;
 ---
 
 <form
+  method={HUBSPOT_FORMS_ENABLED ? "post" : "dialog"}
   class:list={["pf", focus && "pf--focus"]}
   data-premium-form
   data-focus-form={focus || undefined}
@@ -35,6 +36,7 @@ const total = cfg.steps.length;
   novalidate
   aria-labelledby={`pf-${form}-title-0`}
 >
+  {!HUBSPOT_FORMS_ENABLED && <p data-demo-form-message role="status" tabindex="-1">Formulaire désactivé sur la démo : aucune donnée n'est envoyée aux admissions.</p>}
   <div class="pf__head">
     <div class="pf__mark" aria-hidden="true"></div>
     <p class="pf__progress" aria-live="polite" aria-atomic="true"><span class:list={[!focus && "sr-only"]}>Étape </span><span data-pf-step>1</span><span class="pf__progress-sep">{focus ? " sur " : "/"}</span>{total}</p>
@@ -147,8 +149,8 @@ const total = cfg.steps.length;
 
   <noscript>
     <p class="pf__nojs">
-      L'envoi du formulaire demande JavaScript. Écris-nous à <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
-      ou appelle le <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.
+      {HUBSPOT_FORMS_ENABLED ? <>L'envoi du formulaire demande JavaScript. Écris-nous à <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      ou appelle le <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.</> : "Formulaire désactivé sur la démo, même sans JavaScript."}
     </p>
   </noscript>
 </form>
