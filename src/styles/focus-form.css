@@ -36,6 +36,7 @@ body:has([data-focus-shell]) .crumbs { display: none; }
 .pf--focus .pf__choices--years { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .pf--focus .pf__choice { position: relative; }
 .pf--focus .pf__choice-box { position: relative; border: 0; background: white; border-radius: 12px; padding: 20px 20px 20px 48px; min-height: 64px; justify-content: center; }
+.pf--focus .pf__choices:not(.pf__choices--years) .pf__choice-box { padding-inline-start: 48px; }
 .pf--focus .pf__choice-icon { position: absolute; left: 18px; top: 20px; font-size: 20px; line-height: 24px; }
 .pf--focus .pf__choice-label { font-size: 16px; line-height: 1.4; font-weight: 600; }
 .pf--focus .pf__choice-hint { font-size: 13px; line-height: 1.4; color: var(--ink-70); }

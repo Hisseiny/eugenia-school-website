@@ -49,6 +49,11 @@ try {
       await form.waitFor();
       const panels = form.locator("[data-pf-panel]");
       const total = await panels.count();
+      check(await panels.first().locator(".pf__choice-box").evaluateAll(boxes => boxes.every(box => {
+        const icon = box.querySelector(".pf__choice-icon").getBoundingClientRect();
+        const label = box.querySelector(".pf__choice-label").getBoundingClientRect();
+        return icon.right <= label.left;
+      })), `${path}/${width}: choice icons do not overlap their labels`);
       for (let index = 0; index < total - 1; index++) {
         const panel = panels.nth(index);
         const radios = panel.locator('input[type="radio"]');

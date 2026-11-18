@@ -110,6 +110,9 @@ const total = cfg.steps.length;
           </p>
         )}
         <p class="pf__error" id={`pf-${form}-error-${i}`} data-pf-error role="alert" hidden></p>
+        {form === "contact" && i === 0 && (
+          <p class="pf__note"><a href={`${ROUTES.recruterNosEtudiants}#formulaire`} class="lnk">Entreprise : contacter l'équipe dédiée</a></p>
+        )}
         {focus && form === "candidature" && step.kind !== "contact" && <p class="pf__reassurance">{i === 0 ? "Hors Parcoursup et hors Mon Master" : i === 1 ? "Candidature gratuite pour les résidents de l'Union européenne" : "Rentrée en septembre"}</p>}
       </fieldset>
     ))

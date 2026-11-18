@@ -13,6 +13,11 @@ const html = (name) => {
 };
 const count = (s, re) => (s.match(re) ?? []).length;
 
+test("the header's Candidater link moves forward from admissions", () => {
+  assert.match(html("admissions"), /<a href="\/candidature" class="btn site-header__cta"[^>]*>Candidater/);
+  assert.match(html("index"), /<a href="\/admissions" class="btn site-header__cta"[^>]*>Candidater/);
+});
+
 for (const [page, className] of [["index", "badges"], ["entreprises", "partners"]]) {
   test(`${page}: partner section keeps every logo and an accessible label without RotatingLine`, () => {
     const h = html(page);

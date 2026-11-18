@@ -36,3 +36,15 @@ test("focused child-component inputs have independent full-width styling", () =>
   assert.match(css, /\.pf--focus \.pf__input\s*\{[^}]*width:\s*100%/);
   assert.match(css, /\.pf--focus \.pf__input\s*\{[^}]*min-height:\s*52px/);
 });
+
+test("corporate contact leads directly to the dedicated recruiting form", () => {
+  const contact = readFileSync("dist/contact.html", "utf8");
+  assert.match(contact, /href="\/recruter-nos-etudiants#formulaire"[^>]*>Entreprise : contacter l(?:'|&#39;)équipe dédiée/);
+  assert.doesNotMatch(contact, /value="All\.Corporate"/);
+});
+
+test("the application submit button describes a request, not account creation", () => {
+  const application = readFileSync("dist/candidature.html", "utf8");
+  assert.match(application, /<button[^>]*data-pf-submit[^>]*>[\s\S]*?Envoyer ma demande<\/button>/);
+  assert.doesNotMatch(application, /Créer mon espace candidat/);
+});

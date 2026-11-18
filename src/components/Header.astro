@@ -44,7 +44,7 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
       </ul>
       <a href={ROUTES.evenements} class="site-header__event">Portes ouvertes</a>
     </nav>
-    <a href={ROUTES.admissions} class="btn site-header__cta">Candidater</a>
+    <a href={current === ROUTES.admissions ? ROUTES.candidature : ROUTES.admissions} class="btn site-header__cta">Candidater</a>
   </div>
 </header>
 
@@ -180,6 +180,12 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
       gap: 16px 12px;
       padding-block: 14px;
     }
+    .site-header__row:has(.site-header__nav.is-open) {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      grid-template-rows: auto minmax(0, 1fr);
+      max-height: 100dvh;
+    }
     .site-header__logo img {
       height: 22px;
     }
@@ -203,6 +209,13 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
       align-items: stretch;
       gap: 20px;
       padding-block: 8px 12px;
+    }
+    .site-header__nav.is-open {
+      grid-column: 1 / -1;
+      align-self: stretch;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior-y: contain;
     }
     .site-header__links {
       flex-direction: column;

@@ -13,7 +13,6 @@ export const WHO: Record<string, Option> = {
   "All.Student": { value: "All.Student", label: "Lycéen·ne ou étudiant·e", hint: "Je candidate pour moi" },
   "All.Parent": { value: "All.Parent", label: "Parent", hint: "Je me renseigne pour mon enfant" },
   "All.ProfessionalTrainee": { value: "All.ProfessionalTrainee", label: "En activité ou en reconversion", hint: "Je veux me former" },
-  "All.Corporate": { value: "All.Corporate", label: "Entreprise", hint: "Recruter, co-construire" },
 };
 
 export const YEARS: Option[] = [
@@ -63,14 +62,14 @@ export interface FormConfig {
 export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
   candidature: {
     formId: HUBSPOT.forms.candidature,
-    submitLabel: "Créer mon espace candidat",
+    submitLabel: "Envoyer ma demande",
     pageName: "Candidature",
     who: ["All.Student", "All.Parent"],
     steps: [
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Commençons par toi.", titleParent: "Commençons par vous.", options: [], cards: true },
       { kind: "choice", name: "one_targetted_training", title: "Quel programme t'attire ?", titleParent: "Quel programme l'attire ?", options: TRAININGS, cards: true },
       { kind: "select", name: "all_current_academic_year", title: "Où en es-tu aujourd'hui ?", titleParent: "Où en est votre enfant aujourd'hui ?", label: "Ton année actuelle", labelParent: "Son année actuelle", options: YEARS },
-      { kind: "contact", title: "Créons ton espace candidat.", titleParent: "Créons l'espace candidat de votre enfant." },
+      { kind: "contact", title: "Tes coordonnées pour envoyer ta demande", titleParent: "Vos coordonnées pour envoyer la demande" },
     ],
     done: {
       title: "C'est envoyé, {firstname}.",
@@ -115,7 +114,7 @@ export const FORMS: Record<keyof typeof HUBSPOT.forms, FormConfig> = {
     formId: HUBSPOT.forms.contact,
     submitLabel: "Être recontacté·e",
     pageName: "Contact",
-    who: ["All.Student", "All.Parent", "All.Corporate"],
+    who: ["All.Student", "All.Parent"],
     steps: [
       { kind: "choice", name: "all_type_multiple_checkboxes", title: "Qui êtes-vous ?", options: [], cards: true },
       { kind: "choice", name: "one_targetted_training", title: "Quel programme vous concerne ?", options: TRAININGS, cards: true },
