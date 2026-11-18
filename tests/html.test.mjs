@@ -224,9 +224,7 @@ test("every built page has unique SEO metadata and one organization graph", () =
       assert.equal(breadcrumb.itemListElement.at(-1)?.item, canonical, `${file}: breadcrumb does not end at canonical`);
     }
 
-    assert.ok(source.includes("GTM-KH6RQW8"), `${file}: missing GTM container`);
-    assert.ok(source.includes("G-9GX0407BZB"), `${file}: missing GA4 id`);
-    assert.ok(source.includes('src="https://www.googletagmanager.com/ns.html?id=GTM-KH6RQW8"'), `${file}: missing GTM noscript iframe`);
+    assert.doesNotMatch(source, /GTM-|G-9GX0407BZB|googletagmanager|google-analytics/i, `${file}: tracking must be explicitly enabled at build time`);
     assert.ok(!source.includes("À confirmer"), `${file}: unconfirmed text leaked`);
     titles.push(title);
     descriptions.push(description);

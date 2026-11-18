@@ -47,6 +47,24 @@ ne peut pas réactiver un build de démo.
 `pnpm test` vérifie que `dist/` est sûr pour la démo : lancer les tests après
 un build **sans** cette variable.
 
+### Traçage également désactivé par défaut
+
+Aucun script de mesure d'audience, préchargement de domaine de traçage ni iframe
+GTM (y compris sans JavaScript) n'est ajouté par défaut. La réactivation exige
+**exactement** `PUBLIC_ENABLE_ANALYTICS=true` au build :
+
+```sh
+PUBLIC_ENABLE_ANALYTICS=true pnpm build
+```
+
+Cette option réactive le vrai GTM et GA de l'école, et les traceurs qu'ils chargent
+(notamment HubSpot et Facebook). Ne jamais l'activer sur la démo ou les
+prévisualisations destinées à l'agent H. Elle est indépendante de
+`PUBLIC_ENABLE_HUBSPOT_FORMS` : laisser **les deux variables absentes** pour un
+build de démo. Toute autre valeur que `true` laisse le traçage désactivé.
+Reconstruire puis redéployer après tout changement ; `pnpm test` vérifie aussi
+l'absence des domaines et identifiants de traçage dans les artefacts par défaut.
+
 ## Structure
 
 ```

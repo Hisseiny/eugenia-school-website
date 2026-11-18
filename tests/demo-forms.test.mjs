@@ -10,13 +10,13 @@ function files(directory) {
   });
 }
 
-test("default build contains no HubSpot script or submission URL, including bundled assets", () => {
+test("default build contains no tracking identifiers, domains or HubSpot URLs, including bundled assets", () => {
   const artifacts = files("dist").filter(path => /\.(?:html|m?js|css|json|map|svg|xml|txt)$/i.test(path));
   assert.ok(artifacts.some(path => path.endsWith(".html")), "run pnpm build first");
   assert.ok(artifacts.some(path => path.endsWith(".js")), "check bundled JavaScript too");
   for (const path of artifacts) {
     assert.doesNotMatch(readFileSync(path, "utf8"),
-      /(?:hsforms\.(?:com|net)|hubapi\.com|hs-scripts\.com|hscollectedforms\.net)/i, path);
+      /(?:googletagmanager|GTM-|G-9GX0407BZB|google-analytics|hs-scripts|hs-analytics|hsforms|hscollectedforms|hsadspixel|hubapi\.com|track\.hubspot|facebook\.net|facebook\.com\/tr)/i, path);
   }
 });
 

@@ -4,10 +4,11 @@ interface Props {
 }
 
 const { position } = Astro.props;
+const enabled = import.meta.env.PROD && import.meta.env.PUBLIC_ENABLE_ANALYTICS === "true";
 ---
 
 {
-  import.meta.env.PROD && position === "head" && (
+  enabled && position === "head" && (
     <>
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://connect.facebook.net" />
@@ -17,7 +18,7 @@ const { position } = Astro.props;
   )
 }
 {
-  import.meta.env.PROD && position === "body" && (
+  enabled && position === "body" && (
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH6RQW8" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
   )
 }
