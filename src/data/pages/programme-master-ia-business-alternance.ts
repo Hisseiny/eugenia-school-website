@@ -1,7 +1,7 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Dualer KI-Master: MSc in Paris | Eugenia School",
+  "title": "Duales KI-Masterstudium: MSc in Paris | Eugenia School",
   "description": "MSc IA à Paris, le master tech en alternance : 4 jours en entreprise, 1 jour à l'école, un Bac+5 reconnu par l'État. Découvrez le programme et candidatez.",
   "h1": "MSc Angewandte KI für Unternehmen",
   "image": "pr3_hero-msc",
