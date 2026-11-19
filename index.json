@@ -258,7 +258,12 @@
             "hauteur": 11
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/32a88589038c4e804b172617b46c8a297e415b25/pr-16/0249f66/accueil--comparaison--1.png",
-          "decision": null
+          "decision": {
+            "choix": "voulu",
+            "decision": "voulu",
+            "par": "Ali",
+            "le": "2026-11-19T23:24:51.984Z"
+          }
         },
         {
           "id": "accueil--comparaison--2",
@@ -761,5 +766,5 @@
       ]
     }
   ],
-  "maj": "2026-11-19T23:24:46.657Z"
+  "maj": "2026-11-19T23:24:51.984Z"
 }
