@@ -110,7 +110,12 @@
             "hauteur": 35.1875
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/9abeca298d0670a17426f04c7ac7c12be2101508/pr-16/998767b/accueil--controle--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T19:03:25.760Z"
+          }
         },
         {
           "id": "programmes--controle--1",
@@ -126,7 +131,12 @@
             "hauteur": 89.1875
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/ee034148b864fd117352ec47fbf9b0b8099cea19/pr-16/998767b/programmes--controle--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T19:03:25.760Z"
+          }
         },
         {
           "id": "ecole--controle--1",
@@ -142,7 +152,12 @@
             "hauteur": 86.390625
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/20ac9f060b733959955252c4955ab66b1b199c02/pr-16/998767b/ecole--controle--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T19:03:25.760Z"
+          }
         },
         {
           "id": "programmes--holo--1",
@@ -158,7 +173,12 @@
             "hauteur": 162
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/0ff84f50661d66411671662d9d9dde37f1bd2c32/pr-16/998767b/programmes--holo--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T19:03:25.760Z"
+          }
         },
         {
           "id": "admissions--holo--1",
@@ -174,10 +194,15 @@
             "hauteur": 171
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/f638745719869ae9905e19e74ea47055d2e3f5ff/pr-16/998767b/admissions--holo--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T19:03:25.760Z"
+          }
         }
       ]
     }
   ],
-  "maj": "2026-11-19T18:56:10.279Z"
+  "maj": "2026-11-19T19:03:25.760Z"
 }
