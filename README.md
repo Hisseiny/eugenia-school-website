@@ -32,6 +32,8 @@ aussi tout envoi natif.
 
 ### Bac à sable des formulaires (Preview uniquement)
 
+Branche `201-defaut-merci-500` : défaut volontaire de démonstration, le formulaire affiche « Merci ! » même si la base répond 500. Ne pas intégrer en production.
+
 Définir au build `PUBLIC_SANDBOX_FORM_ENDPOINT` (URL http(s) de la fausse base)
 et `PUBLIC_SANDBOX_HOSTS` (hôtes exacts séparés par des virgules, sans protocole ni port).
 Exemple local : `PUBLIC_SANDBOX_FORM_ENDPOINT=http://127.0.0.1:3100/formulaires PUBLIC_SANDBOX_HOSTS=127.0.0.1 pnpm build`.
