@@ -13,14 +13,14 @@ const courses = [
   {
     "@type": "EducationalOccupationalProgram",
     name: "Bachelor IA Applied to Business",
-    description: "Trois ans, hors Parcoursup. Un socle commun en IA, data et no-code, puis une trajectoire et une troisième année en alternance.",
+    description: "Drei Jahre, außerhalb von Parcoursup. Gemeinsame Grundlagen in KI, Data und No-Code, dann ein Schwerpunkt und ein duales drittes Jahr.",
     provider: { "@id": ORG_ID },
     url: `${SITE.url}${ROUTES.programmeBachelor}`,
   },
   {
     "@type": "EducationalOccupationalProgram",
     name: "MSc IA Applied to Business",
-    description: "Deux ans en alternance après un Bac+3 ou +4 : l'IA et l'automatisation appliquées en entreprise.",
+    description: "Zwei Jahre dual nach einem Bac+3 oder +4: KI und Automatisierung, angewandt im Unternehmen.",
     provider: { "@id": ORG_ID },
     url: `${SITE.url}${ROUTES.programmeMsc}`,
   },
@@ -28,24 +28,24 @@ const courses = [
 ---
 
 <Base
-  title="Programmes Bachelor et MSc IA à Paris | Eugenia School"
-  description="Bachelor en trois ans après le bac, MSc en deux ans en alternance, et deux certifications professionnelles. Un même socle en IA, data et no-code."
+  title="Bachelor und MSc: KI-Studium in Paris | Eugenia School"
+  description="Bachelor in drei Jahren nach dem Abitur, dualer MSc in zwei Jahren und zwei Berufszertifizierungen. Gemeinsame Grundlagen in KI, Data und No-Code."
   current={ROUTES.programmes}
-  crumbs={[{ name: "Programmes" }]}
+  crumbs={[{ name: "Studienprogramme" }]}
   jsonLd={courses}
 >
   <PageTop
-    title="Programmes"
-    lead="Deux entrées, un même socle en IA, data et no-code. Et des certifications pour valider une compétence précise."
+    title="Studienprogramme"
+    lead="Zwei Einstiege, dieselben Grundlagen in KI, Daten und No-Code. Dazu Zertifizierungen für gezielte Kompetenzen."
     image="n_crowd"
-    alt="Une centaine d'étudiants écoutent deux intervenants sur les gradins de l'atrium"
+    alt="Rund hundert Studierende hören auf den Sitzstufen im Atrium zwei Vortragenden zu"
   />
 
   <section class="container compare" aria-labelledby="compare-title">
-    <h2 id="compare-title" class="h2-sm compare__title">Bachelor ou Master ?</h2>
+    <h2 id="compare-title" class="h2-sm compare__title">Bachelor oder Master?</h2>
     <div class="compare__table" role="table">
       <div class="compare__row compare__row--head" role="row">
-        <div role="columnheader"><span class="sr-only">Critère</span></div>
+        <div role="columnheader"><span class="sr-only">Kriterium</span></div>
         <div role="columnheader">Bachelor</div>
         <div role="columnheader">MSc</div>
       </div>
@@ -65,17 +65,17 @@ const courses = [
   <section id="bachelor" class="mist prog" aria-labelledby="bachelor-title">
     <div class="container prog__grid">
       <div>
-        <p class="eyebrow prog__eyebrow">3 ans, après le bac</p>
-        <h2 id="bachelor-title" class="h2 prog__title">Bachelor IA Applied to Business</h2>
-        <p class="prog__text">Un socle commun en IA, data et no-code, puis tu choisis ta trajectoire. Un premier projet IA en entreprise dès le premier semestre, et une troisième année en alternance.</p>
+        <p class="eyebrow prog__eyebrow">3 Jahre nach dem Abitur</p>
+        <h2 id="bachelor-title" class="h2 prog__title">Bachelor Angewandte KI für Unternehmen</h2>
+        <p class="prog__text">Gemeinsame Grundlagen in KI, Daten und No-Code, danach wählst du deinen Schwerpunkt. Ein erstes KI-Projekt im Unternehmen schon im ersten Semester und ein drittes Studienjahr im dualen Studium.</p>
         <div class="btn-row">
-          <a href={ROUTES.candidature} class="btn">Candidater au Bachelor</a>
-          <a href={ROUTES.programmeBachelor} class="btn-outline">Découvrir le programme</a>
+          <a href={ROUTES.candidature} class="btn">Für den Bachelorstudiengang bewerben</a>
+          <a href={ROUTES.programmeBachelor} class="btn-outline">Studiengang kennenlernen</a>
         </div>
-        <p class="lnk-row"><a class="lnk" href={ROUTES.programmeBachelor3}>Voir la 3e année en alternance</a> · <a class="lnk" href={ROUTES.brochure}>Télécharger la brochure</a></p>
+        <p class="lnk-row"><a class="lnk" href={ROUTES.programmeBachelor3}>Das 3. Jahr im dualen Studium ansehen</a> · <a class="lnk" href={ROUTES.brochure}>Informationsbroschüre herunterladen</a></p>
       </div>
       <div>
-        <Pic src={img("p_duo")} alt="Deux étudiants sourient, assis sur les gradins du campus" ratio="16 / 9" sizes="(min-width: 1024px) 640px, 100vw" class="prog__pic" />
+        <Pic src={img("p_duo")} alt="Zwei Studierende sitzen lächelnd auf den Sitzstufen des Campus" ratio="16 / 9" sizes="(min-width: 1024px) 640px, 100vw" class="prog__pic" />
         <ol class="years">
           {
             BACHELOR_YEARS.map((y) => (
@@ -95,48 +95,48 @@ const courses = [
 
   <section id="msc" class="dark prog" aria-labelledby="msc-title">
     <div class="container prog__grid prog__grid--center">
-      <Pic src={img("p_sweater")} alt="Un étudiant montre fièrement le logo Eugenia School sur son pull" ratio="4 / 5" sizes="(min-width: 1024px) 640px, 100vw" />
+      <Pic src={img("p_sweater")} alt="Ein Student zeigt stolz das Logo der Eugenia School auf seinem Pullover" ratio="4 / 5" sizes="(min-width: 1024px) 640px, 100vw" />
       <div>
-        <p class="eyebrow prog__eyebrow">2 ans, après un Bac+3 ou +4</p>
-        <h2 id="msc-title" class="h2 prog__title">MSc IA Applied to Business</h2>
-        <p class="prog__text prog__text--tight">Pour passer de la théorie à la pratique : l'IA et l'automatisation appliquées en entreprise, en alternance.</p>
+        <p class="eyebrow prog__eyebrow">2 Jahre nach drei oder vier Studienjahren</p>
+        <h2 id="msc-title" class="h2 prog__title">MSc Angewandte KI für Unternehmen</h2>
+        <p class="prog__text prog__text--tight">Von der Theorie zur Praxis: KI und Automatisierung im Unternehmen, im dualen Studium.</p>
         <div class="chips prog__chips">{MSC_CHIPS.map((c) => <span class="chip">{c}</span>)}</div>
         <div class="btn-row">
-          <a href={ROUTES.candidature} class="btn">Candidater au MSc</a>
-          <a href={ROUTES.programmeMsc} class="btn-outline">Découvrir le programme</a>
+          <a href={ROUTES.candidature} class="btn">Für den Masterstudiengang bewerben</a>
+          <a href={ROUTES.programmeMsc} class="btn-outline">Studiengang kennenlernen</a>
         </div>
-        <p class="lnk-row"><a class="lnk" href={ROUTES.brochure}>Télécharger la brochure</a></p>
+        <p class="lnk-row"><a class="lnk" href={ROUTES.brochure}>Informationsbroschüre herunterladen</a></p>
       </div>
     </div>
   </section>
 
   <section id="certifications" class="container certs" aria-labelledby="certs-title">
-    <h2 id="certs-title" class="h2-sm certs__title">Certifications professionnelles</h2>
+    <h2 id="certs-title" class="h2-sm certs__title">Berufliche Zertifizierungen</h2>
     <div class="certs__grid">
       <article class="cert">
-        <h3 class="h3-sm">Concepteur de solutions no code</h3>
-        <p class="cert__text">Concevoir et livrer des outils métier sans écrire de code.</p>
-        <div class="cert__link"><a href={ROUTES.certificationNoCode} class="lnk">Voir la certification</a></div>
+        <h3 class="h3-sm">Entwickler für No-Code-Lösungen</h3>
+        <p class="cert__text">Geschäftsanwendungen entwickeln und bereitstellen, ohne Code zu schreiben.</p>
+        <div class="cert__link"><a href={ROUTES.certificationNoCode} class="lnk">Zertifizierung ansehen</a></div>
       </article>
       <article class="cert">
-        <h3 class="h3-sm">Architecte IA</h3>
-        <p class="cert__text">Concevoir des systèmes d'IA utiles et fiables en entreprise.</p>
-        <div class="cert__link"><a href={ROUTES.certificationArchitecteIA} class="lnk">Voir la certification</a></div>
+        <h3 class="h3-sm">KI-Architekt</h3>
+        <p class="cert__text">Nützliche und zuverlässige KI-Systeme für Unternehmen entwickeln.</p>
+        <div class="cert__link"><a href={ROUTES.certificationArchitecteIA} class="lnk">Zertifizierung ansehen</a></div>
       </article>
     </div>
   </section>
 
   <EndOfPage
-    title="Prêt à construire ?"
-    primary={{ href: ROUTES.admissions, label: "Candidater" }}
-    secondary={{ href: ROUTES.contact, label: "Poser une question" }}
+    title="Bereit, etwas zu entwickeln?"
+    primary={{ href: ROUTES.admissions, label: "Jetzt bewerben" }}
+    secondary={{ href: ROUTES.contact, label: "Eine Frage stellen" }}
     image="p_payfit"
     position="50% 45%"
   />
   <div class="container share-row">
-    <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+    <ShareLink path={ROUTES.parents} label="Mit meinen Eltern teilen" title="Eugenia School: Informationen für meine Eltern" text="Ich interessiere mich für diese Hochschule im nächsten Jahr. Hier findest du alles Wissenswerte für Eltern:" event="share_to_parent" />
   </div>
-  <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Où mènent ces programmes : alternance, premier CDI." image="p_team" />
+  <ContinueVisit href={ROUTES.carrieres} title="Karriere" text="Wohin diese Studiengänge führen: vom dualen Studium zur ersten unbefristeten Stelle." image="p_team" />
 </Base>
 
 <style>
@@ -233,6 +233,9 @@ const courses = [
     border-top: 1px solid var(--line-strong);
   }
   .years__year {
+    min-width: 0;
+    hyphens: auto;
+    overflow-wrap: anywhere;
     font-family: var(--font-display);
     font-weight: 300;
     font-size: 22px;

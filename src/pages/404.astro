@@ -6,15 +6,15 @@ import { ROUTES } from "@/data/site";
 
 <Base
   title="Page introuvable : retrouver Eugenia School | Eugenia"
-  description="La page recherchée n'existe pas ou plus. Recherchez une information sur eugeniaschool.com ou consultez les programmes, admissions, événements et contact."
+  description="Die gesuchte Seite existiert nicht oder nicht mehr. Suchen Sie eine Information auf eugeniaschool.com oder sehen Sie sich Programme, Zulassung, Veranstaltungen und Kontakt an."
   noindex
 >
   <section class="container section nf">
     <p class="eyebrow">Erreur 404</p>
     <h1 class="h2">Cette page n'existe pas (ou plus).</h1>
-    <p class="lead nf__lead">Le site a changé d'adresse pour certaines pages. Cherchez ce qu'il vous faut, ou repartez d'ici.</p>
+    <p class="lead nf__lead">Einige Seiten der Website haben eine neue Adresse. Suchen Sie, was Sie brauchen, oder starten Sie von hier.</p>
     <form class="nf__search" action="https://www.google.com/search" method="get" role="search">
-      <label class="nf__label" for="site-search">Rechercher sur eugeniaschool.com</label>
+      <label class="nf__label" for="site-search">Auf eugeniaschool.com suchen</label>
       <div class="nf__field">
         <input class="nf__input" id="site-search" name="q" type="search" autocomplete="off" required />
         <input name="as_sitesearch" type="hidden" value="eugeniaschool.com" />
@@ -25,12 +25,12 @@ import { ROUTES } from "@/data/site";
       <ul class="nf__links">
         <li><a class="lnk" href={ROUTES.programmes}>Programmes</a></li>
         <li><a class="lnk" href={ROUTES.admissions}>Admissions</a></li>
-        <li><a class="lnk" href={ROUTES.evenements}>Événements</a></li>
+        <li><a class="lnk" href={ROUTES.evenements}>Veranstaltungen</a></li>
         <li><a class="lnk" href={ROUTES.contact}>Contact</a></li>
       </ul>
     </nav>
   </section>
-  <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Découvrir les formations Bachelor, MSc et certifications." image="n_crowd" />
+  <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Bachelor, MSc und Zertifizierungen entdecken." image="n_crowd" />
 </Base>
 
 <style>

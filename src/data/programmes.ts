@@ -1,16 +1,16 @@
 export const COMPARE_ROWS = [
-  { label: "Pour qui", bachelor: "Après le bac. Ou après un Bac+2, en entrée directe en 3e année.", msc: "Après un Bac+3 ou un Bac+4." },
-  { label: "Durée", bachelor: "3 ans", msc: "2 ans" },
-  { label: "Rythme", bachelor: "Cours et projets, puis 3e année en alternance", msc: "En alternance" },
-  { label: "Admission", bachelor: "Hors Parcoursup", msc: "Hors Mon Master" },
-  { label: "Bacs acceptés", bachelor: "Terminale générale, toutes spécialités, ou STMG", msc: "Licence, bachelor ou équivalent" },
-  { label: "Titre", bachelor: "Titre RNCP 41143, Concepteur de solutions no code", msc: "Titre RNCP 41993, Architecte en intelligence artificielle" },
+  { label: "Zielgruppe", bachelor: "Nach dem Abitur. Oder nach einem Bac+2, für den direkten Einstieg in das 3. Jahr.", msc: "Nach einem Bac+3 oder einem Bac+4." },
+  { label: "Studiendauer", bachelor: "3 Jahre", msc: "2 Jahre" },
+  { label: "Studienrhythmus", bachelor: "Kurse und Projekte, dann duales Studium im 3. Studienjahr", msc: "Im dualen Studium" },
+  { label: "Zulassung", bachelor: "Ohne Parcoursup", msc: "Ohne Mon Master" },
+  { label: "Zugelassene Schulabschlüsse", bachelor: "Allgemeines Terminal, alle Spezialitäten oder STMG", msc: "Lizenz, Bachelor oder gleichwertig" },
+  { label: "Abschluss", bachelor: "Titel RNCP 41143, Lösungsdesigner ohne Code", msc: "Titel RNCP 41993, Architekt für künstliche Intelligenz" },
 ] as const;
 
 export const BACHELOR_YEARS = [
-  { year: "Année 1", title: "Le socle", text: "IA, data et no-code. Premier projet IA en entreprise au semestre 1." },
-  { year: "Année 2", title: "Ta trajectoire", text: "Tu choisis ta voie, et tu construis en hackathon avec les entreprises partenaires." },
-  { year: "Année 3", title: "L'alternance", text: "Une année en entreprise. Accessible aussi en entrée directe après un Bac+2." },
+  { year: "1. Studienjahr", title: "Die Grundlagen", text: "KI, Daten und No-Code. Erstes KI-Projekt in der Wirtschaft im 1. Semester." },
+  { year: "2. Studienjahr", title: "Ihre Flugbahn", text: "Du wählst deinen Schwerpunkt und entwickelst bei Hackathons mit Partnerunternehmen eigene Projekte." },
+  { year: "3. Studienjahr", title: "Das duale Studium", text: "Ein Jahr im Unternehmen. Auch als Direkteinstieg nach zwei Studienjahren möglich." },
 ] as const;
 
-export const MSC_CHIPS = ["SQL", "Tableau", "Power BI", "Automatisation", "IA en entreprise", "Pitch"] as const;
+export const MSC_CHIPS = ["SQL", "Tableau", "Power BI", "Automatisierung", "KI im Unternehmen", "Pitch"] as const;

@@ -9,8 +9,8 @@ import { ROUTES } from "@/data/site";
 <section class="section testi" aria-labelledby="testi-title">
   <div class="container">
     <div class="section-head testi__head">
-      <h2 id="testi-title" class="h2 testi__title">De là où ils étaient à là où ils sont.</h2>
-      <a href={ROUTES.carrieres} class="lnk">Toutes les trajectoires</a>
+      <h2 id="testi-title" class="h2 testi__title">Wo sie angefangen haben und wo sie heute stehen.</h2>
+      <a href={ROUTES.carrieres} class="lnk">Alle beruflichen Laufbahnen</a>
     </div>
     <div class="testi__grid" data-carousel>
       <dl class="testi__stats">
@@ -29,7 +29,7 @@ import { ROUTES } from "@/data/site";
           TESTIMONIALS.map((t, i) => (
             <article class="testi__slide" data-slide id={`temoignage-${t.id}`}>
               <div class="pic testi__portrait" style="--ratio: 1 / 1">
-                <Image src={img(t.portrait)} alt={`Portrait de ${t.name}`} widths={[320, 480, 640]} sizes="(min-width: 1024px) 420px, 100vw" format="webp" loading={i === 0 ? "eager" : "lazy"} />
+                <Image src={img(t.portrait)} alt={`Portrait von ${t.name}`} widths={[320, 480, 640]} sizes="(min-width: 1024px) 420px, 100vw" format="webp" loading={i === 0 ? "eager" : "lazy"} />
               </div>
               <div class="testi__body">
                 <p class="eyebrow testi__status">{t.status}</p>
@@ -46,17 +46,17 @@ import { ROUTES } from "@/data/site";
       </div>
       <div class="testi__controls">
         <div class="testi__arrows">
-          <button type="button" class="testi__arrow" aria-label="Témoignage précédent" data-prev>
+          <button type="button" class="testi__arrow" aria-label="Vorheriger Erfahrungsbericht" data-prev>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
           </button>
-          <button type="button" class="testi__arrow" aria-label="Témoignage suivant" data-next>
+          <button type="button" class="testi__arrow" aria-label="Nächster Erfahrungsbericht" data-next>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
           </button>
         </div>
-        <div role="tablist" aria-label="Choisir un témoignage" class="testi__dots">
+        <div role="tablist" aria-label="Erfahrungsbericht auswählen" class="testi__dots">
           {
             TESTIMONIALS.map((t, i) => (
-              <button type="button" role="tab" class="testi__dot" aria-label={`Témoignage de ${t.name}`} aria-selected={i === 0 ? "true" : "false"} aria-controls={`temoignage-${t.id}`} tabindex={i === 0 ? 0 : -1}></button>
+              <button type="button" role="tab" class="testi__dot" aria-label={`Erfahrungsbericht von ${t.name}`} aria-selected={i === 0 ? "true" : "false"} aria-controls={`temoignage-${t.id}`} tabindex={i === 0 ? 0 : -1}></button>
             ))
           }
         </div>

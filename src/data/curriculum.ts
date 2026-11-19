@@ -17,13 +17,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 69,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0141",
-                    "name": "Éloquence & Personal Branding",
+                    "name": "Beredsamkeit und persönliches Branding",
                     "hours": 24.0,
                     "ects": 2.0
                   },
@@ -35,7 +35,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "SPE0143",
-                    "name": "Marketing digital fondamentaux",
+                    "name": "Grundlagen des digitalen Marketings",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -43,25 +43,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 75,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "DAT0131",
-                    "name": "Workshop Data — Structurer & Visualiser · Google Sheets · Looker Studio",
+                    "name": "Workshop-Daten – Strukturieren und Visualisieren · Google Sheets · Looker Studio",
                     "hours": 27.0,
                     "ects": 3.0
                   },
                   {
                     "code": "DAT0132",
-                    "name": "Workshop Data — SQL & Requêtes · SELECT · WHERE · GROUP BY",
+                    "name": "Workshop-Daten – SQL und Abfragen · SELECT · WHERE · GROUP BY",
                     "hours": 27.0,
                     "ects": 3.0
                   },
                   {
                     "code": "DAT0133",
-                    "name": "Workshop Data — Statistiques appliquées",
+                    "name": "Workshop-Daten – Angewandte Statistik",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -69,13 +69,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 30,
                 "ects": 3.0,
                 "courses": [
                   {
                     "code": "BRI0151",
-                    "name": "Projet Bridge 1",
+                    "name": "Bridge 1-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   }
@@ -83,19 +83,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 84,
                 "ects": 9.0,
                 "courses": [
                   {
                     "code": "COD0111",
-                    "name": "Bootcamp Python — Fondamentaux · Logique · Scripts",
+                    "name": "Python Bootcamp – Grundlagen · Logik · Skripting",
                     "hours": 48.0,
                     "ects": 5.0
                   },
                   {
                     "code": "COD0112",
-                    "name": "Bootcamp LLM & Outils IA — Cursor · Claude · ChatGPT · Prompting",
+                    "name": "Bootcamp für LLM- und KI-Tools – Cursor · Claude · ChatGPT · Eingabeaufforderung",
                     "hours": 36.0,
                     "ects": 4.0
                   }
@@ -103,19 +103,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 48,
                 "ects": 4.0,
                 "courses": [
                   {
                     "code": "BUI0121",
-                    "name": "Bootcamp No-code — Premier workflow automatisé",
+                    "name": "No-Code-Bootcamp – Erster automatisierter Workflow",
                     "hours": 24.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0122",
-                    "name": "Bootcamp IA Ops — Premier agent no-code connecté",
+                    "name": "AI Ops Bootcamp – Erster verbundener No-Code-Agent",
                     "hours": 24.0,
                     "ects": 2.0
                   }
@@ -131,25 +131,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 63,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0241",
-                    "name": "Prise de parole avancée",
+                    "name": "Fortgeschrittenes Sprechen",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "SPE0242",
-                    "name": "Gestion de projet & Outils",
+                    "name": "Projektmanagement und Tools",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "SPE0243",
-                    "name": "Growth & SEO avancé",
+                    "name": "Wachstum und fortschrittliches SEO",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -157,25 +157,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 63,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "DAT0231",
-                    "name": "Workshop Data — SQL avancé & Tableau",
+                    "name": "Workshop-Daten – Fortgeschrittenes SQL und Tableau",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "DAT0232",
-                    "name": "Workshop Data — Data Storytelling · KPIs · Recommandations",
+                    "name": "Workshop-Daten – Data Storytelling · KPIs · Empfehlungen",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "DAT0233",
-                    "name": "Workshop Data — Analyse financière · Bilan · P&L · Cash flow",
+                    "name": "Workshop-Daten – Finanzanalyse · Bilanz · Gewinn- und Verlustrechnung · Cashflow",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -183,31 +183,31 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 120,
                 "ects": 10.0,
                 "courses": [
                   {
                     "code": "BRI0251",
-                    "name": "Projet Bridge 2",
+                    "name": "Bridge 2-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   },
                   {
                     "code": "BRI0252",
-                    "name": "Projet Bridge 3",
+                    "name": "Bridge 3-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   },
                   {
                     "code": "BRI0253",
-                    "name": "Projet Bridge 4",
+                    "name": "Bridge 4-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   },
                   {
                     "code": "BRI0254",
-                    "name": "Hackathon interpromo",
+                    "name": "Interpromo-Hackathon",
                     "hours": 30.0,
                     "ects": 1.0
                   }
@@ -215,19 +215,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 60,
                 "ects": 4.0,
                 "courses": [
                   {
                     "code": "COD0211",
-                    "name": "Workshop Code — Automatisation · Scripts métier · Scrapping Python",
+                    "name": "Workshop-Code – Automatisierung · Geschäftsskripte · Verschrottung von Python",
                     "hours": 30.0,
                     "ects": 2.0
                   },
                   {
                     "code": "COD0212",
-                    "name": "Workshop Code — API & Intégrations · Connexions LLM",
+                    "name": "Workshop-Code – API & Integrationen · LLM-Verbindungen",
                     "hours": 30.0,
                     "ects": 2.0
                   }
@@ -235,19 +235,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 60,
                 "ects": 4.0,
                 "courses": [
                   {
                     "code": "BUI0221",
-                    "name": "Workshop Build — App métier fonctionnelle · Scrapping no-code",
+                    "name": "Workshop Build – Funktionale Geschäftsanwendung · Verschrottung von No-Code",
                     "hours": 30.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0222",
-                    "name": "Workshop Build — Stack d'outils connectés",
+                    "name": "Workshop Build – Stapel vernetzter Werkzeuge",
                     "hours": 30.0,
                     "ects": 2.0
                   }
@@ -259,8 +259,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
       },
       {
         "code": "B2",
-        "title": "Construire la stack IA",
-        "intro": "Entrepreneuriat, leadership, CRM, business plan, levée de fonds, go-to-market et négociation, avec agents IA, automatisation et données, en conditions réelles.",
+        "title": "Aufbau des KI-Stacks",
+        "intro": "Unternehmertum, Führung, CRM, Geschäftsplan, Fundraising, Markteinführung und Verhandlungen, mit KI-Agenten, Automatisierung und Daten, unter realen Bedingungen.",
         "semesters": [
           {
             "code": "B2",
@@ -270,25 +270,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 69,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0341",
-                    "name": "Entrepreneuriat & Idéation",
+                    "name": "Unternehmertum und Ideenfindung",
                     "hours": 24.0,
                     "ects": 2.0
                   },
                   {
                     "code": "SPE0342",
-                    "name": "Leadership & Management",
+                    "name": "Führung & Management",
                     "hours": 24.0,
                     "ects": 2.0
                   },
                   {
                     "code": "SPE0343",
-                    "name": "CRM & Relation client · HubSpot · Salesforce",
+                    "name": "CRM und Kundenbeziehungen · HubSpot · Salesforce",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -296,25 +296,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 75,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "DAT0331",
-                    "name": "Workshop Data — Power BI · Visualisation avancée · Dashboards pro",
+                    "name": "Workshop-Daten – Power BI · Erweiterte Visualisierung · Professionelle Dashboards",
                     "hours": 27.0,
                     "ects": 3.0
                   },
                   {
                     "code": "DAT0332",
-                    "name": "Workshop Data — IA analytique & Insights · Outils IA analyse",
+                    "name": "Workshop-Daten – Analytische KI und Erkenntnisse · KI-Analysetools",
                     "hours": 27.0,
                     "ects": 3.0
                   },
                   {
                     "code": "DAT0333",
-                    "name": "Workshop Data — Business Plan · Modèle économique · Projection financière",
+                    "name": "Workshop-Daten – Geschäftsplan · Wirtschaftsmodell · Finanzprognose",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -322,13 +322,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 30,
                 "ects": 3.0,
                 "courses": [
                   {
                     "code": "BRI0351",
-                    "name": "Projet Bridge 1",
+                    "name": "Bridge 1-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   }
@@ -336,19 +336,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 84,
                 "ects": 9.0,
                 "courses": [
                   {
                     "code": "COD0311",
-                    "name": "Bootcamp Python avancé — Architecture · Classes · Gestion erreurs",
+                    "name": "Advanced Python Bootcamp – Architektur · Klassen · Fehlerbehandlung",
                     "hours": 48.0,
                     "ects": 5.0
                   },
                   {
                     "code": "COD0312",
-                    "name": "Bootcamp Agents IA — Orchestration · Mémoire · Outils connectés",
+                    "name": "AI Agents Bootcamp – Orchestrierung · Speicher · Verbundene Tools",
                     "hours": 36.0,
                     "ects": 4.0
                   }
@@ -356,19 +356,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 48,
                 "ects": 4.0,
                 "courses": [
                   {
                     "code": "BUI0321",
-                    "name": "Bootcamp Build avancé — Outil interne complet",
+                    "name": "Advanced Bootcamp Build – Komplettes internes Tool",
                     "hours": 24.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0322",
-                    "name": "Bootcamp Stack IA — Stack IA connectée & fiabilisée",
+                    "name": "Stack AI Bootcamp – Vernetzter und zuverlässiger KI-Stack",
                     "hours": 24.0,
                     "ects": 2.0
                   }
@@ -384,25 +384,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 63,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0441",
-                    "name": "Posture consultant & Négociation",
+                    "name": "Beraterposition & Verhandlung",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "SPE0442",
-                    "name": "Grand oral & Préparation pro",
+                    "name": "Großartige mündliche und professionelle Vorbereitung",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "SPE0443",
-                    "name": "Stratégie Go-to-market",
+                    "name": "Go-to-Market-Strategie",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -410,25 +410,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 63,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "DAT0431",
-                    "name": "Workshop Data — Data stratégie · Audit · Roadmap · Notion · Miro",
+                    "name": "Workshop Daten – Datenstrategie · Audit · Roadmap · Vorstellung · Miro",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "DAT0432",
-                    "name": "Workshop Data — Data pour la décision · Python · SQL · Power BI",
+                    "name": "Workshop-Daten – Daten zur Entscheidungsfindung · Python · SQL · Power BI",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "DAT0433",
-                    "name": "Workshop Data — Finance entrepreneuriale · Cap table · Levée de fonds",
+                    "name": "Workshop-Daten – Unternehmensfinanzierung · Cap-Tabelle · Fundraising",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -436,31 +436,31 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 120,
                 "ects": 10.0,
                 "courses": [
                   {
                     "code": "BRI0451",
-                    "name": "Projet Bridge 2",
+                    "name": "Bridge 2-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   },
                   {
                     "code": "BRI0452",
-                    "name": "Projet Bridge 3",
+                    "name": "Bridge 3-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   },
                   {
                     "code": "BRI0453",
-                    "name": "Projet Bridge 4",
+                    "name": "Bridge 4-Projekt",
                     "hours": 30.0,
                     "ects": 3.0
                   },
                   {
                     "code": "BRI0454",
-                    "name": "Hackathon interpromo",
+                    "name": "Interpromo-Hackathon",
                     "hours": 30.0,
                     "ects": 1.0
                   }
@@ -468,19 +468,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 60,
                 "ects": 4.0,
                 "courses": [
                   {
                     "code": "COD0411",
-                    "name": "Workshop Code — Déploiement & Systèmes IA",
+                    "name": "Workshop-Code – Bereitstellung und KI-Systeme",
                     "hours": 30.0,
                     "ects": 2.0
                   },
                   {
                     "code": "COD0412",
-                    "name": "Workshop Code — RAG & IA avancée",
+                    "name": "Workshop-Code – RAG und fortgeschrittene KI",
                     "hours": 30.0,
                     "ects": 2.0
                   }
@@ -488,19 +488,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 60,
                 "ects": 4.0,
                 "courses": [
                   {
                     "code": "BUI0421",
-                    "name": "Workshop Build — Stack documentée & transmissible",
+                    "name": "Workshop Build – Dokumentierter und übertragbarer Stack",
                     "hours": 30.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0422",
-                    "name": "Workshop Build — Audit & Recommandation de stack",
+                    "name": "Workshop Build – Stack-Audit und Empfehlung",
                     "hours": 30.0,
                     "ects": 2.0
                   }
@@ -512,8 +512,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
       },
       {
         "code": "B3",
-        "title": "Partir en entreprise",
-        "intro": "Alternance ou stage, trois blocs no code (cadrer, développer, déployer) et le titre RNCP 41143.",
+        "title": "Der Einstieg ins Unternehmen",
+        "intro": "Duales Studium oder Praktikum, drei No-Code-Module (Planung, Entwicklung, Bereitstellung) und der Abschluss RNCP 41143.",
         "semesters": [
           {
             "code": "B3",
@@ -523,13 +523,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 21,
                 "ects": 2.0,
                 "courses": [
                   {
                     "code": "SPE0541",
-                    "name": "Communication, entrepreneuriat & portfolio",
+                    "name": "Kommunikation, Unternehmertum & Portfolio",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -537,13 +537,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 28,
                 "ects": 3.0,
                 "courses": [
                   {
                     "code": "DAT0531",
-                    "name": "Structuration et restitution de la donnée",
+                    "name": "Strukturierung und Aufbereitung von Daten",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -551,13 +551,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 0,
                 "ects": 14.0,
                 "courses": [
                   {
                     "code": "BRI52-1",
-                    "name": "Alternance / Stage",
+                    "name": "Duales Studium / Praktikum",
                     "hours": 0.0,
                     "ects": 14.0
                   }
@@ -565,31 +565,31 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 112,
                 "ects": 12.0,
                 "courses": [
                   {
                     "code": "COD0511",
-                    "name": "Fondamentaux de l'IA générative",
+                    "name": "Grundlagen der generativen KI",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0512",
-                    "name": "Automatisation de processus métier",
+                    "name": "Automatisierung von Geschäftsprozessen",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0513",
-                    "name": "Conception d'agents IA",
+                    "name": "Design von KI-Agenten",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0514",
-                    "name": "Intégration technique de l'IA",
+                    "name": "Technische Integration von KI",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -597,19 +597,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 49,
                 "ects": 5.0,
                 "courses": [
                   {
                     "code": "BUI0521",
-                    "name": "Conception et prototypage d'interfaces",
+                    "name": "Konzeption und Prototyping von Interfaces",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0522",
-                    "name": "Développement multi-plateforme et personnalisation avancée",
+                    "name": "Plattformübergreifende Entwicklung und fortgeschrittene Anpassung",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -625,13 +625,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0641",
-                    "name": "Cadrer un projet no code (BC01 — certifiant)",
+                    "name": "Ein No-Code-Projekt definieren (BC01 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -639,13 +639,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "DAT0631",
-                    "name": "Déployer et accompagner une solution no code (BC03 — certifiant)",
+                    "name": "Eine No-Code-Lösung bereitstellen und begleiten (BC03 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -653,25 +653,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 70,
                 "ects": 27.0,
                 "courses": [
                   {
                     "code": "BRI0651",
-                    "name": "Hackathon interpromo",
+                    "name": "Interpromo-Hackathon",
                     "hours": 35.0,
                     "ects": 6.0
                   },
                   {
                     "code": "BRI0652",
-                    "name": "Hackathon 3 — Inter-écoles",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 35.0,
                     "ects": 6.0
                   },
                   {
                     "code": "BRI065-1",
-                    "name": "Alternance / Stage",
+                    "name": "Duales Studium / Praktikum",
                     "hours": 0.0,
                     "ects": 15.0
                   }
@@ -679,13 +679,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 56,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "BUI0621",
-                    "name": "Développer une solution no code (BC02 — certifiant)",
+                    "name": "Eine No-Code-Lösung entwickeln (BC02 — zertifizierend)",
                     "hours": 56.0,
                     "ects": 6.0
                   }
@@ -702,8 +702,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
     "years": [
       {
         "code": "B3",
-        "title": "Partir en entreprise",
-        "intro": "Alternance ou stage, trois blocs no code (cadrer, développer, déployer) et le titre RNCP 41143.",
+        "title": "Ab ins Unternehmen",
+        "intro": "Duale Ausbildung oder Praktikum, drei No-Code-Blöcke (definieren, entwickeln, bereitstellen) und der RNCP-Titel 41143.",
         "semesters": [
           {
             "code": "B3",
@@ -713,13 +713,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 21,
                 "ects": 2.0,
                 "courses": [
                   {
                     "code": "SPE0541",
-                    "name": "Communication, entrepreneuriat & portfolio",
+                    "name": "Kommunikation, Unternehmertum & Portfolio",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -727,13 +727,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 28,
                 "ects": 3.0,
                 "courses": [
                   {
                     "code": "DAT0531",
-                    "name": "Structuration et restitution de la donnée",
+                    "name": "Strukturierung und Aufbereitung von Daten",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -741,13 +741,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 0,
                 "ects": 14.0,
                 "courses": [
                   {
                     "code": "BRI52-1",
-                    "name": "Alternance / Stage",
+                    "name": "Duales Studium / Praktikum",
                     "hours": 0.0,
                     "ects": 14.0
                   }
@@ -755,31 +755,31 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 112,
                 "ects": 12.0,
                 "courses": [
                   {
                     "code": "COD0511",
-                    "name": "Fondamentaux de l'IA générative",
+                    "name": "Grundlagen der generativen KI",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0512",
-                    "name": "Automatisation de processus métier",
+                    "name": "Automatisierung von Geschäftsprozessen",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0513",
-                    "name": "Conception d'agents IA",
+                    "name": "Design von KI-Agenten",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0514",
-                    "name": "Intégration technique de l'IA",
+                    "name": "Technische Integration von KI",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -787,19 +787,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 49,
                 "ects": 5.0,
                 "courses": [
                   {
                     "code": "BUI0521",
-                    "name": "Conception et prototypage d'interfaces",
+                    "name": "Konzeption und Prototyping von Interfaces",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0522",
-                    "name": "Développement multi-plateforme et personnalisation avancée",
+                    "name": "Plattformübergreifende Entwicklung und fortgeschrittene Anpassung",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -815,13 +815,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0641",
-                    "name": "Cadrer un projet no code (BC01 — certifiant)",
+                    "name": "Ein No-Code-Projekt definieren (BC01 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -829,13 +829,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "DAT0631",
-                    "name": "Déployer et accompagner une solution no code (BC03 — certifiant)",
+                    "name": "Eine No-Code-Lösung bereitstellen und begleiten (BC03 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -843,25 +843,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 70,
                 "ects": 27.0,
                 "courses": [
                   {
                     "code": "BRI0651",
-                    "name": "Hackathon interpromo",
+                    "name": "Interpromo-Hackathon",
                     "hours": 35.0,
                     "ects": 6.0
                   },
                   {
                     "code": "BRI0652",
-                    "name": "Hackathon 3 — Inter-écoles",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 35.0,
                     "ects": 6.0
                   },
                   {
                     "code": "BRI065-1",
-                    "name": "Alternance / Stage",
+                    "name": "Duales Studium / Praktikum",
                     "hours": 0.0,
                     "ects": 15.0
                   }
@@ -869,13 +869,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 56,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "BUI0621",
-                    "name": "Développer une solution no code (BC02 — certifiant)",
+                    "name": "Eine No-Code-Lösung entwickeln (BC02 — zertifizierend)",
                     "hours": 56.0,
                     "ects": 6.0
                   }
@@ -892,7 +892,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
     "years": [
       {
         "code": "M1",
-        "title": "Année 1 · M1",
+        "title": "Jahr 1 · M1",
         "semesters": [
           {
             "code": "M1",
@@ -902,13 +902,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 30,
                 "ects": 4.5,
                 "courses": [
                   {
                     "code": "BRI0751",
-                    "name": "Hackathon 1 — Inter-masters",
+                    "name": "Hackathon 1 – Inter-Masters",
                     "hours": 30.0,
                     "ects": 4.5
                   }
@@ -916,13 +916,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 112,
                 "ects": 15.0,
                 "courses": [
                   {
                     "code": "COD0711",
-                    "name": "Code Python",
+                    "name": "Python-Code",
                     "hours": 56.0,
                     "ects": 8.0
                   },
@@ -934,7 +934,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "COD0713",
-                    "name": "Prompt engineering & agent IA",
+                    "name": "Prompter Engineering- und KI-Agent",
                     "hours": 28.0,
                     "ects": 3.5
                   }
@@ -942,19 +942,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 84,
                 "ects": 10.5,
                 "courses": [
                   {
                     "code": "BUI0721",
-                    "name": "Google Sheet + Apps Script",
+                    "name": "Google Sheet + Apps-Skript",
                     "hours": 28.0,
                     "ects": 3.5
                   },
                   {
                     "code": "BUI0722",
-                    "name": "Workshop no code",
+                    "name": "Workshop ohne Code",
                     "hours": 28.0,
                     "ects": 3.5
                   },
@@ -976,13 +976,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 77,
                 "ects": 9.5,
                 "courses": [
                   {
                     "code": "SPE0841",
-                    "name": "Digital Marketing",
+                    "name": "Digitales Marketing",
                     "hours": 21.0,
                     "ects": 2.5
                   },
@@ -1000,7 +1000,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "SPE0844",
-                    "name": "Design thinking · Gestion de projet · RGPD",
+                    "name": "Design Thinking · Projektmanagement · DSGVO",
                     "hours": 21.0,
                     "ects": 2.5
                   }
@@ -1008,13 +1008,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 63,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "DAT0831",
-                    "name": "SQL — Data analyst",
+                    "name": "SQL – Datenanalyst",
                     "hours": 28.0,
                     "ects": 3.5
                   },
@@ -1034,19 +1034,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 60,
                 "ects": 9.0,
                 "courses": [
                   {
                     "code": "BRI0851",
-                    "name": "Hackathon 2 — Inter-promos",
+                    "name": "Hackathon 2 – Inter-Promos",
                     "hours": 30.0,
                     "ects": 4.5
                   },
                   {
                     "code": "BRI0852",
-                    "name": "Hackathon 3 — Inter-écoles",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 30.0,
                     "ects": 4.5
                   }
@@ -1054,13 +1054,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 28,
                 "ects": 3.5,
                 "courses": [
                   {
                     "code": "COD0811",
-                    "name": "Projet Python",
+                    "name": "Python-Projekt",
                     "hours": 28.0,
                     "ects": 3.5
                   }
@@ -1072,7 +1072,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
       },
       {
         "code": "M2",
-        "title": "Année 2 · M2",
+        "title": "Jahr 2 · M2",
         "semesters": [
           {
             "code": "M2",
@@ -1082,19 +1082,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 56,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "SPE0941",
-                    "name": "Design thinking & Gestion de projet",
+                    "name": "Design Thinking und Projektmanagement",
                     "hours": 28.0,
                     "ects": 4.0
                   },
                   {
                     "code": "SPE0942",
-                    "name": "Personal Branding",
+                    "name": "Persönliches Branding",
                     "hours": 28.0,
                     "ects": 4.0
                   }
@@ -1102,19 +1102,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 56,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "DAT0931",
-                    "name": "Data Analytics",
+                    "name": "Datenanalyse",
                     "hours": 28.0,
                     "ects": 4.0
                   },
                   {
                     "code": "DAT0932",
-                    "name": "SQL avancé & DBT",
+                    "name": "Erweitertes SQL und DBT",
                     "hours": 28.0,
                     "ects": 4.0
                   }
@@ -1122,13 +1122,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 30,
                 "ects": 4.5,
                 "courses": [
                   {
                     "code": "BRI0951",
-                    "name": "Hackathon 1 — Inter-masters",
+                    "name": "Hackathon 1 – Inter-Masters",
                     "hours": 30.0,
                     "ects": 4.5
                   }
@@ -1136,13 +1136,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 63,
                 "ects": 9.5,
                 "courses": [
                   {
                     "code": "COD0911",
-                    "name": "Prompt engineering & IA",
+                    "name": "Prompt Engineering und KI",
                     "hours": 28.0,
                     "ects": 4.0
                   },
@@ -1164,25 +1164,25 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 84,
                 "ects": 10.5,
                 "courses": [
                   {
                     "code": "DAT1031",
-                    "name": "Data architecture for AI",
+                    "name": "Datenarchitektur für KI",
                     "hours": 28.0,
                     "ects": 3.5
                   },
                   {
                     "code": "DAT1032",
-                    "name": "Data pipelines for AI",
+                    "name": "Datenpipelines für KI",
                     "hours": 28.0,
                     "ects": 3.5
                   },
                   {
                     "code": "DAT1033",
-                    "name": "Data Governance & RGPD",
+                    "name": "Datenverwaltung und DSGVO",
                     "hours": 28.0,
                     "ects": 3.5
                   }
@@ -1190,19 +1190,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 60,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "BRI1051",
-                    "name": "Hackathon 2 — Inter-promos",
+                    "name": "Hackathon 2 – Inter-Promos",
                     "hours": 30.0,
                     "ects": 4.0
                   },
                   {
                     "code": "BRI1052",
-                    "name": "Hackathon 3 — Inter-écoles",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 30.0,
                     "ects": 4.0
                   }
@@ -1210,19 +1210,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 63,
                 "ects": 8.0,
                 "courses": [
                   {
                     "code": "COD1011",
-                    "name": "Machine Learning",
+                    "name": "Maschinelles Lernen",
                     "hours": 35.0,
                     "ects": 4.5
                   },
                   {
                     "code": "COD1012",
-                    "name": "LLM Fine tuning & RAG",
+                    "name": "LLM Feinabstimmung & RAG",
                     "hours": 28.0,
                     "ects": 3.5
                   }
@@ -1230,13 +1230,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 28,
                 "ects": 3.5,
                 "courses": [
                   {
                     "code": "BUI1021",
-                    "name": "AI deployment",
+                    "name": "KI-Bereitstellung",
                     "hours": 28.0,
                     "ects": 3.5
                   }

@@ -7,7 +7,7 @@ const visible = logos.slice(0, 12);
 ---
 <div class="logo-flow" data-logo-flow>
   <div id={id}>
-    <ul class="logo-flow__static" aria-label="Entreprises qui recrutent nos étudiants">
+    <ul class="logo-flow__static" aria-label="Unternehmen, die unsere Studierenden rekrutieren">
       {logos.map((logo, index) => <li data-logo-index={index}><Logo {...logo} height={Math.min(logo.height, 34)} /></li>)}
     </ul>
     <div class="logo-flow__motion" aria-hidden="true">
@@ -17,8 +17,8 @@ const visible = logos.slice(0, 12);
     </div>
   </div>
   <div class="logo-flow__controls">
-    <p class="logo-flow__more">Et <span data-remaining>{logos.length - visible.length}</span> autres entreprises · <a href={`#${id}`} data-show-all>Voir toutes les entreprises</a></p>
-    <button class="logo-flow__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Mettre en pause</button>
+    <p class="logo-flow__more">Und <span data-remaining>{logos.length - visible.length}</span> weitere Unternehmen · <a href={`#${id}`} data-show-all>Alle Unternehmen anzeigen</a></p>
+    <button class="logo-flow__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Pausieren</button>
   </div>
 </div>
 <script>import "../scripts/scrolling-logo-grid";</script>

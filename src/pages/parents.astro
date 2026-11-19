@@ -19,33 +19,33 @@ const alumni = ALUMNI.slice(0, 4);
 ---
 
 <Base
-  title="Parents : admissions et parcours à Eugenia School | Eugenia"
-  description="Pour les parents d'un futur étudiant : certifications, parcours d'admission, débouchés et contact de l'équipe. Consultez les questions fréquentes."
+  title="Eltern: Zulassung und Werdegang an der Eugenia School | Eugenia"
+  description="Für Eltern künftiger Studierender: Zertifizierungen, Zulassungsweg, Berufsaussichten und Kontakt zum Team. Lesen Sie die häufigen Fragen."
   current={ROUTES.parents}
-  crumbs={[{ name: "Admissions", path: ROUTES.admissions }, { name: "Parents" }]}
+  crumbs={[{ name: "Studienzulassung", path: ROUTES.admissions }, { name: "Eltern" }]}
 >
   <section class="container pr-top">
     <div class="pr-top__grid">
       <div>
-        <p class="r1 eyebrow">Pour les parents</p>
-        <h1 class="r1 display pr-top__title">Vous accompagnez un futur étudiant ?</h1>
+        <p class="r1 eyebrow">Für Eltern</p>
+        <h1 class="r1 display pr-top__title">Sie begleiten einen künftigen Studierenden?</h1>
         <p class="r2 lead pr-top__lead">
-          Voici, sans détour, ce que nous pouvons vous garantir, comment se déroule l'admission, ce que deviennent nos étudiants, et comment nous joindre.
+          Hier ohne Umschweife: was wir Ihnen garantieren können, wie die Zulassung abläuft, was aus unseren Studierenden wird und wie Sie uns erreichen.
         </p>
         <div class="r3 pr-top__actions">
-          <a href="#essentiel" class="btn-outline">L'essentiel en 60 secondes</a>
-          <ShareLink path={ROUTES.home} label="Envoyer à mon enfant" title="Eugenia School" text="J'ai regardé cette école pour toi. Voici le site :" event="share_to_student" />
+          <a href="#essentiel" class="btn-outline">Das Wichtigste in 60 Sekunden</a>
+          <ShareLink path={ROUTES.home} label="An mein Kind senden" title="Eugenia School" text="Ich habe mir diese Schule für dich angesehen. Hier ist die Website:" event="share_to_student" />
         </div>
       </div>
       <figure class="r3">
-        <Pic src={img("n_hero_pair")} alt="Deux étudiants d'Eugenia School discutent sur le campus" ratio="4 / 5" sizes="(min-width: 1024px) 560px, 100vw" />
+        <Pic src={img("n_hero_pair")} alt="Zwei Studierende der Eugenia School unterhalten sich auf dem Campus" ratio="4 / 5" sizes="(min-width: 1024px) 560px, 100vw" />
       </figure>
     </div>
   </section>
 
   <section id="essentiel" class="mist pr-ess" aria-labelledby="ess-title">
     <div class="container">
-      <h2 id="ess-title" class="h2">L'essentiel en 60 secondes.</h2>
+      <h2 id="ess-title" class="h2">Das Wichtigste in 60 Sekunden.</h2>
       <dl class="pr-ess__grid">
         {PARENTS.map((p) => (
           <div class="pr-ess__item">
@@ -55,16 +55,16 @@ const alumni = ALUMNI.slice(0, 4);
         ))}
       </dl>
       <div class="pr-ess__badges">
-        <Logo name="lg_fc" alt="France Compétences, titre enregistré au RNCP" height={30} />
-        <Logo name="lg_qualiopi" alt="Qualiopi, processus certifié" height={30} />
+        <Logo name="lg_fc" alt="France Compétences, im RNCP eingetragener Titel" height={30} />
+        <Logo name="lg_qualiopi" alt="Qualiopi, zertifizierter Prozess" height={30} />
       </div>
     </div>
   </section>
 
   <section class="container section pr-alumni" aria-labelledby="alumni-title">
     <div class="section-head">
-      <h2 id="alumni-title" class="h2">Ce que deviennent nos étudiants.</h2>
-      <a href={`${ROUTES.carrieres}?pour=parent`} class="lnk">Toutes les trajectoires</a>
+      <h2 id="alumni-title" class="h2">Was aus unseren Studierenden wird.</h2>
+      <a href={`${ROUTES.carrieres}?pour=parent`} class="lnk">Alle Werdegänge</a>
     </div>
     <ul class="pr-alumni__grid">
       {alumni.map((a) => (
@@ -82,7 +82,7 @@ const alumni = ALUMNI.slice(0, 4);
   </section>
 
   <section class="container section pr-steps" aria-labelledby="steps-title">
-    <h2 id="steps-title" class="h2">Le parcours, étape par étape.</h2>
+    <h2 id="steps-title" class="h2">Der Weg, Schritt für Schritt.</h2>
     <ol class="pr-steps__grid">
       {STEPS_PARENTS.map((s) => (
         <li class="pr-step">
@@ -98,7 +98,7 @@ const alumni = ALUMNI.slice(0, 4);
     <div class="container pr-faq__grid">
       <div>
         <h2 id="pr-faq-title" class="h2">Coût, financement, conditions.</h2>
-        <p class="pr-faq__sub">Les réponses de l'équipe d'admission, telles quelles.</p>
+        <p class="pr-faq__sub">Die Antworten des Zulassungsteams, so wie sie sind.</p>
       </div>
       <dl class="pr-faq__list">
         {faq.map((f) => (
@@ -114,21 +114,21 @@ const alumni = ALUMNI.slice(0, 4);
   <section class="container section pr-talk" aria-labelledby="talk-title">
     <div class="pr-talk__grid">
       <div>
-        <h2 id="talk-title" class="h2">Parler à quelqu'un.</h2>
+        <h2 id="talk-title" class="h2">Mit jemandem sprechen.</h2>
         <p class="pr-talk__text">
-          L'équipe d'admission vous répond par e-mail à <a href={`mailto:${SITE.contact.email}`} class="lnk">{SITE.contact.email}</a>
-          ou au <a href={SITE.contact.phoneHref} class="lnk">{SITE.contact.phone}</a>.
+          Das Zulassungsteam antwortet Ihnen per E-Mail unter <a href={`mailto:${SITE.contact.email}`} class="lnk">{SITE.contact.email}</a>
+          oder telefonisch unter <a href={SITE.contact.phoneHref} class="lnk">{SITE.contact.phone}</a>.
         </p>
       </div>
-      <ol class="pr-talk__actions" aria-label="Trois façons d'avancer, selon votre engagement">
-        <li><a href={ROUTES.brochure} class="btn-outline">Recevoir la brochure</a></li>
-        <li><a href={ROUTES.evenements} class="btn-outline">Venir aux portes ouvertes</a></li>
-        <li><a href={`${ROUTES.contact}?pour=parent`} class="btn">Poser une question</a></li>
+      <ol class="pr-talk__actions" aria-label="Drei Wege voranzukommen, je nach Ihrem Engagement">
+        <li><a href={ROUTES.brochure} class="btn-outline">Broschüre erhalten</a></li>
+        <li><a href={ROUTES.evenements} class="btn-outline">Zum Tag der offenen Tür kommen</a></li>
+        <li><a href={`${ROUTES.contact}?pour=parent`} class="btn">Eine Frage stellen</a></li>
       </ol>
     </div>
   </section>
 
-  <ContinueVisit href={`${ROUTES.carrieres}?pour=parent`} title="Carrières" text="Où sont nos étudiants aujourd'hui." image="p_team" />
+  <ContinueVisit href={`${ROUTES.carrieres}?pour=parent`} title="Karrieren" text="Wo unsere Studierenden heute sind." image="p_team" />
 </Base>
 
 <script>

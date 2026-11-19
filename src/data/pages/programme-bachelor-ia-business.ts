@@ -1,69 +1,69 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Bachelor IA à Paris : 3 ans, projets réels | Eugenia School",
-  "description": "Bachelor IA (AI Applied to Business) à Paris : 3 ans pour allier business, data et no-code, avec un projet d'entreprise dès le semestre 1. Candidatez.",
-  "h1": "Bachelor AI Applied to Business",
+  "title": "KI-Bachelor in Paris: 3 Jahre mit Praxis | Eugenia School",
+  "description": "KI-Bachelor (AI Applied to Business) in Paris: 3 Jahre, um Business, Data und No-Code zu verbinden, mit einem Unternehmensprojekt ab dem 1. Semester. Jetzt bewerben.",
+  "h1": "Bachelor Angewandte KI für Unternehmen",
   "image": "pr3_hero-bachelor-alt",
-  "imageAlt": "Un étudiant d’Eugenia School attentif pendant un cours, au premier plan d’une salle lumineuse",
-  "lead": "Le Bachelor AI Applied to Business est un Bac+3 en trois ans (180 ECTS), à Paris, hors Parcoursup, ouvert après une terminale générale ou technologique. Business, data, code et no-code : un projet en entreprise dès le semestre 1, un stage de 6 semaines en 1re année, une 3e année possible en alternance. Titre RNCP 41143 (niveau 6).",
+  "imageAlt": "Ein aufmerksamer Schüler der Eugenia School während einer Unterrichtsstunde, im Vordergrund eines hellen Raumes",
+  "lead": "Der Bachelor Angewandte KI für Unternehmen ist ein dreijähriger Bac+3 (180 ECTS) in Paris, außerhalb von Parcoursup, der nach einem allgemeinen oder technischen Abschlussjahr eröffnet wird. Business, Daten, Code und No-Code: ein Business-Projekt ab Semester 1, ein 6-wöchiges Praktikum im 1. Jahr, ein 3. Jahr berufsbegleitend möglich. RNCP 41143-Titel (Stufe 6).",
   "eyebrow": "Bachelor · Bac+3",
   "audience": {
-    "student": "L'entrepreneuriat, l'IA et l'automatisation te branchent ? Eugenia est l'école IA, tech et growth, hors Parcoursup, où tu construis ta trajectoire : un projet déployé dès le semestre 1, des hackathons avec des entreprises, un diplôme reconnu par l'État.",
-    "parent": "Eugenia est une école IA, tech et growth, hors Parcoursup. Votre enfant y construit sa trajectoire : un projet déployé en entreprise dès le semestre 1, des hackathons avec des entreprises, des mentors, un suivi individuel et un diplôme reconnu par l’État.",
-    "studentCta": "Candidater →",
-    "parentCta": "Créer l’espace candidat de mon enfant →",
+    "student": "Interessieren Sie sich für Unternehmertum, KI und Automatisierung? Eugenia ist die KI-, Technologie- und Wachstumsschule außerhalb von Parcoursup, an der Sie Ihre Laufbahn aufbauen: ein Projekt, das ab dem ersten Semester umgesetzt wird, Hackathons mit Unternehmen, ein vom Staat anerkanntes Diplom.",
+    "parent": "Eugenia ist eine KI-, Technologie- und Wachstumsschule außerhalb von Parcoursup. Dort baut Ihr Kind seinen Werdegang auf: ein Projekt, das ab dem 1. Semester in einem Unternehmen umgesetzt wird, Hackathons mit Unternehmen, Mentoren, individuelle Begleitung und ein staatlich anerkanntes Diplom.",
+    "studentCta": "Jetzt bewerben →",
+    "parentCta": "Bewerbungskonto für mein Kind einrichten →",
     "href": "/candidature"
   },
   "badges": [
-    "Hors Parcoursup",
+    "Ohne Parcoursup",
     "Bac+3",
-    "Titre RNCP niveau 6",
-    "Alternance possible en 3e année",
+    "RNCP-Titel der Stufe 6",
+    "Duales Studium im 3. Studienjahr möglich",
     "Paris"
   ],
   "facts": [
     {
-      "label": "Durée",
-      "value": "3 ans · 180 ECTS"
+      "label": "Studiendauer",
+      "value": "3 Jahre · 180 ECTS"
     },
     {
-      "label": "Rythme",
-      "value": "Cours à l’école"
+      "label": "Studienrhythmus",
+      "value": "Unterricht in der Schule"
     },
     {
-      "label": "Stage",
-      "value": "6 semaines à la fin de la 1re année"
+      "label": "Praktikum",
+      "value": "6 Wochen am Ende des 1. Jahres"
     },
     {
-      "label": "Admission",
-      "value": "Après une terminale générale ou technologique"
+      "label": "Zulassung",
+      "value": "Nach einem allgemeinen oder technischen Abschluss"
     },
     {
-      "label": "Certification",
-      "value": "Titre RNCP 41143 (niveau 6), Concepteur de solutions no code, LION"
+      "label": "Zertifizierung",
+      "value": "Titel RNCP 41143 (Stufe 6), No-Code-Solutions-Designer, LION"
     },
     {
-      "label": "Lieu",
+      "label": "Studienort",
       "value": "Paris, 18 rue de Paradis"
     },
     {
-      "label": "Rentrée",
-      "value": "30 août 2027"
+      "label": "Studienbeginn",
+      "value": "30. August 2027"
     },
     {
-      "label": "Frais de scolarité",
-      "value": "14 900 € par an (UE) · 16 900 € par an (hors UE)",
+      "label": "Studiengebühren",
+      "value": "14.900 € pro Jahr (EU) · 16.900 € pro Jahr (Nicht-EU)",
       "href": "/financement"
     }
   ],
   "sections": [
     {
-      "title": "4 blocs de compétences, tous opérationnels.",
+      "title": "4 Kompetenzbereiche für die Praxis.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Les outils cités sont des exemples : ils évoluent chaque année avec le marché."
+          "text": "Die genannten Tools sind Beispiele: Sie entwickeln sich jedes Jahr mit dem Markt weiter."
         },
         {
           "type": "image",
@@ -78,11 +78,11 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Acquérir, retenir, piloter"
+          "text": "Erwerben, behalten, verwalten"
         },
         {
           "type": "paragraph",
-          "text": "Marketing digital, growth, SEO, RevOps et CRM, finance, stratégie. Tu comprends comment tourne une entreprise, tu sais l’outiller et tu peux y contribuer dès le premier jour."
+          "text": "Digitales Marketing, Wachstum, SEO, RevOps und CRM, Finanzen, Strategie. Sie verstehen, wie ein Unternehmen läuft, wissen, wie man es ausstattet, und können vom ersten Tag an dazu beitragen."
         },
         {
           "type": "list",
@@ -94,21 +94,21 @@ export const page: LivePage = {
             "HubSpot",
             "Salesforce",
             "Notion",
-            "Finance"
+            "Finanzen"
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Exécution & Entrepreneuriat"
+          "text": "Ausführung & Unternehmertum"
         },
         {
           "type": "paragraph",
-          "text": "Pitcher, vendre, lancer"
+          "text": "Pitchen, verkaufen, starten"
         },
         {
           "type": "paragraph",
-          "text": "De l’idée au livrable, vite et bien : no-code, vibe coding, gestion de projet, test marché. Tu avances chaque semestre sur un projet réel, avec un livrable à chaque étape."
+          "text": "Von der Idee bis zur Lieferung, schnell und effizient: No-Code, Vibe-Coding, Projektmanagement, Markttests. Sie arbeiten jedes Semester an einem echten Projekt mit einem Ergebnis in jeder Phase."
         },
         {
           "type": "list",
@@ -116,8 +116,8 @@ export const page: LivePage = {
           "items": [
             "Pitch",
             "MVP",
-            "Négociation",
-            "Gestion de projet",
+            "Verhandlung",
+            "Projektmanagement",
             "Vibe coding",
             "Airtable",
             "Figma"
@@ -130,11 +130,11 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Analyser, visualiser, décider"
+          "text": "Analysieren, visualisieren, entscheiden"
         },
         {
           "type": "paragraph",
-          "text": "Python, SQL, pipelines de données, dashboards et data visualisation. Tu collectes la donnée, tu la structures et tu la fais parler pour aider à décider."
+          "text": "Python, SQL, Datenpipelines, Dashboards und Datenvisualisierung. Sie sammeln die Daten, strukturieren sie und lassen sie sprechen, um Ihnen bei der Entscheidung zu helfen."
         },
         {
           "type": "list",
@@ -152,15 +152,15 @@ export const page: LivePage = {
         {
           "type": "heading",
           "level": 3,
-          "text": "IA & No-code"
+          "text": "KI und No-Code"
         },
         {
           "type": "paragraph",
-          "text": "Construire des agents, automatiser"
+          "text": "Agenten erstellen, automatisieren"
         },
         {
           "type": "paragraph",
-          "text": "Prompt engineering, agents IA, RAG, automatisation de workflows. Tu crées des agents et des automatisations qui tournent vraiment en entreprise : l’IA comme outil de production."
+          "text": "Prompt Engineering, KI-Agenten, RAG, Workflow-Automatisierung. Sie erstellen Agenten und Automatisierungen, die im Geschäft wirklich funktionieren: KI als Produktionswerkzeug."
         },
         {
           "type": "list",
@@ -176,18 +176,18 @@ export const page: LivePage = {
           ]
         }
       ],
-      "eyebrow": "cursus"
+      "eyebrow": "natürlich"
     },
     {
-      "title": "3 ans pour apprendre à apprendre.",
+      "title": "3 Jahre, um zu lernen, wie man lernt.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Un stage de 6 semaines à la fin de la 1re année, des hackathons chaque année, puis une 3e année possible en alternance. 180 ECTS au total et le titre RNCP niveau 6 : « Concepteur de solutions no code » (LION, RNCP 41143). Ouvre un semestre pour voir les blocs et les cours."
+          "text": "Ein 6-wöchiges Praktikum am Ende des 1. Jahres, jedes Jahr Hackathons, dann eventuell ein 3. Jahr auf berufsbegleitender Basis. Insgesamt 180 ECTS und der RNCP Level 6-Titel: „No Code Solutions Designer“ (LION, RNCP 41143). Öffnen Sie ein Semester, um Blöcke und Kurse anzuzeigen."
         },
         {
           "type": "cta",
-          "label": "Télécharger la brochure →",
+          "label": "Laden Sie die Broschüre herunter →",
           "href": "/brochure"
         },
         {
@@ -197,11 +197,11 @@ export const page: LivePage = {
         {
           "type": "heading",
           "level": 3,
-          "text": "Poser les fondations"
+          "text": "Legen Sie den Grundstein"
         },
         {
           "type": "paragraph",
-          "text": "Marketing digital, growth et SEO, analyse financière, prise de parole, gestion de projet, avec Python, SQL et tes premiers projets IA. Un premier hackathon avant la fin de l’année."
+          "text": "Digitales Marketing, Wachstum und SEO, Finanzanalyse, Reden, Projektmanagement, mit Python, SQL und Ihren ersten KI-Projekten. Ein erster Hackathon noch vor Jahresende."
         },
         {
           "type": "curriculum",
@@ -210,55 +210,55 @@ export const page: LivePage = {
       ]
     },
     {
-      "title": "Ta 3e année, en entreprise.",
+      "title": "Dein 3. Studienjahr im Unternehmen.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "La dernière année se passe en alternance, si tu le souhaites. Admission directe en 3e année possible avec un Bac+2."
+          "text": "Das letzte Jahr wird auf Wunsch abwechselnd verbracht. Direkter Einstieg in das 3. Jahr mit einem Bac+2 möglich."
         },
         {
           "type": "paragraph",
-          "text": "**Le rythme**"
+          "text": "**Der Rhythmus**"
         },
         {
           "type": "paragraph",
-          "text": "Un bootcamp de 5 semaines, puis 4 jours en entreprise et 1 jour à l’école. Au programme : IA générative et agents IA, automatisation des processus métier, data et prototypage d’interfaces, projet no-code certifiant."
+          "text": "Ein 5-wöchiges Bootcamp, dann 4 Tage bei der Arbeit und 1 Tag in der Schule. Auf dem Programm: generative KI und KI-Agenten, Geschäftsprozessautomatisierung, Daten- und Schnittstellen-Prototyping, Zertifizierung von No-Code-Projekten."
         },
         {
           "type": "paragraph",
-          "text": "**Un vrai atout financier**"
+          "text": "**Ein echter finanzieller Vermögenswert**"
         },
         {
           "type": "paragraph",
-          "text": "En alternance, l’entreprise prend en charge tes frais de scolarité et te verse un salaire chaque mois. Tu peux aussi suivre le cursus en version payante, hors alternance."
+          "text": "Im Rahmen eines berufsbegleitenden Studiums übernimmt das Unternehmen Ihre Studiengebühren und zahlt Ihnen jeden Monat ein Gehalt. Sie können den Kurs auch in einer kostenpflichtigen Version absolvieren, ausgenommen berufsbegleitende Studiengänge."
         },
         {
           "type": "paragraph",
-          "text": "**Un accompagnement**"
+          "text": "**Eine Begleitung**"
         },
         {
           "type": "paragraph",
-          "text": "Ateliers CV et entretiens, rencontres entreprises et job datings sur le campus, suivi individualisé tout au long de ta mission."
+          "text": "Lebenslauf-Workshops und Vorstellungsgespräche, Firmenmeetings und Job-Dating auf dem Campus, individuelle Betreuung während Ihrer gesamten Mission."
         }
       ]
     },
     {
-      "title": "Apprendre en faisant. Pour de vrai.",
+      "title": "Lernen durch Praxis. An echten Projekten.",
       "blocks": [
         {
           "type": "image",
           "name": "pr3_eug-atelier",
-          "alt": "Atelier de travail en groupe",
+          "alt": "Gruppenarbeitsworkshop",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "Atelier"
+          "text": "Werkstatt"
         },
         {
           "type": "image",
           "name": "pr3_eug-hackathon",
-          "alt": "Équipe gagnante d’un hackathon Eugenia School",
+          "alt": "Gewinnerteam eines Hackathons der Eugenia School",
           "logo": false
         },
         {
@@ -268,20 +268,20 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "pr3_eug-promo",
-          "alt": "Promo Eugenia School sur le campus",
+          "alt": "Promo Eugenia School auf dem Campus",
           "logo": false
         },
         {
           "type": "paragraph",
-          "text": "Ensemble"
+          "text": "Gemeinsam"
         },
         {
           "type": "paragraph",
-          "text": "**Chaque cours, un projet.**"
+          "text": "**Jeder Kurs, ein Projekt.**"
         },
         {
           "type": "paragraph",
-          "text": "Chaque cours est ancré dans un cas réel, en format bootcamp : tu avances en sprint et en équipe, sur une à deux semaines. Tu analyses, tu construis, tu pitches."
+          "text": "Jeder Kurs ist in einem realen Fall im Bootcamp-Format verankert: Sie kommen im Sprint und im Team über ein bis zwei Wochen voran. Sie analysieren, Sie bauen, Sie pitchen."
         },
         {
           "type": "paragraph",
@@ -289,32 +289,32 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Un projet fil rouge de 3 semaines sur un vrai sujet d’entreprise, 4 fois par an : 2 avec des grands groupes, 2 avec des startups. Encadré par un professeur dédié, avec un rendu final devant l’entreprise."
+          "text": "Ein 3-wöchiges zentrales Projekt zu einem echten Geschäftsthema, 4 Mal im Jahr: 2 mit großen Gruppen, 2 mit Startups. Betreut durch einen engagierten Lehrer, mit Abschlussbericht vor dem Unternehmen."
         },
         {
           "type": "paragraph",
-          "text": "**Hackathons inter-promo et inter-écoles**"
+          "text": "**Klassen- und schulübergreifende Hackathons**"
         },
         {
           "type": "paragraph",
-          "text": "3 à 5 fois par an, une semaine immersive avec une entreprise et un éditeur logiciel : 5 jours pour prototyper et pitcher une solution devant un jury externe de professionnels. Parmi les rendez-vous : l’Inter-Promo en février et l’Inter-Écoles en avril, avec Albert School, l’École 42 et XHEC."
+          "text": "3 bis 5 Mal im Jahr eine immersive Woche mit einem Unternehmen und einem Softwarehersteller: 5 Tage, um einen Prototyp zu erstellen und eine Lösung vor einer externen Fachjury vorzustellen. Unter den Treffen: Inter-Promo im Februar und Inter-Écoles im April mit Albert School, École 42 und XHEC."
         },
         {
           "type": "paragraph",
-          "text": "**Visites et conférences**"
+          "text": "**Besuche und Konferenzen**"
         },
         {
           "type": "paragraph",
-          "text": "Mirakl, Mistral, Dust, OpenAI. Tu entres dans leurs bureaux et tu vois comment ça tourne vraiment."
+          "text": "Mirakl, Mistral, Dust, OpenAI. Sie betreten ihre Büros und sehen, wie die Dinge wirklich funktionieren."
         }
       ]
     },
     {
-      "title": "Nos partenaires",
+      "title": "Unsere Partner",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Plus de 100 entreprises partenaires : workshops, visites, projets et recrutement."
+          "text": "Mehr als 100 Partnerunternehmen: Workshops, Besuche, Projekte und Rekrutierung."
         },
         {
           "type": "logos",
@@ -329,43 +329,43 @@ export const page: LivePage = {
       ]
     },
     {
-      "title": "Des projets qu’ils te confient.",
+      "title": "Projekte, die sie Ihnen anvertrauen.",
       "blocks": [
         {
           "type": "cards",
           "items": [
             {
-              "text": "Projets data et automatisation en conditions réelles, au sein des marques du groupe.",
-              "tags": ["Data", "Automatisation", "Retail"]
+              "text": "Daten- und Automatisierungsprojekte unter realen Bedingungen, innerhalb der Marken der Gruppe.",
+              "tags": ["Data", "Automatisierung", "Retail"]
             },
             {
-              "text": "Cas d’usage IA appliqués aux produits RH, de l’analyse à l’automatisation de workflows.",
-              "tags": ["IA produit", "RH tech", "Workflows"]
+              "text": "Auf HR-Produkte angewendete KI-Anwendungsfälle, von der Analyse bis zur Workflow-Automatisierung.",
+              "tags": ["Produkt-KI", "HR-Tech", "Workflows"]
             },
             {
-              "text": "Workshops animés par les équipes qui construisent les LLMs européens, sur le campus. Voir le résumé du hackathon.",
-              "tags": ["LLM", "Fine-tuning", "Hackathon"]
+              "text": "Von den Teams, die europäische LLMs aufbauen, geleitete Workshops auf dem Campus. Sehen Sie sich die Hackathon-Zusammenfassung an.",
+              "tags": ["LLM", "Feinabstimmung", "Hackathon"]
             },
             {
-              "text": "Automatisation no-code intégrée au curriculum. Tu déploies tes premiers workflows dès le premier semestre.",
-              "tags": ["No-code", "Automatisation", "S1"]
+              "text": "In den Lehrplan integrierte No-Code-Automatisierung. Sie implementieren Ihre ersten Workflows ab dem ersten Semester.",
+              "tags": ["Kein Code", "Automatisierung", "S1"]
             }
           ]
         }
       ],
-      "eyebrow": "étudiants du bachelor"
+      "eyebrow": "Bachelor-Studenten"
     },
     {
-      "title": "Ce qu’ils en disent.",
+      "title": "Das sagen unsere Studierenden.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Survole une carte pour lire son témoignage"
+          "text": "Bewegen Sie den Mauszeiger über eine Karte, um seine Aussage zu lesen"
         },
         {
           "type": "image",
           "name": "pr3_portrait-clement",
-          "alt": "Portrait de Clément C.",
+          "alt": "Portrait von Clément C.",
           "logo": false
         },
         {
@@ -382,16 +382,16 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Bachelor Y2 · Ex-fac de commerce"
+          "text": "Bachelor Y2 · Ehemalige Wirtschaftsfakultät"
         },
         {
           "type": "paragraph",
-          "text": "Venu d'une licence en commerce, il a bifurqué vers l'IA après avoir automatisé ses séances de sport. Il build des sites pour des commerçants."
+          "text": "Nachdem er einen Abschluss in Handelswissenschaften gemacht hatte, wandte er sich der KI zu, nachdem er seine Sporteinheiten automatisiert hatte. Er erstellt Websites für Händler."
         },
         {
           "type": "image",
           "name": "pr3_portrait-ian",
-          "alt": "Portrait de Ian L.",
+          "alt": "Portrait von Ian L.",
           "logo": false
         },
         {
@@ -400,7 +400,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Bachelor Y3 · Alternance Idoption"
+          "text": "Bachelor Y3 · Duales Studium bei Idoption"
         },
         {
           "type": "paragraph",
@@ -408,16 +408,16 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Bachelor Y3 · Ex-école de dév, jeune entrepreneur"
+          "text": "Bachelor Y3 · Ehemalige Entwicklerschule, Jungunternehmer"
         },
         {
           "type": "paragraph",
-          "text": "Arrivé avec des compétences techs, il a shippé son premier agent IA au hackathon. Aujourd'hui en alternance chez Idoption sur des projets de fine-tuning."
+          "text": "Da er über technische Fähigkeiten verfügte, schickte er seinen ersten KI-Agenten zum Hackathon. Heute arbeite ich an einem berufsbegleitenden Studienprogramm bei Idoption zur Feinabstimmung von Projekten."
         },
         {
           "type": "image",
           "name": "pr3_portrait-penelope",
-          "alt": "Portrait de Pénélope B.",
+          "alt": "Portrait von Pénélope B.",
           "logo": false
         },
         {
@@ -426,7 +426,7 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Bachelor 1ère année"
+          "text": "Bachelor 1. Jahr"
         },
         {
           "type": "paragraph",
@@ -434,85 +434,85 @@ export const page: LivePage = {
         },
         {
           "type": "paragraph",
-          "text": "Bachelor 1ère année"
+          "text": "Bachelor 1. Jahr"
         },
         {
           "type": "paragraph",
-          "text": "« Les Hackathons sont des cas pratiques avec des entreprises qui nous font progresser sur tous les aspects. Ce sont mes moments préférés. »"
+          "text": "„Hackathons sind praktische Fälle mit Unternehmen, die uns in allen Aspekten weiterbringen. Das sind meine Lieblingsmomente.“"
         }
       ]
     },
     {
-      "title": "Mêmes bases. Ta trajectoire.",
+      "title": "Gemeinsame Grundlagen. Dein eigener Weg.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Tu construis ton chemin selon tes envies, tes projets, tes stages et tes hackathons, sur un socle commun : IA, data et no-code."
+          "text": "Sie bauen Ihren Weg nach Ihren Wünschen, Ihren Projekten, Ihren Praktika und Ihren Hackathons auf einer gemeinsamen Basis: KI, Daten und No-Code."
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Data & analyseData Analyst / Business Analyst / Data Scientist junior / AI Product Manager / Consultant data & IA→",
-            "Ops & growthGrowth Ops / RevOps / BizOps / DataOps / Product Owner / Marketer SEO + GEO / Chef de projet digital→",
-            "EntrepreneuriatFondateur tech / Builder no-code / IA / Intrapreneur / Consultant IA freelance→"
+            "Daten & AnalyseDatenanalyst / Business Analyst / Junior Data Scientist / KI-Produktmanager / Daten- und KI-Berater→",
+            "Ops & WachstumGrowth Ops / RevOps / BizOps / DataOps / Product Owner / Marketer SEO + GEO / Digitaler Projektmanager→",
+            "EntrepreneurshipTech-Gründer / No-Code-Builder / KI / Intrapreneur / freiberuflicher KI-Berater→"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Poursuite possible en MSc Eugenia (parcours complet jusqu’à Bac+5), ou directement en emploi."
+          "text": "Mögliche Fortsetzung im MSc Eugenia (vollständiger Kurs bis Bac+5) oder direkter Einstieg ins Berufsleben."
         }
       ]
     },
     {
-      "title": "Comment postuler ?",
+      "title": "Wie bewerbe ich mich?",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Hors Parcoursup, directement sur notre site. Ouvert aux terminales générales et STMG, sans spé maths obligatoire : ce qui compte le plus, c’est ta motivation."
+          "text": "Außerhalb von Parcoursup, direkt auf unserer Website. Offen für allgemeine und STMG-Abschlüsse, ohne obligatorische Mathematik-Spezialisierung: Was am meisten zählt, ist Ihre Motivation."
         },
         {
           "type": "paragraph",
-          "text": "Frais de scolarité annuels, pris en charge par l’entreprise en cas d’alternance en 3e année. Prêts bancaires accompagnés par l’école et bourses sur critères sociaux."
+          "text": "Jährliche Studiengebühren, die bei einem berufsbegleitenden Studium im 3. Jahr vom Unternehmen übernommen werden. Von der Schule unterstützte Bankdarlehen und Stipendien nach sozialen Kriterien."
         },
         {
           "type": "cta",
-          "label": "Financer tes études →",
+          "label": "Finanzieren Sie Ihr Studium →",
           "href": "/financement"
         },
         {
           "type": "paragraph",
-          "text": "1. 1Ta candidature"
+          "text": "1. 1Ihre Bewerbung"
         },
         {
           "type": "paragraph",
-          "text": "1. 2L’étude du dossier"
+          "text": "1. 2Studie der Akte"
         },
         {
           "type": "paragraph",
-          "text": "1. 3L’entretien"
+          "text": "1. 3Das Interview"
         },
         {
           "type": "paragraph",
-          "text": "1. 4Admission"
+          "text": "1. 4Eintritt"
         }
       ]
     },
     {
-      "title": "Prêt à construire quelque chose de réel ?",
+      "title": "Bereit, etwas Echtes zu bauen?",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Candidatures ouvertes pour la rentrée 2027 (30 août 2027). Hors Parcoursup, avec un entretien de motivation et une réponse sous 10 jours."
+          "text": "Bewerbungen sind für das Schuljahr 2027 (30. August 2027) möglich. Ohne Parcoursup, mit einem Motivationsgespräch und einer Antwort innerhalb von 10 Tagen."
         },
         {
           "type": "cta",
-          "label": "Candidater →",
+          "label": "Jetzt bewerben →",
           "href": "/candidature"
         },
         {
           "type": "cta",
-          "label": "Télécharger la brochure",
+          "label": "Informationsbroschüre herunterladen",
           "href": "/brochure"
         }
       ]
@@ -541,27 +541,27 @@ export const page: LivePage = {
     }
   ],
   "footer": {
-    "title": "Prêt à construire quelque chose de réel ?",
+    "title": "Bereit, etwas Echtes zu bauen?",
     "primary": {
-      "label": "Candidater →",
+      "label": "Jetzt bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/programmes",
-    "title": "Programmes",
-    "text": "Voir les programmes",
+    "title": "Studienprogramme",
+    "text": "Sehen Sie sich die Programme an",
     "image": "p_arches"
   },
   "jsonLd": [
     {
       "@type": "EducationalOccupationalProgram",
       "name": "Bachelor AI Applied to Business",
-      "description": "Bachelor en 3 ans à Paris, en IA appliquée au business : projet d’entreprise dès le semestre 1, no-code, data et business. La 3e année peut se faire en alternance.",
+      "description": "Bachelor in 3 Jahren in Paris, in auf das Business angewandter KI: Unternehmensprojekt ab dem 1. Semester, No-Code, Data und Business. Das 3. Jahr kann dual absolviert werden.",
       "url": "https://www.eugeniaschool.com/programme/bachelor-ia-business",
       "provider": {
         "@id": "https://www.eugeniaschool.com/#organization"
@@ -576,7 +576,7 @@ export const page: LivePage = {
           "price": "14900",
           "priceCurrency": "EUR",
           "category": "Étudiants européens",
-          "description": "Étudiants européens"
+          "description": "Europäische Studierende"
         },
         {
           "@type": "Offer",
@@ -591,20 +591,20 @@ export const page: LivePage = {
   ],
   "stats": [
     {
-      "value": "1er",
-      "label": "projet IA déployé en S1"
+      "value": "1.",
+      "label": "KI-Projekt in S1 bereitgestellt"
     },
     {
       "value": "3-5",
-      "label": "hackathons par an"
+      "label": "Hackathons pro Jahr"
     },
     {
-      "value": "3 ans · 180 ECTS",
+      "value": "3 Jahre · 180 ECTS",
       "label": ""
     },
     {
       "value": "100+",
-      "label": "entreprises partenaires"
+      "label": "Partnerunternehmen"
     }
   ]
 };

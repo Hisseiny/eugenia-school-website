@@ -1,35 +1,35 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Admission Bachelor et MSc IA : candidater | Eugenia School",
-  "description": "Candidater à la formation Bachelor ou MSc IA d'Eugenia School : étapes, documents, entretien, réponse sous 10 jours. Gratuit pour les résidents de l'UE.",
-  "h1": "Candidater. Bachelor ou MSc.",
+  "title": "Zulassung Bachelor und MSc KI: bewerben | Eugenia School",
+  "description": "Bewerbung für den Bachelor oder MSc KI der Eugenia School: Schritte, Dokumente, Gespräch, Antwort innerhalb von 10 Tagen. Kostenlos für Einwohner der EU.",
+  "h1": "Bewerben. Bachelor oder MSc.",
   "image": "pr3_hero-admission",
-  "imageAlt": "Le grand hall vitré de Station F vu d’en haut, avec ses espaces de travail et ses startups",
-  "eyebrow": "// école IA, tech et growth · processus d'admission",
+  "imageAlt": "Die große verglaste Halle der Station F von oben, mit ihren Arbeitsbereichen und Startups",
+  "eyebrow": "// KI-, Tech- und Growth-Schule · Zulassungsverfahren",
   "audience": {
-    "student": "Terminale générale ou technologique, Bac+2 pour la 3e année du Bachelor, Bac+3 pour le MSc en alternance : un dossier en ligne, un entretien, une réponse sous 10 jours. Rentrée en septembre.",
-    "parent": "Votre enfant est en Terminale (générale ou technologique), en Bac+2 ou titulaire d’un Bac+3 ? Un dossier en ligne pour le Bachelor, la 3e année en alternance ou le MSc. Rentrée en septembre, réponse officielle sous 10 jours.",
-    "studentCta": "Postuler",
-    "parentCta": "Créer l’espace candidat de mon enfant",
+    "student": "Allgemeine oder technologische Abschlussklasse, Bac+2 für das 3. Bachelorjahr, Bac+3 für den dualen MSc: eine Online-Bewerbung, ein Gespräch, eine Antwort innerhalb von 10 Tagen. Studienbeginn im September.",
+    "parent": "Ihr Kind ist in der Abschlussklasse (allgemein oder technologisch), im Bac+2 oder hat einen Bac+3? Eine Online-Bewerbung für den Bachelor, das duale 3. Jahr oder den MSc. Studienbeginn im September, offizielle Antwort innerhalb von 10 Tagen.",
+    "studentCta": "Bewerben",
+    "parentCta": "Den Bewerberbereich meines Kindes anlegen",
     "href": "/candidature"
   },
   "facts": [],
   "sections": [
     {
-      "title": "Choisis ton programme.",
+      "title": "Wähle dein Programm.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "La candidature à Eugenia School est gratuite pour les candidats résidant dans l'Union européenne (30 € pour les candidats résidant hors UE) et nécessite un diplôme de fin d'études secondaires (Baccalauréat, Diplôme de l'IB...) pour les programmes de premier cycle, ou un diplôme de licence pour les études de troisième cycle. Les candidatures se font directement sur notre site, hors Parcoursup et hors Mon Master. Sélectionnez le programme de votre choix et découvrez les détails de la procédure de candidature."
+          "text": "Die Bewerbung an der Eugenia School ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos (30 € für Bewerber außerhalb der EU) und setzt für die grundständigen Programme einen Sekundarschulabschluss (Baccalauréat, IB-Diplom...) bzw. für weiterführende Studien einen Bachelorabschluss voraus. Die Bewerbung erfolgt direkt auf unserer Website, außerhalb von Parcoursup und Mon Master. Wählen Sie das gewünschte Programm und entdecken Sie die Details des Bewerbungsverfahrens."
         },
         {
           "type": "button",
-          "label": "Bachelor Après le lycée · Bac+2"
+          "label": "Bachelor Nach dem Gymnasium · Bac+2"
         },
         {
           "type": "button",
-          "label": "MSc Bac+3 et plus"
+          "label": "MSc Bac+3 und mehr"
         },
         {
           "type": "heading",
@@ -41,65 +41,65 @@ export const page: LivePage = {
           "items": [
             {
               "number": "01",
-              "title": "Envoyez votre candidature",
-              "text": "Élève en terminale générale (avec ou sans spé maths) ou en STMG ? Après le lycée, il est temps d'apprendre de nouvelles choses notamment dans le domaine de l'IA et du business. Avec un Bac+2, la 3e année du Bachelor, en alternance, vous est ouverte. Le dossier de candidature se remplit en ligne, directement sur notre site : c'est l'occasion de démontrer votre motivation à rejoindre un programme sur mesure en IA et business. Plus qu'un parcours académique, c'est votre ambition et votre engagement qui feront la différence, notamment à travers votre lettre de motivation.",
-              "action": { "label": "En savoir plus", "href": "#documents-bachelor" }
+              "title": "Senden Sie Ihre Bewerbung",
+              "text": "Schülerin oder Schüler der allgemeinen Abschlussklasse (mit oder ohne Mathe-Schwerpunkt) oder in STMG? Nach dem Gymnasium ist es Zeit, Neues zu lernen, insbesondere in KI und Business. Mit einem Bac+2 steht Ihnen das duale 3. Bachelorjahr offen. Die Bewerbung wird online direkt auf unserer Website ausgefüllt: die Gelegenheit, Ihre Motivation für ein maßgeschneidertes Programm in KI und Business zu zeigen. Mehr als der akademische Werdegang machen Ihr Ehrgeiz und Ihr Engagement den Unterschied, insbesondere in Ihrem Motivationsschreiben.",
+              "action": { "label": "Mehr erfahren", "href": "#documents-bachelor" }
             },
             {
               "number": "02",
-              "title": "Interview avec un membre du jury d'Eugenia School",
-              "text": "Les candidats dont le profil et la motivation nous intéressent sont invités à l'entretien. Pas besoin d'être un expert en tech : une fois sur place, c'est votre personnalité et votre curiosité qui feront la différence."
+              "title": "Gespräch mit einem Jurymitglied der Eugenia School",
+              "text": "Bewerber, deren Profil und Motivation uns interessieren, werden zum Gespräch eingeladen. Sie müssen kein Tech-Experte sein: Vor Ort machen Ihre Persönlichkeit und Ihre Neugier den Unterschied."
             },
             {
               "number": "03",
-              "title": "Admission",
-              "text": "Si votre dévouement et votre talent ont impressionné vos interlocuteurs, bienvenue à bord ! Vous faites maintenant partie d'une expérience transformatrice qui améliorera vos compétences et vos perspectives de carrière."
+              "title": "Zulassung",
+              "text": "Wenn Ihr Einsatz und Ihr Talent Ihre Gesprächspartner beeindruckt haben: Willkommen an Bord! Sie sind jetzt Teil einer prägenden Erfahrung, die Ihre Kompetenzen und Karriereaussichten verbessern wird."
             }
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Quels documents pouvez-vous joindre à votre candidature ?",
+          "text": "Welche Dokumente können Sie Ihrer Bewerbung beifügen?",
           "id": "documents-bachelor"
         },
         {
           "type": "cta",
-          "label": "Postulez",
+          "label": "Bewerben Sie sich",
           "href": "/candidature"
         },
         {
           "type": "paragraph",
-          "text": "Obligatoire"
+          "text": "Pflicht"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Vos 3 derniers bulletins de notes disponibles"
+            "Ihre 3 letzten verfügbaren Zeugnisse"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Optionnel, mais recommandé"
+          "text": "Optional, aber empfohlen"
         },
         {
           "type": "paragraph",
-          "text": "Lettre de motivation, CV, lettres de recommandation et tout autre document susceptible d'étayer votre candidature."
+          "text": "Motivationsschreiben, Lebenslauf, Empfehlungsschreiben und alle weiteren Dokumente, die Ihre Bewerbung stützen können."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Ils sont venus d'horizons variés."
+          "text": "Sie kommen aus ganz unterschiedlichen Richtungen."
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Bachelor · B3Ian L.Avant EugeniaBachelor informatique",
-            "Bachelor · B1Robin M.Avant EugeniaLycée",
-            "Bachelor · B1Pénélope B.Avant EugeniaLycée",
-            "Bachelor · B1Marc H.Avant EugeniaLycée"
+            "Bachelor · B3Ian L.Vor EugeniaBachelor Informatik",
+            "Bachelor · B1Robin M.Vor EugeniaGymnasium",
+            "Bachelor · B1Pénélope B.Vor EugeniaGymnasium",
+            "Bachelor · B1Marc H.Vor EugeniaGymnasium"
           ]
         },
         {
@@ -112,229 +112,229 @@ export const page: LivePage = {
           "items": [
             {
               "number": "01",
-              "title": "Envoyez votre candidature",
-              "text": "Étudiant avec un bac+3 en cours de validation ou déjà en poche ? Les domaines que le jury apprécie : finance, marketing, éco-gestion, vente, management. Démontrez votre intérêt à acquérir une double compétence pour intégrer notre programme AI Applied to Business. Le dossier de candidature se remplit en ligne, directement sur notre site : c'est l'occasion de démontrer votre motivation à rejoindre un programme sur mesure en IA et business. Plus qu'un parcours académique, c'est votre ambition et votre engagement qui feront la différence, notamment à travers votre lettre de motivation.",
-              "action": { "label": "En savoir plus", "href": "#documents-master" }
+              "title": "Senden Sie Ihre Bewerbung",
+              "text": "Studierende mit einem Bac+3, der gerade abgeschlossen wird oder schon in der Tasche ist? Bereiche, die die Jury schätzt: Finanzen, Marketing, Wirtschaft und Management, Vertrieb, Führung. Zeigen Sie Ihr Interesse an einer Doppelkompetenz für unser Programm AI Applied to Business. Die Bewerbung wird online direkt auf unserer Website ausgefüllt: die Gelegenheit, Ihre Motivation für ein maßgeschneidertes Programm in KI und Business zu zeigen. Mehr als der akademische Werdegang machen Ihr Ehrgeiz und Ihr Engagement den Unterschied, insbesondere in Ihrem Motivationsschreiben.",
+              "action": { "label": "Mehr erfahren", "href": "#documents-master" }
             },
             {
               "number": "02",
-              "title": "Interview avec un membre du jury d'Eugenia School",
-              "text": "Les candidats dont le profil et la motivation nous intéressent sont invités à l'entretien. Pas besoin d'être un expert en tech : une fois sur place, c'est votre personnalité et votre curiosité qui feront la différence."
+              "title": "Gespräch mit einem Jurymitglied der Eugenia School",
+              "text": "Bewerber, deren Profil und Motivation uns interessieren, werden zum Gespräch eingeladen. Sie müssen kein Tech-Experte sein: Vor Ort machen Ihre Persönlichkeit und Ihre Neugier den Unterschied."
             },
             {
               "number": "03",
-              "title": "Admission",
-              "text": "Félicitations, votre ambition et votre vision ont convaincu ! Vous rejoignez une expérience transformatrice qui façonnera vos compétences et votre avenir. La dernière étape : trouver votre alternance pour intégrer la rentrée. L'équipe Carrières se rapprochera de vous : des sessions de coachings ainsi que des job datings sont organisés pour mettre toutes les chances de votre côté !"
+              "title": "Zulassung",
+              "text": "Herzlichen Glückwunsch, Ihr Ehrgeiz und Ihre Vision haben überzeugt! Sie werden Teil einer prägenden Erfahrung, die Ihre Kompetenzen und Ihre Zukunft formen wird. Der letzte Schritt: Ihre duale Stelle finden, um zum Studienbeginn einzusteigen. Das Karriereteam meldet sich bei Ihnen: Coachings und Job Datings werden organisiert, um Ihre Chancen zu maximieren!"
             }
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Quels documents pouvez-vous joindre à votre candidature ?",
+          "text": "Welche Dokumente können Sie Ihrer Bewerbung beifügen?",
           "id": "documents-master"
         },
         {
           "type": "cta",
-          "label": "Candidater",
+          "label": "Bewerben",
           "href": "/candidature"
         },
         {
           "type": "paragraph",
-          "text": "Obligatoire"
+          "text": "Pflicht"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "CV",
-            "Relevé de notes de votre bac+3"
+            "Lebenslauf",
+            "Notenübersicht Ihres Bac+3"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Optionnel, mais recommandé"
+          "text": "Optional, aber empfohlen"
         },
         {
           "type": "paragraph",
-          "text": "Lettre de motivation, lettres de recommandation et tout autre document susceptible d'étayer votre candidature."
+          "text": "Motivationsschreiben, Empfehlungsschreiben und alle weiteren Dokumente, die Ihre Bewerbung stützen können."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Ils sont venus d'horizons variés."
+          "text": "Sie kommen aus ganz unterschiedlichen Richtungen."
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "MSc · AlumniVictor P.Avant EugeniaMaster en marketingHead of AI @ Licter (CDI)",
-            "MSc · AlumniNina L.Avant EugeniaLicence éco-gestionData Analyst @ EFFY (CDI)",
-            "MSc · M2Ali H.Avant EugeniaLicence Science de l'informatiqueIngénieur d’études @ Accenture (alternance)",
-            "MSc · M1Victoria I.Avant EugeniaÉcole de communication et marketing digitalBusiness Developer, secteur public @ Mister IA (alternance)"
+            "MSc · AlumniVictor P.Vor EugeniaMaster in MarketingHead of AI @ Licter (Festanstellung)",
+            "MSc · AlumniNina L.Vor EugeniaBachelor Wirtschaft und ManagementData Analyst @ EFFY (Festanstellung)",
+            "MSc · M2Ali H.Vor EugeniaBachelor InformatikStudieningenieur @ Accenture (dual)",
+            "MSc · M1Victoria I.Vor EugeniaSchule für Kommunikation und digitales MarketingBusiness Developer, öffentlicher Sektor @ Mister IA (dual)"
           ]
         }
       ],
-      "eyebrow": "questions fréquentes"
+      "eyebrow": "häufige Fragen"
     },
     {
-      "title": "Avant de candidater.",
+      "title": "Vor der Bewerbung.",
       "blocks": [
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelles sont les étapes pour candidater ?",
-              "a": "Quatre étapes : l'envoi de la candidature, l'examen d'éligibilité par l'équipe admissions, l'entretien d'admission, puis la décision finale. L'examen du dossier et la réponse officielle se font chacun sous 10 jours."
+              "q": "Welche Schritte hat die Bewerbung?",
+              "a": "Vier Schritte: das Absenden der Bewerbung, die Eignungsprüfung durch das Zulassungsteam, das Zulassungsgespräch und dann die endgültige Entscheidung. Die Prüfung der Unterlagen und die offizielle Antwort erfolgen jeweils innerhalb von 10 Tagen."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Quatre étapes : l'envoi de la candidature, l'examen d'éligibilité par l'équipe admissions, l'entretien d'admission, puis la décision finale. L'examen du dossier et la réponse officielle se font chacun sous 10 jours."
+          "text": "Vier Schritte: das Absenden der Bewerbung, die Eignungsprüfung durch das Zulassungsteam, das Zulassungsgespräch und dann die endgültige Entscheidung. Die Prüfung der Unterlagen und die offizielle Antwort erfolgen jeweils innerhalb von 10 Tagen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Qui peut candidater ?",
-              "a": "Le Bachelor s'adresse aux élèves de terminale générale (avec ou sans spé maths), technologique ou STMG. La 3e année du Bachelor, en alternance, est ouverte dès le Bac+2. Le MSc s'adresse aux titulaires d'un Bac+3 (180 crédits ECTS), avec l'envie d'acquérir une double compétence en IA et business."
+              "q": "Wer kann sich bewerben?",
+              "a": "Der Bachelor richtet sich an Schülerinnen und Schüler der allgemeinen (mit oder ohne Mathe-Schwerpunkt), technologischen oder STMG-Abschlussklasse. Das duale 3. Bachelorjahr steht ab Bac+2 offen. Der MSc richtet sich an Inhaber eines Bac+3 (180 ECTS-Punkte), die eine Doppelkompetenz in KI und Business erwerben möchten."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Le Bachelor s'adresse aux élèves de terminale générale (avec ou sans spé maths), technologique ou STMG. La 3e année du Bachelor, en alternance, est ouverte dès le Bac+2. Le MSc s'adresse aux titulaires d'un Bac+3 (180 crédits ECTS), avec l'envie d'acquérir une double compétence en IA et business."
+          "text": "Der Bachelor richtet sich an Schülerinnen und Schüler der allgemeinen (mit oder ohne Mathe-Schwerpunkt), technologischen oder STMG-Abschlussklasse. Das duale 3. Bachelorjahr steht ab Bac+2 offen. Der MSc richtet sich an Inhaber eines Bac+3 (180 ECTS-Punkte), die eine Doppelkompetenz in KI und Business erwerben möchten."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Combien coûte la candidature ?",
-              "a": "La candidature est gratuite pour les candidats résidant dans l'Union européenne. Pour les candidats résidant hors UE, elle coûte 30 €."
+              "q": "Was kostet die Bewerbung?",
+              "a": "Die Bewerbung ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos. Für Bewerber außerhalb der EU kostet sie 30 €."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "La candidature est gratuite pour les candidats résidant dans l'Union européenne. Pour les candidats résidant hors UE, elle coûte 30 €."
+          "text": "Die Bewerbung ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos. Für Bewerber außerhalb der EU kostet sie 30 €."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quand a lieu la rentrée ?",
-              "a": "La rentrée a lieu uniquement en septembre. Il n'y a pas de rentrée en janvier."
+              "q": "Wann ist Studienbeginn?",
+              "a": "Studienbeginn ist nur im September. Einen Studienbeginn im Januar gibt es nicht."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "La rentrée a lieu uniquement en septembre. Il n'y a pas de rentrée en janvier."
+          "text": "Studienbeginn ist nur im September. Einen Studienbeginn im Januar gibt es nicht."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Sous quel délai ai-je une réponse ?",
-              "a": "L'équipe examine les candidatures sous 10 jours, puis les résultats sont communiqués dans un délai de 10 jours après chaque étape du processus de sélection. Une fois admis, votre place est réservée pendant 10 jours après la notification."
+              "q": "Wann erhalte ich eine Antwort?",
+              "a": "Das Team prüft die Bewerbungen innerhalb von 10 Tagen, danach werden die Ergebnisse innerhalb von 10 Tagen nach jeder Phase des Auswahlverfahrens mitgeteilt. Nach der Zulassung ist Ihr Platz 10 Tage nach der Mitteilung reserviert."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "L'équipe examine les candidatures sous 10 jours, puis les résultats sont communiqués dans un délai de 10 jours après chaque étape du processus de sélection. Une fois admis, votre place est réservée pendant 10 jours après la notification."
+          "text": "Das Team prüft die Bewerbungen innerhalb von 10 Tagen, danach werden die Ergebnisse innerhalb von 10 Tagen nach jeder Phase des Auswahlverfahrens mitgeteilt. Nach der Zulassung ist Ihr Platz 10 Tage nach der Mitteilung reserviert."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "En quoi consiste l'entretien d'admission ?",
-              "a": "Un entretien individuel avec un membre du jury, pour évaluer votre motivation et votre potentiel. Il se compose de trois parties : faire connaissance, un casse-tête logique et une explication de vos motivations. Votre personnalité et votre passion font la différence."
+              "q": "Wie läuft das Zulassungsgespräch ab?",
+              "a": "Ein Einzelgespräch mit einem Jurymitglied, um Ihre Motivation und Ihr Potenzial zu bewerten. Es besteht aus drei Teilen: Kennenlernen, ein Logikrätsel und die Erläuterung Ihrer Motivation. Ihre Persönlichkeit und Ihre Leidenschaft machen den Unterschied."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Un entretien individuel avec un membre du jury, pour évaluer votre motivation et votre potentiel. Il se compose de trois parties : faire connaissance, un casse-tête logique et une explication de vos motivations. Votre personnalité et votre passion font la différence."
+          "text": "Ein Einzelgespräch mit einem Jurymitglied, um Ihre Motivation und Ihr Potenzial zu bewerten. Es besteht aus drei Teilen: Kennenlernen, ein Logikrätsel und die Erläuterung Ihrer Motivation. Ihre Persönlichkeit und Ihre Leidenschaft machen den Unterschied."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Faut-il s'inscrire sur Parcoursup ou Mon Master ?",
-              "a": "Non, Eugenia School n'est pas répertoriée sur Parcoursup ni sur Mon Master. Les candidatures se font directement sur notre site."
+              "q": "Muss man sich bei Parcoursup oder Mon Master anmelden?",
+              "a": "Nein, die Eugenia School ist weder bei Parcoursup noch bei Mon Master gelistet. Die Bewerbung erfolgt direkt auf unserer Website."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Non, Eugenia School n'est pas répertoriée sur Parcoursup ni sur Mon Master. Les candidatures se font directement sur notre site."
+          "text": "Nein, die Eugenia School ist weder bei Parcoursup noch bei Mon Master gelistet. Die Bewerbung erfolgt direkt auf unserer Website."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quels documents joindre au dossier ?",
-              "a": "Pour le Bachelor : vos 3 derniers bulletins de notes disponibles. Pour le MSc : votre CV et le relevé de notes de votre Bac+3. En option, mais recommandés : une lettre de motivation, des lettres de recommandation et tout document qui étaye votre candidature."
+              "q": "Welche Dokumente gehören zur Bewerbung?",
+              "a": "Für den Bachelor: Ihre 3 letzten verfügbaren Zeugnisse. Für den MSc: Ihr Lebenslauf und die Notenübersicht Ihres Bac+3. Optional, aber empfohlen: ein Motivationsschreiben, Empfehlungsschreiben und jedes Dokument, das Ihre Bewerbung stützt."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Pour le Bachelor : vos 3 derniers bulletins de notes disponibles. Pour le MSc : votre CV et le relevé de notes de votre Bac+3. En option, mais recommandés : une lettre de motivation, des lettres de recommandation et tout document qui étaye votre candidature."
+          "text": "Für den Bachelor: Ihre 3 letzten verfügbaren Zeugnisse. Für den MSc: Ihr Lebenslauf und die Notenübersicht Ihres Bac+3. Optional, aber empfohlen: ein Motivationsschreiben, Empfehlungsschreiben und jedes Dokument, das Ihre Bewerbung stützt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Puis-je candidater si je n'ai pas encore toutes mes notes ?",
-              "a": "Oui, vous pouvez entamer la procédure d'admission et déposer les notes manquantes plus tard. Si vos relevés sont semestriels et non trimestriels, téléchargez deux fois le même document : le jury comprendra."
+              "q": "Kann ich mich bewerben, wenn ich noch nicht alle Noten habe?",
+              "a": "Ja, Sie können das Zulassungsverfahren beginnen und die fehlenden Noten später einreichen. Wenn Ihre Zeugnisse halbjährlich und nicht vierteljährlich sind, laden Sie dasselbe Dokument zweimal hoch: Die Jury wird es verstehen."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Oui, vous pouvez entamer la procédure d'admission et déposer les notes manquantes plus tard. Si vos relevés sont semestriels et non trimestriels, téléchargez deux fois le même document : le jury comprendra."
+          "text": "Ja, Sie können das Zulassungsverfahren beginnen und die fehlenden Noten später einreichen. Wenn Ihre Zeugnisse halbjährlich und nicht vierteljährlich sind, laden Sie dasselbe Dokument zweimal hoch: Die Jury wird es verstehen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Comment financer mes études ?",
-              "a": "Des bourses couvrant jusqu'à 50 % des frais de scolarité sont possibles, sur critères sociaux et académiques, ainsi que des prêts étudiants auprès de banques partenaires. Le MSc se fait en alternance : l'employeur prend en charge 100 % des frais de scolarité."
+              "q": "Wie finanziere ich mein Studium?",
+              "a": "Stipendien bis zu 50 % der Studiengebühren sind nach sozialen und akademischen Kriterien möglich, ebenso Studienkredite bei Partnerbanken. Der MSc wird dual absolviert: Der Arbeitgeber übernimmt 100 % der Studiengebühren."
             }
           ],
           "idPrefix": "processus-admission"
         },
         {
           "type": "paragraph",
-          "text": "Des bourses couvrant jusqu'à 50 % des frais de scolarité sont possibles, sur critères sociaux et académiques, ainsi que des prêts étudiants auprès de banques partenaires. Le MSc se fait en alternance : l'employeur prend en charge 100 % des frais de scolarité."
+          "text": "Stipendien bis zu 50 % der Studiengebühren sind nach sozialen und akademischen Kriterien möglich, ebenso Studienkredite bei Partnerbanken. Der MSc wird dual absolviert: Der Arbeitgeber übernimmt 100 % der Studiengebühren."
         },
-        { "type": "link", "label": "Toutes les questions →", "href": "/faq" },
-        { "type": "cta", "label": "Candidater", "href": "/candidature" },
-        { "type": "link", "label": "Recevoir la brochure", "href": "/brochure" }
+        { "type": "link", "label": "Alle Fragen →", "href": "/faq" },
+        { "type": "cta", "label": "Bewerben", "href": "/candidature" },
+        { "type": "link", "label": "Broschüre erhalten", "href": "/brochure" }
       ]
     },
     {
-      "title": "Ton dossier, ta motivation.",
+      "title": "Deine Unterlagen, deine Motivation.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Candidature gratuite pour les candidats résidant dans l'Union européenne, 30 € pour les candidats résidant hors UE. Réponse officielle sous 10 jours."
+          "text": "Kostenlose Bewerbung für Bewerber mit Wohnsitz in der Europäischen Union, 30 € für Bewerber außerhalb der EU. Offizielle Antwort innerhalb von 10 Tagen."
         },
         {
           "type": "cta",
-          "label": "Postuler",
+          "label": "Bewerben",
           "href": "/candidature"
         }
       ]
@@ -342,69 +342,69 @@ export const page: LivePage = {
   ],
   "internalLinks": [
     {
-      "label": "Postuler",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     {
-      "label": "Créer l’espace candidat de mon enfant",
+      "label": "Den Bewerberbereich meines Kindes anlegen",
       "href": "/candidature"
     },
     {
-      "label": "Voir les étapes ↓",
+      "label": "Zu den Schritten ↓",
       "href": "#parcours"
     },
     {
-      "label": "En savoir plus",
+      "label": "Mehr erfahren",
       "href": "#documents-bachelor"
     },
     {
-      "label": "Postulez",
+      "label": "Bewerben Sie sich",
       "href": "/candidature"
     },
     {
-      "label": "En savoir plus",
+      "label": "Mehr erfahren",
       "href": "#documents-master"
     },
     {
-      "label": "trouver votre alternance",
+      "label": "deine duale Stelle finden",
       "href": "/alternance"
     },
     {
-      "label": "Candidater",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     {
-      "label": "Toutes les questions →",
+      "label": "Alle Fragen →",
       "href": "/faq"
     },
     {
-      "label": "Candidater",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     },
     {
-      "label": "Postuler",
+      "label": "Bewerben",
       "href": "/candidature"
     }
   ],
   "footer": {
-    "title": "Ton dossier, ta motivation.",
+    "title": "Deine Unterlagen, deine Motivation.",
     "primary": {
-      "label": "Postuler",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/admissions",
-    "title": "Admissions",
-    "text": "Voir les admissions",
+    "title": "Zulassung",
+    "text": "Zur Zulassung",
     "image": "p_arches"
   }
 };

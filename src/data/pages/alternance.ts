@@ -3,141 +3,141 @@ import { faqPageLd } from "@/data/faq";
 
 const items = [
   {
-    "q": "Dois-je trouver mon entreprise seul ?",
-    "a": "L’école t’accompagne dans ta recherche d’alternance : CV, coachings aux entretiens, job datings sur le campus et plateforme dédiée, accessible une fois admis. Une implication de ta part est attendue."
+    "q": "Muss ich mein Unternehmen allein finden?",
+    "a": "Die Schule begleitet dich bei der Suche nach einer dualen Ausbildung: Lebenslauf, Coachings für Vorstellungsgespräche, Job Datings auf dem Campus und eine eigene Plattform, zugänglich nach der Zulassung. Dein eigenes Engagement wird erwartet."
   },
   {
-    "q": "Qui finance l’alternance ?",
-    "a": "L’entreprise prend en charge les frais de scolarité : tu n’as rien à payer. L’école gère la partie administrative de son côté."
+    "q": "Wer finanziert die duale Ausbildung?",
+    "a": "Das Unternehmen übernimmt die Studiengebühren: Du musst nichts bezahlen. Die Schule kümmert sich um den Verwaltungsteil."
   },
   {
-    "q": "Les job datings sont-ils ouverts aux candidats ?",
-    "a": "Ils sont réservés aux étudiants déjà admis. Ils ont lieu sur le campus, de janvier à juillet, avec des entreprises partenaires."
+    "q": "Sind die Job Datings für Bewerber offen?",
+    "a": "Sie sind den bereits zugelassenen Studierenden vorbehalten. Sie finden von Januar bis Juli auf dem Campus mit Partnerunternehmen statt."
   },
   {
-    "q": "Quels contrats sont acceptés ?",
-    "a": "Les contrats de professionnalisation et d’apprentissage sont acceptés."
+    "q": "Welche Verträge werden akzeptiert?",
+    "a": "Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
   },
   {
-    "q": "Quel est le rythme de l’alternance ?",
-    "a": "Au MSc, après un bootcamp de 5 semaines, tu passes 4 jours en entreprise et 1 jour à l’école. La 3e année du Bachelor peut aussi se faire en alternance, dès le Bac+2."
+    "q": "Wie ist der Rhythmus der dualen Ausbildung?",
+    "a": "Im MSc verbringst du nach einem 5-wöchigen Bootcamp 4 Tage im Unternehmen und 1 Tag an der Schule. Das 3. Bachelorjahr kann ab Bac+2 ebenfalls dual absolviert werden."
   }
 ];
 export const page: LivePage = {
-  "title": "École en alternance, Bachelor et MSc | Eugenia School",
-  "description": "École en alternance : CV, coaching aux entretiens, job datings sur le campus et plateforme dédiée. Bachelor 3e année et MSc, frais payés par l’entreprise.",
-  "h1": "Ton alternance, de A à Z.",
+  "title": "Duale Schule, Bachelor und MSc | Eugenia School",
+  "description": "Duale Schule: Lebenslauf, Coaching für Vorstellungsgespräche, Job Datings auf dem Campus und eigene Plattform. Bachelor 3. Jahr und MSc, Gebühren vom Unternehmen bezahlt.",
+  "h1": "Deine duale Ausbildung, von A bis Z.",
   "image": "pr3_hero-bachelor",
-  "imageAlt": "Trois étudiants d’Eugenia School travaillent côte à côte sur leurs ordinateurs",
-  "lead": "Tu t’impliques, l’école t’accompagne : CV, coaching aux entretiens, job datings sur le campus et une plateforme dédiée. L’entreprise finance, l’école gère l’administratif.",
-  "eyebrow": "// école en alternance · bachelor 3e année & msc",
+  "imageAlt": "Drei Studierende der Eugenia School arbeiten nebeneinander an ihren Computern",
+  "lead": "Du bringst dich ein, die Schule begleitet dich: Lebenslauf, Coaching für Vorstellungsgespräche, Job Datings auf dem Campus und eine eigene Plattform. Das Unternehmen finanziert, die Schule kümmert sich um die Verwaltung.",
+  "eyebrow": "// duale Schule · Bachelor 3. Jahr & MSc",
   "facts": [],
   "sections": [
     {
-      "title": "Quatre appuis, un contrat.",
+      "title": "Vier Stützen, ein Vertrag.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Ton implication compte : l’école t’aide à préparer, à rencontrer et à signer."
+          "text": "Dein Engagement zählt: Die Schule hilft dir beim Vorbereiten, Treffen und Unterschreiben."
         },
         {
           "type": "cards",
           "items": [
             {
               "number": "01",
-              "title": "Un CV qui te ressemble",
-              "text": "L’équipe t’aide à construire ton CV pour qu’il parle aux recruteurs de ton secteur."
+              "title": "Ein Lebenslauf, der zu dir passt",
+              "text": "Das Team hilft dir, deinen Lebenslauf so zu gestalten, dass er die Recruiter deiner Branche anspricht."
             },
             {
               "number": "02",
-              "title": "Des coachings alternance",
-              "text": "Tu t’entraînes aux entretiens avec des coachings dédiés, avant de rencontrer les entreprises."
+              "title": "Coachings für die duale Ausbildung",
+              "text": "Du trainierst Vorstellungsgespräche in eigenen Coachings, bevor du die Unternehmen triffst."
             },
             {
               "number": "03",
-              "title": "Des job datings sur le campus",
-              "text": "De janvier à juillet, des entreprises partenaires viennent sur le campus : tu passes directement des entretiens avec les recruteurs. Les job datings sont réservés aux étudiants admis."
+              "title": "Job Datings auf dem Campus",
+              "text": "Von Januar bis Juli kommen Partnerunternehmen auf den Campus: Du führst direkt Gespräche mit den Recruitern. Die Job Datings sind den zugelassenen Studierenden vorbehalten."
             },
             {
               "number": "04",
-              "title": "Une plateforme rien que pour toi",
-              "text": "Une plateforme créée pour les étudiants rassemble tous les conseils pour l’alternance : comment t’entraîner, chercher des postes, activer ton réseau. Elle est accessible une fois admis."
+              "title": "Eine Plattform nur für dich",
+              "text": "Eine für die Studierenden geschaffene Plattform bündelt alle Tipps zur dualen Ausbildung: wie du trainierst, Stellen suchst, dein Netzwerk aktivierst. Sie ist nach der Zulassung zugänglich."
             }
           ]
         }
       ],
-      "eyebrow": "comment ça se passe"
+      "eyebrow": "wie es abläuft"
     },
     {
-      "title": "De l’admission au premier jour.",
+      "title": "Von der Zulassung bis zum ersten Tag.",
       "blocks": [
         {
           "type": "cards",
           "items": [
-            { "number": "01", "title": "Tu es admis", "text": "L’admission ouvre l’accès aux job datings et à la plateforme." },
-            { "number": "02", "title": "Tu te prépares", "text": "CV, coachings alternance, plateforme : tu construis ta recherche avec l’équipe." },
-            { "number": "03", "title": "Tu rencontres les recruteurs", "text": "Les job datings se tiennent sur le campus, de janvier à juillet." },
-            { "number": "04", "title": "Tu signes ton contrat", "text": "Contrat de professionnalisation ou d’apprentissage : l’école gère la partie administrative." },
-            { "number": "05", "title": "Tu démarres en septembre", "text": "Rentrée en septembre. Au MSc, un bootcamp de 5 semaines précède le rythme 4 jours en entreprise, 1 jour à l’école." }
+            { "number": "01", "title": "Du bist zugelassen", "text": "Die Zulassung öffnet den Zugang zu den Job Datings und zur Plattform." },
+            { "number": "02", "title": "Du bereitest dich vor", "text": "Lebenslauf, Coachings, Plattform: Du baust deine Suche mit dem Team auf." },
+            { "number": "03", "title": "Du triffst die Recruiter", "text": "Die Job Datings finden von Januar bis Juli auf dem Campus statt." },
+            { "number": "04", "title": "Du unterschreibst deinen Vertrag", "text": "Professionalisierungs- oder Ausbildungsvertrag: Die Schule kümmert sich um den Verwaltungsteil." },
+            { "number": "05", "title": "Du startest im September", "text": "Studienbeginn im September. Im MSc geht dem Rhythmus von 4 Tagen im Unternehmen und 1 Tag an der Schule ein 5-wöchiges Bootcamp voraus." }
           ]
         }
       ],
-      "eyebrow": "ce que ça coûte"
+      "eyebrow": "was es kostet"
     },
     {
-      "title": "0 € de frais de scolarité pour toi.",
+      "title": "0 € Studiengebühren für dich.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "L’entreprise prend en charge l’alternance. L’école gère la partie administrative de son côté : tu es accompagné de A à Z."
+          "text": "Das Unternehmen übernimmt die duale Ausbildung. Die Schule kümmert sich um den Verwaltungsteil: Du wirst von A bis Z begleitet."
         }
       ],
-      "eyebrow": "contrats et rythme"
+      "eyebrow": "Verträge und Rhythmus"
     },
     {
-      "title": "Deux voies, un même accompagnement.",
+      "title": "Zwei Wege, dieselbe Begleitung.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "MSc · alternance"
+          "text": "MSc · dual"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Un Bac+5 en rythme alterné"
+          "text": "Ein Bac+5 im dualen Rhythmus"
         },
         {
           "type": "paragraph",
-          "text": "Après un bootcamp de 5 semaines : 4 jours en entreprise, 1 jour à l’école. Les contrats de professionnalisation et d’apprentissage sont acceptés."
+          "text": "Nach einem 5-wöchigen Bootcamp: 4 Tage im Unternehmen, 1 Tag an der Schule. Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
         },
         {
           "type": "cta",
-          "label": "Découvrir le MSc →",
+          "label": "Den MSc entdecken →",
           "href": "/programme/master-ia-business-alternance"
         },
         {
           "type": "paragraph",
-          "text": "Bachelor · 3e année"
+          "text": "Bachelor · 3. Jahr"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "La 3e année en alternance"
+          "text": "Das 3. Jahr dual"
         },
         {
           "type": "paragraph",
-          "text": "La 3e année du Bachelor peut se faire en alternance, dès le Bac+2. Mêmes appuis : CV, coachings, job datings et plateforme."
+          "text": "Das 3. Bachelorjahr kann ab Bac+2 dual absolviert werden. Dieselben Stützen: Lebenslauf, Coachings, Job Datings und Plattform."
         },
         {
           "type": "cta",
-          "label": "Découvrir la 3e année →",
+          "label": "Das 3. Jahr entdecken →",
           "href": "/programme/bachelor-ia-business-3eme-annee-alternance"
         }
       ],
-      "eyebrow": "ils accueillent nos alternants"
+      "eyebrow": "sie nehmen unsere dual Studierenden auf"
     },
     {
-      "title": "Des entreprises qui recrutent.",
+      "title": "Unternehmen, die rekrutieren.",
       "blocks": [
         {
           "type": "image",
@@ -166,7 +166,7 @@ export const page: LivePage = {
         {
           "type": "image",
           "name": "lg_armees",
-          "alt": "Ministère des Armées",
+          "alt": "Französisches Verteidigungsministerium",
           "logo": true
         },
         {
@@ -188,114 +188,114 @@ export const page: LivePage = {
           "logo": true
         }
       ],
-      "eyebrow": "ils sont en alternance"
+      "eyebrow": "sie sind in dualer Ausbildung"
     },
     {
-      "title": "Leurs postes, pour de vrai.",
+      "title": "Ihre Stellen, ganz real.",
       "blocks": [
         {
           "type": "cards",
           "items": [
-            { "number": "MSc · M2", "title": "Ali H.", "text": "Ingénieur d’études", "image": "pr3_portrait-ali", "alt": "Portrait de Ali, M2 à Eugenia School", "logo": "lg_accenture", "logoAlt": "Accenture" },
-            { "number": "MSc · M1 · Alternance", "title": "Victoria I.", "text": "Business Developer, secteur public", "image": "pr3_portrait-victoria", "alt": "Portrait de Victoria, M1 à Eugenia School", "logo": "lg_misteria", "logoAlt": "Mister IA" },
-            { "number": "MSc · M1", "title": "Lenja S.", "text": "Conversion Rate Optimization Analyst", "image": "pr3_portrait-lenja", "alt": "Portrait de Lenja, M1 à Eugenia School", "logo": "lg_lvmh", "logoAlt": "LVMH" }
+            { "number": "MSc · M2", "title": "Ali H.", "text": "Studieningenieur", "image": "pr3_portrait-ali", "alt": "Porträt von Ali, M2 an der Eugenia School", "logo": "lg_accenture", "logoAlt": "Accenture" },
+            { "number": "MSc · M1 · Dual", "title": "Victoria I.", "text": "Business Developer, öffentlicher Sektor", "image": "pr3_portrait-victoria", "alt": "Porträt von Victoria, M1 an der Eugenia School", "logo": "lg_misteria", "logoAlt": "Mister IA" },
+            { "number": "MSc · M1", "title": "Lenja S.", "text": "Conversion Rate Optimization Analyst", "image": "pr3_portrait-lenja", "alt": "Porträt von Lenja, M1 an der Eugenia School", "logo": "lg_lvmh", "logoAlt": "LVMH" }
           ]
         },
         {
           "type": "link",
-          "label": "Voir toutes les trajectoires →",
+          "label": "Alle Werdegänge ansehen →",
           "href": "/carrieres"
         }
       ],
-      "eyebrow": "questions fréquentes"
+      "eyebrow": "häufige Fragen"
     },
     {
-      "title": "L’alternance, en cinq réponses.",
+      "title": "Die duale Ausbildung in fünf Antworten.",
       "blocks": [
         {
           "type": "faq",
           "items": [
             {
-              "q": "Dois-je trouver mon entreprise seul ?",
-              "a": "L’école t’accompagne dans ta recherche d’alternance : CV, coachings aux entretiens, job datings sur le campus et plateforme dédiée, accessible une fois admis. Une implication de ta part est attendue."
+              "q": "Muss ich mein Unternehmen allein finden?",
+              "a": "Die Schule begleitet dich bei der Suche nach einer dualen Ausbildung: Lebenslauf, Coachings für Vorstellungsgespräche, Job Datings auf dem Campus und eine eigene Plattform, zugänglich nach der Zulassung. Dein eigenes Engagement wird erwartet."
             }
           ],
           "idPrefix": "alternance"
         },
         {
           "type": "paragraph",
-          "text": "L’école t’accompagne dans ta recherche d’alternance : CV, coachings aux entretiens, job datings sur le campus et plateforme dédiée, accessible une fois admis. Une implication de ta part est attendue."
+          "text": "Die Schule begleitet dich bei der Suche nach einer dualen Ausbildung: Lebenslauf, Coachings für Vorstellungsgespräche, Job Datings auf dem Campus und eine eigene Plattform, zugänglich nach der Zulassung. Dein eigenes Engagement wird erwartet."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Qui finance l’alternance ?",
-              "a": "L’entreprise prend en charge les frais de scolarité : tu n’as rien à payer. L’école gère la partie administrative de son côté."
+              "q": "Wer finanziert die duale Ausbildung?",
+              "a": "Das Unternehmen übernimmt die Studiengebühren: Du musst nichts bezahlen. Die Schule kümmert sich um den Verwaltungsteil."
             }
           ],
           "idPrefix": "alternance"
         },
         {
           "type": "paragraph",
-          "text": "L’entreprise prend en charge les frais de scolarité : tu n’as rien à payer. L’école gère la partie administrative de son côté."
+          "text": "Das Unternehmen übernimmt die Studiengebühren: Du musst nichts bezahlen. Die Schule kümmert sich um den Verwaltungsteil."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Les job datings sont-ils ouverts aux candidats ?",
-              "a": "Ils sont réservés aux étudiants déjà admis. Ils ont lieu sur le campus, de janvier à juillet, avec des entreprises partenaires."
+              "q": "Sind die Job Datings für Bewerber offen?",
+              "a": "Sie sind den bereits zugelassenen Studierenden vorbehalten. Sie finden von Januar bis Juli auf dem Campus mit Partnerunternehmen statt."
             }
           ],
           "idPrefix": "alternance"
         },
         {
           "type": "paragraph",
-          "text": "Ils sont réservés aux étudiants déjà admis. Ils ont lieu sur le campus, de janvier à juillet, avec des entreprises partenaires."
+          "text": "Sie sind den bereits zugelassenen Studierenden vorbehalten. Sie finden von Januar bis Juli auf dem Campus mit Partnerunternehmen statt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quels contrats sont acceptés ?",
-              "a": "Les contrats de professionnalisation et d’apprentissage sont acceptés."
+              "q": "Welche Verträge werden akzeptiert?",
+              "a": "Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
             }
           ],
           "idPrefix": "alternance"
         },
         {
           "type": "paragraph",
-          "text": "Les contrats de professionnalisation et d’apprentissage sont acceptés."
+          "text": "Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quel est le rythme de l’alternance ?",
-              "a": "Au MSc, après un bootcamp de 5 semaines, tu passes 4 jours en entreprise et 1 jour à l’école. La 3e année du Bachelor peut aussi se faire en alternance, dès le Bac+2."
+              "q": "Wie ist der Rhythmus der dualen Ausbildung?",
+              "a": "Im MSc verbringst du nach einem 5-wöchigen Bootcamp 4 Tage im Unternehmen und 1 Tag an der Schule. Das 3. Bachelorjahr kann ab Bac+2 ebenfalls dual absolviert werden."
             }
           ],
           "idPrefix": "alternance"
         },
         {
           "type": "paragraph",
-          "text": "Au MSc, après un bootcamp de 5 semaines, tu passes 4 jours en entreprise et 1 jour à l’école. La 3e année du Bachelor peut aussi se faire en alternance, dès le Bac+2."
+          "text": "Im MSc verbringst du nach einem 5-wöchigen Bootcamp 4 Tage im Unternehmen und 1 Tag an der Schule. Das 3. Bachelorjahr kann ab Bac+2 ebenfalls dual absolviert werden."
         }
       ],
-      "eyebrow": "rentrée en septembre"
+      "eyebrow": "Studienbeginn im September"
     },
     {
-      "title": "Construis ton alternance.",
+      "title": "Gestalte deine duale Ausbildung.",
       "blocks": [
         {
           "type": "cta",
-          "label": "Candidater →",
+          "label": "Bewerben →",
           "href": "/candidature"
         },
         {
           "type": "cta",
-          "label": "Recevoir la brochure",
+          "label": "Broschüre erhalten",
           "href": "/brochure"
         }
       ]
@@ -303,49 +303,49 @@ export const page: LivePage = {
   ],
   "internalLinks": [
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     },
     {
-      "label": "Découvrir le MSc →",
+      "label": "Den MSc entdecken →",
       "href": "/programme/master-ia-business-alternance"
     },
     {
-      "label": "Découvrir la 3e année →",
+      "label": "Das 3. Jahr entdecken →",
       "href": "/programme/bachelor-ia-business-3eme-annee-alternance"
     },
     {
-      "label": "Voir toutes les trajectoires →",
+      "label": "Alle Werdegänge ansehen →",
       "href": "/carrieres"
     },
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     }
   ],
   "footer": {
-    "title": "Construis ton alternance.",
+    "title": "Gestalte deine duale Ausbildung.",
     "primary": {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/admissions",
-    "title": "Admissions",
-    "text": "Voir les admissions",
+    "title": "Zulassung",
+    "text": "Zur Zulassung",
     "image": "p_arches"
   }
 };

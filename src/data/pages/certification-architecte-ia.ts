@@ -1,382 +1,382 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Architecte en IA, titre RNCP niveau 7 | Eugenia School",
-  "description": "Titre RNCP 41993 (niveau 7) « Architecte en intelligence artificielle », délivré par JEDHA dans le MSc d'Eugenia School. Objectifs, blocs et débouchés.",
-  "h1": "Certification Architecte IA",
+  "title": "KI-Architekt, RNCP-Titel Niveau 7 | Eugenia School",
+  "description": "RNCP-Titel 41993 (Niveau 7) „Architecte en intelligence artificielle“ (KI-Architekt), verliehen von JEDHA im MSc der Eugenia School. Ziele, Blöcke und Berufsaussichten.",
+  "h1": "Zertifizierung KI-Architekt",
   "image": "pr3_sec-professeurs",
-  "imageAlt": "Le grand escalier du campus, devant une grande fresque en carrelage ancien : une étudiante et des intervenants échangent",
-  "lead": "Le titre RNCP de niveau 7 du Master tech en alternance d’Eugenia, délivré par JEDHA : concevoir, déployer et piloter des solutions d’IA, de la gouvernance des données à la mise en production.",
-  "postFacts": "La certification « Architecte en Intelligence Artificielle », proposée par Eugenia School, est délivrée par JEDHA. Il s'agit d'une certification de niveau 7 avec les codes NSF 114b, 326 et 326r, enregistrée au Répertoire national des certifications professionnelles (RNCP) sous le numéro 41993, par décision de France Compétences en date du 4 mars 2026.",
-  "eyebrow": "// certification RNCP · niveau 7",
+  "imageAlt": "Die große Treppe des Campus vor einer großen Fresko aus alten Fliesen: Eine Studentin und Referenten tauschen sich aus",
+  "lead": "Der RNCP-Titel Niveau 7 des dualen Tech-Masters der Eugenia, verliehen von JEDHA: KI-Lösungen konzipieren, bereitstellen und steuern, von der Data Governance bis zur Inbetriebnahme.",
+  "postFacts": "Die von der Eugenia School angebotene Zertifizierung „Architecte en Intelligence Artificielle“ (KI-Architekt) wird von JEDHA verliehen. Es handelt sich um eine Zertifizierung der Niveaustufe 7 mit den NSF-Codes 114b, 326 und 326r, eingetragen im nationalen Verzeichnis der Berufszertifizierungen (RNCP) unter der Nummer 41993, durch Entscheidung von France Compétences vom 4. März 2026.",
+  "eyebrow": "// RNCP-Zertifizierung · Niveau 7",
   "badges": [
     "RNCP 41993",
     "Niveau 7",
-    "Délivré par JEDHA"
+    "Verliehen von JEDHA"
   ],
   "facts": [
     {
-      "label": "Intitulé",
-      "value": "Architecte en intelligence artificielle"
+      "label": "Bezeichnung",
+      "value": "Architecte en intelligence artificielle (KI-Architekt)"
     },
     {
       "label": "Niveau",
       "value": "7"
     },
     {
-      "label": "Numéro RNCP",
+      "label": "RNCP-Nummer",
       "value": "41993"
     },
     {
-      "label": "Codes NSF",
-      "value": "114b, 326 et 326r"
+      "label": "NSF-Codes",
+      "value": "114b, 326 und 326r"
     },
     {
-      "label": "Décision France Compétences",
-      "value": "4 mars 2026"
+      "label": "Entscheidung France Compétences",
+      "value": "4. März 2026"
     },
     {
-      "label": "Certificateur",
+      "label": "Zertifizierer",
       "value": "JEDHA"
     }
   ],
   "sections": [
     {
-      "title": "Ce que le titre atteste.",
+      "title": "Was der Titel bescheinigt.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Dans un monde de plus en plus numérique et interconnecté, les entreprises de divers secteurs doivent comprendre et utiliser efficacement les données qu'elles possèdent. L'essor de l'intelligence artificielle (IA) a donné à ces organisations la possibilité de convertir les données en informations précieuses, améliorant ainsi la prise de décision, optimisant les processus commerciaux et personnalisant les expériences des clients, entre autres avantages."
+          "text": "In einer zunehmend digitalen und vernetzten Welt müssen Unternehmen aller Branchen die Daten, die sie besitzen, verstehen und effektiv nutzen. Der Aufstieg der künstlichen Intelligenz (KI) hat diesen Organisationen die Möglichkeit gegeben, Daten in wertvolle Informationen umzuwandeln, unter anderem um Entscheidungen zu verbessern, Geschäftsprozesse zu optimieren und Kundenerlebnisse zu personalisieren."
         },
         {
           "type": "paragraph",
-          "text": "Cependant, la mise en œuvre réussie d'une solution d'IA nécessite une expertise spécifique, notamment en matière d'architecture des données, de gestion des flux de données, de modélisation de l'IA et de déploiement."
+          "text": "Die erfolgreiche Umsetzung einer KI-Lösung erfordert jedoch spezifisches Fachwissen, insbesondere in Datenarchitektur, Verwaltung von Datenflüssen, KI-Modellierung und Bereitstellung."
         },
         {
           "type": "paragraph",
-          "text": "En outre, les solutions d'IA doivent être mises en œuvre dans le respect de l'éthique et des réglementations en vigueur, notamment en ce qui concerne la protection des données et de la vie privée. Dans ce contexte, la certification « Architecte en intelligence artificielle » a été conçue pour répondre à la demande croissante du marché en matière de compétences en IA, en permettant aux professionnels de la technologie d'acquérir et de valider leur expertise dans ce domaine."
+          "text": "Außerdem müssen KI-Lösungen unter Einhaltung der Ethik und der geltenden Vorschriften umgesetzt werden, insbesondere beim Daten- und Privatsphärenschutz. In diesem Kontext wurde die Zertifizierung „KI-Architekt“ konzipiert, um der wachsenden Nachfrage des Marktes nach KI-Kompetenzen zu begegnen und Technologiefachleuten zu ermöglichen, ihre Expertise in diesem Bereich zu erwerben und zu bestätigen."
         },
         {
           "type": "paragraph",
-          "text": "La certification vise à former des professionnels capables de concevoir, de déployer et de gérer des solutions d'IA robustes, efficaces et conformes à la réglementation. Les candidats sont évalués sur les compétences essentielles d'un architecte IA, notamment la gouvernance des données, où ils doivent démontrer leur capacité à développer et mettre en œuvre un plan de gouvernance des données solide prenant en compte les aspects de conformité, les parties prenantes et les risques ; l'architecture des données, où ils doivent concevoir une architecture robuste adaptée aux besoins techniques et opérationnels ; la gestion des pipelines de données, où ils doivent établir et gérer des pipelines de données automatisés et efficaces ; et le développement et le déploiement de solutions IA, où les candidats doivent être capables de créer, intégrer et déployer des solutions IA, y compris l'automatisation du recyclage des modèles et la mise en place de pipelines d'intégration et de déploiement continus."
+          "text": "Die Zertifizierung zielt darauf ab, Fachleute auszubilden, die robuste, effiziente und vorschriftskonforme KI-Lösungen konzipieren, bereitstellen und verwalten können. Die Kandidaten werden auf die wesentlichen Kompetenzen eines KI-Architekten geprüft, insbesondere Data Governance, wo sie zeigen müssen, dass sie einen soliden Data-Governance-Plan unter Berücksichtigung von Compliance, Beteiligten und Risiken entwickeln und umsetzen können; Datenarchitektur, wo sie eine robuste, an technische und operative Anforderungen angepasste Architektur konzipieren müssen; Verwaltung von Datenpipelines, wo sie automatisierte und effiziente Datenpipelines aufbauen und verwalten müssen; sowie Entwicklung und Bereitstellung von KI-Lösungen, wo die Kandidaten KI-Lösungen erstellen, integrieren und bereitstellen können müssen, einschließlich der Automatisierung des Nachtrainierens von Modellen und der Einrichtung von Pipelines für Continuous Integration und Continuous Deployment."
         },
         {
           "type": "paragraph",
-          "text": "Cette certification répond au besoin croissant du marché en professionnels qualifiés dans le domaine de l'IA, capables de stimuler l'innovation et la transformation numérique par une utilisation éthique et efficace de l'IA."
+          "text": "Diese Zertifizierung deckt den wachsenden Bedarf des Marktes an qualifizierten KI-Fachleuten, die Innovation und digitale Transformation durch einen ethischen und effektiven Einsatz von KI vorantreiben können."
         }
       ],
-      "eyebrow": "blocs de compétences"
+      "eyebrow": "Kompetenzblöcke"
     },
     {
-      "title": "Quatre blocs, de la gouvernance au déploiement.",
+      "title": "Vier Blöcke, von der Governance bis zur Bereitstellung.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Le programme académique de la certification s'articule en 4 grands blocs de compétences, listés et détaillés ci-dessous :"
+          "text": "Das akademische Programm der Zertifizierung gliedert sich in 4 große Kompetenzblöcke, die unten aufgeführt und erläutert werden:"
         },
         {
           "type": "paragraph",
-          "text": "Bloc 01"
+          "text": "Block 01"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Concevoir et gérer la gouvernance des données"
+          "text": "Data Governance konzipieren und steuern"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (5)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (5)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Concevoir une politique de gouvernance des données en collaboration avec les parties prenantes afin d'assurer la conformité avec les réglementations en vigueur et de garantir la qualité, la disponibilité, la sécurité et la confidentialité des données.",
-            "Collaborer avec les parties prenantes de l'entreprise pour défendre et mettre en œuvre la politique de gouvernance des données, en vue d'une intégration harmonieuse dans les pratiques de l'entreprise.",
-            "Former et sensibiliser tous les employés, y compris les personnes handicapées, aux principes de la gouvernance des données afin d'assurer une mise en œuvre efficace et inclusive de la politique de gouvernance des données.",
-            "Effectuer des audits réguliers des pratiques de gestion des données de l'entreprise afin de garantir la conformité avec les réglementations locales et internationales.",
-            "Évaluer les risques associés à la gestion des données, notamment en termes de qualité et de sécurité, afin de renforcer la politique de gouvernance des données."
+            "Eine Data-Governance-Richtlinie gemeinsam mit den Beteiligten konzipieren, um die Einhaltung der geltenden Vorschriften sowie Qualität, Verfügbarkeit, Sicherheit und Vertraulichkeit der Daten zu gewährleisten.",
+            "Mit den Beteiligten im Unternehmen zusammenarbeiten, um die Data-Governance-Richtlinie zu vertreten und umzusetzen, mit dem Ziel einer reibungslosen Integration in die Praxis des Unternehmens.",
+            "Alle Mitarbeitenden, einschließlich Menschen mit Behinderung, in den Grundsätzen der Data Governance schulen und sensibilisieren, um eine wirksame und inklusive Umsetzung der Richtlinie zu gewährleisten.",
+            "Regelmäßige Audits der Datenverwaltungspraktiken des Unternehmens durchführen, um die Einhaltung lokaler und internationaler Vorschriften zu gewährleisten.",
+            "Die Risiken der Datenverwaltung bewerten, insbesondere hinsichtlich Qualität und Sicherheit, um die Data-Governance-Richtlinie zu stärken."
           ]
         },
         {
           "type": "paragraph",
-          "text": "Bloc 02"
+          "text": "Block 02"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Concevoir et déployer des architectures de données (pour l'IA)"
+          "text": "Datenarchitekturen (für KI) konzipieren und bereitstellen"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (8)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (8)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Identifier les besoins architecturaux en examinant les contraintes techniques et opérationnelles, ainsi que les normes existantes, afin d'établir un cadre qui réponde aux exigences de l'entreprise.",
-            "Élaborer une spécification d'architecture de données qui intègre les contraintes techniques et les normes pour répondre aux besoins spécifiques de l'entreprise.",
-            "Créer des modèles de données logiques et physiques (modèles entité-relation, schéma en étoile...) qui s'alignent sur les spécifications établies.",
-            "Concevoir des structures de base de données adaptées à différents types de données, en tenant compte des performances, de la sécurité, de l'évolutivité et du volume de données pour une gestion optimale du Big Data.",
-            "Déployer des serveurs virtuels dans le nuage ou sur site pour entraîner les algorithmes d'intelligence artificielle à gérer efficacement un grand volume de données.",
-            "Améliorer la puissance de calcul en concevant des grappes de serveurs pour permettre l'entraînement des algorithmes d'intelligence artificielle, stocker de grands ensembles de données ou gérer le trafic massif d'une application.",
-            "Mettre en œuvre des outils de surveillance pour suivre les performances de l'infrastructure de données, identifier les problèmes potentiels et optimiser les systèmes pour une gestion proactive.",
-            "Documenter les spécifications de l'architecture de manière claire et accessible à tous, y compris aux personnes handicapées, afin de faciliter la gestion."
+            "Die architektonischen Anforderungen ermitteln, indem technische und operative Einschränkungen sowie bestehende Normen untersucht werden, um einen Rahmen zu schaffen, der den Anforderungen des Unternehmens entspricht.",
+            "Eine Spezifikation der Datenarchitektur erstellen, die technische Einschränkungen und Normen integriert, um den spezifischen Bedürfnissen des Unternehmens gerecht zu werden.",
+            "Logische und physische Datenmodelle erstellen (Entity-Relationship-Modelle, Sternschema...), die den festgelegten Spezifikationen entsprechen.",
+            "Datenbankstrukturen für verschiedene Datentypen konzipieren, unter Berücksichtigung von Leistung, Sicherheit, Skalierbarkeit und Datenvolumen für eine optimale Verwaltung von Big Data.",
+            "Virtuelle Server in der Cloud oder vor Ort bereitstellen, um KI-Algorithmen für die effiziente Verarbeitung großer Datenmengen zu trainieren.",
+            "Die Rechenleistung durch die Konzeption von Serverclustern erhöhen, um das Training von KI-Algorithmen zu ermöglichen, große Datensätze zu speichern oder den massiven Traffic einer Anwendung zu bewältigen.",
+            "Überwachungstools einsetzen, um die Leistung der Dateninfrastruktur zu verfolgen, potenzielle Probleme zu erkennen und die Systeme für ein proaktives Management zu optimieren.",
+            "Die Architekturspezifikationen klar und für alle zugänglich dokumentieren, auch für Menschen mit Behinderung, um die Verwaltung zu erleichtern."
           ]
         },
         {
           "type": "paragraph",
-          "text": "Bloc 03"
+          "text": "Block 03"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Concevoir et mettre en œuvre des pipelines de données (pour l'IA)"
+          "text": "Datenpipelines (für KI) konzipieren und umsetzen"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (5)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (5)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Concevoir un système de gestion des données en temps réel adapté aux contraintes et aux normes opérationnelles de l'entreprise afin de gérer efficacement la vitesse et le volume des flux de données ainsi que les types de données.",
-            "Établir un pipeline de données par le biais de processus ETL/ELT pour transférer et transformer les données entre différentes bases de données, en utilisant des outils de programmation pour répondre aux exigences du cahier des charges.",
-            "Automatiser les flux de données dans le pipeline à l'aide d'outils spécifiques ou de programmation afin d'optimiser les performances de l'infrastructure de données.",
-            "Contrôler les flux de données pour en assurer la qualité et le respect des politiques de gouvernance, afin de maintenir les normes, la sécurité et la confidentialité dans les pipelines de données.",
-            "Élaborer des procédures de contrôle de la qualité et de correction des erreurs dans les pipelines de données afin de garantir la qualité des données."
+            "Ein Echtzeit-Datenverwaltungssystem konzipieren, das an die operativen Einschränkungen und Normen des Unternehmens angepasst ist, um Geschwindigkeit und Volumen der Datenflüsse sowie die Datentypen effizient zu verwalten.",
+            "Eine Datenpipeline über ETL/ELT-Prozesse aufbauen, um Daten zwischen verschiedenen Datenbanken zu übertragen und zu transformieren, unter Einsatz von Programmierwerkzeugen, um die Anforderungen des Lastenhefts zu erfüllen.",
+            "Die Datenflüsse in der Pipeline mit spezifischen Tools oder Programmierung automatisieren, um die Leistung der Dateninfrastruktur zu optimieren.",
+            "Die Datenflüsse kontrollieren, um ihre Qualität und die Einhaltung der Governance-Richtlinien sicherzustellen und so Standards, Sicherheit und Vertraulichkeit in den Datenpipelines zu wahren.",
+            "Verfahren zur Qualitätskontrolle und Fehlerkorrektur in den Datenpipelines entwickeln, um die Datenqualität zu gewährleisten."
           ]
         },
         {
           "type": "paragraph",
-          "text": "Bloc 04"
+          "text": "Block 04"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Construire, déployer et gérer des solutions d'IA"
+          "text": "KI-Lösungen bauen, bereitstellen und verwalten"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (6)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (6)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Rédiger un document de spécification pour la solution d'IA afin de répondre aux besoins techniques et économiques de l'organisation, en tenant compte de l'accessibilité pour les personnes handicapées.",
-            "Créer un algorithme d'IA adapté aux données d'apprentissage et conforme au cahier des charges, en veillant à ce qu'il réponde aux besoins spécifiques, notamment en termes d'accessibilité.",
-            "Adapter l'infrastructure de données de l'organisation en construisant des API pour accueillir la solution d'IA en production.",
-            "Concevoir des pipelines d'intégration et de déploiement continus pour automatiser le processus de déploiement d'une solution d'IA.",
-            "Développer des scripts pour recycler les modèles afin d'automatiser le processus d'apprentissage automatique.",
-            "Gérer les performances de la solution d'IA au sein de l'infrastructure en mettant en œuvre des outils de surveillance (tels qu'Aporia ou Evidently) pour s'assurer qu'elle répond aux exigences des spécifications dans un environnement de production."
+            "Ein Spezifikationsdokument für die KI-Lösung verfassen, um die technischen und wirtschaftlichen Bedürfnisse der Organisation zu erfüllen, unter Berücksichtigung der Barrierefreiheit für Menschen mit Behinderung.",
+            "Einen KI-Algorithmus erstellen, der an die Trainingsdaten angepasst ist und dem Lastenheft entspricht, und sicherstellen, dass er die spezifischen Bedürfnisse erfüllt, insbesondere in Bezug auf Barrierefreiheit.",
+            "Die Dateninfrastruktur der Organisation anpassen, indem APIs gebaut werden, um die KI-Lösung in Produktion aufzunehmen.",
+            "Pipelines für Continuous Integration und Continuous Deployment konzipieren, um den Bereitstellungsprozess einer KI-Lösung zu automatisieren.",
+            "Skripte zum Nachtrainieren von Modellen entwickeln, um den Machine-Learning-Prozess zu automatisieren.",
+            "Die Leistung der KI-Lösung innerhalb der Infrastruktur steuern, indem Überwachungstools (wie Aporia oder Evidently) eingesetzt werden, um sicherzustellen, dass sie in einer Produktionsumgebung die Anforderungen der Spezifikationen erfüllt."
           ]
         },
         {
           "type": "image",
           "name": "pr3_msc-bootcamp",
-          "alt": "Des étudiants travaillent autour d’une table, ordinateurs ouverts, vue du dessus",
+          "alt": "Studierende arbeiten an einem Tisch mit aufgeklappten Computern, von oben gesehen",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_pro-master-ordi",
-          "alt": "Une étudiante travaille sur son ordinateur portable à l’amphithéâtre du campus",
+          "alt": "Eine Studentin arbeitet im Hörsaal des Campus an ihrem Laptop",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_program-msc",
-          "alt": "Un étudiant présente son travail au micro devant la classe",
+          "alt": "Ein Student präsentiert seine Arbeit am Mikrofon vor der Klasse",
           "logo": false
         }
       ],
-      "eyebrow": "métiers et secteurs visés"
+      "eyebrow": "angestrebte Berufe und Branchen"
     },
     {
-      "title": "Des secteurs partout, des métiers précis.",
+      "title": "Branchen überall, präzise Berufe.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "La certification « Architecte en intelligence artificielle » s'avère pertinente et applicable dans un large éventail de secteurs d'activité, s'alignant sur la nature omniprésente et transversale des données et de l'intelligence artificielle. Voici une liste non exhaustive de secteurs et de contextes d'emploi où cette certification serait particulièrement avantageuse :"
+          "text": "Die Zertifizierung „KI-Architekt“ ist in einem breiten Spektrum von Branchen relevant und anwendbar, entsprechend der allgegenwärtigen und bereichsübergreifenden Natur von Daten und künstlicher Intelligenz. Hier eine nicht abschließende Liste von Branchen und Einsatzkontexten, in denen diese Zertifizierung besonders vorteilhaft wäre:"
         },
         {
           "type": "paragraph",
-          "text": "Technologies de l'information et de la communication (TIC) : Au sein des départements informatiques ou au service des sociétés de conseil en technologie, l'IA est utilisée pour optimiser les systèmes et les réseaux, automatiser les tâches répétitives, renforcer la sécurité et améliorer la qualité des services offerts aux utilisateurs."
+          "text": "Informations- und Kommunikationstechnologien (IKT): In IT-Abteilungen oder im Dienst von Technologieberatungen wird KI eingesetzt, um Systeme und Netzwerke zu optimieren, wiederkehrende Aufgaben zu automatisieren, die Sicherheit zu stärken und die Qualität der angebotenen Dienste zu verbessern."
         },
         {
           "type": "paragraph",
-          "text": "Les soins de santé : Que ce soit dans les hôpitaux, les laboratoires de recherche ou les entreprises de biotechnologie, l'IA permet d'améliorer les diagnostics, de prédire les maladies, de personnaliser les traitements, d'optimiser la gestion des établissements de santé et d'accélérer la recherche médicale."
+          "text": "Gesundheitswesen: Ob in Krankenhäusern, Forschungslabors oder Biotechnologieunternehmen, KI ermöglicht bessere Diagnosen, die Vorhersage von Krankheiten, personalisierte Behandlungen, eine optimierte Verwaltung von Gesundheitseinrichtungen und eine schnellere medizinische Forschung."
         },
         {
           "type": "paragraph",
-          "text": "Finance : Dans les banques, les compagnies d'assurance et les entreprises fintech, l'IA est un outil précieux pour la détection des fraudes, l'automatisation des processus pour la conformité, la gestion des risques, la personnalisation des services financiers et le trading algorithmique."
+          "text": "Finanzen: In Banken, Versicherungen und Fintech-Unternehmen ist KI ein wertvolles Werkzeug für Betrugserkennung, Prozessautomatisierung für Compliance, Risikomanagement, die Personalisierung von Finanzdienstleistungen und algorithmischen Handel."
         },
         {
           "type": "paragraph",
-          "text": "Commerce de détail et commerce électronique : Au sein des entreprises de distribution et de commerce en ligne, l'IA permet d'optimiser les chaînes d'approvisionnement, d'améliorer les recommandations de produits, de personnaliser les expériences des clients et de prédire les tendances des ventes."
+          "text": "Einzelhandel und E-Commerce: In Handels- und Onlinehandelsunternehmen ermöglicht KI die Optimierung von Lieferketten, bessere Produktempfehlungen, personalisierte Kundenerlebnisse und die Vorhersage von Verkaufstrends."
         },
         {
           "type": "paragraph",
-          "text": "Fabrication : Dans les usines et les entreprises industrielles, l'IA contribue à la maintenance prédictive, à l'optimisation de la production, à l'automatisation des processus et à l'amélioration de la qualité des produits."
+          "text": "Fertigung: In Fabriken und Industrieunternehmen trägt KI zu vorausschauender Wartung, Produktionsoptimierung, Prozessautomatisierung und Verbesserung der Produktqualität bei."
         },
         {
           "type": "paragraph",
-          "text": "Transport et logistique : Pour les entreprises de transport et les prestataires de services logistiques, l'IA est utilisée pour optimiser les itinéraires, améliorer la gestion des flottes, automatiser les entrepôts et contribuer au développement des véhicules autonomes."
+          "text": "Transport und Logistik: Für Transportunternehmen und Logistikdienstleister wird KI eingesetzt, um Routen zu optimieren, das Flottenmanagement zu verbessern, Lager zu automatisieren und zur Entwicklung autonomer Fahrzeuge beizutragen."
         },
         {
           "type": "paragraph",
-          "text": "Services publics et gouvernementaux : Dans le contexte de l'administration publique, l'IA peut contribuer à l'amélioration des services aux citoyens, à l'optimisation de la gestion des ressources, à l'automatisation des processus administratifs et à l'analyse des données pour une meilleure prise de décision politique."
+          "text": "Öffentliche und staatliche Dienste: In der öffentlichen Verwaltung kann KI zur Verbesserung der Bürgerdienste, zur Optimierung der Ressourcenverwaltung, zur Automatisierung von Verwaltungsprozessen und zur Datenanalyse für bessere politische Entscheidungen beitragen."
         },
         {
           "type": "paragraph",
-          "text": "Les types d'emplois accessibles comprennent :"
+          "text": "Zu den zugänglichen Berufen gehören:"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Architecte en intelligence artificielle",
-            "Architecte de données",
-            "Ingénieur de données",
-            "Ingénieur en apprentissage automatique",
-            "Ingénieur MLOps",
-            "Consultant Intelligence Artificielle",
-            "Responsable des données (CDO)"
+            "Architecte en intelligence artificielle (KI-Architekt)",
+            "Datenarchitekt",
+            "Data Engineer",
+            "Machine-Learning-Ingenieur",
+            "MLOps-Ingenieur",
+            "Berater für künstliche Intelligenz",
+            "Chief Data Officer (CDO)"
           ]
         }
       ],
-      "eyebrow": "prérequis"
+      "eyebrow": "Voraussetzungen"
     },
     {
-      "title": "Les conditions d’entrée.",
+      "title": "Die Zugangsvoraussetzungen.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Nous cherchons les esprits curieux et déterminés."
+          "text": "Wir suchen neugierige und entschlossene Köpfe."
         },
         {
           "type": "paragraph",
-          "text": "Pour rejoindre notre formation, vous devez être titulaire d'un diplôme ou titre RNCP de niveau 6, ou de 180 crédits ECTS. Envoyez-nous votre dossier et venez convaincre lors d'un entretien de motivation."
+          "text": "Um an unserer Ausbildung teilzunehmen, müssen Sie einen Abschluss oder RNCP-Titel der Niveaustufe 6 oder 180 ECTS-Punkte besitzen. Senden Sie uns Ihre Unterlagen und überzeugen Sie uns in einem Motivationsgespräch."
         },
         {
           "type": "paragraph",
-          "text": "Le cas échéant, prérequis à l'entrée en formation :"
+          "text": "Gegebenenfalls Voraussetzungen für den Eintritt in die Ausbildung:"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Le candidat doit être titulaire d'un diplôme ou Titre RNCP de niveau 6, ou de 180 crédits ECTS",
-            "Le candidat non titulaire d'un diplôme ou titre susmentionné, mais justifiant de plus de 2 années d'expériences dans des responsabilités en adéquation avec la certification visée peut être admis. Dans ce cas, une demande doit être adressée au certificateur qui est le seul à pouvoir valider l'inscription.",
-            "L'admission se fait sur dossier, tests et entretien de motivation."
+            "Der Kandidat muss einen Abschluss oder RNCP-Titel der Niveaustufe 6 oder 180 ECTS-Punkte besitzen",
+            "Ein Kandidat ohne einen der genannten Abschlüsse oder Titel, der jedoch mehr als 2 Jahre Erfahrung in Verantwortungsbereichen nachweist, die der angestrebten Zertifizierung entsprechen, kann zugelassen werden. In diesem Fall ist ein Antrag an den Zertifizierer zu richten, der als Einziger die Einschreibung bestätigen kann.",
+            "Die Zulassung erfolgt auf Grundlage der Unterlagen, Tests und eines Motivationsgesprächs."
           ]
         }
       ],
-      "eyebrow": "évaluation"
+      "eyebrow": "Prüfung"
     },
     {
-      "title": "Comment le titre s’obtient.",
+      "title": "Wie man den Titel erhält.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Nous mesurons votre succès à l'aide de différentes modalités d'évaluation, qui comprennent :"
+          "text": "Wir messen Ihren Erfolg mit verschiedenen Prüfungsformen, darunter:"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Évaluations écrites et orales avec différents résultats attendus",
-            "Scénario professionnel donnant lieu à une évaluation écrite et orale, avec différents résultats attendus"
+            "Schriftliche und mündliche Prüfungen mit unterschiedlichen erwarteten Ergebnissen",
+            "Ein berufliches Szenario mit schriftlicher und mündlicher Prüfung, mit unterschiedlichen erwarteten Ergebnissen"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Les conditions d'évaluation sont adaptées pour répondre aux besoins spécifiques des personnes handicapées si nécessaire"
+          "text": "Die Prüfungsbedingungen werden bei Bedarf an die spezifischen Bedürfnisse von Menschen mit Behinderung angepasst"
         },
         {
           "type": "paragraph",
-          "text": "C'est ainsi que nous nous assurons que vous êtes prêts à relever les défis de demain."
+          "text": "So stellen wir sicher, dass Sie bereit sind, die Herausforderungen von morgen zu meistern."
         },
         {
           "type": "related-cards",
           "items": [
             {
-              "eyebrow": "Le programme",
+              "eyebrow": "Das Programm",
               "title": "Master of Science AI Applied to Business",
-              "text": "Deux ans en alternance pour passer de la donnée à la solution d’IA déployée.",
-              "label": "Découvrir →",
+              "text": "Zwei Jahre dual, um von den Daten zur bereitgestellten KI-Lösung zu kommen.",
+              "label": "Entdecken →",
               "href": "/programme/master-ia-business-alternance"
             },
             {
-              "eyebrow": "L’autre certification",
-              "title": "Concepteur de solutions no code",
-              "text": "Titre RNCP 41143 de niveau 6, délivré par LION dans le cadre du Bachelor d’Eugenia School.",
-              "label": "Lire la fiche →",
+              "eyebrow": "Die andere Zertifizierung",
+              "title": "Konzipient von No-Code-Lösungen",
+              "text": "RNCP-Titel 41143 der Niveaustufe 6, verliehen von LION im Rahmen des Bachelors der Eugenia School.",
+              "label": "Zum Steckbrief →",
               "href": "/certification-concepteur-solutions-no-code"
             }
           ]
         }
       ],
-      "eyebrow": "candidatures · rentrée en septembre"
+      "eyebrow": "Bewerbungen · Studienbeginn im September"
     }
   ],
   "internalLinks": [
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     },
     {
-      "label": "Le programmeMaster of Science AI Applied to BusinessDeux ans en alternance pour passer de la donnée à la solution d’IA déployée.Découvrir →",
+      "label": "Das ProgrammMaster of Science AI Applied to BusinessZwei Jahre dual, um von den Daten zur bereitgestellten KI-Lösung zu kommen.Entdecken →",
       "href": "/programme/master-ia-business-alternance"
     },
     {
-      "label": "L’autre certificationConcepteur de solutions no codeTitre RNCP 41143 de niveau 6, délivré par LION dans le cadre du Bachelor d’Eugenia School.Lire la fiche →",
+      "label": "Die andere ZertifizierungKonzipient von No-Code-LösungenRNCP-Titel 41143 der Niveaustufe 6, verliehen von LION im Rahmen des Bachelors der Eugenia School.Zum Steckbrief →",
       "href": "/certification-concepteur-solutions-no-code"
     },
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     }
   ],
   "footer": {
-    "title": "Prêt à candidater ?",
+    "title": "Bereit für die Bewerbung?",
     "primary": {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/programmes",
-    "title": "Programmes",
-    "text": "Voir les programmes",
+    "title": "Programme",
+    "text": "Zu den Programmen",
     "image": "p_arches"
   },
   "jsonLd": [
     {
       "@type": "EducationalOccupationalProgram",
-      "name": "Architecte en Intelligence Artificielle — Titre RNCP 41993",
-      "description": "Certification « Architecte en Intelligence Artificielle » (RNCP 41993, niveau 7), délivrée par JEDHA en complément du MSc d'Eugenia School.",
+      "name": "KI-Architekt (Architecte en Intelligence Artificielle) — RNCP-Titel 41993",
+      "description": "Zertifizierung „Architecte en Intelligence Artificielle“ (RNCP 41993, Niveau 7), verliehen von JEDHA ergänzend zum MSc der Eugenia School.",
       "url": "https://www.eugeniaschool.com/certification-architecte-ia",
       "provider": {
         "@id": "https://www.eugeniaschool.com/#organization"
       },
       "inLanguage": "fr",
-      "educationalCredentialAwarded": "Titre RNCP 41993 (niveau 7) — Architecte en Intelligence Artificielle",
+      "educationalCredentialAwarded": "RNCP-Titel 41993 (Niveau 7) — KI-Architekt",
       "availableLanguage": "fr"
     }
   ]

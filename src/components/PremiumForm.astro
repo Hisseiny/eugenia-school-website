@@ -28,10 +28,10 @@ const total = cfg.steps.length;
 >
   <div class="pf__head">
     <div class="pf__mark" aria-hidden="true"></div>
-    <p class="pf__progress" aria-live="polite" aria-atomic="true"><span class:list={[!focus && "sr-only"]}>Étape </span><span data-pf-step>1</span><span class="pf__progress-sep">{focus ? " sur " : "/"}</span>{total}</p>
+    <p class="pf__progress" aria-live="polite" aria-atomic="true"><span class:list={[!focus && "sr-only"]}>Schritt </span><span data-pf-step>1</span><span class="pf__progress-sep">{focus ? " von " : "/"}</span>{total}</p>
     <div class="pf__bar" aria-hidden="true"><span data-pf-bar style={`width: ${100 / total}%`}></span></div>
   </div>
-  <p class="pf__note" data-demo-notice>Mode démo : aucune réponse ne sera envoyée.</p>
+  <p class="pf__note" data-demo-notice>Demo-Modus: Es werden keine Antworten gesendet.</p>
 
   {
     cfg.steps.map((step, i) => (
@@ -44,7 +44,7 @@ const total = cfg.steps.length;
                 <input type="radio" name={step.name} value={o.value} required data-quick-choice={focus || undefined} />
                 <span class="pf__choice-box">
                   {focus && <span class="pf__choice-icon" aria-hidden="true">{step.name === "all_type_multiple_checkboxes" ? (o.value === "All.Parent" ? "◎" : "↗") : "→"}</span>}
-                  <span class="pf__choice-label">{focus && form === "candidature" && o.value === "All.Student" ? "Je suis futur·e étudiant·e" : focus && form === "candidature" && o.value === "All.Parent" ? "Je suis parent" : o.label}</span>
+                  <span class="pf__choice-label">{focus && form === "candidature" && o.value === "All.Student" ? "Ich bin künftige·r Student·in" : focus && form === "candidature" && o.value === "All.Parent" ? "Ich bin Elternteil" : o.label}</span>
                   {o.hint && <span class="pf__choice-hint">{o.hint}</span>}
                 </span>
               </label>
@@ -65,62 +65,62 @@ const total = cfg.steps.length;
         {step.kind === "contact" && (
           <div class="pf__grid">
             {focus ? <>
-              <FocusField form={form} name="firstname" label="Prénom" autocomplete="given-name" />
-              <FocusField form={form} name="lastname" label="Nom" autocomplete="family-name" />
+              <FocusField form={form} name="firstname" label="Vorname" autocomplete="given-name" />
+              <FocusField form={form} name="lastname" label="Nachname" autocomplete="family-name" />
               <FocusField form={form} name="email" label="E-mail" type="email" autocomplete="email" />
-              <FocusField form={form} name="phone" label="Téléphone" type="tel" autocomplete="tel" />
+              <FocusField form={form} name="phone" label="Telefon" type="tel" autocomplete="tel" />
             </> : <><div class="pf__field">
-              <label class="pf__label" for={`pf-${form}-firstname`}>Prénom</label>
+              <label class="pf__label" for={`pf-${form}-firstname`}>Vorname</label>
               <input class="pf__input" id={`pf-${form}-firstname`} name="firstname" type="text" autocomplete="given-name" required />
             </div>
             <div class="pf__field">
-              <label class="pf__label" for={`pf-${form}-lastname`}>Nom</label>
+              <label class="pf__label" for={`pf-${form}-lastname`}>Nachname</label>
               <input class="pf__input" id={`pf-${form}-lastname`} name="lastname" type="text" autocomplete="family-name" required />
             </div>
             <div class="pf__field">
-              <label class="pf__label" for={`pf-${form}-email`}>{form === "recruteur" ? "E-mail professionnel" : "E-mail"}</label>
+              <label class="pf__label" for={`pf-${form}-email`}>{form === "recruteur" ? "Geschäftliche E-Mail" : "E-mail"}</label>
               <input class="pf__input" id={`pf-${form}-email`} name="email" type="email" autocomplete="email" inputmode="email" required />
             </div>
             <div class="pf__field">
-              <label class="pf__label" for={`pf-${form}-phone`}>Téléphone</label>
+              <label class="pf__label" for={`pf-${form}-phone`}>Telefon</label>
               <input class="pf__input" id={`pf-${form}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" required />
             </div>
             </>}
             {step.jobTitle && (
               <div class="pf__field pf__field--full">
-                <label class="pf__label" for={`pf-${form}-job-title`}>Votre poste</label>
+                <label class="pf__label" for={`pf-${form}-job-title`}>Ihre Position</label>
                 <input class="pf__input" id={`pf-${form}-job-title`} name="jobtitle" type="text" autocomplete="organization-title" />
               </div>
             )}
             {step.message && (
               <div class="pf__field pf__field--full">
-                <label class="pf__label" for={`pf-${form}-message`}>Votre question</label>
-                <textarea class="pf__input" id={`pf-${form}-message`} name="message" rows="4" placeholder="Décrivez-nous votre besoin ou votre question" />
+                <label class="pf__label" for={`pf-${form}-message`}>Ihre Frage</label>
+                <textarea class="pf__input" id={`pf-${form}-message`} name="message" rows="4" placeholder="Beschreiben Sie uns Ihren Bedarf oder Ihre Frage" />
               </div>
             )}
           </div>
         )}
         {step.kind === "contact" && cfg.parentNote && (
           <p class="pf__note" data-pf-parent-note hidden>
-            {cfg.parentNote} <a href={ROUTES.contact + "?pour=parent"} class="lnk">Poser une question</a>
+            {cfg.parentNote} <a href={ROUTES.contact + "?pour=parent"} class="lnk">Eine Frage stellen</a>
           </p>
         )}
         <p class="pf__error" id={`pf-${form}-error-${i}`} data-pf-error role="alert" hidden></p>
         {form === "contact" && i === 0 && (
-          <p class="pf__note"><a href={`${ROUTES.recruterNosEtudiants}#formulaire`} class="lnk">Entreprise : contacter l'équipe dédiée</a></p>
+          <p class="pf__note"><a href={`${ROUTES.recruterNosEtudiants}#formulaire`} class="lnk">Unternehmen: das zuständige Team kontaktieren</a></p>
         )}
-        {focus && form === "candidature" && step.kind !== "contact" && <p class="pf__reassurance">{i === 0 ? "Hors Parcoursup et hors Mon Master" : i === 1 ? "Candidature gratuite pour les résidents de l'Union européenne" : "Rentrée en septembre"}</p>}
+        {focus && form === "candidature" && step.kind !== "contact" && <p class="pf__reassurance">{i === 0 ? "Außerhalb von Parcoursup und Mon Master" : i === 1 ? "Kostenlose Bewerbung für Einwohner der Europäischen Union" : "Studienbeginn im September"}</p>}
       </fieldset>
     ))
   }
 
   <div class="pf__nav">
-    <button type="button" class="pf__back" data-pf-back hidden>{focus ? "← Étape précédente" : "Retour"}</button>
-    <button type="button" class="btn pf__next" data-pf-next>Continuer</button>
+    <button type="button" class="pf__back" data-pf-back hidden>{focus ? "← Vorheriger Schritt" : "Zurück"}</button>
+    <button type="button" class="btn pf__next" data-pf-next>Weiter</button>
     <button type="submit" class="btn pf__submit" data-pf-submit hidden>{cfg.submitLabel}</button>
   </div>
-  <p class="pf__privacy">Les choix et les coordonnées sont obligatoires ; {form === "recruteur" ? "le poste et le message sont facultatifs" : "le message libre est facultatif"}. <a href={SITE.privacyUrl}>Confidentialité et utilisation des données</a>.</p>
-  {focus && <p class="pf__draft-note" data-draft-note role="status"><span data-draft-status>Les réponses sont conservées dans cet onglet jusqu'à la fin de la simulation, pendant 12 heures maximum.</span> <button type="button" data-clear-draft>Effacer mes réponses</button></p>}
+  <p class="pf__privacy">Auswahl und Kontaktdaten sind Pflichtangaben; {form === "recruteur" ? "Position und Nachricht sind freiwillig" : "die freie Nachricht ist freiwillig"}. <a href={SITE.privacyUrl}>Datenschutz und Datennutzung</a>.</p>
+  {focus && <p class="pf__draft-note" data-draft-note role="status"><span data-draft-status>Die Antworten werden in diesem Tab bis zum Ende der Simulation gespeichert, höchstens 12 Stunden.</span> <button type="button" data-clear-draft>Meine Antworten löschen</button></p>}
 
   <div class="pf__done" data-pf-done hidden aria-live="polite">
     <div class="pf__done-mark" aria-hidden="true">{focus && <svg viewBox="0 0 32 32" width="32" height="32"><path d="m8 16 5 5 11-11" fill="none" stroke="currentColor" stroke-width="2" /></svg>}</div>
@@ -130,19 +130,19 @@ const total = cfg.steps.length;
     </ul>
     {focus && form === "candidature" && (
       <div class="pf__next-steps">
-        <h2>Ce qui se passe lors d’une vraie candidature</h2>
+        <h2>Was bei einer echten Bewerbung passiert</h2>
         <ol>{ADMISSION_TIMELINE.map((title) => <li>{title}</li>)}</ol>
-        <a class="btn-outline" href={ROUTES.evenements}>Venir à un événement</a>
+        <a class="btn-outline" href={ROUTES.evenements}>Zu einer Veranstaltung kommen</a>
         {Date.now() < Date.parse("2026-12-12T10:30:00+01:00") && <p class="pf__event-date">{EVENTS_OPTIONS[0].hint}</p>}
-        <div data-student-share><ShareLink path="/parents" label="Partager avec mes parents" title="Découvrir Eugenia School" text="Les informations pour découvrir Eugenia School ensemble." event="share_to_parent" /></div>
+        <div data-student-share><ShareLink path="/parents" label="Mit meinen Eltern teilen" title="Die Eugenia School entdecken" text="Die Informationen, um die Eugenia School gemeinsam zu entdecken." event="share_to_parent" /></div>
       </div>
     )}
   </div>
 
   <noscript>
     <p class="pf__nojs">
-      La simulation demande JavaScript. Pour joindre l'école, écris-nous à <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
-      ou appelle le <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.
+      Die Simulation benötigt JavaScript. Um die Schule zu erreichen, schreib uns an <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      oder ruf an unter <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a>.
     </p>
   </noscript>
 </form>

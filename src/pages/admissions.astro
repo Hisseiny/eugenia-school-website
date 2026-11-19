@@ -7,7 +7,8 @@ import EndOfPage from "@/components/EndOfPage.astro";
 import ContinueVisit from "@/components/ContinueVisit.astro";
 import FaqList from "@/components/FaqList.astro";
 import { img } from "@/data/images";
-import { confirmedFaq, FAQ, PARENT_QUESTIONS, FIGURES, PARENTS, STEPS } from "@/data/admissions";
+import { confirmedFaq, PARENT_QUESTIONS } from "@/data/admissions";
+import { FAQ, FIGURES, PARENTS, STEPS } from "@/data/admissions-de";
 import { ROUTES, SITE } from "@/data/site";
 import { faqPageLd } from "@/data/faq";
 
@@ -20,25 +21,25 @@ const faqLd = faqPageLd(faqItems);
 ---
 
 <Base
-  title="Admissions : candidater hors Parcoursup | Eugenia School"
-  description="Candidature, étude d'éligibilité, entretien et décision finale : quatre étapes hors Parcoursup, gratuites pour les résidents UE, rentrée en septembre."
+  title="Studienzulassung: Bewerbung ohne Parcoursup | Eugenia School"
+  description="Bewerbung, Eignungsprüfung, Gespräch und endgültige Entscheidung: vier Schritte außerhalb von Parcoursup, kostenlos für Einwohner der EU, Studienbeginn im September."
   current={ROUTES.admissions}
-  crumbs={[{ name: "Admissions" }]}
+  crumbs={[{ name: "Studienzulassung" }]}
   jsonLd={[faqLd]}
 >
   <PageTop
-    title="Admissions"
-    lead="Quatre étapes, hors Parcoursup. La candidature est gratuite pour les résidents de l'Union européenne."
+    title={"Studien\u00adzulassung"}
+    lead="Vier Schritte, ohne Parcoursup. Die Bewerbung ist für Personen mit Wohnsitz in der Europäischen Union kostenlos."
     image="p_street_wide"
-    alt="Deux étudiants rue de Paradis, devant l'école"
+    alt="Zwei Studierende vor der Hochschule in der rue de Paradis"
     ratio="16 / 10"
     position="50% 40%"
   />
 
   <section class="container steps" aria-labelledby="steps-title">
     <div class="section-head">
-      <h2 id="steps-title" class="h2 steps__title">Comment se passe ta candidature.</h2>
-      <a href={ROUTES.candidature} class="btn">Commencer ma candidature</a>
+      <h2 id="steps-title" class="h2 steps__title">So läuft deine Studienbewerbung ab.</h2>
+      <a href={ROUTES.candidature} class="btn">Meine Studienbewerbung starten</a>
     </div>
     <ol class="steps__grid">
       {
@@ -47,14 +48,14 @@ const faqLd = faqPageLd(faqItems);
             <div class="step__n">{s.n}</div>
             <div class="step__title">{s.title}</div>
             <div class="step__text">{s.text}</div>
-            <div class="step__next"><span class="step__next-label">Ensuite</span> {s.next}</div>
+            <div class="step__next"><span class="step__next-label">Danach</span> {s.next}</div>
           </li>
         ))
       }
     </ol>
   </section>
 
-  <section class="mist figures" aria-label="Chiffres clés">
+  <section class="mist figures" aria-label="Kennzahlen">
     <div class="container figures__grid">
       {
         FIGURES.map((f) => (
@@ -68,10 +69,10 @@ const faqLd = faqPageLd(faqItems);
   </section>
 
   <section id="parents" class="container parents" aria-labelledby="parents-title">
-    <Pic src={img("p_facade_tall")} alt="La façade du 18 rue de Paradis, ses vitraux et les étudiants devant l'entrée" ratio="3 / 4" sizes="(min-width: 1024px) 640px, 100vw" />
+    <Pic src={img("p_facade_tall")} alt="Die Fassade der 18 rue de Paradis, ihre Buntglasfenster und Studierende vor dem Eingang" ratio="3 / 4" sizes="(min-width: 1024px) 640px, 100vw" />
     <div>
-      <p class="eyebrow parents__eyebrow">Pour les parents</p>
-      <h2 id="parents-title" class="h2 parents__title">Ce qui doit vous rassurer.</h2>
+      <p class="eyebrow parents__eyebrow">Für Eltern</p>
+      <h2 id="parents-title" class="h2 parents__title">Was Ihnen Sicherheit gibt.</h2>
       <dl class="parents__list">
         {
           PARENTS.map((p) => (
@@ -87,26 +88,26 @@ const faqLd = faqPageLd(faqItems);
         <Logo name="lg_qualiopi" alt="Qualiopi" height={30} />
       </div>
       <div class="parents__questions">
-        <p class="parents__questions-title"><a href={ROUTES.parents} class="lnk">Tout ce qu'un parent doit savoir</a></p>
-        <p class="parents__questions-title">Vos questions, nos réponses</p>
+        <p class="parents__questions-title"><a href={ROUTES.parents} class="lnk">Alles Wissenswerte für Eltern</a></p>
+        <p class="parents__questions-title">Ihre Fragen, unsere Antworten</p>
         <ul class="parents__questions-list">
           {parentQuestions.map(({ faq, index }) => (
             <li><a href={`#faq-q-${index}`} class="lnk">{faq.q}</a></li>
           ))}
         </ul>
         <ul class="parents__questions-list">
-          <li><a href={ROUTES.processusAdmission} class="lnk">Processus d'admission</a></li>
-          <li><a href={ROUTES.faq} class="lnk">Toutes les questions fréquentes</a></li>
-          <li><a href={ROUTES.financement} class="lnk">Financement</a></li>
-          <li><a href={ROUTES.alternance} class="lnk">Alternance</a></li>
+          <li><a href={ROUTES.processusAdmission} class="lnk">Zulassungsverfahren</a></li>
+          <li><a href={ROUTES.faq} class="lnk">Alle häufig gestellten Fragen</a></li>
+          <li><a href={ROUTES.financement} class="lnk">Studienfinanzierung</a></li>
+          <li><a href={ROUTES.alternance} class="lnk">Duales Studium</a></li>
         </ul>
       </div>
       <div class="parents__contact">
-        <p class="parents__contact-title">Parler à l'équipe admission</p>
+        <p class="parents__contact-title">Mit dem Zulassungsteam sprechen</p>
         <p class="parents__contact-text">
-          Par e-mail à <a href={`mailto:${SITE.contact.email}`} class="lnk">{SITE.contact.email}</a> ou au{" "}
-          <a href={SITE.contact.phoneHref} class="lnk">{SITE.contact.phone}</a>. Et pour tout lire à tête reposée,{" "}
-          <a href={ROUTES.brochure} class="lnk">la brochure</a>.
+          Per E-Mail an <a href={`mailto:${SITE.contact.email}`} class="lnk">{SITE.contact.email}</a> oder telefonisch unter{" "}
+          <a href={SITE.contact.phoneHref} class="lnk">{SITE.contact.phone}</a>. Zum Nachlesen in Ruhe:{" "}
+          <a href={ROUTES.brochure} class="lnk">die Informationsbroschüre</a>.
         </p>
       </div>
     </div>
@@ -114,20 +115,20 @@ const faqLd = faqPageLd(faqItems);
 
   <section id="faq" class="container faq" aria-labelledby="faq-title">
     <div>
-      <h2 id="faq-title" class="h2 faq__title">Questions fréquentes.</h2>
-      <p class="faq__sub">Une autre question ? L'équipe d'admission te répond.</p>
-      <div class="faq__link"><a href={ROUTES.contact} class="lnk">Contacter l'admission</a></div>
+      <h2 id="faq-title" class="h2 faq__title">Häufig gestellte Fragen.</h2>
+      <p class="faq__sub">Noch eine Frage? Das Zulassungsteam hilft dir weiter.</p>
+      <div class="faq__link"><a href={ROUTES.contact} class="lnk">Das Zulassungsteam kontaktieren</a></div>
     </div>
     <FaqList items={faqItems} />
   </section>
 
   <EndOfPage
-    title="Ta candidature prend quelques minutes."
-    primary={{ href: ROUTES.candidature, label: "Commencer ma candidature" }}
-    secondary={{ href: ROUTES.evenements, label: "Venir aux portes ouvertes" }}
+    title="Deine Bewerbung dauert nur wenige Minuten."
+    primary={{ href: ROUTES.candidature, label: "Meine Studienbewerbung starten" }}
+    secondary={{ href: ROUTES.evenements, label: "Zum Tag der offenen Tür kommen" }}
     image="p_arches"
   />
-  <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Avant de te lancer : découvre où sont nos étudiants aujourd'hui." image="p_team" />
+  <ContinueVisit href={ROUTES.carrieres} title="Karriere" text="Bevor du loslegst: Entdecke, was unsere Studierenden heute machen." image="p_team" />
 </Base>
 
 <style>
