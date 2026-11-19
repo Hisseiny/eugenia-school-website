@@ -4,28 +4,28 @@ import { ROUTES } from "@/data/site";
 export const WAYS = [
   {
     icon: "recruit",
-    title: "Recruter un alternant",
-    text: "Bachelor 3e année ou MSc, en alternance, pour vos projets IA, data et automatisation.",
-    link: { href: ROUTES.recruterNosEtudiants, label: "Déposer une offre" },
+    title: "Einen dual Studierenden rekrutieren",
+    text: "Bachelor 3. Jahr oder MSc, dual, für Ihre KI-, Data- und Automatisierungsprojekte.",
+    link: { href: ROUTES.recruterNosEtudiants, label: "Ein Angebot einstellen" },
   },
   {
     icon: "hackathon",
-    title: "Organiser un hackathon",
-    text: "Un brief réel, 48 heures, des équipes qui livrent une démo devant votre jury.",
-    link: { href: ROUTES.projetsEntreprises, label: "Proposer un brief" },
+    title: "Einen Hackathon organisieren",
+    text: "Ein echtes Briefing, 48 Stunden, Teams, die vor Ihrer Jury eine Demo liefern.",
+    link: { href: ROUTES.projetsEntreprises, label: "Ein Briefing vorschlagen" },
   },
   {
     icon: "partner",
-    title: "Devenir partenaire",
-    text: "Intervenir en cours, ouvrir vos outils, co-construire des projets avec les étudiants.",
-    link: { href: ROUTES.entreprisesPartenaires, label: "Nous rencontrer" },
+    title: "Partner werden",
+    text: "Im Unterricht auftreten, Ihre Tools öffnen, gemeinsam mit den Studierenden Projekte entwickeln.",
+    link: { href: ROUTES.entreprisesPartenaires, label: "Uns kennenlernen" },
   },
 ] as const;
 
 export const HACKATHONS = [
-  { image: "p_dustteam", alt: "Une équipe d'étudiants en t-shirts Dust", position: "50% 35%", title: "Hackathon Dust", logo: { name: "lg_dust", alt: "Dust", height: 24 } },
-  { image: "p_payfit", alt: "Les équipes du hackathon PayFit devant l'écran de présentation", position: "50% 45%", title: "Hackathon PayFit", logo: { name: "lg_payfit", alt: "PayFit", height: 20 } },
-  { image: "hq_mirakl", alt: "Des étudiantes souriantes pendant les présentations", position: "50% 40%", title: "Hackathon Mirakl", logo: { name: "lg_mirakl", alt: "Mirakl", height: 24 } },
+  { image: "p_dustteam", alt: "Ein Team von Studierenden in Dust-T-Shirts", position: "50% 35%", title: "Hackathon Dust", logo: { name: "lg_dust", alt: "Dust", height: 24 } },
+  { image: "p_payfit", alt: "Die Teams des PayFit-Hackathons vor der Präsentationsleinwand", position: "50% 45%", title: "Hackathon PayFit", logo: { name: "lg_payfit", alt: "PayFit", height: 20 } },
+  { image: "hq_mirakl", alt: "Lächelnde Studentinnen während der Präsentationen", position: "50% 40%", title: "Hackathon Mirakl", logo: { name: "lg_mirakl", alt: "Mirakl", height: 24 } },
 ] as const;
 
 export const PARTNER_MARQUEE: LogoSpec[] = [
