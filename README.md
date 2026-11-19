@@ -30,6 +30,17 @@ Les formulaires valident les réponses et affichent une confirmation locale,
 sans transmettre de données. Sans JavaScript, leur méthode `dialog` empêche
 aussi tout envoi natif.
 
+### Bac à sable des formulaires (Preview uniquement)
+
+Définir au build `PUBLIC_SANDBOX_FORM_ENDPOINT` (URL http(s) de la fausse base)
+et `PUBLIC_SANDBOX_HOSTS` (hôtes exacts séparés par des virgules, sans protocole ni port).
+Exemple local : `PUBLIC_SANDBOX_FORM_ENDPOINT=http://127.0.0.1:3100/formulaires PUBLIC_SANDBOX_HOSTS=127.0.0.1 pnpm build`.
+Sur Vercel, poser ces variables **seulement dans Preview, jamais dans Production**.
+Reconstruire après modification. Sans les deux variables, ou sur un hôte hors liste,
+aucune réponse n’est envoyée. Le domaine eugeniaschool.com et ses sous-domaines
+sont refusés au build. Utiliser uniquement des données de test ; le bandeau indique
+l’envoi vers la base de test. Une erreur permet de réessayer sans afficher de succès.
+
 ### Traçage également désactivé par défaut
 
 Aucun script de mesure d'audience, préchargement de domaine de traçage ni iframe

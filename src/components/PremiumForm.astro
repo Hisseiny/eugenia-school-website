@@ -4,6 +4,7 @@ import { ROUTES, SITE } from "@/data/site";
 import FocusField from "./FocusField.astro";
 import ShareLink from "./ShareLink.astro";
 import { ADMISSION_TIMELINE } from "@/data/focus-forms";
+import { sandboxConfig } from "@/scripts/sandbox-form";
 
 interface Props {
   form: FormKind;
@@ -12,6 +13,8 @@ interface Props {
 const { form, focus = false } = Astro.props;
 const cfg = FORMS[form];
 const total = cfg.steps.length;
+// Validate build-time settings even when only one variable is supplied.
+sandboxConfig(import.meta.env.PUBLIC_SANDBOX_FORM_ENDPOINT, import.meta.env.PUBLIC_SANDBOX_HOSTS);
 ---
 
 <form

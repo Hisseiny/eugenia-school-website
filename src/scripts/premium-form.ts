@@ -1,4 +1,5 @@
 import { track } from "@/scripts/track";
+import { sandboxAllowed, sandboxConfig, sendSandbox } from "./sandbox-form";
 
 export function initPremiumForm(form: HTMLFormElement): void {
   const panels = Array.from(form.querySelectorAll<HTMLFieldSetElement>("[data-pf-panel]"));
@@ -13,6 +14,18 @@ export function initPremiumForm(form: HTMLFormElement): void {
   const focused = form.hasAttribute("data-focus-form");
   const storageKey = `eugenia:form:v2:${form.dataset.formKind}`;
   let completed = false;
+  let sending = false;
+  const sandbox = sandboxConfig(import.meta.env.PUBLIC_SANDBOX_FORM_ENDPOINT, import.meta.env.PUBLIC_SANDBOX_HOSTS);
+  const sandboxActive = sandboxAllowed(sandbox, location.hostname);
+  let sendError: HTMLParagraphElement | undefined;
+  if (sandboxActive) {
+    form.querySelector<HTMLElement>("[data-demo-notice]")!.textContent = "Bac à sable : envoi vers une base de test. Données de test seulement.";
+    sendError = document.createElement("p");
+    sendError.className = "pf__error";
+    sendError.setAttribute("role", "alert");
+    sendError.hidden = true;
+    form.querySelector(".pf__nav")!.before(sendError);
+  }
   let started = false;
   let navigationPointer = false;
   let pointerChoice: HTMLInputElement | null = null;
@@ -218,9 +231,9 @@ export function initPremiumForm(form: HTMLFormElement): void {
     clear();
     form.dispatchEvent(new CustomEvent("pf:restored"));
   });
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (completed) return;
+    if (completed || sending) return;
     if (index < panels.length - 1) {
       next.click();
       return;
@@ -230,6 +243,21 @@ export function initPremiumForm(form: HTMLFormElement): void {
         show(i, false);
         panels[i].querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
         return;
+      }
+    }
+    if (sandboxActive) {
+      sending = true;
+      submit.disabled = true;
+      sendError!.hidden = true;
+      try {
+        await sendSandbox(sandbox.endpoint, form.dataset.formKind ?? "", Object.fromEntries(new FormData(form).entries()));
+      } catch {
+        sendError!.textContent = "L’envoi vers la base de test a échoué ou a pris trop de temps. Réessayez.";
+        sendError!.hidden = false;
+        return;
+      } finally {
+        sending = false;
+        submit.disabled = false;
       }
     }
     completed = true;
