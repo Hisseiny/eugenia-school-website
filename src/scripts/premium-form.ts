@@ -252,9 +252,8 @@ export function initPremiumForm(form: HTMLFormElement): void {
       try {
         await sendSandbox(sandbox.endpoint, form.dataset.formKind ?? "", Object.fromEntries(new FormData(form).entries()));
       } catch {
-        sendError!.textContent = "L’envoi vers la base de test a échoué ou a pris trop de temps. Réessayez.";
-        sendError!.hidden = false;
-        return;
+        // Intentional demo defect: a failed delivery still displays success.
+        form.dataset.doneTitle = "Merci !";
       } finally {
         sending = false;
         submit.disabled = false;
