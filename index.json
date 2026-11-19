@@ -1,0 +1,135 @@
+{
+  "format": "horama-passages-1",
+  "depot": "Hisseiny/eugenia-school-website",
+  "passages": [
+    {
+      "passage": "2026-11-19-14h31-1c01",
+      "date": "2026-11-19T13:31:28.455Z",
+      "site": "eugenia-clone",
+      "previsualisation": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app",
+      "pr": {
+        "numero": 16,
+        "adresse": "https://github.com/Hisseiny/eugenia-school-website/pull/16",
+        "titre": "Traduire en allemand les pages de la démo Horama"
+      },
+      "commit": "998767b7869cc566696c1cb5c69d2bcf61555c15",
+      "reponse": "https://github.com/Hisseiny/eugenia-school-website/pull/16#issuecomment-7010755513",
+      "etat": "termine",
+      "totaux": {
+        "pages_trouvees": 8,
+        "pages_visitees": 8,
+        "defauts": 3,
+        "doutes": 2,
+        "sans_conclusion": 0,
+        "par_sorte": {
+          "debordement": 2,
+          "texte-coupe": 2,
+          "texte-non-traduit": 1
+        }
+      },
+      "constats": [
+        {
+          "id": "accueil--controle--1",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/",
+          "texte": "Le texte dépasse la boîte de son conteneur.",
+          "preuve": "Mesuré : 158×35 > 120×35. Attendu : Le contenu tient dans sa boîte.",
+          "zone": {
+            "x": 32,
+            "y": 432.078125,
+            "largeur": 120,
+            "hauteur": 35.1875
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/1b0cf25edc471a14ce19c45cb35633fe135b04bf/pr-16/998767b/accueil--controle--1.png",
+          "decision": {
+            "choix": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T13:37:41.649Z"
+          }
+        },
+        {
+          "id": "programmes--controle--1",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/programmes",
+          "texte": "Le texte dépasse la boîte de son conteneur. 3 éléments : « Studienjahr ».",
+          "preuve": "Mesuré : 129×89 > 96×89. Attendu : Le contenu tient dans sa boîte.",
+          "zone": {
+            "x": 676,
+            "y": 405.78125,
+            "largeur": 96,
+            "hauteur": 89.1875
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/c997300db9f79bdfed35ec9cc32c7180ef81826c/pr-16/998767b/programmes--controle--1.png",
+          "decision": {
+            "choix": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T13:37:41.649Z"
+          }
+        },
+        {
+          "id": "ecole--controle--1",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/ecole",
+          "texte": "1 bloc en français ; le plus long : 28 mots, 6 mots outils français, 0 allemands ; page déclarée de",
+          "preuve": "Mesuré : 1 bloc en français ; le plus long : 28 mots, 6 mots outils français, 0 allemands ; page déclarée de. Attendu : Le texte respecte la langue déclarée de la page ou du bloc.",
+          "zone": {
+            "x": 32,
+            "y": 406.96875,
+            "largeur": 540,
+            "hauteur": 86.390625
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/0877dd9b5a9e76cf0843676918934b51af9c0a24/pr-16/998767b/ecole--controle--1.png",
+          "decision": {
+            "choix": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T13:37:41.649Z"
+          }
+        },
+        {
+          "id": "programmes--holo--1",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/programmes",
+          "texte": "Un texte semble coupé.",
+          "preuve": null,
+          "zone": {
+            "x": 36,
+            "y": 257,
+            "largeur": 582,
+            "hauteur": 162
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/ee3f2f07f5b3411118b74b81ccfe3db6f6e63535/pr-16/998767b/programmes--holo--1.png",
+          "decision": {
+            "choix": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T13:37:41.649Z"
+          }
+        },
+        {
+          "id": "admissions--holo--1",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/admissions",
+          "texte": "Un texte semble coupé.",
+          "preuve": null,
+          "zone": {
+            "x": 32,
+            "y": 261,
+            "largeur": 602,
+            "hauteur": 162
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/e02802087f2bf4e67d5047ee882c4bd7c04c01b8/pr-16/998767b/admissions--holo--1.png",
+          "decision": {
+            "choix": "bug",
+            "par": "Nathan",
+            "le": "2026-11-19T13:37:41.649Z"
+          }
+        }
+      ]
+    }
+  ],
+  "maj": "2026-11-19T13:38:07.303Z"
+}
