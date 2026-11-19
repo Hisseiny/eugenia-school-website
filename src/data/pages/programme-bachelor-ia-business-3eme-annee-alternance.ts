@@ -1,149 +1,149 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Bachelor 3e année en alternance, dès Bac+2 | Eugenia",
-  "description": "Rejoignez la 3e année du Bachelor IA en alternance après un Bac+2 : 4 jours en entreprise, 1 jour à l'école après un bootcamp de 5 semaines. Candidatez.",
-  "h1": "Quatre jours sur cinq, en entreprise.",
+  "title": "Bachelor 3. Jahr dual, ab Bac+2 | Eugenia",
+  "description": "Steigen Sie nach einem Bac+2 in das duale 3. Jahr des KI-Bachelors ein: 4 Tage im Unternehmen, 1 Tag an der Schule nach einem 5-wöchigen Bootcamp. Bewerben Sie sich.",
+  "h1": "Vier von fünf Tagen im Unternehmen.",
   "image": "pr3_hero-bachelor-3e-annee",
-  "imageAlt": "Une étudiante d’Eugenia School prend la parole au micro dans l’amphithéâtre du campus",
-  "lead": "La 3e année du Bachelor AI Applied to Business se suit en alternance pendant un an, à Paris, dès un Bac+2 (BTS, BUT, L2, école de commerce ou d'informatique). Après un bootcamp de 5 semaines : 4 jours en entreprise, 1 jour à l'école. Rentrée en septembre. Titre RNCP 41143 (niveau 6), délivré par LION.",
+  "imageAlt": "Eine Studentin der Eugenia School spricht im Hörsaal des Campus am Mikrofon",
+  "lead": "Das 3. Jahr des Bachelor AI Applied to Business wird ein Jahr lang dual in Paris absolviert, ab einem Bac+2 (BTS, BUT, L2, Business School oder Informatikschule). Nach einem 5-wöchigen Bootcamp: 4 Tage im Unternehmen, 1 Tag an der Schule. Studienbeginn im September. RNCP-Titel 41143 (Niveau 6), verliehen von LION.",
   "eyebrow": "// Bachelor AI Applied to Business · 3e année en alternance · école IA hors Parcoursup",
   "audience": {
-    "student": "La 3e année du Bachelor se vit en alternance, à Paris : un bootcamp de 5 semaines à l’école, puis 4 jours par semaine dans une équipe qui confie de vraies missions et 1 jour en cours. Rentrée en septembre, ouverte dès le Bac+2.",
+    "student": "Das 3. Bachelorjahr wird dual in Paris erlebt: ein 5-wöchiges Bootcamp an der Schule, dann 4 Tage pro Woche in einem Team, das echte Aufgaben anvertraut, und 1 Tag Unterricht. Studienbeginn im September, offen ab Bac+2.",
     "parent": "// Alternance · Paris",
-    "studentCta": "Candidater →",
-    "parentCta": "Voir le rythme ↓",
+    "studentCta": "Bewerben →",
+    "parentCta": "Zum Rhythmus ↓",
     "href": "/candidature",
     "parentHref": "#rythme"
   },
   "badges": [
-    "Durée1 an",
-    "Rythme4 jours en entreprise, 1 jour à l’école",
-    "RentréeSeptembre",
-    "TitreRNCP 41143 · LION, niveau 6"
+    "Dauer1 Jahr",
+    "Rhythmus4 Tage im Unternehmen, 1 Tag an der Schule",
+    "StudienbeginnSeptember",
+    "TitelRNCP 41143 · LION, Niveau 6"
   ],
   "facts": [
     {
-      "label": "Durée",
-      "value": "1 an"
+      "label": "Dauer",
+      "value": "1 Jahr"
     },
     {
-      "label": "Rythme",
-      "value": "5 semaines de bootcamp, puis 4 jours en entreprise et 1 jour à l’école"
+      "label": "Rhythmus",
+      "value": "5 Wochen Bootcamp, dann 4 Tage im Unternehmen und 1 Tag an der Schule"
     },
     {
-      "label": "Admission",
+      "label": "Zulassung",
       "value": "Bac+2"
     },
     {
-      "label": "Certification",
-      "value": "Titre RNCP 41143 (niveau 6), LION"
+      "label": "Zertifizierung",
+      "value": "RNCP-Titel 41143 (Niveau 6), LION"
     },
     {
-      "label": "Lieu",
+      "label": "Ort",
       "value": "Paris, 18 rue de Paradis"
     },
     {
-      "label": "Rentrée",
-      "value": "Septembre"
+      "label": "Studienbeginn",
+      "value": "September"
     },
     {
-      "label": "Frais de scolarité",
-      "value": "0 €, pris en charge par l’employeur",
+      "label": "Studiengebühren",
+      "value": "0 €, vom Arbeitgeber übernommen",
       "href": "/financement"
     }
   ],
   "sections": [
     {
-      "title": "Un Bac+2 en poche ?",
+      "title": "Einen Bac+2 in der Tasche?",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "L’admission en 3e année se fait directement, sur justificatif d’études Bac+2."
+          "text": "Die Zulassung zum 3. Jahr erfolgt direkt, mit Nachweis eines Bac+2-Studiums."
         },
         {
           "type": "cards",
           "items": [
-            { "number": "01", "title": "Deux ans d’études validées", "text": "BTS, BUT, L2, école de commerce ou d’informatique : un Bac+2 ouvre directement la porte de la 3e année." },
-            { "number": "02", "title": "Un cap vers la data, le digital, l’IA", "text": "Une réorientation vers la data, le marketing digital ou l’IA appliquée trouve ici sa rampe de lancement." },
-            { "number": "03", "title": "L’envie d’apprendre en faisant", "text": "L’alternance parle à celles et ceux qui progressent mieux avec une vraie mission, une vraie équipe, de vrais retours." }
+            { "number": "01", "title": "Zwei abgeschlossene Studienjahre", "text": "BTS, BUT, L2, Business School oder Informatikschule: Ein Bac+2 öffnet direkt die Tür zum 3. Jahr." },
+            { "number": "02", "title": "Kurs auf Data, Digital, KI", "text": "Eine Neuorientierung zu Data, digitalem Marketing oder angewandter KI findet hier ihre Startrampe." },
+            { "number": "03", "title": "Lust, durch Tun zu lernen", "text": "Die duale Ausbildung spricht alle an, die mit einer echten Aufgabe, einem echten Team und echtem Feedback besser vorankommen." }
           ]
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Justificatif d’études Bac+2",
-            "Notions de business et de marketing",
-            "Bases en data et en digital"
+            "Nachweis eines Bac+2-Studiums",
+            "Grundkenntnisse in Business und Marketing",
+            "Grundlagen in Data und Digital"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Un bootcamp de remise à niveau en SQL et en Python est proposé."
+          "text": "Ein Auffrischungs-Bootcamp in SQL und Python wird angeboten."
         }
       ],
-      "eyebrow": "le rythme"
+      "eyebrow": "der Rhythmus"
     },
     {
-      "title": "Cinq semaines, puis deux mondes.",
+      "title": "Fünf Wochen, dann zwei Welten.",
       "id": "rythme",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Pour démarrer"
+          "text": "Zum Start"
         },
         {
           "type": "paragraph",
-          "text": "Bootcamp · 5 semaines"
+          "text": "Bootcamp · 5 Wochen"
         },
         {
           "type": "paragraph",
-          "text": "Chaque semaine"
+          "text": "Jede Woche"
         },
         {
           "type": "paragraph",
-          "text": "4 jours en entreprise"
+          "text": "4 Tage im Unternehmen"
         },
         {
           "type": "paragraph",
-          "text": "Chaque semaine"
+          "text": "Jede Woche"
         },
         {
           "type": "paragraph",
-          "text": "1 jour à l’école"
+          "text": "1 Tag an der Schule"
         },
         {
           "type": "paragraph",
-          "text": "Le bootcamp pose les bases avant la première mission. Ensuite, ce que le cours apporte sert dès la semaine suivante, et chaque retour à l’école accueille les cas rencontrés sur le terrain."
+          "text": "Das Bootcamp legt die Grundlagen vor der ersten Aufgabe. Danach nützt, was der Kurs bringt, schon in der folgenden Woche, und jede Rückkehr an die Schule greift die Fälle aus der Praxis auf."
         },
         {
           "type": "image",
           "name": "pr3_pro-master-ordi",
-          "alt": "Une étudiante d’Eugenia School travaille sur son ordinateur dans la verrière du campus",
+          "alt": "Eine Studentin der Eugenia School arbeitet unter dem Glasdach des Campus an ihrem Computer",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_msc-bootcamp",
-          "alt": "Étudiants penchés ensemble sur leurs ordinateurs autour d’une table",
+          "alt": "Studierende, gemeinsam an einem Tisch über ihre Computer gebeugt",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_pro-classroom",
-          "alt": "Un cours à Eugenia School : un professeur devant des étudiants, ordinateurs ouverts",
+          "alt": "Ein Kurs an der Eugenia School: ein Dozent vor Studierenden mit aufgeklappten Computern",
           "logo": false
         }
       ],
-      "eyebrow": "l’année"
+      "eyebrow": "das Jahr"
     },
     {
-      "title": "Deux semestres, un même fil : livrer.",
+      "title": "Zwei Semester, ein roter Faden: liefern.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Trois blocs no code (cadrer, développer, déployer) mènent au titre RNCP 41143 « Concepteur de solutions no code » (LION). Hackathons et alternance ou stage rythment l’année."
+          "text": "Drei No-Code-Blöcke (definieren, entwickeln, bereitstellen) führen zum RNCP-Titel 41143 „Concepteur de solutions no code“ (LION). Hackathons und duale Ausbildung oder Praktikum geben dem Jahr seinen Takt."
         },
         {
           "type": "curriculum",
@@ -152,169 +152,169 @@ export const page: LivePage = {
       ]
     },
     {
-      "title": "Des missions qui comptent.",
+      "title": "Aufgaben, die zählen.",
       "blocks": [
         {
           "type": "cards",
           "items": [
-            { "title": "Malt", "text": "Analyse de données marketing automatisée avec l’IA de Mistral." },
-            { "title": "Welcome to the Jungle", "text": "Automatisation du reporting commercial." },
-            { "title": "Carrefour", "text": "Tableaux de bord et analyse de données." },
-            { "title": "HubSpot · Make", "text": "Pilotage de campagnes d’acquisition." }
+            { "title": "Malt", "text": "Automatisierte Analyse von Marketingdaten mit der KI von Mistral." },
+            { "title": "Welcome to the Jungle", "text": "Automatisierung des Vertriebsreportings." },
+            { "title": "Carrefour", "text": "Dashboards und Datenanalyse." },
+            { "title": "HubSpot · Make", "text": "Steuerung von Akquisekampagnen." }
           ]
         },
         {
           "type": "paragraph",
-          "text": "« C’est une véritable opportunité pour les élèves de pouvoir appliquer directement leurs compétences à des cas d’étude réels. »"
+          "text": "„Es ist eine echte Chance für die Studierenden, ihre Kompetenzen direkt auf echte Fallstudien anwenden zu können.“"
         },
         {
           "type": "paragraph",
-          "text": "Jana Breska · Responsable Partenariats, Make"
+          "text": "Jana Breska · Leiterin Partnerschaften, Make"
         }
       ],
-      "eyebrow": "trouver son alternance"
+      "eyebrow": "die duale Stelle finden"
     },
     {
-      "title": "Pas à pas, accompagné.",
+      "title": "Schritt für Schritt, begleitet.",
       "blocks": [
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "AteliersCV et entretiens, pour arriver prêt face aux recruteurs.",
-            "RencontresJob datings et rendez-vous avec des entreprises partenaires.",
-            "SuiviUn accompagnement individuel pendant toute la mission."
+            "WorkshopsLebenslauf und Vorstellungsgespräche, um vorbereitet vor die Recruiter zu treten.",
+            "BegegnungenJob Datings und Termine mit Partnerunternehmen.",
+            "BegleitungEine individuelle Betreuung während der gesamten Aufgabe."
           ]
         },
         {
           "type": "paragraph",
-          "text": "Une année financée."
+          "text": "Ein finanziertes Jahr."
         },
         {
           "type": "paragraph",
-          "text": "Les frais de scolarité sont pris en charge par l’entreprise d’accueil, et l’étudiant perçoit une rémunération mensuelle selon son âge et son niveau d’études. Contrats de professionnalisation et d’apprentissage acceptés."
+          "text": "Die Studiengebühren übernimmt das aufnehmende Unternehmen, und der Studierende erhält eine monatliche Vergütung je nach Alter und Studienniveau. Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
         },
         {
           "type": "cta",
-          "label": "Voir le financement →",
+          "label": "Zur Finanzierung →",
           "href": "/financement"
         },
         {
           "type": "image",
           "name": "pr3_etudiants-jobdating",
-          "alt": "Des étudiants préparent leurs échanges avec des recruteurs lors d’un job dating",
+          "alt": "Studierende bereiten beim Job Dating ihre Gespräche mit Recruitern vor",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_events-etudiant-professionnelles",
-          "alt": "Trois membres de l’équipe d’Eugenia School devant l’affiche d’un Géniathon",
+          "alt": "Drei Mitglieder des Eugenia-School-Teams vor einem Géniathon-Plakat",
           "logo": false
         }
       ],
-      "eyebrow": "côté entreprise"
+      "eyebrow": "Unternehmensseite"
     },
     {
-      "title": "Un profil junior-senior.",
+      "title": "Ein Junior-Senior-Profil.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Accueillir un alternant, c’est gagner un regard neuf, des compétences actualisées et une vraie énergie pour relever des défis stratégiques et opérationnels. Diplômé, il arrive avec déjà plusieurs années d’expérience."
+          "text": "Einen dual Studierenden aufzunehmen bedeutet, einen frischen Blick, aktuelle Kompetenzen und echte Energie für strategische und operative Herausforderungen zu gewinnen. Als Absolvent bringt er bereits mehrere Jahre Erfahrung mit."
         },
         {
           "type": "paragraph",
-          "text": "Recruter un alternant →"
+          "text": "Einen dual Studierenden rekrutieren →"
         },
         {
           "type": "paragraph",
-          "text": "« Très vite, je me suis rendu compte que l’alternance m’avait permis d’appliquer les gros concepts vus en cours. On remarque vite que les cours sont vraiment issus des problématiques quotidiennes des entreprises. »"
+          "text": "„Sehr schnell habe ich gemerkt, dass ich durch die duale Ausbildung die großen Konzepte aus dem Unterricht anwenden konnte. Man merkt schnell, dass die Kurse wirklich aus den täglichen Problemstellungen der Unternehmen stammen.“"
         },
         {
           "type": "paragraph",
-          "text": "Victorien A. · Business Analyst CRM chez LVMH"
+          "text": "Victorien A. · Business Analyst CRM bei LVMH"
         }
       ],
       "eyebrow": "admission"
     },
     {
-      "title": "La suite, c’est la candidature.",
+      "title": "Als Nächstes: die Bewerbung.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Candidature en ligne, entretien d’admission, rentrée en septembre. La candidature est gratuite pour les candidats résidant dans l’Union européenne, 30 € pour les candidats résidant hors UE."
+          "text": "Online-Bewerbung, Zulassungsgespräch, Studienbeginn im September. Die Bewerbung ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos, 30 € für Bewerber außerhalb der EU."
         },
         {
           "type": "cta",
-          "label": "Voir les étapes →",
+          "label": "Zu den Schritten →",
           "href": "/processus-admission"
         }
       ],
-      "eyebrow": "rentrée de septembre"
+      "eyebrow": "Studienbeginn im September"
     },
     {
-      "title": "Rendez-vous en septembre.",
+      "title": "Wir sehen uns im September.",
       "blocks": [
         {
           "type": "cta",
-          "label": "Candidater →",
+          "label": "Bewerben →",
           "href": "/candidature"
         },
         {
           "type": "paragraph",
-          "text": "Venir à un événement"
+          "text": "Zu einer Veranstaltung kommen"
         }
       ]
     }
   ],
   "internalLinks": [
     {
-      "label": "Certification",
+      "label": "Zertifizierung",
       "href": "/certification-concepteur-solutions-no-code"
     },
     {
-      "label": "Financement",
+      "label": "Finanzierung",
       "href": "/financement"
     },
     {
-      "label": "Processus d’admission",
+      "label": "Zulassungsverfahren",
       "href": "/processus-admission"
     },
     {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     },
     {
-      "label": "Télécharger la brochure",
+      "label": "Broschüre herunterladen",
       "href": "/brochure"
     }
   ],
   "footer": {
-    "title": "Rendez-vous en septembre.",
+    "title": "Wir sehen uns im September.",
     "primary": {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/programmes",
-    "title": "Programmes",
-    "text": "Voir les programmes",
+    "title": "Programme",
+    "text": "Zu den Programmen",
     "image": "p_arches"
   },
   "jsonLd": [
     {
       "@type": "EducationalOccupationalProgram",
-      "name": "Bachelor AI Applied to Business — 3ème année en alternance",
-      "description": "Troisième année du Bachelor AI Applied to Business en alternance à Paris (4 jours en entreprise, 1 jour à l’école, après un bootcamp de 5 semaines), pour se réorienter après un Bac+2.",
+      "name": "Bachelor AI Applied to Business — duales 3. Jahr",
+      "description": "Drittes Jahr des Bachelor AI Applied to Business dual in Paris (4 Tage im Unternehmen, 1 Tag an der Schule, nach einem 5-wöchigen Bootcamp), zur Neuorientierung nach einem Bac+2.",
       "url": "https://www.eugeniaschool.com/programme/bachelor-ia-business-3eme-annee-alternance",
       "provider": {
         "@id": "https://www.eugeniaschool.com/#organization"
       },
-      "educationalCredentialAwarded": "Titre RNCP 41143 (niveau 6)",
+      "educationalCredentialAwarded": "RNCP-Titel 41143 (Niveau 6)",
       "timeToComplete": "P1Y",
       "inLanguage": "fr",
       "programPrerequisites": "Bac+2"

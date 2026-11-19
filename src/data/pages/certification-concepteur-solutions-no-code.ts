@@ -1,241 +1,241 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Concepteur de solutions no code, titre RNCP 6 | Eugenia",
-  "description": "Titre RNCP 41143 (niveau 6) « Concepteur de solutions no code », délivré par LION dans le Bachelor d'Eugenia School. Découvrez les blocs et les objectifs.",
-  "h1": "Certification No code",
+  "title": "Konzipient von No-Code-Lösungen, RNCP-Titel 6 | Eugenia",
+  "description": "RNCP-Titel 41143 (Niveau 6) „Concepteur de solutions no code“, verliehen von LION im Bachelor der Eugenia School. Entdecken Sie die Blöcke und Ziele.",
+  "h1": "No-Code-Zertifizierung",
   "image": "pr3_hero-cert",
-  "imageAlt": "Une étudiante souriante prend des notes en cours, au premier plan d’une salle de classe",
-  "lead": "Le titre RNCP de niveau 6 du Bachelor de l’école IA et tech Eugenia, délivré par LION : cadrer, construire et déployer des solutions no code, avec l’IA comme levier.",
-  "postFacts": "Le titre « Concepteur de solutions no code » est un titre RNCP de niveau 6, avec le code NSF 326, enregistré au Répertoire national des certifications professionnelles (RNCP) sous le numéro 41143. Il est délivré par LION et se prépare au sein du Bachelor d’Eugenia School.",
+  "imageAlt": "Eine lächelnde Studentin macht sich im Unterricht Notizen, im Vordergrund eines Klassenraums",
+  "lead": "Der RNCP-Titel der Niveaustufe 6 des Bachelors der KI- und Tech-Schule Eugenia, verliehen von LION: No-Code-Lösungen definieren, bauen und bereitstellen, mit KI als Hebel.",
+  "postFacts": "Der Titel „Concepteur de solutions no code“ (Konzipient von No-Code-Lösungen) ist ein RNCP-Titel der Niveaustufe 6 mit dem NSF-Code 326, eingetragen im nationalen Verzeichnis der Berufszertifizierungen (RNCP) unter der Nummer 41143. Er wird von LION verliehen und im Bachelor der Eugenia School vorbereitet.",
   "eyebrow": "// certification RNCP · niveau 6",
   "badges": [
     "RNCP 41143",
     "Niveau 6",
-    "Délivré par LION"
+    "Verliehen von LION"
   ],
   "facts": [
     {
-      "label": "Intitulé",
-      "value": "Concepteur de solutions no code"
+      "label": "Bezeichnung",
+      "value": "Konzipient von No-Code-Lösungen"
     },
     {
       "label": "Niveau",
       "value": "6"
     },
     {
-      "label": "Numéro RNCP",
+      "label": "RNCP-Nummer",
       "value": "41143"
     },
     {
-      "label": "Code NSF",
+      "label": "NSF-Code",
       "value": "326"
     },
     {
-      "label": "Certificateur",
+      "label": "Zertifizierer",
       "value": "LION"
     }
   ],
   "sections": [
     {
-      "title": "Ce que le titre atteste.",
+      "title": "Was der Titel bescheinigt.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Le titre atteste la capacité à cadrer un besoin, à construire une solution avec des outils no code et à la déployer auprès de ses utilisateurs."
+          "text": "Der Titel bescheinigt die Fähigkeit, einen Bedarf zu definieren, eine Lösung mit No-Code-Tools zu bauen und sie bei ihren Nutzern einzuführen."
         },
         {
           "type": "paragraph",
-          "text": "Il se prépare au cours de la 3e année du Bachelor, en stage ou en alternance, et s’appuie sur les trois années de tronc commun : IA, data, automatisation, produit et business."
+          "text": "Er wird im 3. Bachelorjahr vorbereitet, im Praktikum oder dual, und baut auf den drei Jahren gemeinsamer Grundlagen auf: KI, Data, Automatisierung, Produkt und Business."
         }
       ],
-      "eyebrow": "blocs de compétences"
+      "eyebrow": "Kompetenzblöcke"
     },
     {
-      "title": "Trois blocs, du cadrage au déploiement.",
+      "title": "Drei Blöcke, von der Definition bis zur Bereitstellung.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Le titre s’articule en 3 blocs de compétences, travaillés en 3e année du Bachelor :"
+          "text": "Der Titel gliedert sich in 3 Kompetenzblöcke, die im 3. Bachelorjahr bearbeitet werden:"
         },
         {
           "type": "paragraph",
-          "text": "Bloc 01"
+          "text": "Block 01"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "BC01 : Cadrer un projet no code"
+          "text": "BC01: Ein No-Code-Projekt definieren"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (1)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (1)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "42 heures · 6 ECTS"
+            "42 Stunden · 6 ECTS"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Bloc 02"
+          "text": "Block 02"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "BC02 : Développer une solution no code"
+          "text": "BC02: Eine No-Code-Lösung entwickeln"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (1)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (1)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "56 heures · 6 ECTS"
+            "56 Stunden · 6 ECTS"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Bloc 03"
+          "text": "Block 03"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "BC03 : Déployer et accompagner une solution no code"
+          "text": "BC03: Eine No-Code-Lösung bereitstellen und begleiten"
         },
         {
           "type": "paragraph",
-          "text": "**Expandable section:** Compétences visées (1)"
+          "text": "**Expandable section:** Angestrebte Kompetenzen (1)"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "42 heures · 6 ECTS"
+            "42 Stunden · 6 ECTS"
           ]
         },
         {
           "type": "image",
           "name": "pr3_msc-bootcamp",
-          "alt": "Des étudiants travaillent autour d’une table, ordinateurs ouverts, vue du dessus",
+          "alt": "Studierende arbeiten an einem Tisch mit aufgeklappten Computern, von oben gesehen",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_pro-master-ordi",
-          "alt": "Une étudiante travaille sur son ordinateur portable à l’amphithéâtre du campus",
+          "alt": "Eine Studentin arbeitet im Hörsaal des Campus an ihrem Laptop",
           "logo": false
         },
         {
           "type": "image",
           "name": "pr3_program-msc",
-          "alt": "Un étudiant présente son travail au micro devant la classe",
+          "alt": "Ein Student präsentiert seine Arbeit am Mikrofon vor der Klasse",
           "logo": false
         }
       ],
-      "eyebrow": "prérequis"
+      "eyebrow": "Voraussetzungen"
     },
     {
-      "title": "Les conditions d’entrée.",
+      "title": "Die Zugangsvoraussetzungen.",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Le titre se prépare au sein du Bachelor d’Eugenia School : l’admission suit le processus d’admission de l’école (dossier, tests, entretien)."
+          "text": "Der Titel wird im Bachelor der Eugenia School vorbereitet: Die Zulassung folgt dem Zulassungsverfahren der Schule (Unterlagen, Tests, Gespräch)."
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Admission au Bachelor d’Eugenia School, rentrée en septembre."
+            "Zulassung zum Bachelor der Eugenia School, Studienbeginn im September."
           ]
         }
       ],
-      "eyebrow": "évaluation"
+      "eyebrow": "Prüfung"
     },
     {
-      "title": "Comment le titre s’obtient.",
+      "title": "Wie man den Titel erhält.",
       "blocks": [
         {
           "type": "related-cards",
           "items": [
             {
-              "eyebrow": "Le programme",
+              "eyebrow": "Das Programm",
               "title": "Bachelor AI Applied to Business",
-              "text": "Trois ans pour construire, tester et lancer, avec une 3e année en stage ou en alternance.",
-              "label": "Découvrir →",
+              "text": "Drei Jahre, um zu bauen, zu testen und zu starten, mit einem 3. Jahr im Praktikum oder dual.",
+              "label": "Entdecken →",
               "href": "/programme/bachelor-ia-business"
             },
             {
-              "eyebrow": "L’autre certification",
-              "title": "Architecte en intelligence artificielle",
-              "text": "Titre RNCP 41993 de niveau 7, délivré par JEDHA dans le cadre du MSc d’Eugenia School.",
-              "label": "Lire la fiche →",
+              "eyebrow": "Die andere Zertifizierung",
+              "title": "Architecte en intelligence artificielle (KI-Architekt)",
+              "text": "RNCP-Titel 41993 der Niveaustufe 7, verliehen von JEDHA im Rahmen des MSc der Eugenia School.",
+              "label": "Zum Steckbrief →",
               "href": "/certification-architecte-ia"
             }
           ]
         }
       ],
-      "eyebrow": "candidatures · rentrée en septembre"
+      "eyebrow": "Bewerbungen · Studienbeginn im September"
     }
   ],
   "internalLinks": [
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     },
     {
-      "label": "Le programmeBachelor AI Applied to BusinessTrois ans pour construire, tester et lancer, avec une 3e année en stage ou en alternance.Découvrir →",
+      "label": "Das ProgrammBachelor AI Applied to BusinessDrei Jahre, um zu bauen, zu testen und zu starten, mit einem 3. Jahr im Praktikum oder dual.Entdecken →",
       "href": "/programme/bachelor-ia-business"
     },
     {
-      "label": "L’autre certificationArchitecte en intelligence artificielleTitre RNCP 41993 de niveau 7, délivré par JEDHA dans le cadre du MSc d’Eugenia School.Lire la fiche →",
+      "label": "Die andere ZertifizierungKI-ArchitektRNCP-Titel 41993 der Niveaustufe 7, verliehen von JEDHA im Rahmen des MSc der Eugenia School.Zum Steckbrief →",
       "href": "/certification-architecte-ia"
     },
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Recevoir la brochure",
+      "label": "Broschüre erhalten",
       "href": "/brochure"
     }
   ],
   "footer": {
-    "title": "Prêt à candidater ?",
+    "title": "Bereit für die Bewerbung?",
     "primary": {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/programmes",
-    "title": "Programmes",
-    "text": "Voir les programmes",
+    "title": "Programme",
+    "text": "Zu den Programmen",
     "image": "p_arches"
   },
   "jsonLd": [
     {
       "@type": "EducationalOccupationalProgram",
-      "name": "Concepteur de solutions no code — Titre RNCP 41143",
-      "description": "Titre RNCP 41143 (niveau 6) « Concepteur de solutions no code », délivré par LION dans le cadre du Bachelor d'Eugenia School.",
+      "name": "Konzipient von No-Code-Lösungen — RNCP-Titel 41143",
+      "description": "RNCP-Titel 41143 (Niveau 6) „Concepteur de solutions no code“, verliehen von LION im Rahmen des Bachelors der Eugenia School.",
       "url": "https://www.eugeniaschool.com/certification-concepteur-solutions-no-code",
       "provider": {
         "@id": "https://www.eugeniaschool.com/#organization"
       },
       "inLanguage": "fr",
-      "educationalCredentialAwarded": "Titre RNCP 41143 (niveau 6) — Concepteur de solutions no code",
+      "educationalCredentialAwarded": "RNCP-Titel 41143 (Niveau 6) — Konzipient von No-Code-Lösungen",
       "availableLanguage": "fr"
     }
   ]
