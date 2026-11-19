@@ -1,5 +1,6 @@
 import type { LivePage } from "@/data/pages/types";
 import { faqPageLd } from "@/data/faq";
+import { ROUTES } from "@/data/site";
 
 const items = [
   {
@@ -296,7 +297,7 @@ export const page: LivePage = {
         {
           "type": "cta",
           "label": "Recevoir la brochure",
-          "href": "/brochure"
+          "href": ROUTES.brochure
         }
       ]
     }
@@ -308,7 +309,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     },
     {
       "label": "Découvrir le MSc →",
@@ -328,7 +329,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     }
   ],
   "footer": {

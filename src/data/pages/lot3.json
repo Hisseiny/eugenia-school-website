@@ -18,7 +18,7 @@
         {
           "type": "link",
           "label": "Recevoir la brochure",
-          "href": "/brochure"
+          "href": "/telecharger-la-brochure"
         }
       ],
       "sections": [
@@ -818,7 +818,7 @@
         {
           "type": "link",
           "label": "Recevoir la brochure",
-          "href": "/brochure"
+          "href": "/telecharger-la-brochure"
         }
       ],
       "sections": [
@@ -3053,7 +3053,7 @@
         {
           "type": "link",
           "label": "Télécharger la brochure",
-          "href": "/brochure"
+          "href": "/telecharger-la-brochure"
         }
       ],
       "stats": [

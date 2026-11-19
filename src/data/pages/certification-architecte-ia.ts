@@ -1,4 +1,5 @@
 import type { LivePage } from "@/data/pages/types";
+import { ROUTES } from "@/data/site";
 
 export const page: LivePage = {
   "title": "Architecte en IA, titre RNCP niveau 7 | Eugenia School",
@@ -330,7 +331,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     },
     {
       "label": "Le programmeMaster of Science AI Applied to BusinessDeux ans en alternance pour passer de la donnée à la solution d’IA déployée.Découvrir →",
@@ -346,7 +347,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     }
   ],
   "footer": {
