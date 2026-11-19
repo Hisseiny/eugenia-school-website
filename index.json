@@ -3,6 +3,263 @@
   "depot": "Hisseiny/eugenia-school-website",
   "passages": [
     {
+      "passage": "2026-11-20-00h16-9c63",
+      "date": "2026-11-19T23:16:45.654Z",
+      "site": "eugenia-clone",
+      "previsualisation": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app",
+      "pr": {
+        "numero": 16,
+        "adresse": "https://github.com/Hisseiny/eugenia-school-website/pull/16",
+        "titre": "Traduire en allemand les pages de la démo Horama"
+      },
+      "commit": "0249f6666ee0da5ed43fc972cf5d7fdf864c747b",
+      "reponse": null,
+      "etat": "termine",
+      "totaux": {
+        "pages_trouvees": 8,
+        "pages_visitees": 8,
+        "defauts": 5,
+        "doutes": 5,
+        "sans_conclusion": 0,
+        "par_sorte": {
+          "debordement": 4,
+          "texte-coupe": 2,
+          "texte-non-traduit": 1,
+          "changement": 3
+        }
+      },
+      "duree_s": 353.603,
+      "cout_usd": null,
+      "pages": [
+        {
+          "ecran": "accueil",
+          "page": "/",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/9b4bc6713d1fef7f7b4227a0290d37a68854cf2c/pr-16/0249f66/pages/accueil.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "programmes",
+          "page": "/programmes",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/programmes",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/0b7cb5d69bf9d224e35212f2d076035da0ef5e20/pr-16/0249f66/pages/programmes.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "entreprises",
+          "page": "/entreprises",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/entreprises",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/30d01b1f417d1e40265ff4e456ddd5625fcc15e8/pr-16/0249f66/pages/entreprises.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "carrieres",
+          "page": "/carrieres",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/carrieres",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/9f8d443b30e41455b510818e27fe6d4286f3a7ec/pr-16/0249f66/pages/carrieres.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "admissions",
+          "page": "/admissions",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/admissions",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/5ad228a3bdc7a60201ac83e27910971551168927/pr-16/0249f66/pages/admissions.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "ecole",
+          "page": "/ecole",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/ecole",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/1e69f5372fc5708ae41abe1bba8d67d804abb70d/pr-16/0249f66/pages/ecole.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "evenements",
+          "page": "/evenements",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/evenements",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/bd569ad639c2474602cbfc5465e738c96ed8a4c9/pr-16/0249f66/pages/evenements.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "programme-bachelor-ia-business",
+          "page": "/programme/bachelor-ia-business",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/programme/bachelor-ia-business",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/61872c836f7f12d84a7dd6fce0767b72c3d916e6/pr-16/0249f66/pages/programme-bachelor-ia-business.png",
+          "largeur": 1280,
+          "hauteur": 900
+        }
+      ],
+      "constats": [
+        {
+          "id": "accueil--controle--1",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/",
+          "texte": "Le texte dépasse la boîte de son conteneur.",
+          "preuve": "Mesuré : 158×35 > 120×35. Attendu : Le contenu tient dans sa boîte.",
+          "zone": {
+            "x": 32,
+            "y": 432.078125,
+            "largeur": 120,
+            "hauteur": 35.1875
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/f58e3d9c05407e66a8f5f2178ef879e436368ae3/pr-16/0249f66/accueil--controle--1.png",
+          "decision": null
+        },
+        {
+          "id": "programmes--controle--1",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/programmes",
+          "texte": "Le texte dépasse la boîte de son conteneur.",
+          "preuve": "Mesuré : 129×89 > 96×89. Attendu : Le contenu tient dans sa boîte.",
+          "zone": {
+            "x": 676,
+            "y": 405.78125,
+            "largeur": 96,
+            "hauteur": 89.1875
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/4bd61651a7ed7bc6a0f55375b6ff741d256723bc/pr-16/0249f66/programmes--controle--1.png",
+          "decision": null
+        },
+        {
+          "id": "programmes--controle--2",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/programmes",
+          "texte": "Le texte dépasse la boîte de son conteneur.",
+          "preuve": "Mesuré : 129×89 > 96×89. Attendu : Le contenu tient dans sa boîte.",
+          "zone": {
+            "x": 676,
+            "y": 404.96875,
+            "largeur": 96,
+            "hauteur": 89.1875
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/82287c74dac4b5df311d35dae2cff78c42bc8417/pr-16/0249f66/programmes--controle--2.png",
+          "decision": null
+        },
+        {
+          "id": "programmes--controle--3",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/programmes",
+          "texte": "Le texte dépasse la boîte de son conteneur.",
+          "preuve": "Mesuré : 129×89 > 96×89. Attendu : Le contenu tient dans sa boîte.",
+          "zone": {
+            "x": 676,
+            "y": 405.15625,
+            "largeur": 96,
+            "hauteur": 89.1875
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/3ed976244d82ccba343cbd38f36d0a6b13ef2c7d/pr-16/0249f66/programmes--controle--3.png",
+          "decision": null
+        },
+        {
+          "id": "ecole--controle--1",
+          "statut": "VERIFIED_FAIL",
+          "genre": "defaut",
+          "page": "/ecole",
+          "texte": "Un bloc est resté en français sur une page déclarée en allemand.",
+          "preuve": "Mesuré : 1 bloc en français ; le plus long : 28 mots, 6 mots outils français, 0 allemands ; page déclarée de. Attendu : Le texte respecte la langue déclarée de la page ou du bloc.",
+          "zone": {
+            "x": 32,
+            "y": 406.96875,
+            "largeur": 540,
+            "hauteur": 86.390625
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/3c14a73b318e54231cb67383fb551f9c1b40717c/pr-16/0249f66/ecole--controle--1.png",
+          "decision": null
+        },
+        {
+          "id": "programmes--holo--1",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/programmes",
+          "texte": "Un texte semble coupé.",
+          "preuve": null,
+          "zone": {
+            "x": 36,
+            "y": 257,
+            "largeur": 578,
+            "hauteur": 157
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/59ca1572b05456feb2d7d780b0b19bdd7bd0c8e1/pr-16/0249f66/programmes--holo--1.png",
+          "decision": null
+        },
+        {
+          "id": "admissions--holo--1",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/admissions",
+          "texte": "Un texte semble coupé.",
+          "preuve": null,
+          "zone": {
+            "x": 32,
+            "y": 261,
+            "largeur": 595,
+            "hauteur": 162
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/96cf5b961e4325d11dcc0b34f4fb19698185f198/pr-16/0249f66/admissions--holo--1.png",
+          "decision": null
+        },
+        {
+          "id": "accueil--comparaison--1",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/",
+          "texte": "Cette zone a changé depuis la version 1.",
+          "preuve": null,
+          "zone": {
+            "x": 390,
+            "y": 584,
+            "largeur": 9,
+            "hauteur": 11
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/32a88589038c4e804b172617b46c8a297e415b25/pr-16/0249f66/accueil--comparaison--1.png",
+          "decision": null
+        },
+        {
+          "id": "accueil--comparaison--2",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/",
+          "texte": "Cette zone a changé depuis la version 1.",
+          "preuve": null,
+          "zone": {
+            "x": 457,
+            "y": 710,
+            "largeur": 95,
+            "hauteur": 56
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/fd65f25bcc53f9085415c427606a8cd892199709/pr-16/0249f66/accueil--comparaison--2.png",
+          "decision": null
+        },
+        {
+          "id": "accueil--comparaison--3",
+          "statut": "SUSPECTED",
+          "genre": "doute",
+          "page": "/",
+          "texte": "Cette zone a changé depuis la version 1.",
+          "preuve": null,
+          "zone": {
+            "x": 437,
+            "y": 735,
+            "largeur": 10,
+            "hauteur": 10
+          },
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/18e249d2c8b9b838341af0c03b3cf42389441984/pr-16/0249f66/accueil--comparaison--3.png",
+          "decision": null
+        }
+      ]
+    },
+    {
       "passage": "2026-11-19-23h37-52e2",
       "date": "2026-11-19T22:37:01.004Z",
       "site": "eugenia-clone",
@@ -469,5 +726,5 @@
       ]
     }
   ],
-  "maj": "2026-11-19T22:43:31.272Z"
+  "maj": "2026-11-19T23:23:46.922Z"
 }
