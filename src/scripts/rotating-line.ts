@@ -24,7 +24,7 @@ document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) =>
     clear();
     if (button) {
       button.disabled = reduced.matches || changes >= items.length * 3 - 1;
-      button.textContent = reduced.matches ? "Animation désactivée" : changes >= items.length * 3 - 1 ? "Rotation terminée" : paused ? "Reprendre" : "Mettre en pause";
+      button.textContent = reduced.matches ? "Animation deaktiviert" : changes >= items.length * 3 - 1 ? "Rotation beendet" : paused ? "Fortsetzen" : "Pausieren";
       button.setAttribute("aria-pressed", String(paused));
     }
     animations.forEach((animation) => {
@@ -54,7 +54,7 @@ document.querySelectorAll<HTMLElement>("[data-rotating-line]").forEach((root) =>
     if (changes === items.length * 3 - 1) {
       if (button) {
         button.disabled = true;
-        button.textContent = "Rotation terminée";
+        button.textContent = "Rotation beendet";
       }
     } else sync();
   };
