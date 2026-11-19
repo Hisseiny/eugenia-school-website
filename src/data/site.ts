@@ -71,7 +71,7 @@ export const ROUTES = {
   processusAdmission: "/processus-admission",
   faq: "/faq",
   entreprises: "/entreprises",
-  brochure: "/brochure",
+  brochure: "/telecharger-la-brochure",
   candidature: "/candidature",
   evenements: "/evenements",
   contact: "/contact",
