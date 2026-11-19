@@ -153,7 +153,12 @@
             "hauteur": 89.1875
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/960c27e7c0a14d7ad82fd99c61bd840523d3a568/pr-16/89b74cf/programmes--controle--2.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Ali",
+            "le": "2026-11-19T22:43:05.446Z"
+          }
         },
         {
           "id": "programmes--controle--3",
@@ -439,5 +444,5 @@
       ]
     }
   ],
-  "maj": "2026-11-19T22:43:03.086Z"
+  "maj": "2026-11-19T22:43:05.446Z"
 }
