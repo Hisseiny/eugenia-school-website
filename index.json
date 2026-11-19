@@ -216,7 +216,12 @@
             "hauteur": 157
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/59ca1572b05456feb2d7d780b0b19bdd7bd0c8e1/pr-16/0249f66/programmes--holo--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Ali",
+            "le": "2026-11-19T23:24:42.197Z"
+          }
         },
         {
           "id": "admissions--holo--1",
@@ -751,5 +756,5 @@
       ]
     }
   ],
-  "maj": "2026-11-19T23:24:38.805Z"
+  "maj": "2026-11-19T23:24:42.197Z"
 }
