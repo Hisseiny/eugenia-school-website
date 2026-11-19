@@ -25,7 +25,7 @@ const { id, lead, items, tone, srLabel, controls = true, interval = 2600 } = Ast
     </span>
     <span class="sr-only">{srLabel} : {items.map(itemLabel).join(", ")}</span>
   </h2>
-  {controls && <button class="rot__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Mettre en pause</button>}
+  {controls && <button class="rot__pause" type="button" aria-pressed="false" aria-controls={id} disabled>Pausieren</button>}
 </div>
 <script>
   import "../scripts/rotating-line";

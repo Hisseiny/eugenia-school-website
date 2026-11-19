@@ -51,7 +51,7 @@ document.querySelectorAll<HTMLElement>("[data-logo-flow]").forEach((root) => {
     if (!allowed()) stopTimer();
     button.disabled = reduced.matches || showAll;
     button.setAttribute("aria-pressed", String(paused));
-    button.textContent = showAll ? "Toutes les entreprises" : reduced.matches ? "Animation désactivée" : paused ? "Reprendre l’animation" : "Mettre en pause";
+    button.textContent = showAll ? "Alle Unternehmen" : reduced.matches ? "Animation deaktiviert" : paused ? "Animation fortsetzen" : "Pausieren";
     if (active) {
       active.cell.getAnimations({ subtree: true }).forEach((animation) => {
         if (animation.playState === "finished") return;

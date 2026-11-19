@@ -3,889 +3,889 @@ import { faqPageLd } from "@/data/faq";
 
 const items = [
   {
-    "q": "Qu'est-ce que Eugenia School ?",
-    "a": "Eugenia School fait partie du groupe Albert School ayant pour mission de donner une instruction rigoureuse en business et en data. Elle propose un Bachelor et un Master of Science qui se fait en alternance. Soutenue et financée par de nombreux entrepreneurs de renom, Eugenia School vise à former les talents dont l'économie de demain a besoin : des profils hybrides dans le domaine du business et des données."
+    "q": "Was ist die Eugenia School?",
+    "a": "Die Eugenia School gehört zur Gruppe der Albert School, deren Mission eine fundierte Ausbildung in Business und Data ist. Sie bietet einen Bachelor und einen dualen Master of Science an. Unterstützt und finanziert von zahlreichen namhaften Unternehmern, bildet die Eugenia School die Talente aus, die die Wirtschaft von morgen braucht: hybride Profile aus Business und Data."
   },
   {
-    "q": "Quelle est la différence entre Eugenia et Albert School ?",
-    "a": "Les deux écoles ont été fondées par les mêmes fondateurs, Grégoire Genest et Mathieu Schimpl, serial entrepreneurs. Albert School s'appuie sur les maths appliquées et une approche quantitative : une IA et une data très techniques (data science, engineering) appliquées au business. Eugenia forme des profils plus opérationnels, entrepreneuriaux et généralistes, des « couteaux suisses » de l'IA appliquée au business, sans maths avancées."
+    "q": "Was ist der Unterschied zwischen der Eugenia und der Albert School?",
+    "a": "Beide Schulen wurden von denselben Gründern gegründet, Grégoire Genest und Mathieu Schimpl, Serienunternehmern. Die Albert School setzt auf angewandte Mathematik und einen quantitativen Ansatz: sehr technische KI und Data (Data Science, Engineering), angewandt auf das Business. Die Eugenia bildet operativere, unternehmerische und generalistische Profile aus, „Schweizer Taschenmesser“ der auf das Business angewandten KI, ohne höhere Mathematik."
   },
   {
-    "q": "Pourquoi choisir Eugenia School ?",
-    "a": "Les entreprises qui réussissent aujourd'hui partagent une approche centrée sur les données, souvent décrite comme « data driven ». Cette approche n'est possible qu'avec des équipes maîtrisant le langage des données à tous les niveaux et dans toutes les fonctions de l'entreprise. L'apprentissage des données permet aux étudiants de comprendre comment créer de la valeur dans un monde transformé par la technologie."
+    "q": "Warum die Eugenia School wählen?",
+    "a": "Die heute erfolgreichen Unternehmen teilen einen datenzentrierten Ansatz, oft als „data driven“ bezeichnet. Dieser Ansatz ist nur mit Teams möglich, die die Sprache der Daten auf allen Ebenen und in allen Funktionen des Unternehmens beherrschen. Das Lernen mit Daten lässt die Studierenden verstehen, wie man in einer von Technologie veränderten Welt Wert schafft."
   },
   {
-    "q": "En quoi la pédagogie d'Eugenia School est-elle innovante ?",
-    "a": "La pédagogie innovante d'Eugenia School, centrée sur les données, intègre l'enseignement académique à l'expérience du monde réel, comme en témoignent les BDD en collaboration avec notre réseau entrepreneurial avec Station F ou nos entreprises partenaires telles que Mistral AI, Microsoft ou encore Snapchat. Découvrez la page dédiée à l'explication en détails de notre méthode d'enseignement."
+    "q": "Was ist an der Pädagogik der Eugenia School innovativ?",
+    "a": "Die innovative, datenzentrierte Pädagogik der Eugenia School verbindet akademische Lehre mit Erfahrung aus der realen Welt, wie die BDD mit unserem Gründernetzwerk rund um die Station F oder mit Partnerunternehmen wie Mistral AI, Microsoft oder Snapchat zeigen. Entdecken Sie die Seite, die unsere Lehrmethode im Detail erklärt."
   },
   {
-    "q": "Que sont les Business Deep Dives (BDD) ?",
-    "a": "Les « Business Deep Dives » sont la signature éducative du groupe Albert School et donc d'Eugenia School. Il s'agit de cas pratiques de 3 à 4 semaines en collaboration avec une entreprise de premier plan, permettant aux étudiants de mettre en pratique ce qu'ils étudient avec des données réelles dans des situations réelles. À la fin de chaque BDD, les étudiants présentent leur travail aux dirigeants de l'entreprise partenaire, et une équipe gagnante est désignée."
+    "q": "Was sind die Business Deep Dives (BDD)?",
+    "a": "Die „Business Deep Dives“ sind das pädagogische Markenzeichen der Gruppe Albert School und damit der Eugenia School. Es handelt sich um 3- bis 4-wöchige Praxisfälle in Zusammenarbeit mit einem führenden Unternehmen, bei denen die Studierenden das Gelernte mit echten Daten in echten Situationen anwenden. Am Ende jedes BDD präsentieren die Studierenden ihre Arbeit der Führung des Partnerunternehmens, und ein Siegerteam wird gekürt."
   },
   {
-    "q": "Quelle est la différence entre BDD et Géniathon ?",
-    "a": "Les BDD sont les Business Deep Dives, des cas sur lesquels nos étudiants de Bachelor travaillent. Les Géniathons sont les hackathons d'Eugenia et dédiés aux étudiants du Master of Science."
+    "q": "Was ist der Unterschied zwischen BDD und Géniathon?",
+    "a": "Die BDD sind die Business Deep Dives, Fälle, an denen unsere Bachelorstudierenden arbeiten. Die Géniathons sind die Hackathons der Eugenia und den Studierenden des Master of Science vorbehalten."
   },
   {
-    "q": "Quels sont les points communs entre les élèves d'Eugenia School ?",
-    "a": "Les élèves d'Eugenia School ont en commun l'ambition, l'esprit entrepreneurial, un intérêt marqué pour le monde du business et la conscience que les données joueront un rôle crucial dans leur future profession."
+    "q": "Was haben die Studierenden der Eugenia School gemeinsam?",
+    "a": "Die Studierenden der Eugenia School teilen Ehrgeiz, Unternehmergeist, ein ausgeprägtes Interesse an der Business-Welt und das Bewusstsein, dass Daten in ihrem künftigen Beruf eine entscheidende Rolle spielen werden."
   },
   {
-    "q": "Est-ce que les diplômes d'Eugenia School sont reconnus par l'État ?",
-    "a": "Nos diplômes s'appuient sur des titres RNCP (Registre National des Certifications Professionnelles) reconnus par France Compétences. Pour le Bachelor AI Applied to Business, il s'agit du titre RNCP de niveau 6 « Concepteur de solutions no code », délivré par LION (RNCP 41143). Pour le Master of Science AI Applied to Business, il s'agit du titre RNCP de niveau 7 « Architecte en intelligence artificielle », délivré par JEDHA (RNCP 41993)."
+    "q": "Sind die Abschlüsse der Eugenia School staatlich anerkannt?",
+    "a": "Unsere Abschlüsse stützen sich auf RNCP-Titel (Registre National des Certifications Professionnelles), die von France Compétences anerkannt sind. Für den Bachelor AI Applied to Business ist es der RNCP-Titel der Niveaustufe 6 „Concepteur de solutions no code“, verliehen von LION (RNCP 41143). Für den Master of Science AI Applied to Business ist es der RNCP-Titel der Niveaustufe 7 „Architecte en intelligence artificielle“, verliehen von JEDHA (RNCP 41993)."
   },
   {
-    "q": "Quelles perspectives de carrières pour les diplômés d'Eugenia School ?",
-    "a": "Les profils hybrides Business et Data développés à Eugenia School répondent à une forte demande des entreprises. Le programme facilite une progression de carrière rapide, préparant les diplômés à une variété de postes à responsabilité tels que Data Analyst, Project Manager, Product Owner, Growth Hacker, et plus encore."
+    "q": "Welche Karriereperspektiven haben die Absolventen der Eugenia School?",
+    "a": "Die an der Eugenia School entwickelten hybriden Business- und Data-Profile entsprechen einer starken Nachfrage der Unternehmen. Das Programm ermöglicht einen schnellen Karriereaufstieg und bereitet die Absolventen auf vielfältige verantwortungsvolle Positionen vor, etwa Data Analyst, Project Manager, Product Owner, Growth Hacker und mehr."
   },
   {
-    "q": "Qui sont nos professeurs ?",
-    "a": "Les enseignants d'Eugenia School sont des professionnels avec une expérience significative dans leurs secteurs de prédilection. La plupart d'entre eux occupent des postes de décision dans le monde professionnel, ce qui leur permet de dispenser un enseignement étroitement aligné sur les réalités de l'industrie."
+    "q": "Wer sind unsere Lehrkräfte?",
+    "a": "Die Lehrkräfte der Eugenia School sind Profis mit umfangreicher Erfahrung in ihren Fachgebieten. Die meisten von ihnen haben Entscheidungspositionen in der Berufswelt inne, was ihnen ermöglicht, eine Lehre eng an der Realität der Branche auszurichten."
   },
   {
-    "q": "Y a-t-il des mentors et un suivi individuel ?",
-    "a": "Oui, pour le Bachelor comme pour le MSc : chaque étudiant est accompagné par des mentors et bénéficie d'un suivi individuel tout au long du parcours."
+    "q": "Gibt es Mentoren und eine individuelle Begleitung?",
+    "a": "Ja, im Bachelor wie im MSc: Jeder Studierende wird von Mentoren begleitet und erhält während des gesamten Studiums eine individuelle Betreuung."
   },
   {
-    "q": "Puis-je visiter l'école ou obtenir une visite individuelle du campus ?",
-    "a": "Tout au long de l'année, nous proposons de nombreux événements sur nos campus, tels que des journées portes ouvertes et des journées d'immersion. Les candidats admissibles peuvent également organiser une visite personnalisée du campus en écrivant à admission@eugeniaschool.com."
+    "q": "Kann ich die Schule besichtigen oder eine individuelle Campusführung bekommen?",
+    "a": "Das ganze Jahr über bieten wir zahlreiche Veranstaltungen auf unseren Campus an, etwa Tage der offenen Tür und Schnuppertage. Zulassungsfähige Bewerber können außerdem eine persönliche Campusführung vereinbaren, indem sie an admission@eugeniaschool.com schreiben."
   },
   {
-    "q": "Quelles sont les informations partagées sur le programme français Inserjeunes ?",
-    "a": "Vous pouvez obtenir des informations sur le programme français Inserjeunes en cliquant sur le lien suivant : https://www.inserjeunes.education.gouv.fr/diffusion/accueil"
+    "q": "Welche Informationen werden über das französische Programm Inserjeunes geteilt?",
+    "a": "Informationen über das französische Programm Inserjeunes erhalten Sie über folgenden Link: https://www.inserjeunes.education.gouv.fr/diffusion/accueil"
   },
   {
-    "q": "Quel est le nombre maximum d'élèves par classe ?",
-    "a": "Le nombre maximum d'élèves par classe est de 40."
+    "q": "Wie viele Studierende gibt es höchstens pro Klasse?",
+    "a": "Die Höchstzahl der Studierenden pro Klasse liegt bei 40."
   },
   {
-    "q": "La présence est-elle obligatoire ?",
-    "a": "Oui, les cours se font en présentiel."
+    "q": "Besteht Anwesenheitspflicht?",
+    "a": "Ja, der Unterricht findet in Präsenz statt."
   },
   {
-    "q": "Des ordinateurs sont-ils mis à disposition ?",
-    "a": "Les étudiants doivent disposer d’un ordinateur fonctionnel, en particulier pour les cours de data."
+    "q": "Werden Computer zur Verfügung gestellt?",
+    "a": "Die Studierenden müssen über einen funktionierenden Computer verfügen, insbesondere für die Data-Kurse."
   },
   {
-    "q": "Quels types de postes sont offerts en apprentissage ?",
-    "a": "Nous vous invitons à visiter la page dédiée du programme Master of Science avec les exemples de postes que nos étudiants occupent."
+    "q": "Welche Arten von Stellen werden in der dualen Ausbildung angeboten?",
+    "a": "Wir laden Sie ein, die Seite des Master-of-Science-Programms mit Beispielen der Stellen zu besuchen, die unsere Studierenden besetzen."
   },
   {
-    "q": "Comment recruter un stagiaire, un alternant ou un diplômé ?",
-    "a": "Décrivez votre besoin via le formulaire dédié : l'équipe revient vers vous. Stage, alternance (contrats de professionnalisation et d'apprentissage acceptés) ou CDI pour un diplômé."
+    "q": "Wie rekrutiere ich einen Praktikanten, einen dual Studierenden oder einen Absolventen?",
+    "a": "Beschreiben Sie Ihren Bedarf über das entsprechende Formular: Das Team meldet sich bei Ihnen. Praktikum, duale Ausbildung (Professionalisierungs- und Ausbildungsverträge akzeptiert) oder Festanstellung für einen Absolventen."
   },
   {
-    "q": "Eugenia School offre-t-elle un soutien à la rédaction de CV et à la recherche d'entretiens ?",
-    "a": "Oui, Eugenia School offre un soutien personnalisé, y compris un programme de coaching et des rencontres avec des entreprises partenaires."
+    "q": "Bietet die Eugenia School Unterstützung beim Lebenslauf und bei der Suche nach Vorstellungsgesprächen?",
+    "a": "Ja, die Eugenia School bietet persönliche Unterstützung, darunter ein Coaching-Programm und Treffen mit Partnerunternehmen."
   },
   {
-    "q": "Qu'est-ce que le rythme d'alternance ?",
-    "a": "Le MSc se fait en alternance : après un bootcamp de 5 semaines, le rythme est de 4 jours en entreprise et 1 jour à l'école. La 3e année du Bachelor peut aussi se faire en alternance."
+    "q": "Was ist der Rhythmus der dualen Ausbildung?",
+    "a": "Der MSc wird dual absolviert: Nach einem 5-wöchigen Bootcamp gilt der Rhythmus von 4 Tagen im Unternehmen und 1 Tag an der Schule. Das 3. Bachelorjahr kann ebenfalls dual absolviert werden."
   },
   {
-    "q": "Quels types de contrats sont acceptés pour l'alternance : professionnalisation ou apprentissage ?",
-    "a": "Les contrats de professionnalisation et d'apprentissage sont acceptés."
+    "q": "Welche Verträge werden für die duale Ausbildung akzeptiert: Professionalisierung oder Ausbildung?",
+    "a": "Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
   },
   {
-    "q": "Quand puis-je effectuer un stage pendant mon bachelor ?",
-    "a": "Il y a deux périodes de stage : la première de minimum 6 semaines, pendant l'été entre la 1ère et la 2ème année. La deuxième, de six mois au début de la troisième année."
+    "q": "Wann kann ich während meines Bachelors ein Praktikum machen?",
+    "a": "Es gibt zwei Praktikumsphasen: die erste von mindestens 6 Wochen im Sommer zwischen dem 1. und 2. Jahr. Die zweite, sechsmonatige, zu Beginn des dritten Jahres."
   },
   {
-    "q": "Eugenia School propose-t-elle un coaching pour des compétences telles que la gestion d'équipe ou la négociation ?",
-    "a": "Oui, Eugenia School offre un coaching constant par le biais de diverses activités, notamment deux semaines de pré-rentrée avec en trame une activité de pitch à réaliser à la manière de QVEMA, des cours pratiques de business et des Business Deep Dives."
+    "q": "Bietet die Eugenia School Coaching für Kompetenzen wie Teamführung oder Verhandlung an?",
+    "a": "Ja, die Eugenia School bietet ein ständiges Coaching über verschiedene Aktivitäten, insbesondere zwei Wochen vor Studienbeginn mit einer Pitch-Aktivität im Stil von QVEMA als rotem Faden, praktische Business-Kurse und Business Deep Dives."
   },
   {
-    "q": "Y a-t-il des projets de groupe ?",
-    "a": "Oui, les projets personnels et les projets de groupe sont des éléments cruciaux à Eugenia School. Le travail en groupe est mis en avant lors des Business Deep Dives et des Géniathons, généralement en équipes de 3 à 6 personnes."
+    "q": "Gibt es Gruppenprojekte?",
+    "a": "Ja, persönliche Projekte und Gruppenprojekte sind zentrale Elemente an der Eugenia School. Gruppenarbeit steht bei den Business Deep Dives und den Géniathons im Vordergrund, meist in Teams von 3 bis 6 Personen."
   },
   {
-    "q": "Combien de temps faut-il consacrer aux devoirs ?",
-    "a": "La charge de travail varie en fonction de la semaine, du rythme de travail et de l'organisation. Il faut s'attendre à consacrer environ 10 à 15 heures par semaine au travail personnel et de groupe. Certains contenus ou lectures devront être revus avant d'assister aux cours."
+    "q": "Wie viel Zeit muss man für Hausaufgaben einplanen?",
+    "a": "Die Arbeitsbelastung hängt von der Woche, dem Arbeitsrhythmus und der Organisation ab. Rechnen Sie mit etwa 10 bis 15 Stunden pro Woche für persönliche und Gruppenarbeit. Manche Inhalte oder Lektüren müssen vor dem Unterricht durchgearbeitet werden."
   },
   {
-    "q": "En quelle langue parlent les professeurs ?",
-    "a": "La consigne donnée est de parler en français. En revanche, un certain niveau d'anglais est demandé : les supports de cours sont en anglais et les outils data sont, pour la plupart, aussi en anglais."
+    "q": "In welcher Sprache sprechen die Lehrkräfte?",
+    "a": "Die Vorgabe lautet, Französisch zu sprechen. Ein gewisses Englischniveau wird jedoch verlangt: Die Kursunterlagen sind auf Englisch, und die Data-Tools sind größtenteils ebenfalls auf Englisch."
   },
   {
-    "q": "Puis-je intégrer une autre école de commerce après avoir obtenu un bachelor d'Eugenia School ?",
-    "a": "Le diplôme de bachelor d'Eugenia School est reconnu et vous permet de postuler à des masters à Eugenia School ou dans toute autre université qui exige un diplôme de bachelor pour l'admission."
+    "q": "Kann ich nach einem Bachelor der Eugenia School an eine andere Business School wechseln?",
+    "a": "Der Bachelorabschluss der Eugenia School ist anerkannt und ermöglicht Ihnen, sich für Master an der Eugenia School oder an jeder anderen Hochschule zu bewerben, die für die Zulassung einen Bachelor verlangt."
   },
   {
-    "q": "Y a-t-il une vie associative à Eugenia School ?",
-    "a": "Oui ! Les associations sont mixtes entre Eugenia et Albert School. Un BDE, une Junior Entreprise, une association de running et tant d'autres existent déjà mais nous favorisons la création de nouvelles associations tous les ans."
+    "q": "Gibt es an der Eugenia School ein Vereinsleben?",
+    "a": "Ja! Die Vereine sind gemeinsame Vereine der Eugenia und der Albert School. Ein BDE, eine Junior Entreprise, ein Laufverein und viele andere gibt es bereits, aber wir fördern jedes Jahr die Gründung neuer Vereine."
   },
   {
-    "q": "Quelle est la date limite pour accepter mon admission ?",
-    "a": "Félicitations ! Le choix de votre école est l'une des décisions les plus importantes de votre vie. Il n'y a pas de délai pour accepter l'offre. Votre place est réservée pendant 10 jours après la notification d'admission. Ensuite, votre inscription sera acceptée en fonction des places disponibles."
+    "q": "Bis wann muss ich meine Zulassung annehmen?",
+    "a": "Herzlichen Glückwunsch! Die Wahl Ihrer Schule ist eine der wichtigsten Entscheidungen Ihres Lebens. Für die Annahme des Angebots gibt es keine Frist. Ihr Platz ist nach der Zulassungsmitteilung 10 Tage lang reserviert. Danach wird Ihre Einschreibung je nach verfügbaren Plätzen angenommen."
   },
   {
-    "q": "Quand recevrai-je mes résultats d'admission ?",
-    "a": "Les résultats sont fournis dans un délai de 10 jours après chaque étape du processus de sélection."
+    "q": "Wann erhalte ich meine Zulassungsergebnisse?",
+    "a": "Die Ergebnisse werden innerhalb von 10 Tagen nach jeder Phase des Auswahlverfahrens mitgeteilt."
   },
   {
-    "q": "En quoi consiste le processus de sélection ?",
-    "a": "Consultez la page dédiée pour en savoir plus."
+    "q": "Wie läuft das Auswahlverfahren ab?",
+    "a": "Mehr dazu erfahren Sie auf der entsprechenden Seite."
   },
   {
-    "q": "Quelles sont les conditions requises pour intégrer Eugenia School ?",
-    "a": "Eugenia School est ouvert aux lycéens de terminale générale ou technologique avec un intérêt pour les nouvelles technologies. L'ADN entrepreneurial est un plus. Pour les masters, il faut être titulaire d'un bac+3, soit 180 crédits ECTS, avec l'envie d'avoir une formation technique. Le bootcamp de M1 reprend les bases de l'analyse de données."
+    "q": "Welche Voraussetzungen gelten für die Aufnahme an der Eugenia School?",
+    "a": "Die Eugenia School steht Schülerinnen und Schülern der allgemeinen oder technologischen Abschlussklasse mit Interesse an neuen Technologien offen. Unternehmerische DNA ist ein Plus. Für die Master braucht man einen Bac+3, also 180 ECTS-Punkte, und den Wunsch nach einer technischen Ausbildung. Das M1-Bootcamp wiederholt die Grundlagen der Datenanalyse."
   },
   {
-    "q": "Puis-je rejoindre Eugenia School après une autre filière ?",
-    "a": "Oui. Pour le MSc, il faut être titulaire d'un bac+3 (180 crédits ECTS), quelle que soit la filière d'origine, avec l'envie d'acquérir une base technique : le bootcamp de démarrage reprend les bases de l'analyse de données."
+    "q": "Kann ich nach einem anderen Studiengang zur Eugenia School kommen?",
+    "a": "Ja. Für den MSc braucht man einen Bac+3 (180 ECTS-Punkte), unabhängig vom ursprünglichen Studiengang, und den Wunsch, eine technische Basis zu erwerben: Das Einstiegs-Bootcamp wiederholt die Grundlagen der Datenanalyse."
   },
   {
-    "q": "Quand et comment puis-je poser ma candidature ?",
-    "a": "Consultez notre page concernant le processus de candidature pour obtenir les informations nécessaires pour postuler à chacun de nos programmes."
+    "q": "Wann und wie kann ich mich bewerben?",
+    "a": "Auf unserer Seite zum Bewerbungsverfahren finden Sie die nötigen Informationen, um sich für jedes unserer Programme zu bewerben."
   },
   {
-    "q": "Combien coûte la candidature ?",
-    "a": "La candidature est gratuite pour les candidats résidant dans l'Union européenne. Pour les candidats résidant hors de l'Union européenne, elle coûte 30 €."
+    "q": "Was kostet die Bewerbung?",
+    "a": "Die Bewerbung ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos. Für Bewerber mit Wohnsitz außerhalb der Europäischen Union kostet sie 30 €."
   },
   {
-    "q": "Quand a lieu la rentrée ?",
-    "a": "La rentrée a lieu uniquement en septembre. Il n'y a pas de rentrée en janvier."
+    "q": "Wann ist Studienbeginn?",
+    "a": "Studienbeginn ist nur im September. Einen Studienbeginn im Januar gibt es nicht."
   },
   {
-    "q": "Faut-il s'inscrire sur Parcoursup ou Mon Master ?",
-    "a": "Non, Eugenia School n'est pas répertoriée sur Parcoursup ou Mon Master. Les candidatures se font directement sur cette page."
+    "q": "Muss man sich bei Parcoursup oder Mon Master anmelden?",
+    "a": "Nein, die Eugenia School ist nicht bei Parcoursup oder Mon Master gelistet. Die Bewerbung erfolgt direkt auf dieser Seite."
   },
   {
-    "q": "Une lettre de motivation est-elle nécessaire pour postuler ?",
-    "a": "Il est recommandé d’inclure tous les documents pertinents dans votre candidature, tels que les relevés de notes, les certificats linguistiques, les diplômes et les lettres de recommandation."
+    "q": "Ist für die Bewerbung ein Motivationsschreiben nötig?",
+    "a": "Es wird empfohlen, alle relevanten Dokumente der Bewerbung beizufügen, etwa Notenblätter, Sprachzertifikate, Abschlüsse und Empfehlungsschreiben."
   },
   {
-    "q": "Sur quoi porte l'entretien de motivation ?",
-    "a": "L'entretien se compose de trois parties : faire connaissance, un casse-tête logique et une explication de vos motivations."
+    "q": "Worum geht es im Motivationsgespräch?",
+    "a": "Das Gespräch besteht aus drei Teilen: Kennenlernen, ein Logikrätsel und die Erläuterung Ihrer Motivation."
   },
   {
-    "q": "Que dois-je faire si je ne peux pas compléter ma candidature parce qu'il me manque des relevés de notes ?",
-    "a": "Téléchargez deux fois le même document si vos relevés de notes sont semestriels et non trimestriels. Le jury comprendra."
+    "q": "Was tun, wenn ich meine Bewerbung nicht abschließen kann, weil mir Notenblätter fehlen?",
+    "a": "Laden Sie dasselbe Dokument zweimal hoch, wenn Ihre Notenblätter halbjährlich und nicht vierteljährlich sind. Die Jury wird es verstehen."
   },
   {
-    "q": "Puis-je soumettre ma candidature si je n'ai pas encore mes notes de l'année en cours ?",
-    "a": "Oui, vous pouvez entamer la procédure d'admission et soumettre les notes manquantes plus tard."
+    "q": "Kann ich mich bewerben, wenn ich die Noten des laufenden Jahres noch nicht habe?",
+    "a": "Ja, Sie können das Zulassungsverfahren beginnen und die fehlenden Noten später einreichen."
   },
   {
-    "q": "Existe-t-il des logements sur le campus ?",
-    "a": "Non, mais des solutions sont mises en place pour trouver chaussures à votre pied, contactez-nous pour avoir toutes les options !"
+    "q": "Gibt es Unterkünfte auf dem Campus?",
+    "a": "Nein, aber es gibt Lösungen, damit Sie das Passende finden. Kontaktieren Sie uns, um alle Optionen zu erfahren!"
   },
   {
-    "q": "Dois-je payer un acompte pour garantir ma place ?",
-    "a": "L'inscription en première année est confirmée par le versement d'un acompte de 3 000 euros. Le reste des frais de scolarité annuels est dû avant le début de l'année académique. Pour valider l'abonnement pour les années suivantes, un acompte sera demandé avant le 1er juillet."
+    "q": "Muss ich eine Anzahlung leisten, um meinen Platz zu sichern?",
+    "a": "Die Einschreibung ins erste Jahr wird durch eine Anzahlung von 3.000 Euro bestätigt. Der Rest der jährlichen Studiengebühren ist vor Beginn des akademischen Jahres fällig. Für die Folgejahre wird vor dem 1. Juli eine Anzahlung verlangt."
   },
   {
-    "q": "Quels sont les frais de scolarité annuels à Eugenia School ?",
-    "a": "Les frais de scolarité dépendent du programme choisi. Consultez la page dédiée pour connaître les frais de scolarité du programme qui vous intéresse."
+    "q": "Wie hoch sind die jährlichen Studiengebühren an der Eugenia School?",
+    "a": "Die Studiengebühren hängen vom gewählten Programm ab. Auf der entsprechenden Seite finden Sie die Gebühren des Programms, das Sie interessiert."
   },
   {
-    "q": "Comment puis-je financer ma scolarité ?",
-    "a": "Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. L'attribution de la bourse est basée sur des critères sociaux et académiques. La demande de bourse doit être faite avant l'inscription. Vous pouvez également demander des prêts étudiants auprès des banques partenaires. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité. Pour toute précision : admission@eugeniaschool.com."
+    "q": "Wie kann ich mein Studium finanzieren?",
+    "a": "Die Eugenia School bietet mit Unterstützung von Partnerunternehmen Stipendien, die bis zu 50 % der jährlichen Studiengebühren abdecken. Die Vergabe erfolgt nach sozialen und akademischen Kriterien. Der Stipendienantrag muss vor der Einschreibung gestellt werden. Sie können außerdem Studienkredite bei Partnerbanken beantragen. Da der Master of Science dual absolviert wird, übernimmt der Arbeitgeber 100 % der Studiengebühren. Für weitere Fragen: admission@eugeniaschool.com."
   }
 ];
 export const page: LivePage = {
-  "title": "FAQ : admission, alternance, financement | Eugenia School",
-  "description": "Toutes les réponses sur Eugenia School : admission, programmes Bachelor et MSc, alternance, frais de scolarité et financement. Posez-nous votre question.",
-  "h1": "Tu as des questions.",
+  "title": "FAQ: Zulassung, duale Ausbildung, Finanzierung | Eugenia School",
+  "description": "Alle Antworten zur Eugenia School: Zulassung, Bachelor- und MSc-Programme, duale Ausbildung, Studiengebühren und Finanzierung. Stellen Sie uns Ihre Frage.",
+  "h1": "Du hast Fragen.",
   "imageAlt": "",
-  "lead": "École IA hors Parcoursup : admissions, Bachelor, Master en alternance, frais, financement. Les réponses, rubrique par rubrique. Il manque quelque chose ? Écris-nous.",
-  "eyebrow": "// foire aux questions",
+  "lead": "KI-Schule außerhalb von Parcoursup: Zulassung, Bachelor, dualer Master, Gebühren, Finanzierung. Die Antworten, Rubrik für Rubrik. Fehlt etwas? Schreib uns.",
+  "eyebrow": "// häufige Fragen",
   "facts": [],
   "sections": [
     {
-      "title": "À propos d'Eugenia School",
+      "title": "Über die Eugenia School",
       "blocks": [
         {
           "type": "faq",
           "items": [
             {
-              "q": "Qu'est-ce que Eugenia School ?",
-              "a": "Eugenia School fait partie du groupe Albert School ayant pour mission de donner une instruction rigoureuse en business et en data. Elle propose un Bachelor et un Master of Science qui se fait en alternance. Soutenue et financée par de nombreux entrepreneurs de renom, Eugenia School vise à former les talents dont l'économie de demain a besoin : des profils hybrides dans le domaine du business et des données."
+              "q": "Was ist die Eugenia School?",
+              "a": "Die Eugenia School gehört zur Gruppe der Albert School, deren Mission eine fundierte Ausbildung in Business und Data ist. Sie bietet einen Bachelor und einen dualen Master of Science an. Unterstützt und finanziert von zahlreichen namhaften Unternehmern, bildet die Eugenia School die Talente aus, die die Wirtschaft von morgen braucht: hybride Profile aus Business und Data."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Eugenia School fait partie du groupe Albert School ayant pour mission de donner une instruction rigoureuse en business et en data. Elle propose un Bachelor et un Master of Science qui se fait en alternance. Soutenue et financée par de nombreux entrepreneurs de renom, Eugenia School vise à former les talents dont l'économie de demain a besoin : des profils hybrides dans le domaine du business et des données."
+          "text": "Die Eugenia School gehört zur Gruppe der Albert School, deren Mission eine fundierte Ausbildung in Business und Data ist. Sie bietet einen Bachelor und einen dualen Master of Science an. Unterstützt und finanziert von zahlreichen namhaften Unternehmern, bildet die Eugenia School die Talente aus, die die Wirtschaft von morgen braucht: hybride Profile aus Business und Data."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelle est la différence entre Eugenia et Albert School ?",
-              "a": "Les deux écoles ont été fondées par les mêmes fondateurs, Grégoire Genest et Mathieu Schimpl, serial entrepreneurs. Albert School s'appuie sur les maths appliquées et une approche quantitative : une IA et une data très techniques (data science, engineering) appliquées au business. Eugenia forme des profils plus opérationnels, entrepreneuriaux et généralistes, des « couteaux suisses » de l'IA appliquée au business, sans maths avancées."
+              "q": "Was ist der Unterschied zwischen der Eugenia und der Albert School?",
+              "a": "Beide Schulen wurden von denselben Gründern gegründet, Grégoire Genest und Mathieu Schimpl, Serienunternehmern. Die Albert School setzt auf angewandte Mathematik und einen quantitativen Ansatz: sehr technische KI und Data (Data Science, Engineering), angewandt auf das Business. Die Eugenia bildet operativere, unternehmerische und generalistische Profile aus, „Schweizer Taschenmesser“ der auf das Business angewandten KI, ohne höhere Mathematik."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les deux écoles ont été fondées par les mêmes fondateurs, Grégoire Genest et Mathieu Schimpl, serial entrepreneurs. Albert School s'appuie sur les maths appliquées et une approche quantitative : une IA et une data très techniques (data science, engineering) appliquées au business. Eugenia forme des profils plus opérationnels, entrepreneuriaux et généralistes, des « couteaux suisses » de l'IA appliquée au business, sans maths avancées."
+          "text": "Beide Schulen wurden von denselben Gründern gegründet, Grégoire Genest und Mathieu Schimpl, Serienunternehmern. Die Albert School setzt auf angewandte Mathematik und einen quantitativen Ansatz: sehr technische KI und Data (Data Science, Engineering), angewandt auf das Business. Die Eugenia bildet operativere, unternehmerische und generalistische Profile aus, „Schweizer Taschenmesser“ der auf das Business angewandten KI, ohne höhere Mathematik."
         },
         {
           "type": "link",
-          "label": "Découvrir l'ADN d'Eugenia →",
+          "label": "Die DNA der Eugenia entdecken →",
           "href": "/notre-adn"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Pourquoi choisir Eugenia School ?",
-              "a": "Les entreprises qui réussissent aujourd'hui partagent une approche centrée sur les données, souvent décrite comme « data driven ». Cette approche n'est possible qu'avec des équipes maîtrisant le langage des données à tous les niveaux et dans toutes les fonctions de l'entreprise. L'apprentissage des données permet aux étudiants de comprendre comment créer de la valeur dans un monde transformé par la technologie."
+              "q": "Warum die Eugenia School wählen?",
+              "a": "Die heute erfolgreichen Unternehmen teilen einen datenzentrierten Ansatz, oft als „data driven“ bezeichnet. Dieser Ansatz ist nur mit Teams möglich, die die Sprache der Daten auf allen Ebenen und in allen Funktionen des Unternehmens beherrschen. Das Lernen mit Daten lässt die Studierenden verstehen, wie man in einer von Technologie veränderten Welt Wert schafft."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les entreprises qui réussissent aujourd'hui partagent une approche centrée sur les données, souvent décrite comme « data driven ». Cette approche n'est possible qu'avec des équipes maîtrisant le langage des données à tous les niveaux et dans toutes les fonctions de l'entreprise. L'apprentissage des données permet aux étudiants de comprendre comment créer de la valeur dans un monde transformé par la technologie."
+          "text": "Die heute erfolgreichen Unternehmen teilen einen datenzentrierten Ansatz, oft als „data driven“ bezeichnet. Dieser Ansatz ist nur mit Teams möglich, die die Sprache der Daten auf allen Ebenen und in allen Funktionen des Unternehmens beherrschen. Das Lernen mit Daten lässt die Studierenden verstehen, wie man in einer von Technologie veränderten Welt Wert schafft."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "En quoi la pédagogie d'Eugenia School est-elle innovante ?",
-              "a": "La pédagogie innovante d'Eugenia School, centrée sur les données, intègre l'enseignement académique à l'expérience du monde réel, comme en témoignent les BDD en collaboration avec notre réseau entrepreneurial avec Station F ou nos entreprises partenaires telles que Mistral AI, Microsoft ou encore Snapchat. Découvrez la page dédiée à l'explication en détails de notre méthode d'enseignement."
+              "q": "Was ist an der Pädagogik der Eugenia School innovativ?",
+              "a": "Die innovative, datenzentrierte Pädagogik der Eugenia School verbindet akademische Lehre mit Erfahrung aus der realen Welt, wie die BDD mit unserem Gründernetzwerk rund um die Station F oder mit Partnerunternehmen wie Mistral AI, Microsoft oder Snapchat zeigen. Entdecken Sie die Seite, die unsere Lehrmethode im Detail erklärt."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "La pédagogie innovante d'Eugenia School, centrée sur les données, intègre l'enseignement académique à l'expérience du monde réel, comme en témoignent les BDD en collaboration avec notre réseau entrepreneurial avec Station F ou nos entreprises partenaires telles que Mistral AI, Microsoft ou encore Snapchat. Découvrez la page dédiée à l'explication en détails de notre méthode d'enseignement."
+          "text": "Die innovative, datenzentrierte Pädagogik der Eugenia School verbindet akademische Lehre mit Erfahrung aus der realen Welt, wie die BDD mit unserem Gründernetzwerk rund um die Station F oder mit Partnerunternehmen wie Mistral AI, Microsoft oder Snapchat zeigen. Entdecken Sie die Seite, die unsere Lehrmethode im Detail erklärt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Que sont les Business Deep Dives (BDD) ?",
-              "a": "Les « Business Deep Dives » sont la signature éducative du groupe Albert School et donc d'Eugenia School. Il s'agit de cas pratiques de 3 à 4 semaines en collaboration avec une entreprise de premier plan, permettant aux étudiants de mettre en pratique ce qu'ils étudient avec des données réelles dans des situations réelles. À la fin de chaque BDD, les étudiants présentent leur travail aux dirigeants de l'entreprise partenaire, et une équipe gagnante est désignée."
+              "q": "Was sind die Business Deep Dives (BDD)?",
+              "a": "Die „Business Deep Dives“ sind das pädagogische Markenzeichen der Gruppe Albert School und damit der Eugenia School. Es handelt sich um 3- bis 4-wöchige Praxisfälle in Zusammenarbeit mit einem führenden Unternehmen, bei denen die Studierenden das Gelernte mit echten Daten in echten Situationen anwenden. Am Ende jedes BDD präsentieren die Studierenden ihre Arbeit der Führung des Partnerunternehmens, und ein Siegerteam wird gekürt."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les « Business Deep Dives » sont la signature éducative du groupe Albert School et donc d'Eugenia School. Il s'agit de cas pratiques de 3 à 4 semaines en collaboration avec une entreprise de premier plan, permettant aux étudiants de mettre en pratique ce qu'ils étudient avec des données réelles dans des situations réelles. À la fin de chaque BDD, les étudiants présentent leur travail aux dirigeants de l'entreprise partenaire, et une équipe gagnante est désignée."
+          "text": "Die „Business Deep Dives“ sind das pädagogische Markenzeichen der Gruppe Albert School und damit der Eugenia School. Es handelt sich um 3- bis 4-wöchige Praxisfälle in Zusammenarbeit mit einem führenden Unternehmen, bei denen die Studierenden das Gelernte mit echten Daten in echten Situationen anwenden. Am Ende jedes BDD präsentieren die Studierenden ihre Arbeit der Führung des Partnerunternehmens, und ein Siegerteam wird gekürt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelle est la différence entre BDD et Géniathon ?",
-              "a": "Les BDD sont les Business Deep Dives, des cas sur lesquels nos étudiants de Bachelor travaillent. Les Géniathons sont les hackathons d'Eugenia et dédiés aux étudiants du Master of Science."
+              "q": "Was ist der Unterschied zwischen BDD und Géniathon?",
+              "a": "Die BDD sind die Business Deep Dives, Fälle, an denen unsere Bachelorstudierenden arbeiten. Die Géniathons sind die Hackathons der Eugenia und den Studierenden des Master of Science vorbehalten."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les BDD sont les Business Deep Dives, des cas sur lesquels nos étudiants de Bachelor travaillent. Les Géniathons sont les hackathons d'Eugenia et dédiés aux étudiants du Master of Science."
+          "text": "Die BDD sind die Business Deep Dives, Fälle, an denen unsere Bachelorstudierenden arbeiten. Die Géniathons sind die Hackathons der Eugenia und den Studierenden des Master of Science vorbehalten."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quels sont les points communs entre les élèves d'Eugenia School ?",
-              "a": "Les élèves d'Eugenia School ont en commun l'ambition, l'esprit entrepreneurial, un intérêt marqué pour le monde du business et la conscience que les données joueront un rôle crucial dans leur future profession."
+              "q": "Was haben die Studierenden der Eugenia School gemeinsam?",
+              "a": "Die Studierenden der Eugenia School teilen Ehrgeiz, Unternehmergeist, ein ausgeprägtes Interesse an der Business-Welt und das Bewusstsein, dass Daten in ihrem künftigen Beruf eine entscheidende Rolle spielen werden."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les élèves d'Eugenia School ont en commun l'ambition, l'esprit entrepreneurial, un intérêt marqué pour le monde du business et la conscience que les données joueront un rôle crucial dans leur future profession."
+          "text": "Die Studierenden der Eugenia School teilen Ehrgeiz, Unternehmergeist, ein ausgeprägtes Interesse an der Business-Welt und das Bewusstsein, dass Daten in ihrem künftigen Beruf eine entscheidende Rolle spielen werden."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Est-ce que les diplômes d'Eugenia School sont reconnus par l'État ?",
-              "a": "Nos diplômes s'appuient sur des titres RNCP (Registre National des Certifications Professionnelles) reconnus par France Compétences. Pour le Bachelor AI Applied to Business, il s'agit du titre RNCP de niveau 6 « Concepteur de solutions no code », délivré par LION (RNCP 41143). Pour le Master of Science AI Applied to Business, il s'agit du titre RNCP de niveau 7 « Architecte en intelligence artificielle », délivré par JEDHA (RNCP 41993)."
+              "q": "Sind die Abschlüsse der Eugenia School staatlich anerkannt?",
+              "a": "Unsere Abschlüsse stützen sich auf RNCP-Titel (Registre National des Certifications Professionnelles), die von France Compétences anerkannt sind. Für den Bachelor AI Applied to Business ist es der RNCP-Titel der Niveaustufe 6 „Concepteur de solutions no code“, verliehen von LION (RNCP 41143). Für den Master of Science AI Applied to Business ist es der RNCP-Titel der Niveaustufe 7 „Architecte en intelligence artificielle“, verliehen von JEDHA (RNCP 41993)."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Nos diplômes s'appuient sur des titres RNCP (Registre National des Certifications Professionnelles) reconnus par France Compétences. Pour le Bachelor AI Applied to Business, il s'agit du titre RNCP de niveau 6 « Concepteur de solutions no code », délivré par LION (RNCP 41143). Pour le Master of Science AI Applied to Business, il s'agit du titre RNCP de niveau 7 « Architecte en intelligence artificielle », délivré par JEDHA (RNCP 41993)."
+          "text": "Unsere Abschlüsse stützen sich auf RNCP-Titel (Registre National des Certifications Professionnelles), die von France Compétences anerkannt sind. Für den Bachelor AI Applied to Business ist es der RNCP-Titel der Niveaustufe 6 „Concepteur de solutions no code“, verliehen von LION (RNCP 41143). Für den Master of Science AI Applied to Business ist es der RNCP-Titel der Niveaustufe 7 „Architecte en intelligence artificielle“, verliehen von JEDHA (RNCP 41993)."
         },
         {
           "type": "link",
-          "label": "Voir la certification du Bachelor →",
+          "label": "Zur Zertifizierung des Bachelors →",
           "href": "/certification-concepteur-solutions-no-code"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelles perspectives de carrières pour les diplômés d'Eugenia School ?",
-              "a": "Les profils hybrides Business et Data développés à Eugenia School répondent à une forte demande des entreprises. Le programme facilite une progression de carrière rapide, préparant les diplômés à une variété de postes à responsabilité tels que Data Analyst, Project Manager, Product Owner, Growth Hacker, et plus encore."
+              "q": "Welche Karriereperspektiven haben die Absolventen der Eugenia School?",
+              "a": "Die an der Eugenia School entwickelten hybriden Business- und Data-Profile entsprechen einer starken Nachfrage der Unternehmen. Das Programm ermöglicht einen schnellen Karriereaufstieg und bereitet die Absolventen auf vielfältige verantwortungsvolle Positionen vor, etwa Data Analyst, Project Manager, Product Owner, Growth Hacker und mehr."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les profils hybrides Business et Data développés à Eugenia School répondent à une forte demande des entreprises. Le programme facilite une progression de carrière rapide, préparant les diplômés à une variété de postes à responsabilité tels que Data Analyst, Project Manager, Product Owner, Growth Hacker, et plus encore."
+          "text": "Die an der Eugenia School entwickelten hybriden Business- und Data-Profile entsprechen einer starken Nachfrage der Unternehmen. Das Programm ermöglicht einen schnellen Karriereaufstieg und bereitet die Absolventen auf vielfältige verantwortungsvolle Positionen vor, etwa Data Analyst, Project Manager, Product Owner, Growth Hacker und mehr."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Qui sont nos professeurs ?",
-              "a": "Les enseignants d'Eugenia School sont des professionnels avec une expérience significative dans leurs secteurs de prédilection. La plupart d'entre eux occupent des postes de décision dans le monde professionnel, ce qui leur permet de dispenser un enseignement étroitement aligné sur les réalités de l'industrie."
+              "q": "Wer sind unsere Lehrkräfte?",
+              "a": "Die Lehrkräfte der Eugenia School sind Profis mit umfangreicher Erfahrung in ihren Fachgebieten. Die meisten von ihnen haben Entscheidungspositionen in der Berufswelt inne, was ihnen ermöglicht, eine Lehre eng an der Realität der Branche auszurichten."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les enseignants d'Eugenia School sont des professionnels avec une expérience significative dans leurs secteurs de prédilection. La plupart d'entre eux occupent des postes de décision dans le monde professionnel, ce qui leur permet de dispenser un enseignement étroitement aligné sur les réalités de l'industrie."
+          "text": "Die Lehrkräfte der Eugenia School sind Profis mit umfangreicher Erfahrung in ihren Fachgebieten. Die meisten von ihnen haben Entscheidungspositionen in der Berufswelt inne, was ihnen ermöglicht, eine Lehre eng an der Realität der Branche auszurichten."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Y a-t-il des mentors et un suivi individuel ?",
-              "a": "Oui, pour le Bachelor comme pour le MSc : chaque étudiant est accompagné par des mentors et bénéficie d'un suivi individuel tout au long du parcours."
+              "q": "Gibt es Mentoren und eine individuelle Begleitung?",
+              "a": "Ja, im Bachelor wie im MSc: Jeder Studierende wird von Mentoren begleitet und erhält während des gesamten Studiums eine individuelle Betreuung."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui, pour le Bachelor comme pour le MSc : chaque étudiant est accompagné par des mentors et bénéficie d'un suivi individuel tout au long du parcours."
+          "text": "Ja, im Bachelor wie im MSc: Jeder Studierende wird von Mentoren begleitet und erhält während des gesamten Studiums eine individuelle Betreuung."
         },
         {
           "type": "link",
-          "label": "Rencontrer les professeurs et mentors →",
+          "label": "Lehrkräfte und Mentoren kennenlernen →",
           "href": "/approche-pedagogique"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Puis-je visiter l'école ou obtenir une visite individuelle du campus ?",
-              "a": "Tout au long de l'année, nous proposons de nombreux événements sur nos campus, tels que des journées portes ouvertes et des journées d'immersion. Les candidats admissibles peuvent également organiser une visite personnalisée du campus en écrivant à admission@eugeniaschool.com."
+              "q": "Kann ich die Schule besichtigen oder eine individuelle Campusführung bekommen?",
+              "a": "Das ganze Jahr über bieten wir zahlreiche Veranstaltungen auf unseren Campus an, etwa Tage der offenen Tür und Schnuppertage. Zulassungsfähige Bewerber können außerdem eine persönliche Campusführung vereinbaren, indem sie an admission@eugeniaschool.com schreiben."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Tout au long de l'année, nous proposons de nombreux événements sur nos campus, tels que des journées portes ouvertes et des journées d'immersion. Les candidats admissibles peuvent également organiser une visite personnalisée du campus en écrivant à admission@eugeniaschool.com."
+          "text": "Das ganze Jahr über bieten wir zahlreiche Veranstaltungen auf unseren Campus an, etwa Tage der offenen Tür und Schnuppertage. Zulassungsfähige Bewerber können außerdem eine persönliche Campusführung vereinbaren, indem sie an admission@eugeniaschool.com schreiben."
         }
       ],
       "eyebrow": "02"
     },
     {
-      "title": "Étudier à Eugenia School",
+      "title": "Studieren an der Eugenia School",
       "blocks": [
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelles sont les informations partagées sur le programme français Inserjeunes ?",
-              "a": "Vous pouvez obtenir des informations sur le programme français Inserjeunes en cliquant sur le lien suivant : https://www.inserjeunes.education.gouv.fr/diffusion/accueil"
+              "q": "Welche Informationen werden über das französische Programm Inserjeunes geteilt?",
+              "a": "Informationen über das französische Programm Inserjeunes erhalten Sie über folgenden Link: https://www.inserjeunes.education.gouv.fr/diffusion/accueil"
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Vous pouvez obtenir des informations sur le programme français Inserjeunes en cliquant sur le lien suivant : https://www.inserjeunes.education.gouv.fr/diffusion/accueil"
+          "text": "Informationen über das französische Programm Inserjeunes erhalten Sie über folgenden Link: https://www.inserjeunes.education.gouv.fr/diffusion/accueil"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quel est le nombre maximum d'élèves par classe ?",
-              "a": "Le nombre maximum d'élèves par classe est de 40."
+              "q": "Wie viele Studierende gibt es höchstens pro Klasse?",
+              "a": "Die Höchstzahl der Studierenden pro Klasse liegt bei 40."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Le nombre maximum d'élèves par classe est de 40."
+          "text": "Die Höchstzahl der Studierenden pro Klasse liegt bei 40."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "La présence est-elle obligatoire ?",
-              "a": "Oui, les cours se font en présentiel."
+              "q": "Besteht Anwesenheitspflicht?",
+              "a": "Ja, der Unterricht findet in Präsenz statt."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui, les cours se font en présentiel."
+          "text": "Ja, der Unterricht findet in Präsenz statt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Des ordinateurs sont-ils mis à disposition ?",
-              "a": "Les étudiants doivent disposer d’un ordinateur fonctionnel, en particulier pour les cours de data."
+              "q": "Werden Computer zur Verfügung gestellt?",
+              "a": "Die Studierenden müssen über einen funktionierenden Computer verfügen, insbesondere für die Data-Kurse."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les étudiants doivent disposer d’un ordinateur fonctionnel, en particulier pour les cours de data."
+          "text": "Die Studierenden müssen über einen funktionierenden Computer verfügen, insbesondere für die Data-Kurse."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quels types de postes sont offerts en apprentissage ?",
-              "a": "Nous vous invitons à visiter la page dédiée du programme Master of Science avec les exemples de postes que nos étudiants occupent."
+              "q": "Welche Arten von Stellen werden in der dualen Ausbildung angeboten?",
+              "a": "Wir laden Sie ein, die Seite des Master-of-Science-Programms mit Beispielen der Stellen zu besuchen, die unsere Studierenden besetzen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Nous vous invitons à visiter la page dédiée du programme Master of Science avec les exemples de postes que nos étudiants occupent."
+          "text": "Wir laden Sie ein, die Seite des Master-of-Science-Programms mit Beispielen der Stellen zu besuchen, die unsere Studierenden besetzen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Comment recruter un stagiaire, un alternant ou un diplômé ?",
-              "a": "Décrivez votre besoin via le formulaire dédié : l'équipe revient vers vous. Stage, alternance (contrats de professionnalisation et d'apprentissage acceptés) ou CDI pour un diplômé."
+              "q": "Wie rekrutiere ich einen Praktikanten, einen dual Studierenden oder einen Absolventen?",
+              "a": "Beschreiben Sie Ihren Bedarf über das entsprechende Formular: Das Team meldet sich bei Ihnen. Praktikum, duale Ausbildung (Professionalisierungs- und Ausbildungsverträge akzeptiert) oder Festanstellung für einen Absolventen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Décrivez votre besoin via le formulaire dédié : l'équipe revient vers vous. Stage, alternance (contrats de professionnalisation et d'apprentissage acceptés) ou CDI pour un diplômé."
+          "text": "Beschreiben Sie Ihren Bedarf über das entsprechende Formular: Das Team meldet sich bei Ihnen. Praktikum, duale Ausbildung (Professionalisierungs- und Ausbildungsverträge akzeptiert) oder Festanstellung für einen Absolventen."
         },
         {
           "type": "link",
-          "label": "Recruter nos étudiants →",
+          "label": "Unsere Studierenden rekrutieren →",
           "href": "/recruter-nos-etudiants"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Eugenia School offre-t-elle un soutien à la rédaction de CV et à la recherche d'entretiens ?",
-              "a": "Oui, Eugenia School offre un soutien personnalisé, y compris un programme de coaching et des rencontres avec des entreprises partenaires."
+              "q": "Bietet die Eugenia School Unterstützung beim Lebenslauf und bei der Suche nach Vorstellungsgesprächen?",
+              "a": "Ja, die Eugenia School bietet persönliche Unterstützung, darunter ein Coaching-Programm und Treffen mit Partnerunternehmen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui, Eugenia School offre un soutien personnalisé, y compris un programme de coaching et des rencontres avec des entreprises partenaires."
+          "text": "Ja, die Eugenia School bietet persönliche Unterstützung, darunter ein Coaching-Programm und Treffen mit Partnerunternehmen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Qu'est-ce que le rythme d'alternance ?",
-              "a": "Le MSc se fait en alternance : après un bootcamp de 5 semaines, le rythme est de 4 jours en entreprise et 1 jour à l'école. La 3e année du Bachelor peut aussi se faire en alternance."
+              "q": "Was ist der Rhythmus der dualen Ausbildung?",
+              "a": "Der MSc wird dual absolviert: Nach einem 5-wöchigen Bootcamp gilt der Rhythmus von 4 Tagen im Unternehmen und 1 Tag an der Schule. Das 3. Bachelorjahr kann ebenfalls dual absolviert werden."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Le MSc se fait en alternance : après un bootcamp de 5 semaines, le rythme est de 4 jours en entreprise et 1 jour à l'école. La 3e année du Bachelor peut aussi se faire en alternance."
+          "text": "Der MSc wird dual absolviert: Nach einem 5-wöchigen Bootcamp gilt der Rhythmus von 4 Tagen im Unternehmen und 1 Tag an der Schule. Das 3. Bachelorjahr kann ebenfalls dual absolviert werden."
         },
         {
           "type": "link",
-          "label": "Voir la 3e année en alternance →",
+          "label": "Zum dualen 3. Jahr →",
           "href": "/programme/bachelor-ia-business-3eme-annee-alternance"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quels types de contrats sont acceptés pour l'alternance : professionnalisation ou apprentissage ?",
-              "a": "Les contrats de professionnalisation et d'apprentissage sont acceptés."
+              "q": "Welche Verträge werden für die duale Ausbildung akzeptiert: Professionalisierung oder Ausbildung?",
+              "a": "Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les contrats de professionnalisation et d'apprentissage sont acceptés."
+          "text": "Professionalisierungs- und Ausbildungsverträge werden akzeptiert."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quand puis-je effectuer un stage pendant mon bachelor ?",
-              "a": "Il y a deux périodes de stage : la première de minimum 6 semaines, pendant l'été entre la 1ère et la 2ème année. La deuxième, de six mois au début de la troisième année."
+              "q": "Wann kann ich während meines Bachelors ein Praktikum machen?",
+              "a": "Es gibt zwei Praktikumsphasen: die erste von mindestens 6 Wochen im Sommer zwischen dem 1. und 2. Jahr. Die zweite, sechsmonatige, zu Beginn des dritten Jahres."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Il y a deux périodes de stage : la première de minimum 6 semaines, pendant l'été entre la 1ère et la 2ème année. La deuxième, de six mois au début de la troisième année."
+          "text": "Es gibt zwei Praktikumsphasen: die erste von mindestens 6 Wochen im Sommer zwischen dem 1. und 2. Jahr. Die zweite, sechsmonatige, zu Beginn des dritten Jahres."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Eugenia School propose-t-elle un coaching pour des compétences telles que la gestion d'équipe ou la négociation ?",
-              "a": "Oui, Eugenia School offre un coaching constant par le biais de diverses activités, notamment deux semaines de pré-rentrée avec en trame une activité de pitch à réaliser à la manière de QVEMA, des cours pratiques de business et des Business Deep Dives."
+              "q": "Bietet die Eugenia School Coaching für Kompetenzen wie Teamführung oder Verhandlung an?",
+              "a": "Ja, die Eugenia School bietet ein ständiges Coaching über verschiedene Aktivitäten, insbesondere zwei Wochen vor Studienbeginn mit einer Pitch-Aktivität im Stil von QVEMA als rotem Faden, praktische Business-Kurse und Business Deep Dives."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui, Eugenia School offre un coaching constant par le biais de diverses activités, notamment deux semaines de pré-rentrée avec en trame une activité de pitch à réaliser à la manière de QVEMA, des cours pratiques de business et des Business Deep Dives."
+          "text": "Ja, die Eugenia School bietet ein ständiges Coaching über verschiedene Aktivitäten, insbesondere zwei Wochen vor Studienbeginn mit einer Pitch-Aktivität im Stil von QVEMA als rotem Faden, praktische Business-Kurse und Business Deep Dives."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Y a-t-il des projets de groupe ?",
-              "a": "Oui, les projets personnels et les projets de groupe sont des éléments cruciaux à Eugenia School. Le travail en groupe est mis en avant lors des Business Deep Dives et des Géniathons, généralement en équipes de 3 à 6 personnes."
+              "q": "Gibt es Gruppenprojekte?",
+              "a": "Ja, persönliche Projekte und Gruppenprojekte sind zentrale Elemente an der Eugenia School. Gruppenarbeit steht bei den Business Deep Dives und den Géniathons im Vordergrund, meist in Teams von 3 bis 6 Personen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui, les projets personnels et les projets de groupe sont des éléments cruciaux à Eugenia School. Le travail en groupe est mis en avant lors des Business Deep Dives et des Géniathons, généralement en équipes de 3 à 6 personnes."
+          "text": "Ja, persönliche Projekte und Gruppenprojekte sind zentrale Elemente an der Eugenia School. Gruppenarbeit steht bei den Business Deep Dives und den Géniathons im Vordergrund, meist in Teams von 3 bis 6 Personen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Combien de temps faut-il consacrer aux devoirs ?",
-              "a": "La charge de travail varie en fonction de la semaine, du rythme de travail et de l'organisation. Il faut s'attendre à consacrer environ 10 à 15 heures par semaine au travail personnel et de groupe. Certains contenus ou lectures devront être revus avant d'assister aux cours."
+              "q": "Wie viel Zeit muss man für Hausaufgaben einplanen?",
+              "a": "Die Arbeitsbelastung hängt von der Woche, dem Arbeitsrhythmus und der Organisation ab. Rechnen Sie mit etwa 10 bis 15 Stunden pro Woche für persönliche und Gruppenarbeit. Manche Inhalte oder Lektüren müssen vor dem Unterricht durchgearbeitet werden."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "La charge de travail varie en fonction de la semaine, du rythme de travail et de l'organisation. Il faut s'attendre à consacrer environ 10 à 15 heures par semaine au travail personnel et de groupe. Certains contenus ou lectures devront être revus avant d'assister aux cours."
+          "text": "Die Arbeitsbelastung hängt von der Woche, dem Arbeitsrhythmus und der Organisation ab. Rechnen Sie mit etwa 10 bis 15 Stunden pro Woche für persönliche und Gruppenarbeit. Manche Inhalte oder Lektüren müssen vor dem Unterricht durchgearbeitet werden."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "En quelle langue parlent les professeurs ?",
-              "a": "La consigne donnée est de parler en français. En revanche, un certain niveau d'anglais est demandé : les supports de cours sont en anglais et les outils data sont, pour la plupart, aussi en anglais."
+              "q": "In welcher Sprache sprechen die Lehrkräfte?",
+              "a": "Die Vorgabe lautet, Französisch zu sprechen. Ein gewisses Englischniveau wird jedoch verlangt: Die Kursunterlagen sind auf Englisch, und die Data-Tools sind größtenteils ebenfalls auf Englisch."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "La consigne donnée est de parler en français. En revanche, un certain niveau d'anglais est demandé : les supports de cours sont en anglais et les outils data sont, pour la plupart, aussi en anglais."
+          "text": "Die Vorgabe lautet, Französisch zu sprechen. Ein gewisses Englischniveau wird jedoch verlangt: Die Kursunterlagen sind auf Englisch, und die Data-Tools sind größtenteils ebenfalls auf Englisch."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Puis-je intégrer une autre école de commerce après avoir obtenu un bachelor d'Eugenia School ?",
-              "a": "Le diplôme de bachelor d'Eugenia School est reconnu et vous permet de postuler à des masters à Eugenia School ou dans toute autre université qui exige un diplôme de bachelor pour l'admission."
+              "q": "Kann ich nach einem Bachelor der Eugenia School an eine andere Business School wechseln?",
+              "a": "Der Bachelorabschluss der Eugenia School ist anerkannt und ermöglicht Ihnen, sich für Master an der Eugenia School oder an jeder anderen Hochschule zu bewerben, die für die Zulassung einen Bachelor verlangt."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Le diplôme de bachelor d'Eugenia School est reconnu et vous permet de postuler à des masters à Eugenia School ou dans toute autre université qui exige un diplôme de bachelor pour l'admission."
+          "text": "Der Bachelorabschluss der Eugenia School ist anerkannt und ermöglicht Ihnen, sich für Master an der Eugenia School oder an jeder anderen Hochschule zu bewerben, die für die Zulassung einen Bachelor verlangt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Y a-t-il une vie associative à Eugenia School ?",
-              "a": "Oui ! Les associations sont mixtes entre Eugenia et Albert School. Un BDE, une Junior Entreprise, une association de running et tant d'autres existent déjà mais nous favorisons la création de nouvelles associations tous les ans."
+              "q": "Gibt es an der Eugenia School ein Vereinsleben?",
+              "a": "Ja! Die Vereine sind gemeinsame Vereine der Eugenia und der Albert School. Ein BDE, eine Junior Entreprise, ein Laufverein und viele andere gibt es bereits, aber wir fördern jedes Jahr die Gründung neuer Vereine."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui ! Les associations sont mixtes entre Eugenia et Albert School. Un BDE, une Junior Entreprise, une association de running et tant d'autres existent déjà mais nous favorisons la création de nouvelles associations tous les ans."
+          "text": "Ja! Die Vereine sind gemeinsame Vereine der Eugenia und der Albert School. Ein BDE, eine Junior Entreprise, ein Laufverein und viele andere gibt es bereits, aber wir fördern jedes Jahr die Gründung neuer Vereine."
         }
       ],
       "eyebrow": "03"
     },
     {
-      "title": "Processus de candidature",
+      "title": "Bewerbungsverfahren",
       "blocks": [
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelle est la date limite pour accepter mon admission ?",
-              "a": "Félicitations ! Le choix de votre école est l'une des décisions les plus importantes de votre vie. Il n'y a pas de délai pour accepter l'offre. Votre place est réservée pendant 10 jours après la notification d'admission. Ensuite, votre inscription sera acceptée en fonction des places disponibles."
+              "q": "Bis wann muss ich meine Zulassung annehmen?",
+              "a": "Herzlichen Glückwunsch! Die Wahl Ihrer Schule ist eine der wichtigsten Entscheidungen Ihres Lebens. Für die Annahme des Angebots gibt es keine Frist. Ihr Platz ist nach der Zulassungsmitteilung 10 Tage lang reserviert. Danach wird Ihre Einschreibung je nach verfügbaren Plätzen angenommen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Félicitations ! Le choix de votre école est l'une des décisions les plus importantes de votre vie. Il n'y a pas de délai pour accepter l'offre. Votre place est réservée pendant 10 jours après la notification d'admission. Ensuite, votre inscription sera acceptée en fonction des places disponibles."
+          "text": "Herzlichen Glückwunsch! Die Wahl Ihrer Schule ist eine der wichtigsten Entscheidungen Ihres Lebens. Für die Annahme des Angebots gibt es keine Frist. Ihr Platz ist nach der Zulassungsmitteilung 10 Tage lang reserviert. Danach wird Ihre Einschreibung je nach verfügbaren Plätzen angenommen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quand recevrai-je mes résultats d'admission ?",
-              "a": "Les résultats sont fournis dans un délai de 10 jours après chaque étape du processus de sélection."
+              "q": "Wann erhalte ich meine Zulassungsergebnisse?",
+              "a": "Die Ergebnisse werden innerhalb von 10 Tagen nach jeder Phase des Auswahlverfahrens mitgeteilt."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les résultats sont fournis dans un délai de 10 jours après chaque étape du processus de sélection."
+          "text": "Die Ergebnisse werden innerhalb von 10 Tagen nach jeder Phase des Auswahlverfahrens mitgeteilt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "En quoi consiste le processus de sélection ?",
-              "a": "Consultez la page dédiée pour en savoir plus."
+              "q": "Wie läuft das Auswahlverfahren ab?",
+              "a": "Mehr dazu erfahren Sie auf der entsprechenden Seite."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Consultez la page dédiée pour en savoir plus."
+          "text": "Mehr dazu erfahren Sie auf der entsprechenden Seite."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quelles sont les conditions requises pour intégrer Eugenia School ?",
-              "a": "Eugenia School est ouvert aux lycéens de terminale générale ou technologique avec un intérêt pour les nouvelles technologies. L'ADN entrepreneurial est un plus. Pour les masters, il faut être titulaire d'un bac+3, soit 180 crédits ECTS, avec l'envie d'avoir une formation technique. Le bootcamp de M1 reprend les bases de l'analyse de données."
+              "q": "Welche Voraussetzungen gelten für die Aufnahme an der Eugenia School?",
+              "a": "Die Eugenia School steht Schülerinnen und Schülern der allgemeinen oder technologischen Abschlussklasse mit Interesse an neuen Technologien offen. Unternehmerische DNA ist ein Plus. Für die Master braucht man einen Bac+3, also 180 ECTS-Punkte, und den Wunsch nach einer technischen Ausbildung. Das M1-Bootcamp wiederholt die Grundlagen der Datenanalyse."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Eugenia School est ouvert aux lycéens de terminale générale ou technologique avec un intérêt pour les nouvelles technologies. L'ADN entrepreneurial est un plus. Pour les masters, il faut être titulaire d'un bac+3, soit 180 crédits ECTS, avec l'envie d'avoir une formation technique. Le bootcamp de M1 reprend les bases de l'analyse de données."
+          "text": "Die Eugenia School steht Schülerinnen und Schülern der allgemeinen oder technologischen Abschlussklasse mit Interesse an neuen Technologien offen. Unternehmerische DNA ist ein Plus. Für die Master braucht man einen Bac+3, also 180 ECTS-Punkte, und den Wunsch nach einer technischen Ausbildung. Das M1-Bootcamp wiederholt die Grundlagen der Datenanalyse."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Puis-je rejoindre Eugenia School après une autre filière ?",
-              "a": "Oui. Pour le MSc, il faut être titulaire d'un bac+3 (180 crédits ECTS), quelle que soit la filière d'origine, avec l'envie d'acquérir une base technique : le bootcamp de démarrage reprend les bases de l'analyse de données."
+              "q": "Kann ich nach einem anderen Studiengang zur Eugenia School kommen?",
+              "a": "Ja. Für den MSc braucht man einen Bac+3 (180 ECTS-Punkte), unabhängig vom ursprünglichen Studiengang, und den Wunsch, eine technische Basis zu erwerben: Das Einstiegs-Bootcamp wiederholt die Grundlagen der Datenanalyse."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui. Pour le MSc, il faut être titulaire d'un bac+3 (180 crédits ECTS), quelle que soit la filière d'origine, avec l'envie d'acquérir une base technique : le bootcamp de démarrage reprend les bases de l'analyse de données."
+          "text": "Ja. Für den MSc braucht man einen Bac+3 (180 ECTS-Punkte), unabhängig vom ursprünglichen Studiengang, und den Wunsch, eine technische Basis zu erwerben: Das Einstiegs-Bootcamp wiederholt die Grundlagen der Datenanalyse."
         },
         {
           "type": "link",
-          "label": "Découvrir le MSc →",
+          "label": "Den MSc entdecken →",
           "href": "/programme/master-ia-business-alternance"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quand et comment puis-je poser ma candidature ?",
-              "a": "Consultez notre page concernant le processus de candidature pour obtenir les informations nécessaires pour postuler à chacun de nos programmes."
+              "q": "Wann und wie kann ich mich bewerben?",
+              "a": "Auf unserer Seite zum Bewerbungsverfahren finden Sie die nötigen Informationen, um sich für jedes unserer Programme zu bewerben."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Consultez notre page concernant le processus de candidature pour obtenir les informations nécessaires pour postuler à chacun de nos programmes."
+          "text": "Auf unserer Seite zum Bewerbungsverfahren finden Sie die nötigen Informationen, um sich für jedes unserer Programme zu bewerben."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Combien coûte la candidature ?",
-              "a": "La candidature est gratuite pour les candidats résidant dans l'Union européenne. Pour les candidats résidant hors de l'Union européenne, elle coûte 30 €."
+              "q": "Was kostet die Bewerbung?",
+              "a": "Die Bewerbung ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos. Für Bewerber mit Wohnsitz außerhalb der Europäischen Union kostet sie 30 €."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "La candidature est gratuite pour les candidats résidant dans l'Union européenne. Pour les candidats résidant hors de l'Union européenne, elle coûte 30 €."
+          "text": "Die Bewerbung ist für Bewerber mit Wohnsitz in der Europäischen Union kostenlos. Für Bewerber mit Wohnsitz außerhalb der Europäischen Union kostet sie 30 €."
         },
         {
           "type": "link",
-          "label": "Candidater →",
+          "label": "Bewerben →",
           "href": "/candidature"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quand a lieu la rentrée ?",
-              "a": "La rentrée a lieu uniquement en septembre. Il n'y a pas de rentrée en janvier."
+              "q": "Wann ist Studienbeginn?",
+              "a": "Studienbeginn ist nur im September. Einen Studienbeginn im Januar gibt es nicht."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "La rentrée a lieu uniquement en septembre. Il n'y a pas de rentrée en janvier."
+          "text": "Studienbeginn ist nur im September. Einen Studienbeginn im Januar gibt es nicht."
         },
         {
           "type": "link",
-          "label": "Voir le processus d'admission →",
+          "label": "Zum Zulassungsverfahren →",
           "href": "/processus-admission"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Faut-il s'inscrire sur Parcoursup ou Mon Master ?",
-              "a": "Non, Eugenia School n'est pas répertoriée sur Parcoursup ou Mon Master. Les candidatures se font directement sur cette page."
+              "q": "Muss man sich bei Parcoursup oder Mon Master anmelden?",
+              "a": "Nein, die Eugenia School ist nicht bei Parcoursup oder Mon Master gelistet. Die Bewerbung erfolgt direkt auf dieser Seite."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Non, Eugenia School n'est pas répertoriée sur Parcoursup ou Mon Master. Les candidatures se font directement sur cette page."
+          "text": "Nein, die Eugenia School ist nicht bei Parcoursup oder Mon Master gelistet. Die Bewerbung erfolgt direkt auf dieser Seite."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Une lettre de motivation est-elle nécessaire pour postuler ?",
-              "a": "Il est recommandé d’inclure tous les documents pertinents dans votre candidature, tels que les relevés de notes, les certificats linguistiques, les diplômes et les lettres de recommandation."
+              "q": "Ist für die Bewerbung ein Motivationsschreiben nötig?",
+              "a": "Es wird empfohlen, alle relevanten Dokumente der Bewerbung beizufügen, etwa Notenblätter, Sprachzertifikate, Abschlüsse und Empfehlungsschreiben."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Il est recommandé d’inclure tous les documents pertinents dans votre candidature, tels que les relevés de notes, les certificats linguistiques, les diplômes et les lettres de recommandation."
+          "text": "Es wird empfohlen, alle relevanten Dokumente der Bewerbung beizufügen, etwa Notenblätter, Sprachzertifikate, Abschlüsse und Empfehlungsschreiben."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Sur quoi porte l'entretien de motivation ?",
-              "a": "L'entretien se compose de trois parties : faire connaissance, un casse-tête logique et une explication de vos motivations."
+              "q": "Worum geht es im Motivationsgespräch?",
+              "a": "Das Gespräch besteht aus drei Teilen: Kennenlernen, ein Logikrätsel und die Erläuterung Ihrer Motivation."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "L'entretien se compose de trois parties : faire connaissance, un casse-tête logique et une explication de vos motivations."
+          "text": "Das Gespräch besteht aus drei Teilen: Kennenlernen, ein Logikrätsel und die Erläuterung Ihrer Motivation."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Que dois-je faire si je ne peux pas compléter ma candidature parce qu'il me manque des relevés de notes ?",
-              "a": "Téléchargez deux fois le même document si vos relevés de notes sont semestriels et non trimestriels. Le jury comprendra."
+              "q": "Was tun, wenn ich meine Bewerbung nicht abschließen kann, weil mir Notenblätter fehlen?",
+              "a": "Laden Sie dasselbe Dokument zweimal hoch, wenn Ihre Notenblätter halbjährlich und nicht vierteljährlich sind. Die Jury wird es verstehen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Téléchargez deux fois le même document si vos relevés de notes sont semestriels et non trimestriels. Le jury comprendra."
+          "text": "Laden Sie dasselbe Dokument zweimal hoch, wenn Ihre Notenblätter halbjährlich und nicht vierteljährlich sind. Die Jury wird es verstehen."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Puis-je soumettre ma candidature si je n'ai pas encore mes notes de l'année en cours ?",
-              "a": "Oui, vous pouvez entamer la procédure d'admission et soumettre les notes manquantes plus tard."
+              "q": "Kann ich mich bewerben, wenn ich die Noten des laufenden Jahres noch nicht habe?",
+              "a": "Ja, Sie können das Zulassungsverfahren beginnen und die fehlenden Noten später einreichen."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Oui, vous pouvez entamer la procédure d'admission et soumettre les notes manquantes plus tard."
+          "text": "Ja, Sie können das Zulassungsverfahren beginnen und die fehlenden Noten später einreichen."
         }
       ],
       "eyebrow": "04"
     },
     {
-      "title": "Frais de scolarité et financement",
+      "title": "Studiengebühren und Finanzierung",
       "blocks": [
         {
           "type": "faq",
           "items": [
             {
-              "q": "Existe-t-il des logements sur le campus ?",
-              "a": "Non, mais des solutions sont mises en place pour trouver chaussures à votre pied, contactez-nous pour avoir toutes les options !"
+              "q": "Gibt es Unterkünfte auf dem Campus?",
+              "a": "Nein, aber es gibt Lösungen, damit Sie das Passende finden. Kontaktieren Sie uns, um alle Optionen zu erfahren!"
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Non, mais des solutions sont mises en place pour trouver chaussures à votre pied, contactez-nous pour avoir toutes les options !"
+          "text": "Nein, aber es gibt Lösungen, damit Sie das Passende finden. Kontaktieren Sie uns, um alle Optionen zu erfahren!"
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Dois-je payer un acompte pour garantir ma place ?",
-              "a": "L'inscription en première année est confirmée par le versement d'un acompte de 3 000 euros. Le reste des frais de scolarité annuels est dû avant le début de l'année académique. Pour valider l'abonnement pour les années suivantes, un acompte sera demandé avant le 1er juillet."
+              "q": "Muss ich eine Anzahlung leisten, um meinen Platz zu sichern?",
+              "a": "Die Einschreibung ins erste Jahr wird durch eine Anzahlung von 3.000 Euro bestätigt. Der Rest der jährlichen Studiengebühren ist vor Beginn des akademischen Jahres fällig. Für die Folgejahre wird vor dem 1. Juli eine Anzahlung verlangt."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "L'inscription en première année est confirmée par le versement d'un acompte de 3 000 euros. Le reste des frais de scolarité annuels est dû avant le début de l'année académique. Pour valider l'abonnement pour les années suivantes, un acompte sera demandé avant le 1er juillet."
+          "text": "Die Einschreibung ins erste Jahr wird durch eine Anzahlung von 3.000 Euro bestätigt. Der Rest der jährlichen Studiengebühren ist vor Beginn des akademischen Jahres fällig. Für die Folgejahre wird vor dem 1. Juli eine Anzahlung verlangt."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Quels sont les frais de scolarité annuels à Eugenia School ?",
-              "a": "Les frais de scolarité dépendent du programme choisi. Consultez la page dédiée pour connaître les frais de scolarité du programme qui vous intéresse."
+              "q": "Wie hoch sind die jährlichen Studiengebühren an der Eugenia School?",
+              "a": "Die Studiengebühren hängen vom gewählten Programm ab. Auf der entsprechenden Seite finden Sie die Gebühren des Programms, das Sie interessiert."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Les frais de scolarité dépendent du programme choisi. Consultez la page dédiée pour connaître les frais de scolarité du programme qui vous intéresse."
+          "text": "Die Studiengebühren hängen vom gewählten Programm ab. Auf der entsprechenden Seite finden Sie die Gebühren des Programms, das Sie interessiert."
         },
         {
           "type": "faq",
           "items": [
             {
-              "q": "Comment puis-je financer ma scolarité ?",
-              "a": "Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. L'attribution de la bourse est basée sur des critères sociaux et académiques. La demande de bourse doit être faite avant l'inscription. Vous pouvez également demander des prêts étudiants auprès des banques partenaires. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité. Pour toute précision : admission@eugeniaschool.com."
+              "q": "Wie kann ich mein Studium finanzieren?",
+              "a": "Die Eugenia School bietet mit Unterstützung von Partnerunternehmen Stipendien, die bis zu 50 % der jährlichen Studiengebühren abdecken. Die Vergabe erfolgt nach sozialen und akademischen Kriterien. Der Stipendienantrag muss vor der Einschreibung gestellt werden. Sie können außerdem Studienkredite bei Partnerbanken beantragen. Da der Master of Science dual absolviert wird, übernimmt der Arbeitgeber 100 % der Studiengebühren. Für weitere Fragen: admission@eugeniaschool.com."
             }
           ],
           "idPrefix": "faq"
         },
         {
           "type": "paragraph",
-          "text": "Eugenia School, avec le soutien d'entreprises partenaires, offre des bourses couvrant jusqu'à 50 % des frais de scolarité annuels. L'attribution de la bourse est basée sur des critères sociaux et académiques. La demande de bourse doit être faite avant l'inscription. Vous pouvez également demander des prêts étudiants auprès des banques partenaires. Le Master of Science se faisant en alternance, l'employeur prend en charge 100 % des frais de scolarité. Pour toute précision : admission@eugeniaschool.com."
+          "text": "Die Eugenia School bietet mit Unterstützung von Partnerunternehmen Stipendien, die bis zu 50 % der jährlichen Studiengebühren abdecken. Die Vergabe erfolgt nach sozialen und akademischen Kriterien. Der Stipendienantrag muss vor der Einschreibung gestellt werden. Sie können außerdem Studienkredite bei Partnerbanken beantragen. Da der Master of Science dual absolviert wird, übernimmt der Arbeitgeber 100 % der Studiengebühren. Für weitere Fragen: admission@eugeniaschool.com."
         },
         {
           "type": "link",
-          "label": "Voir le financement →",
+          "label": "Zur Finanzierung →",
           "href": "/financement"
         }
       ]
@@ -893,86 +893,86 @@ export const page: LivePage = {
   ],
   "internalLinks": [
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Nous écrire",
+      "label": "Schreib uns",
       "href": "/contact"
     },
     {
-      "label": "À propos d'Eugenia School",
+      "label": "Über die Eugenia School",
       "href": "#a-propos-d-eugenia-school"
     },
     {
-      "label": "Étudier à Eugenia School",
+      "label": "Studieren an der Eugenia School",
       "href": "#etudier-a-eugenia-school"
     },
     {
-      "label": "Processus de candidature",
+      "label": "Bewerbungsverfahren",
       "href": "#processus-de-candidature"
     },
     {
-      "label": "Frais de scolarité et financement",
+      "label": "Studiengebühren und Finanzierung",
       "href": "#frais-de-scolarite-et-financement"
     },
     {
-      "label": "Découvrir l'ADN d'Eugenia →",
+      "label": "Die DNA der Eugenia entdecken →",
       "href": "/notre-adn"
     },
     {
-      "label": "Voir la certification du Bachelor →",
+      "label": "Zur Zertifizierung des Bachelors →",
       "href": "/certification-concepteur-solutions-no-code"
     },
     {
-      "label": "Rencontrer les professeurs et mentors →",
+      "label": "Lehrkräfte und Mentoren kennenlernen →",
       "href": "/approche-pedagogique"
     },
     {
-      "label": "Recruter nos étudiants →",
+      "label": "Unsere Studierenden rekrutieren →",
       "href": "/recruter-nos-etudiants"
     },
     {
-      "label": "Voir la 3e année en alternance →",
+      "label": "Zum dualen 3. Jahr →",
       "href": "/programme/bachelor-ia-business-3eme-annee-alternance"
     },
     {
-      "label": "Découvrir le MSc →",
+      "label": "Den MSc entdecken →",
       "href": "/programme/master-ia-business-alternance"
     },
     {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     {
-      "label": "Voir le processus d'admission →",
+      "label": "Zum Zulassungsverfahren →",
       "href": "/processus-admission"
     },
     {
-      "label": "Voir le financement →",
+      "label": "Zur Finanzierung →",
       "href": "/financement"
     },
     {
-      "label": "Candidater",
+      "label": "Bewerben",
       "href": "/candidature"
     }
   ],
   "footer": {
-    "title": "Prêt à candidater ?",
-    "text": "Candidature gratuite, hors Parcoursup et hors Mon Master.",
+    "title": "Bereit für die Bewerbung?",
+    "text": "Kostenlose Bewerbung, außerhalb von Parcoursup und Mon Master.",
     "primary": {
-      "label": "Candidater →",
+      "label": "Bewerben →",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/admissions",
-    "title": "Admissions",
-    "text": "Voir les admissions",
+    "title": "Zulassung",
+    "text": "Zur Zulassung",
     "image": "p_arches"
   }
 };

@@ -182,7 +182,7 @@ const groupedSections = sections.map((section) => {
                             </div>
                           </fieldset>
                         ))}
-                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
+                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Zurücksetzen</button>
                       </div>
                       <p class="sr-only" aria-live="polite" data-filter-count></p>
                       <span hidden data-filter-empty>{block.emptyText}</span>
@@ -268,7 +268,7 @@ const groupedSections = sections.map((section) => {
                             </div>
                           </fieldset>
                         ))}
-                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Réinitialiser</button>
+                        <button type="button" class="lnk portfolio-gallery__reset" data-filter-reset>Zurücksetzen</button>
                       </div>
                       <p class="sr-only" aria-live="polite" data-filter-count></p>
                       <span hidden data-filter-empty>{block.emptyText}</span>
@@ -280,7 +280,7 @@ const groupedSections = sections.map((section) => {
                         <Pic src={img(item.image)} alt={item.alt} sizes="(min-width: 1024px) 360px, 100vw" />
                         <h3 class="h3-sm">{item.name}</h3>
                         <p class="live-section__text">{item.text}</p>
-                        <span class="lnk">Voir le portfolio ↗</span>
+                        <span class="lnk">Zum Portfolio ↗</span>
                       </a>
                     ))}
                   </div>
@@ -718,7 +718,7 @@ const groupedSections = sections.map((section) => {
         card.hidden = !matches;
         if (matches) visible++;
       }
-      count.textContent = visible === 0 ? emptyText : `${visible} résultats`;
+      count.textContent = visible === 0 ? emptyText : `${visible} Ergebnisse`;
     };
     buttons.forEach((button) => button.addEventListener("click", () => {
       button.setAttribute("aria-pressed", button.getAttribute("aria-pressed") === "true" ? "false" : "true");

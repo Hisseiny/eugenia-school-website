@@ -13,7 +13,7 @@ interface Props {
 const { facts, title } = Astro.props;
 ---
 
-<section class="container facts" aria-label={title ?? "Informations sur la formation"}>
+<section class="container facts" aria-label={title ?? "Informationen zum Studiengang"}>
   {title && <h2 class="h2-sm facts__title">{title}</h2>}
   <dl class="facts__grid">
     {

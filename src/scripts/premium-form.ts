@@ -33,7 +33,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
       sessionStorage.setItem(storageKey, JSON.stringify({ index, values, at: Date.now() }));
     } catch {
       const note = form.querySelector<HTMLElement>("[data-draft-status]");
-      if (note) note.textContent = "La reprise après rechargement est indisponible dans ce navigateur.";
+      if (note) note.textContent = "Die Wiederaufnahme nach dem Neuladen ist in diesem Browser nicht verfügbar.";
     }
   };
   const clear = () => { try { sessionStorage.removeItem(storageKey); } catch { /* Storage can be disabled. */ } };
@@ -53,11 +53,11 @@ export function initPremiumForm(form: HTMLFormElement): void {
   };
 
   const messages = (): Record<string, string> => ({
-    firstname: formal() ? "Indiquez votre prénom." : "Indique ton prénom.",
-    lastname: formal() ? "Indiquez votre nom." : "Indique ton nom.",
-    email: formal() ? "Indiquez une adresse e-mail valide pour vous répondre." : "Indique une adresse e-mail valide pour te répondre.",
-    phone: "Un numéro de téléphone valide.",
-    default: formal() ? "Choisissez une réponse pour continuer." : "Choisis une réponse pour continuer.",
+    firstname: formal() ? "Bitte geben Sie Ihren Vornamen an." : "Gib deinen Vornamen an.",
+    lastname: formal() ? "Bitte geben Sie Ihren Nachnamen an." : "Gib deinen Nachnamen an.",
+    email: formal() ? "Bitte geben Sie eine gültige E-Mail-Adresse an, damit wir Ihnen antworten können." : "Gib eine gültige E-Mail-Adresse an, damit wir dir antworten können.",
+    phone: "Eine gültige Telefonnummer.",
+    default: formal() ? "Bitte wählen Sie eine Antwort, um fortzufahren." : "Wähle eine Antwort, um fortzufahren.",
   });
 
   const show = (i: number, focus = true) => {
@@ -84,7 +84,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
     (field.name !== "phone" || field.value.replace(/\D/g, "").length >= 9);
   const fieldMessage = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
     if (field.name === "email" && field.value && !field.value.includes("@")) {
-      return formal() ? "Il manque le @ dans votre e-mail." : "Il manque le @ dans ton e-mail.";
+      return formal() ? "In Ihrer E-Mail fehlt das @." : "In deiner E-Mail fehlt das @.";
     }
     return messages()[field.name] ?? messages().default;
   };
@@ -191,7 +191,7 @@ export function initPremiumForm(form: HTMLFormElement): void {
         suggestion.hidden = !local || !corrected;
         if (corrected) {
           suggestion.dataset.email = `${local}@${corrected}`;
-          suggestion.textContent = `${formal() ? "Vouliez-vous" : "Voulais-tu"} dire ${corrected} ?`;
+          suggestion.textContent = `${formal() ? "Meinten Sie" : "Meintest du"} ${corrected}?`;
         }
       }
     }

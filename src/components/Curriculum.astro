@@ -8,7 +8,7 @@ interface Props {
 const { curriculum } = Astro.props;
 ---
 
-<section class="container curriculum" aria-label="Programme détaillé">
+<section class="container curriculum" aria-label="Detaillierter Studienplan">
   {
     curriculum.years.map((year) => (
       <section class="curriculum__year" aria-labelledby={`year-${year.code}`}>
@@ -21,7 +21,7 @@ const { curriculum } = Astro.props;
                 {semester.code} · Semestre {semester.number} — {semester.hours} h · {semester.ects} ECTS
               </h4>
               <div class="curriculum__module-head" aria-hidden="true">
-                <span>Module</span><span>Volume horaire</span><span>ECTS</span>
+                <span>Module</span><span>Stundenumfang</span><span>ECTS</span>
               </div>
               <div class="curriculum__modules">
                 {
@@ -36,7 +36,7 @@ const { curriculum } = Astro.props;
                       </summary>
                       <div class="curriculum__courses">
                         <div class="curriculum__course-head">
-                          <span>Code</span><span>Cours</span><span>Volume horaire</span><span>ECTS</span>
+                          <span>Code</span><span>Lehrveranstaltung</span><span>Stundenumfang</span><span>ECTS</span>
                         </div>
                         <ul>
                           {

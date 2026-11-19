@@ -31,10 +31,10 @@ const initial = DEFAULT_STORY[form];
     <div class="focus-help">
       <p>Besoin d'aide ? <a href={SITE.contact.phoneHref}>{SITE.contact.phone}</a></p>
       <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
-      <p class="focus-help__privacy"><a href={SITE.privacyUrl}>Politique de confidentialité</a></p>
+      <p class="focus-help__privacy"><a href={SITE.privacyUrl}>Datenschutzerklärung</a></p>
     </div>
   </div>
-  <aside class="focus-visual" aria-label="La vie à Eugenia School">
+  <aside class="focus-visual" aria-label="Das Leben an der Eugenia School">
     {FOCUS_STORIES.map((story) => (
       <figure class:list={["focus-story", story.id === initial && "is-active"]} data-focus-story={story.id} aria-hidden={story.id !== initial ? "true" : "false"}>
         <Image src={img(story.image)} alt="" widths={[480, 800, 1200]} sizes="50vw" loading={story.id === initial ? "eager" : "lazy"} style={`object-position:${story.position}`} />

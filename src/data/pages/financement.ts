@@ -1,23 +1,23 @@
 import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
-  "title": "Financer ses études : bourses, alternance | Eugenia School",
-  "description": "Financer sa scolarité à Eugenia School : frais, bourses jusqu'à 50 %, alternance financée par l'entreprise et prêts étudiants. Contactez l'équipe.",
-  "h1": "Financer Eugenia School.",
+  "title": "Studium finanzieren: Stipendien, duale Ausbildung | Eugenia School",
+  "description": "Das Studium an der Eugenia School finanzieren: Gebühren, Stipendien bis zu 50 %, vom Unternehmen finanzierte duale Ausbildung und Studienkredite. Kontaktieren Sie das Team.",
+  "h1": "Die Eugenia School finanzieren.",
   "image": "pr3_hero-financement",
-  "imageAlt": "Un étudiant d’Eugenia School souriant, en blazer, lors d’un échange sur le campus",
-  "eyebrow": "// les solutions de financement",
+  "imageAlt": "Ein lächelnder Student der Eugenia School im Blazer bei einem Gespräch auf dem Campus",
+  "eyebrow": "// die Finanzierungslösungen",
   "audience": {
-    "student": "Eugenia aide ses étudiants à trouver des solutions pour financer leurs études : bourses, prêts étudiants et Master en alternance, où l’employeur prend en charge les frais de scolarité. Un soutien personnalisé pour explorer toutes les options.",
-    "parent": "Eugenia accompagne les familles pour financer les études : bourses, prêts étudiants et Master en alternance, où l’employeur prend en charge les frais de scolarité. Un soutien personnalisé pour explorer toutes les options avec vous.",
-    "studentCta": "Postuler",
-    "parentCta": "Créer l’espace candidat de mon enfant",
+    "student": "Die Eugenia hilft ihren Studierenden, Lösungen zur Finanzierung des Studiums zu finden: Stipendien, Studienkredite und der duale Master, bei dem der Arbeitgeber die Studiengebühren übernimmt. Persönliche Unterstützung, um alle Optionen zu prüfen.",
+    "parent": "Die Eugenia begleitet Familien bei der Finanzierung des Studiums: Stipendien, Studienkredite und der duale Master, bei dem der Arbeitgeber die Studiengebühren übernimmt. Persönliche Unterstützung, um alle Optionen gemeinsam mit Ihnen zu prüfen.",
+    "studentCta": "Bewerben",
+    "parentCta": "Den Bewerberbereich meines Kindes anlegen",
     "href": "/candidature"
   },
   "facts": [],
   "sections": [
     {
-      "title": "Un programme, une formule.",
+      "title": "Ein Programm, ein Modell.",
       "blocks": [
         {
           "type": "paragraph",
@@ -26,105 +26,105 @@ export const page: LivePage = {
         {
           "type": "heading",
           "level": 3,
-          "text": "Bachelor Programme"
+          "text": "Bachelor-Programm"
         },
         {
           "type": "paragraph",
-          "text": "Nous offrons des bourses en fonction des revenus. Contactez-nous pour plus d'informations sur les aides financières."
+          "text": "Wir bieten einkommensabhängige Stipendien an. Kontaktieren Sie uns für weitere Informationen zu finanziellen Hilfen."
         },
         {
           "type": "table",
           "rows": [
             [
               "Profil",
-              "Montant",
-              "Période"
+              "Betrag",
+              "Zeitraum"
             ],
             [
-              "Étudiants européens",
+              "Europäische Studierende",
               "14 900€",
-              "par an"
+              "pro Jahr"
             ],
             [
-              "Hors Europe",
+              "Außerhalb Europas",
               "16 900€",
-              "par an"
+              "pro Jahr"
             ]
           ]
         },
         {
           "type": "cta",
-          "label": "Candidater",
+          "label": "Bewerben",
           "href": "/candidature"
         },
         {
           "type": "paragraph",
-          "text": "MSc · Alternance"
+          "text": "MSc · Dual"
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Master of Science ou 3ème année de Bachelor en Alternance"
+          "text": "Master of Science oder duales 3. Bachelorjahr"
         },
         {
           "type": "paragraph",
-          "text": "Les frais des programmes d'alternance sont payés par l'employeur de l'étudiant. Une année d'études en France est nécessaire pour ce programme."
+          "text": "Die Gebühren der dualen Programme werden vom Arbeitgeber des Studierenden bezahlt. Für dieses Programm ist ein Studienjahr in Frankreich erforderlich."
         },
         {
           "type": "table",
           "rows": [
             [
               "Profil",
-              "Montant",
-              "Période"
+              "Betrag",
+              "Zeitraum"
             ],
             [
-              "Étudiants européens",
+              "Europäische Studierende",
               "0€",
-              "par an"
+              "pro Jahr"
             ],
             [
-              "Hors Europe",
+              "Außerhalb Europas",
               "0€",
-              "par an"
+              "pro Jahr"
             ]
           ]
         },
         {
           "type": "cta",
-          "label": "Candidater",
+          "label": "Bewerben",
           "href": "/candidature"
         }
       ],
-      "eyebrow": "pourquoi choisir eugenia school ?"
+      "eyebrow": "warum die Eugenia School wählen?"
     },
     {
-      "title": "Nos valeurs.",
+      "title": "Unsere Werte.",
       "blocks": [
         {
           "type": "cards",
           "items": [
             {
               "number": "01",
-              "title": "Nous sommes Data-driven",
-              "text": "De l'analyse de données à l'IA, nos programmes sont conçus pour développer les compétences analytiques essentielles à la réussite dans un monde technologique."
+              "title": "Wir sind datengetrieben",
+              "text": "Von der Datenanalyse bis zur KI sind unsere Programme darauf ausgelegt, die analytischen Kompetenzen zu entwickeln, die für den Erfolg in einer technologischen Welt unerlässlich sind."
             },
             {
               "number": "02",
-              "title": "Nous cultivons l'Optimisme",
-              "text": "Nous encourageons une culture de l'optimisme, permettant aux étudiants de voir les défis comme des opportunités et de prendre des initiatives pour leur avenir."
+              "title": "Wir pflegen Optimismus",
+              "text": "Wir fördern eine Kultur des Optimismus, damit die Studierenden Herausforderungen als Chancen sehen und die Initiative für ihre Zukunft ergreifen."
             },
             {
               "number": "03",
-              "title": "Nous avons un Esprit Critique",
-              "text": "Nous incitons les étudiants à remettre en question le statu quo, poser des questions pertinentes et réfléchir de manière critique pour résoudre des problèmes complexes."
+              "title": "Wir haben kritischen Geist",
+              "text": "Wir ermutigen die Studierenden, den Status quo zu hinterfragen, relevante Fragen zu stellen und kritisch zu denken, um komplexe Probleme zu lösen."
             }
           ]
         }
       ],
     },
     {
-      "eyebrow": "des cas réels d’entreprises partenaires",
+      "eyebrow": "echte Fälle von Partnerunternehmen",
       "blocks": [
         {
           "type": "logos",
@@ -138,7 +138,7 @@ export const page: LivePage = {
             { "name": "lg_effy", "alt": "EFFY" },
             { "name": "lg_wesype", "alt": "WeSype" },
             { "name": "lg_misteria", "alt": "Mister IA" },
-            { "name": "lg_armees", "alt": "Ministère des Armées" },
+            { "name": "lg_armees", "alt": "Französisches Verteidigungsministerium" },
             { "name": "lg_airfrance", "alt": "Air France" },
             { "name": "lg_accenture", "alt": "Accenture" },
             { "name": "lg_sage", "alt": "Sage" },
@@ -152,12 +152,12 @@ export const page: LivePage = {
       ]
     },
     {
-      "title": "En savoir plus sur nos prêts étudiants et leur fonctionnement",
-      "eyebrow": "prêts étudiants",
+      "title": "Mehr über unsere Studienkredite und ihre Funktionsweise erfahren",
+      "eyebrow": "Studienkredite",
       "blocks": [
         {
           "type": "cta",
-          "label": "Nous contacter",
+          "label": "Kontakt",
           "href": "/contact"
         }
       ]
@@ -165,45 +165,45 @@ export const page: LivePage = {
   ],
   "internalLinks": [
     {
-      "label": "Postuler",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     {
-      "label": "Créer l’espace candidat de mon enfant",
+      "label": "Den Bewerberbereich meines Kindes anlegen",
       "href": "/candidature"
     },
     {
-      "label": "Parler de financement",
+      "label": "Über Finanzierung sprechen",
       "href": "/contact"
     },
     {
-      "label": "Candidater",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     {
-      "label": "Candidater",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     {
-      "label": "Nous contacter",
+      "label": "Kontakt",
       "href": "/contact"
     }
   ],
   "footer": {
-    "title": "Prêt à construire quelque chose de réel ?",
+    "title": "Bereit, etwas Echtes zu bauen?",
     "primary": {
-      "label": "Postuler",
+      "label": "Bewerben",
       "href": "/candidature"
     },
     "secondary": {
-      "label": "Prochain événement",
+      "label": "Nächste Veranstaltung",
       "href": "/evenements"
     }
   },
   "next": {
     "href": "/admissions",
-    "title": "Admissions",
-    "text": "Voir les admissions",
+    "title": "Zulassung",
+    "text": "Zur Zulassung",
     "image": "p_arches"
   }
 };

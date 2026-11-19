@@ -18,28 +18,28 @@ const ICONS: Record<string, string> = {
   partner: '<path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/>',
 };
 const PROJECT_LINKS = [
-  { label: "Tous les projets avec les entreprises", href: ROUTES.projetsEntreprises, text: lot3["projets-entreprises"].page.description },
-  { label: "Hackathon Mistral AI, Make et Malt", href: ROUTES.projetMistral, text: lot3["projets-entreprises/mistral-ai-hackathon"].page.description },
+  { label: "Alle Projekte mit Unternehmen", href: ROUTES.projetsEntreprises, text: lot3["projets-entreprises"].page.description },
+  { label: "Hackathon Mistral AI, Make und Malt", href: ROUTES.projetMistral, text: lot3["projets-entreprises/mistral-ai-hackathon"].page.description },
   { label: "Hackathon Mirakl × OpenAI", href: ROUTES.projetOpenAI, text: lot3["projets-entreprises/openai-hackathon"].page.description },
   { label: "Dust Customers Hackathon", href: ROUTES.projetDust, text: lot3["projets-entreprises/dust-hackathon"].page.description },
 ];
 ---
 
 <Base
-  title="Entreprises : alternance et hackathons | Eugenia School"
-  description="Recrutez un alternant, confiez un brief à nos étudiants pour un hackathon, ou devenez partenaire de l'école. Échangez avec l'équipe d'Eugenia School."
+  title="Unternehmen: duale Ausbildung und Hackathons | Eugenia School"
+  description="Rekrutieren Sie einen dual Studierenden, geben Sie unseren Studierenden ein Briefing für einen Hackathon oder werden Sie Partner der Schule. Tauschen Sie sich mit dem Team der Eugenia School aus."
   current={ROUTES.entreprises}
-  crumbs={[{ name: "Entreprises" }]}
+  crumbs={[{ name: "Unternehmen" }]}
 >
   <PageTop
-    title="Entreprises"
-    lead="Recrutez des alternants qui savent déjà construire avec l'IA. Ou confiez-leur un vrai problème, le temps d'un hackathon."
+    title="Unternehmen"
+    lead="Rekrutieren Sie dual Studierende, die bereits mit KI bauen können. Oder geben Sie ihnen ein echtes Problem, für die Dauer eines Hackathons."
     image="p_award"
-    alt="Une équipe d'étudiants célèbre son Bronze Award au hackathon Dust"
+    alt="Ein Team von Studierenden feiert seinen Bronze Award beim Dust-Hackathon"
     position="45% 40%"
   />
 
-  <section class="ways" aria-label="Trois façons de travailler avec l'école">
+  <section class="ways" aria-label="Drei Wege, mit der Schule zusammenzuarbeiten">
     <div class="container ways__grid">
       {
         WAYS.map((w) => (
@@ -55,7 +55,7 @@ const PROJECT_LINKS = [
   </section>
 
   <section class="container recruit" aria-labelledby="recruit-title">
-    <h2 id="recruit-title" class="h2 recruit__title">Elles recrutent déjà nos étudiants.</h2>
+    <h2 id="recruit-title" class="h2 recruit__title">Sie rekrutieren bereits unsere Studierenden.</h2>
     <ul class="logo-grid">
       {
         RECRUITERS.map((l) => (
@@ -68,15 +68,15 @@ const PROJECT_LINKS = [
   </section>
 
   <section class="container oncampus" aria-labelledby="oncampus-title">
-    <h2 id="oncampus-title" class="h2 oncampus__title">Sur le campus, toute l'année.</h2>
+    <h2 id="oncampus-title" class="h2 oncampus__title">Auf dem Campus, das ganze Jahr.</h2>
     <div class="oncampus__grid">
       <figure>
-        <Pic src={img("n_speaker")} alt="Lancement du hackathon PayFit devant les kakemonos PayFit, dans l'atrium" ratio="16 / 9" sizes="(min-width: 1024px) 680px, 100vw" />
-        <figcaption class="oncampus__caption"><div class="semibold">Le lancement d'un hackathon</div><div class="muted text-15">Le brief PayFit présenté aux étudiants, dans l'atrium.</div></figcaption>
+        <Pic src={img("n_speaker")} alt="Start des PayFit-Hackathons vor den PayFit-Rollups im Atrium" ratio="16 / 9" sizes="(min-width: 1024px) 680px, 100vw" />
+        <figcaption class="oncampus__caption"><div class="semibold">Der Start eines Hackathons</div><div class="muted text-15">Das PayFit-Briefing, den Studierenden im Atrium vorgestellt.</div></figcaption>
       </figure>
       <figure>
-        <Pic src={img("n_partners")} alt="Présentation sur scène des partenaires de l'école : startups, éditeurs technologiques et grands groupes" ratio="16 / 9" sizes="(min-width: 1024px) 680px, 100vw" />
-        <figcaption class="oncampus__caption"><div class="semibold">Un réseau qui grandit</div><div class="muted text-15">Startups, éditeurs technologiques et grands groupes, présentés aux étudiants.</div></figcaption>
+        <Pic src={img("n_partners")} alt="Bühnenpräsentation der Partner der Schule: Startups, Technologieanbieter und Konzerne" ratio="16 / 9" sizes="(min-width: 1024px) 680px, 100vw" />
+        <figcaption class="oncampus__caption"><div class="semibold">Ein wachsendes Netzwerk</div><div class="muted text-15">Startups, Technologieanbieter und Konzerne, den Studierenden vorgestellt.</div></figcaption>
       </figure>
     </div>
   </section>
@@ -84,8 +84,8 @@ const PROJECT_LINKS = [
   <section id="hackathons" class="dark hack" aria-labelledby="hack-title">
     <div class="container">
       <div class="section-head hack__head">
-        <h2 id="hack-title" class="h2 hack__title">Ils ont confié un brief à nos étudiants.</h2>
-        <p class="hack__sub">48 heures, des équipes d'étudiants, une démo devant le jury de l'entreprise.</p>
+        <h2 id="hack-title" class="h2 hack__title">Sie haben unseren Studierenden ein Briefing gegeben.</h2>
+        <p class="hack__sub">48 Stunden, Teams von Studierenden, eine Demo vor der Jury des Unternehmens.</p>
       </div>
       <div class="hack__grid">
         {
@@ -113,19 +113,19 @@ const PROJECT_LINKS = [
   </section>
 
   <section class="partners" aria-labelledby="partners-title">
-    <h2 id="partners-title" class="sr-only">Partenaires de l'école</h2>
-    <LogoMarquee logos={PARTNER_MARQUEE} label="Partenaires de l'école" />
+    <h2 id="partners-title" class="sr-only">Partner der Schule</h2>
+    <LogoMarquee logos={PARTNER_MARQUEE} label="Partner der Schule" />
   </section>
 
   <div id="contact"></div>
   <EndOfPage
-    title="Parlons de votre prochain alternant."
+    title="Sprechen wir über Ihren nächsten dual Studierenden."
     primary={{ href: ROUTES.contact, label: "Nous contacter" }}
-    secondary={{ href: ROUTES.brochure, label: "Télécharger la plaquette entreprises" }}
+    secondary={{ href: ROUTES.brochure, label: "Unternehmensbroschüre herunterladen" }}
     image="p_team"
     position="50% 45%"
   />
-  <ContinueVisit href={ROUTES.carrieres} title="Carrières" text="Les profils que vous pouvez recruter, et leurs parcours." image="p_team" />
+  <ContinueVisit href={ROUTES.carrieres} title="Karrieren" text="Die Profile, die Sie rekrutieren können, und ihre Werdegänge." image="p_team" />
 </Base>
 
 <style>

@@ -21,8 +21,8 @@ const ICONS: Record<string, string> = {
 ---
 
 <Base
-  title="École d'IA à Paris : Bachelor et MSc | Eugenia School"
-  description="Eugenia School, l'école de l'IA appliquée au business : Bachelor et Master en alternance, hors Parcoursup. Un premier projet en entreprise au semestre 1."
+  title="KI-Hochschule in Paris: Bachelor und MSc | Eugenia School"
+  description="Eugenia School, die Schule für auf das Business angewandte KI: Bachelor und dualer Master, außerhalb von Parcoursup. Ein erstes Unternehmensprojekt im 1. Semester."
   headerTone="plum"
   current={ROUTES.home}
   jsonLd={[
@@ -40,18 +40,18 @@ const ICONS: Record<string, string> = {
   <!-- Hero: text left, 7:8 photo right -->
   <section class="hero dark">
     <div class="hero__text">
-      <p class="r1 hero__place">18 rue de Paradis, Paris 10e</p>
+      <p class="r1 hero__place">18 rue de Paradis, 10. Arrondissement, Paris</p>
       <h1 class="r1 hero__title">Eugenia<br />School</h1>
-      <p class="r2 hero__lead">L'école de l'IA appliquée au business. Bachelor et Master en alternance, hors Parcoursup.</p>
+      <p class="r2 hero__lead">Die Hochschule für angewandte KI im Unternehmen. Bachelor und Master im dualen Studium, ohne Parcoursup.</p>
       <div class="r3 btn-row hero__actions">
-        <a href={ROUTES.admissions} class="btn btn--lg">Candidater</a>
-        <a href={ROUTES.programmes} class="btn-outline">Voir les programmes</a>
+        <a href={ROUTES.admissions} class="btn btn--lg">Jetzt bewerben</a>
+        <a href={ROUTES.programmes} class="btn-outline">Studienprogramme entdecken</a>
       </div>
     </div>
     <div class="hero__media">
       <Image
         src={img("n_hero_pair")}
-        alt="Deux étudiants sourient en conférence, l'un porte le pull Eugenia School"
+        alt="Zwei Studierende lächeln bei einer Konferenz, einer trägt einen Pullover der Eugenia School"
         widths={[480, 720, 960, 1265]}
         sizes="(min-width: 1024px) 50vw, 100vw"
         format="webp"
@@ -66,7 +66,7 @@ const ICONS: Record<string, string> = {
   <!-- Partners -->
   <section aria-labelledby="partners-title" class="badges">
     <div class="container badges__row">
-      <h2 id="partners-title" class="sr-only">Partenaires de l'école</h2>
+      <h2 id="partners-title" class="sr-only">Partner der Hochschule</h2>
       <ul class="badges__partners" data-partners>
         {PARTNERS.map((l) => (
           <li class="badges__item">
@@ -82,19 +82,19 @@ const ICONS: Record<string, string> = {
   <!-- Façade + promise -->
   <section class="container section promise">
     <figure>
-      <Pic src={img("p_facade_tall")} alt="La façade du 18 rue de Paradis, ses vitraux et les étudiants devant l'entrée" ratio="3 / 4" sizes="(min-width: 1024px) 640px, 100vw" />
-      <figcaption class="caption">La façade du 18 rue de Paradis, à l'heure de la pause.</figcaption>
+      <Pic src={img("p_facade_tall")} alt="Die Fassade der 18 rue de Paradis, ihre Buntglasfenster und Studierende vor dem Eingang" ratio="3 / 4" sizes="(min-width: 1024px) 640px, 100vw" />
+      <figcaption class="caption">Die Fassade der 18 rue de Paradis während der Pause.</figcaption>
     </figure>
     <div>
-      <p class="promise__title">Ici, on apprend l'IA en la construisant, avec les entreprises qui la font.</p>
-      <p class="promise__text">Ni école d'ingénieur, ni école de commerce : le meilleur des deux. Des professionnels en poste comme professeurs, un premier projet en entreprise dès le semestre 1, et un campus de 2 500 m² au cœur de Paris.</p>
-      <div class="promise__link"><a href={ROUTES.ecole} class="lnk">Découvrir l'école</a></div>
+      <p class="promise__title">Hier lernst du KI, indem du sie entwickelst – gemeinsam mit den Unternehmen, die sie gestalten.</p>
+      <p class="promise__text">Weder Ingenieurhochschule noch Wirtschaftshochschule: das Beste aus beiden Welten. Berufstätige Fachleute als Lehrende, ein erstes Unternehmensprojekt schon im ersten Semester und ein Campus mit 2.500 m² mitten in Paris.</p>
+      <div class="promise__link"><a href={ROUTES.ecole} class="lnk">Die Hochschule kennenlernen</a></div>
     </div>
   </section>
 
   <!-- Four entry doors -->
   <section aria-labelledby="pour-qui" class="doors">
-    <h2 id="pour-qui" class="sr-only">Trouver le programme qui te correspond</h2>
+    <h2 id="pour-qui" class="sr-only">Den passenden Studiengang finden</h2>
     <div class="container doors__grid">
       {
         DOORS.map((d) => (
@@ -109,14 +109,14 @@ const ICONS: Record<string, string> = {
       }
     </div>
     <div class="container doors__hesitate">
-      Tu hésites entre deux parcours ? <a href={ROUTES.contact} class="lnk">Pose ta question à l'équipe</a>, elle te répond et peut te proposer un rendez-vous d'orientation.
+      Du schwankst zwischen zwei Studiengängen? <a href={ROUTES.contact} class="lnk">Frag unser Team</a>. Es antwortet dir und kann dir einen Termin zur Studienberatung anbieten.
     </div>
   </section>
 
   <!-- What you will learn (dark) -->
   <!-- Two audiences, two voices -->
   <section class="container section audience" aria-labelledby="audience-title">
-    <h2 id="audience-title" class="sr-only">Futur étudiant ou parent : par où commencer</h2>
+    <h2 id="audience-title" class="sr-only">Für Studieninteressierte und Eltern: Wo anfangen?</h2>
     <div class="audience__grid">
       {
         AUDIENCES.map((a) => (
@@ -134,7 +134,7 @@ const ICONS: Record<string, string> = {
             </div>
             {a.id === "etudiant" && (
               <div class="audience__share">
-                <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+                <ShareLink path={ROUTES.parents} label="Mit meinen Eltern teilen" title="Eugenia School: Informationen für meine Eltern" text="Ich interessiere mich für diese Hochschule im nächsten Jahr. Hier findest du alles Wissenswerte für Eltern:" event="share_to_parent" />
               </div>
             )}
           </article>
@@ -147,8 +147,8 @@ const ICONS: Record<string, string> = {
     <Image src={img("p_atrium_wide")} alt="" aria-hidden="true" widths={[960, 1500]} sizes="100vw" format="webp" quality={60} loading="lazy" class="learn__bg" />
     <div class="container learn__inner">
       <div class="section-head learn__head">
-        <h2 id="learn-title" class="h2 learn__title">Ce que tu vas apprendre, et construire.</h2>
-        <p class="learn__sub">Un socle commun en IA, data et no-code, enseigné par des professionnels en poste.</p>
+        <h2 id="learn-title" class="h2 learn__title">Was du lernst und entwickelst.</h2>
+        <p class="learn__sub">Gemeinsame Grundlagen in KI, Daten und No-Code, vermittelt von berufstätigen Fachleuten.</p>
       </div>
       {
         LEARN_ROWS.map((row) => (
@@ -174,29 +174,29 @@ const ICONS: Record<string, string> = {
   <!-- What students build -->
   <section class="container section build" aria-labelledby="build-title">
     <div class="section-head build__head">
-      <h2 id="build-title" class="h2 build__title">Ce que nos étudiants construisent.</h2>
-      <a href={PORTFOLIO_URL} class="lnk">Tous les portfolios</a>
+      <h2 id="build-title" class="h2 build__title">Was unsere Studierenden entwickeln.</h2>
+      <a href={PORTFOLIO_URL} class="lnk">Alle Portfolios</a>
     </div>
     <div class="build__grid">
       <a href={`${ROUTES.entreprises}#hackathons`} class="build__feature">
-        <Pic src={img("p_award")} alt="Une équipe d'étudiants célèbre son Bronze Award au hackathon Dust" ratio="16 / 9" position="45% 40%" sizes="(min-width: 1024px) 900px, 100vw" class="build__feature-pic" />
+        <Pic src={img("p_award")} alt="Ein Studierendenteam feiert seine Bronzeauszeichnung beim Dust-Hackathon" ratio="16 / 9" position="45% 40%" sizes="(min-width: 1024px) 900px, 100vw" class="build__feature-pic" />
         <div class="build__overlay"></div>
         <div class="build__caption">
           <div>
-            <div class="build__kicker">Hackathon Dust, sur le campus</div>
-            <div class="build__big">Bronze Award : livré, pitché, récompensé.</div>
+            <div class="build__kicker">Dust-Hackathon auf dem Campus</div>
+            <div class="build__big">Bronzeauszeichnung: entwickelt, präsentiert, ausgezeichnet.</div>
           </div>
           <Logo name="lg_dust" alt="Dust" height={28} class="logo-pad" />
         </div>
       </a>
       <div class="build__side">
         <a href={PORTFOLIO_URL} class="build__card">
-          <Pic src={img("pf_ian")} alt="Portfolio en ligne de Ian Laurent" ratio="16 / 9" position="top" sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1200]} />
-          <div class="build__card-meta"><span class="semibold">Portfolio de Ian Laurent</span><span class="muted">Agent IA et fine-tuning</span></div>
+          <Pic src={img("pf_ian")} alt="Onlineportfolio von Ian Laurent" ratio="16 / 9" position="top" sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1200]} />
+          <div class="build__card-meta"><span class="semibold">Portfolio von Ian Laurent</span><span class="muted">KI-Agent und Feinabstimmung</span></div>
         </a>
         <a href={`${ROUTES.entreprises}#hackathons`} class="build__card">
-          <Pic src={img("p_payfit")} alt="Les équipes du hackathon PayFit sur le campus" ratio="16 / 9" position="top" sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1200]} />
-          <div class="build__card-meta"><span class="semibold">Hackathon PayFit</span><span class="muted">48 heures, un brief réel</span></div>
+          <Pic src={img("p_payfit")} alt="Die Teams des PayFit-Hackathons auf dem Campus" ratio="16 / 9" position="top" sizes="(min-width: 1024px) 440px, 100vw" widths={[480, 900, 1200]} />
+          <div class="build__card-meta"><span class="semibold">Hackathon PayFit</span><span class="muted">48 Stunden, ein echter Projektauftrag</span></div>
         </a>
       </div>
     </div>
@@ -206,19 +206,19 @@ const ICONS: Record<string, string> = {
 
   <!-- Recruiters -->
   <section class="recruiters" aria-labelledby="recruiters-title">
-    <h2 id="recruiters-title" class="eyebrow recruiters__title">Ils recrutent nos étudiants en alternance</h2>
-    <LogoMarquee logos={RECRUITERS} label="Entreprises qui recrutent nos étudiants" />
-    <div class="recruiters__link"><a href={ROUTES.entreprises} class="lnk">Recruter un alternant</a></div>
+    <h2 id="recruiters-title" class="eyebrow recruiters__title">Diese Unternehmen stellen unsere dual Studierenden ein</h2>
+    <LogoMarquee logos={RECRUITERS} label="Unternehmen, die unsere Studierenden einstellen" />
+    <div class="recruiters__link"><a href={ROUTES.entreprises} class="lnk">Dual Studierende einstellen</a></div>
   </section>
 
   <!-- Campus gallery, overflowing to the right -->
   <section class="gallery" aria-labelledby="gallery-title">
     <div class="container section-head gallery__head">
       <div>
-        <h2 id="gallery-title" class="h2 gallery__title">Un lieu qui donne envie de construire.</h2>
-        <p class="gallery__sub">2 500 m² au cœur du 10e, entre patrimoine Art nouveau et espaces de travail d'aujourd'hui.</p>
+        <h2 id="gallery-title" class="h2 gallery__title">Ein Ort, der Lust aufs Entwickeln macht.</h2>
+        <p class="gallery__sub">2.500 m² mitten im 10. Arrondissement, zwischen Jugendstilarchitektur und modernen Arbeitsräumen.</p>
       </div>
-      <a href={ROUTES.campusParis} class="lnk">Visiter le campus</a>
+      <a href={ROUTES.campusParis} class="lnk">Den Campus besichtigen</a>
     </div>
     <div class="gallery__strip">
       {
@@ -236,8 +236,8 @@ const ICONS: Record<string, string> = {
   <section class="dark next" aria-labelledby="next-title">
     <div class="container">
       <div class="next__head">
-        <h2 id="next-title" class="cta-title">Ta prochaine étape.</h2>
-        <p class="next__sub">Pas besoin de tout décider aujourd'hui. Choisis l'étape qui te correspond.</p>
+        <h2 id="next-title" class="cta-title">Dein nächster Schritt.</h2>
+        <p class="next__sub">Du musst nicht heute alles entscheiden. Wähle den Schritt, der zu dir passt.</p>
       </div>
       <div class="next__grid">
         {
@@ -260,7 +260,7 @@ const ICONS: Record<string, string> = {
     </div>
   </section>
 
-  <ContinueVisit href={ROUTES.programmes} title="Programmes" text="Ce que tu vas apprendre, année par année." image="n_crowd" />
+  <ContinueVisit href={ROUTES.programmes} title="Studienprogramme" text="Was du in den einzelnen Studienjahren lernst." image="n_crowd" />
 </Base>
 
 <script>

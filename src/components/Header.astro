@@ -14,7 +14,7 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
 
 <header class:list={["site-header", tone === "plum" && "site-header--plum"]} data-header>
   <div class="container site-header__row">
-    <a href={ROUTES.home} aria-label="Eugenia School, accueil" class="site-header__logo">
+    <a href={ROUTES.home} aria-label="Eugenia School, Startseite" class="site-header__logo">
       <Image src={logo} alt="Eugenia School" width={300} height={52} format="webp" loading="eager" />
     </a>
     <button
@@ -24,13 +24,13 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
       aria-controls="site-nav"
       data-nav-toggle
     >
-      <span class="sr-only">Menu</span>
+      <span class="sr-only">Menü</span>
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
         <path d="M4 7h16M4 12h16M4 17h16" class="ico-open"></path>
         <path d="M6 6l12 12M18 6L6 18" class="ico-close"></path>
       </svg>
     </button>
-    <nav id="site-nav" class="site-header__nav" aria-label="Navigation principale">
+    <nav id="site-nav" class="site-header__nav" aria-label="Hauptnavigation">
       <ul class="site-header__links">
         {
           NAV.map((item) => (
@@ -42,9 +42,9 @@ const logo = tone === "plum" ? img("lg_eugenia_white") : img("lg_eugenia");
           ))
         }
       </ul>
-      <a href={ROUTES.evenements} class="site-header__event">Portes ouvertes</a>
+      <a href={ROUTES.evenements} class="site-header__event">Tag der offenen Tür</a>
     </nav>
-    <a href={current === ROUTES.admissions ? ROUTES.candidature : ROUTES.admissions} class="btn site-header__cta">Candidater</a>
+    <a href={current === ROUTES.admissions ? ROUTES.candidature : ROUTES.admissions} class="btn site-header__cta">Jetzt bewerben</a>
   </div>
 </header>
 
