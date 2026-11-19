@@ -3,8 +3,8 @@
   "depot": "Hisseiny/eugenia-school-website",
   "passages": [
     {
-      "passage": "2026-11-19-14h31-1c01",
-      "date": "2026-11-19T13:31:28.455Z",
+      "passage": "2026-11-19-19h50-57e4",
+      "date": "2026-11-19T18:50:57.468Z",
       "site": "eugenia-clone",
       "previsualisation": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app",
       "pr": {
@@ -13,7 +13,7 @@
         "titre": "Traduire en allemand les pages de la démo Horama"
       },
       "commit": "998767b7869cc566696c1cb5c69d2bcf61555c15",
-      "reponse": "https://github.com/Hisseiny/eugenia-school-website/pull/16#issuecomment-7010755513",
+      "reponse": null,
       "etat": "termine",
       "totaux": {
         "pages_trouvees": 8,
@@ -27,6 +27,74 @@
           "texte-non-traduit": 1
         }
       },
+      "duree_s": 259.01,
+      "cout_usd": null,
+      "pages": [
+        {
+          "ecran": "accueil",
+          "page": "/",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/208fb407fda34c02f05b49c7fc8d227115562855/pr-16/998767b/pages/accueil.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "programmes",
+          "page": "/programmes",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/programmes",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/5406c8afd7c36d5d73498f30cc9185c8a6ef0a54/pr-16/998767b/pages/programmes.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "entreprises",
+          "page": "/entreprises",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/entreprises",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/59383706fec48479a5992703e453e668b2bd0370/pr-16/998767b/pages/entreprises.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "carrieres",
+          "page": "/carrieres",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/carrieres",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/183b705a282710abd2839dda37272aa6ffb6c4b9/pr-16/998767b/pages/carrieres.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "admissions",
+          "page": "/admissions",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/admissions",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/ea1cb193ebda374675eae9784c82729dc731acdb/pr-16/998767b/pages/admissions.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "ecole",
+          "page": "/ecole",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/ecole",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/cb52aa76deb1492bd2fb8af1dd794905ee6cbc3c/pr-16/998767b/pages/ecole.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "evenements",
+          "page": "/evenements",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/evenements",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/c62400d37ed5b1ac360b1f3095cb81b05f7cca21/pr-16/998767b/pages/evenements.png",
+          "largeur": 1280,
+          "hauteur": 900
+        },
+        {
+          "ecran": "programme-bachelor-ia-business",
+          "page": "/programme/bachelor-ia-business",
+          "adresse": "https://eugenia-school-website-git-devin-179503024-b6c714-ahissein-5983.vercel.app/programme/bachelor-ia-business",
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/fab0a7884e228cb644b35f6887f4f516a6a26409/pr-16/998767b/pages/programme-bachelor-ia-business.png",
+          "largeur": 1280,
+          "hauteur": 900
+        }
+      ],
       "constats": [
         {
           "id": "accueil--controle--1",
@@ -41,12 +109,8 @@
             "largeur": 120,
             "hauteur": 35.1875
           },
-          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/1b0cf25edc471a14ce19c45cb35633fe135b04bf/pr-16/998767b/accueil--controle--1.png",
-          "decision": {
-            "choix": "bug",
-            "par": "Nathan",
-            "le": "2026-11-19T13:37:41.649Z"
-          }
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/9abeca298d0670a17426f04c7ac7c12be2101508/pr-16/998767b/accueil--controle--1.png",
+          "decision": null
         },
         {
           "id": "programmes--controle--1",
@@ -61,19 +125,15 @@
             "largeur": 96,
             "hauteur": 89.1875
           },
-          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/c997300db9f79bdfed35ec9cc32c7180ef81826c/pr-16/998767b/programmes--controle--1.png",
-          "decision": {
-            "choix": "bug",
-            "par": "Nathan",
-            "le": "2026-11-19T13:37:41.649Z"
-          }
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/ee034148b864fd117352ec47fbf9b0b8099cea19/pr-16/998767b/programmes--controle--1.png",
+          "decision": null
         },
         {
           "id": "ecole--controle--1",
           "statut": "VERIFIED_FAIL",
           "genre": "defaut",
           "page": "/ecole",
-          "texte": "1 bloc en français ; le plus long : 28 mots, 6 mots outils français, 0 allemands ; page déclarée de",
+          "texte": "Un bloc est resté en français sur une page déclarée en allemand.",
           "preuve": "Mesuré : 1 bloc en français ; le plus long : 28 mots, 6 mots outils français, 0 allemands ; page déclarée de. Attendu : Le texte respecte la langue déclarée de la page ou du bloc.",
           "zone": {
             "x": 32,
@@ -81,12 +141,8 @@
             "largeur": 540,
             "hauteur": 86.390625
           },
-          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/0877dd9b5a9e76cf0843676918934b51af9c0a24/pr-16/998767b/ecole--controle--1.png",
-          "decision": {
-            "choix": "bug",
-            "par": "Nathan",
-            "le": "2026-11-19T13:37:41.649Z"
-          }
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/20ac9f060b733959955252c4955ab66b1b199c02/pr-16/998767b/ecole--controle--1.png",
+          "decision": null
         },
         {
           "id": "programmes--holo--1",
@@ -101,12 +157,8 @@
             "largeur": 582,
             "hauteur": 162
           },
-          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/ee3f2f07f5b3411118b74b81ccfe3db6f6e63535/pr-16/998767b/programmes--holo--1.png",
-          "decision": {
-            "choix": "bug",
-            "par": "Nathan",
-            "le": "2026-11-19T13:37:41.649Z"
-          }
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/0ff84f50661d66411671662d9d9dde37f1bd2c32/pr-16/998767b/programmes--holo--1.png",
+          "decision": null
         },
         {
           "id": "admissions--holo--1",
@@ -117,19 +169,15 @@
           "preuve": null,
           "zone": {
             "x": 32,
-            "y": 261,
+            "y": 257,
             "largeur": 602,
-            "hauteur": 162
+            "hauteur": 171
           },
-          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/e02802087f2bf4e67d5047ee882c4bd7c04c01b8/pr-16/998767b/admissions--holo--1.png",
-          "decision": {
-            "choix": "bug",
-            "par": "Nathan",
-            "le": "2026-11-19T13:37:41.649Z"
-          }
+          "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/f638745719869ae9905e19e74ea47055d2e3f5ff/pr-16/998767b/admissions--holo--1.png",
+          "decision": null
         }
       ]
     }
   ],
-  "maj": "2026-11-19T13:38:07.303Z"
+  "maj": "2026-11-19T18:56:10.279Z"
 }
