@@ -237,7 +237,12 @@
             "hauteur": 162
           },
           "capture": "https://raw.githubusercontent.com/Hisseiny/eugenia-school-website/96cf5b961e4325d11dcc0b34f4fb19698185f198/pr-16/0249f66/admissions--holo--1.png",
-          "decision": null
+          "decision": {
+            "choix": "bug",
+            "decision": "bug",
+            "par": "Ali",
+            "le": "2026-11-19T23:24:46.657Z"
+          }
         },
         {
           "id": "accueil--comparaison--1",
@@ -756,5 +761,5 @@
       ]
     }
   ],
-  "maj": "2026-11-19T23:24:42.197Z"
+  "maj": "2026-11-19T23:24:46.657Z"
 }
