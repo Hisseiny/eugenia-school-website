@@ -15,22 +15,22 @@ import { ROUTES } from "@/data/site";
 ---
 
 <Base
-  title="Carrières : parcours et métiers après Eugenia School"
-  description="Découvre les trajectoires d'étudiants et d'alumni d'Eugenia School : du bac au premier poste, en passant par leurs projets, l'alternance et le MSc."
+  title="Karrieren: Werdegänge und Berufe nach der Eugenia School"
+  description="Entdecke die Werdegänge von Studierenden und Alumni der Eugenia School: vom Abitur bis zur ersten Stelle, über ihre Projekte, die duale Ausbildung und den MSc."
   current={ROUTES.carrieres}
-  crumbs={[{ name: "Carrières" }]}
+  crumbs={[{ name: "Karrieren" }]}
 >
   <PageTop
-    title="Carrières"
-    lead="Le bac, le déclic, ce qu'ils ont construit, le premier poste. Des trajectoires réelles, du Bachelor à l'alternance, jusqu'au premier CDI."
+    title="Karrieren"
+    lead="Das Abitur, der Klick, was sie gebaut haben, die erste Stelle. Echte Werdegänge, vom Bachelor über die duale Ausbildung bis zur ersten Festanstellung."
     image="p_team"
-    alt="Une équipe d'étudiants en t-shirts Dust et Eugenia, sur les gradins du campus"
+    alt="Ein Team von Studierenden in Dust- und Eugenia-T-Shirts auf den Rängen des Campus"
   />
 
   <section class="container dest" aria-labelledby="dest-title">
     <div class="section-head">
-      <h2 id="dest-title" class="h2 dest__title">Mêmes bases. Des destinations qui n'ont rien à voir.</h2>
-      <p class="dest__sub">Startups et grands groupes : chacun construit sa trajectoire, avec ses projets, ses hackathons et son alternance.</p>
+      <h2 id="dest-title" class="h2 dest__title">Gleiche Grundlagen. Ganz unterschiedliche Ziele.</h2>
+      <p class="dest__sub">Startups und Konzerne: Jeder baut seinen Werdegang, mit seinen Projekten, Hackathons und seiner dualen Ausbildung.</p>
     </div>
     <ScrollingLogoGrid id="career-recruiters" logos={EMPLOYERS} />
   </section>
@@ -38,8 +38,8 @@ import { ROUTES } from "@/data/site";
   <section id="alumni" class="dark alumni" aria-labelledby="alumni-title">
     <div class="container">
       <div class="section-head alumni__head">
-        <RotatingLine id="alumni-title" lead="Ils sont devenus" items={CAREER_ITEMS} tone="plum" srLabel="Exemples de postes occupés par nos alumni et alternants" />
-        <p class="alumni__sub">Nos alumni. Trois d'entre eux reviennent enseigner à Eugenia.</p>
+        <RotatingLine id="alumni-title" lead="Sie wurden" items={CAREER_ITEMS} tone="plum" srLabel="Beispiele für Stellen unserer Alumni und dual Studierenden" />
+        <p class="alumni__sub">Unsere Alumni. Drei von ihnen kommen zum Unterrichten an die Eugenia zurück.</p>
       </div>
       <div class="alumni__grid">
         {
@@ -54,7 +54,7 @@ import { ROUTES } from "@/data/site";
               </div>
               <dl class="alum__facts">
                 <div><dt>Avant</dt><dd>{a.before}</dd></div>
-                <div><dt>Construit à Eugenia</dt><dd>{a.built}</dd></div>
+                <div><dt>An der Eugenia gebaut</dt><dd>{a.built}</dd></div>
                 <div><dt>Premier poste</dt><dd class="alum__job">{a.job}</dd></div>
               </dl>
               {a.teaches && (
@@ -70,8 +70,8 @@ import { ROUTES } from "@/data/site";
   <section id="alternance" class="mist appr" aria-labelledby="appr-title">
     <div class="container">
       <div class="section-head appr__head">
-        <h2 id="appr-title" class="h2 appr__title">De la licence à l'alternance.</h2>
-        <p class="appr__sub">Nos étudiants de MSc, en entreprise pendant leur formation.</p>
+        <h2 id="appr-title" class="h2 appr__title">Vom Bachelor zur dualen Ausbildung.</h2>
+        <p class="appr__sub">Unsere MSc-Studierenden, während ihrer Ausbildung im Unternehmen.</p>
       </div>
       <div class="appr__grid">
         {
@@ -88,7 +88,7 @@ import { ROUTES } from "@/data/site";
               </div>
               <dl class="card__facts">
                 <div><dt>Avant</dt><dd>{a.before}</dd></div>
-                <div><dt>Construit à Eugenia</dt><dd>{a.built}</dd></div>
+                <div><dt>An der Eugenia gebaut</dt><dd>{a.built}</dd></div>
               </dl>
               <div class="card__job">
                 <span>{a.role}</span>
@@ -103,8 +103,8 @@ import { ROUTES } from "@/data/site";
 
   <section id="bachelor" class="container bach" aria-labelledby="bach-title">
     <div class="section-head bach__head">
-      <h2 id="bach-title" class="h2 bach__title">Ça commence dès le Bachelor.</h2>
-      <p class="bach__sub">Arrivés curieux, après le bac. Leurs premiers projets, dès le premier semestre.</p>
+      <h2 id="bach-title" class="h2 bach__title">Es beginnt schon im Bachelor.</h2>
+      <p class="bach__sub">Neugierig angekommen, nach dem Abitur. Ihre ersten Projekte, schon im ersten Semester.</p>
     </div>
     <ul class="bach__list">
       {
@@ -129,13 +129,13 @@ import { ROUTES } from "@/data/site";
   <EndOfPage
     title="Construis ta propre trajectoire."
     primary={{ href: ROUTES.admissions, label: "Candidater" }}
-    secondary={{ href: ROUTES.brochure, label: "Télécharger la brochure" }}
+    secondary={{ href: ROUTES.brochure, label: "Broschüre herunterladen" }}
     image="p_duo"
   />
   <div class="container share-row">
-    <ShareLink path={ROUTES.parents} label="Partager avec mes parents" title="Eugenia School, pour mes parents" text="Je regarde cette école pour l'an prochain. Tout ce qu'un parent doit savoir est ici :" event="share_to_parent" />
+    <ShareLink path={ROUTES.parents} label="Mit meinen Eltern teilen" title="Eugenia School, für meine Eltern" text="Ich schaue mir diese Schule für nächstes Jahr an. Alles, was Eltern wissen müssen, steht hier:" event="share_to_parent" />
   </div>
-  <ContinueVisit href={ROUTES.ecole} title="L'école" text="Le campus, les professeurs, la vie étudiante." image="n_talk" />
+  <ContinueVisit href={ROUTES.ecole} title="Die Schule" text="Der Campus, die Lehrkräfte, das Studentenleben." image="n_talk" />
 </Base>
 
 <script>
@@ -147,7 +147,7 @@ import { ROUTES } from "@/data/site";
     if (a && name) {
       a.href = "/parents";
       name.textContent = "Parents";
-      if (text) text.textContent = "Tout ce qu'un parent doit savoir, au même endroit.";
+      if (text) text.textContent = "Alles, was Eltern wissen müssen, an einem Ort.";
     }
   }
 </script>

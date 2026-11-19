@@ -702,8 +702,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
     "years": [
       {
         "code": "B3",
-        "title": "Partir en entreprise",
-        "intro": "Alternance ou stage, trois blocs no code (cadrer, développer, déployer) et le titre RNCP 41143.",
+        "title": "Ab ins Unternehmen",
+        "intro": "Duale Ausbildung oder Praktikum, drei No-Code-Blöcke (definieren, entwickeln, bereitstellen) und der RNCP-Titel 41143.",
         "semesters": [
           {
             "code": "B3",
@@ -713,7 +713,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 21,
                 "ects": 2.0,
                 "courses": [
@@ -727,13 +727,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 28,
                 "ects": 3.0,
                 "courses": [
                   {
                     "code": "DAT0531",
-                    "name": "Structuration et restitution de la donnée",
+                    "name": "Strukturierung und Aufbereitung von Daten",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -741,7 +741,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 0,
                 "ects": 14.0,
                 "courses": [
@@ -755,19 +755,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Code",
-                "description": "Code et IA",
+                "description": "Code und KI",
                 "hours": 112,
                 "ects": 12.0,
                 "courses": [
                   {
                     "code": "COD0511",
-                    "name": "Fondamentaux de l'IA générative",
+                    "name": "Grundlagen der generativen KI",
                     "hours": 28.0,
                     "ects": 3.0
                   },
                   {
                     "code": "COD0512",
-                    "name": "Automatisation de processus métier",
+                    "name": "Automatisierung von Geschäftsprozessen",
                     "hours": 28.0,
                     "ects": 3.0
                   },
@@ -779,7 +779,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "COD0514",
-                    "name": "Intégration technique de l'IA",
+                    "name": "Technische Integration von KI",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -787,19 +787,19 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 49,
                 "ects": 5.0,
                 "courses": [
                   {
                     "code": "BUI0521",
-                    "name": "Conception et prototypage d'interfaces",
+                    "name": "Konzeption und Prototyping von Interfaces",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0522",
-                    "name": "Développement multi-plateforme et personnalisation avancée",
+                    "name": "Plattformübergreifende Entwicklung und fortgeschrittene Anpassung",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -815,7 +815,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, management, prise de parole",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
@@ -829,13 +829,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Data",
-                "description": "Données, finance, stratégie, aide à la décision",
+                "description": "Daten, Finanzen, Strategie, Entscheidungsunterstützung",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "DAT0631",
-                    "name": "Déployer et accompagner une solution no code (BC03 — certifiant)",
+                    "name": "Eine No-Code-Lösung bereitstellen und begleiten (BC03 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -843,7 +843,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Bridge",
-                "description": "Projets et hackathons avec des entreprises",
+                "description": "Projekte und Hackathons mit Unternehmen",
                 "hours": 70,
                 "ects": 27.0,
                 "courses": [
@@ -855,7 +855,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "BRI0652",
-                    "name": "Hackathon 3 — Inter-écoles",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 35.0,
                     "ects": 6.0
                   },
@@ -869,13 +869,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
               },
               {
                 "name": "Build",
-                "description": "Outils et no-code",
+                "description": "Tools und No-Code",
                 "hours": 56,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "BUI0621",
-                    "name": "Développer une solution no code (BC02 — certifiant)",
+                    "name": "Eine No-Code-Lösung entwickeln (BC02 — zertifizierend)",
                     "hours": 56.0,
                     "ects": 6.0
                   }

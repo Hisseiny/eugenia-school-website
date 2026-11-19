@@ -2,7 +2,7 @@ import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
   "title": "Duales KI-Masterstudium: MSc in Paris | Eugenia School",
-  "description": "MSc IA à Paris, le master tech en alternance : 4 jours en entreprise, 1 jour à l'école, un Bac+5 reconnu par l'État. Découvrez le programme et candidatez.",
+  "description": "KI-MSc in Paris, der duale Tech-Master: 4 Tage im Unternehmen, 1 Tag an der Schule, ein staatlich anerkannter Bac+5. Entdecken Sie das Programm und bewerben Sie sich.",
   "h1": "MSc Angewandte KI für Unternehmen",
   "image": "pr3_hero-msc",
   "imageAlt": "Ein Schüler der Eugenia School vor dem Schulbanner mit verschränkten Armen",
@@ -1095,7 +1095,7 @@ export const page: LivePage = {
     {
       "@type": "EducationalOccupationalProgram",
       "name": "MSc AI Applied to Business",
-      "description": "Master of Science en 2 ans à Paris, en alternance (bootcamp de 5 semaines puis 4 jours en entreprise et 1 jour à l’école), en IA appliquée au business.",
+      "description": "Master of Science in 2 Jahren in Paris, dual (5-wöchiges Bootcamp, dann 4 Tage im Unternehmen und 1 Tag an der Schule), in auf das Business angewandter KI.",
       "url": "https://www.eugeniaschool.com/programme/master-ia-business-alternance",
       "provider": {
         "@id": "https://www.eugeniaschool.com/#organization"

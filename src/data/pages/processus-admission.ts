@@ -6,7 +6,7 @@ export const page: LivePage = {
   "h1": "Bewerben. Bachelor oder MSc.",
   "image": "pr3_hero-admission",
   "imageAlt": "Die große verglaste Halle der Station F von oben, mit ihren Arbeitsbereichen und Startups",
-  "eyebrow": "// école IA, tech et growth · processus d'admission",
+  "eyebrow": "// KI-, Tech- und Growth-Schule · Zulassungsverfahren",
   "audience": {
     "student": "Allgemeine oder technologische Abschlussklasse, Bac+2 für das 3. Bachelorjahr, Bac+3 für den dualen MSc: eine Online-Bewerbung, ein Gespräch, eine Antwort innerhalb von 10 Tagen. Studienbeginn im September.",
     "parent": "Ihr Kind ist in der Abschlussklasse (allgemein oder technologisch), im Bac+2 oder hat einen Bac+3? Eine Online-Bewerbung für den Bachelor, das duale 3. Jahr oder den MSc. Studienbeginn im September, offizielle Antwort innerhalb von 10 Tagen.",

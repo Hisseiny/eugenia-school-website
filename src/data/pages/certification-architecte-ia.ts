@@ -8,7 +8,7 @@ export const page: LivePage = {
   "imageAlt": "Die große Treppe des Campus vor einer großen Fresko aus alten Fliesen: Eine Studentin und Referenten tauschen sich aus",
   "lead": "Der RNCP-Titel Niveau 7 des dualen Tech-Masters der Eugenia, verliehen von JEDHA: KI-Lösungen konzipieren, bereitstellen und steuern, von der Data Governance bis zur Inbetriebnahme.",
   "postFacts": "Die von der Eugenia School angebotene Zertifizierung „Architecte en Intelligence Artificielle“ (KI-Architekt) wird von JEDHA verliehen. Es handelt sich um eine Zertifizierung der Niveaustufe 7 mit den NSF-Codes 114b, 326 und 326r, eingetragen im nationalen Verzeichnis der Berufszertifizierungen (RNCP) unter der Nummer 41993, durch Entscheidung von France Compétences vom 4. März 2026.",
-  "eyebrow": "// certification RNCP · niveau 7",
+  "eyebrow": "// RNCP-Zertifizierung · Niveau 7",
   "badges": [
     "RNCP 41993",
     "Niveau 7",

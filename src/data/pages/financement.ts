@@ -6,7 +6,7 @@ export const page: LivePage = {
   "h1": "Die Eugenia School finanzieren.",
   "image": "pr3_hero-financement",
   "imageAlt": "Ein lächelnder Student der Eugenia School im Blazer bei einem Gespräch auf dem Campus",
-  "eyebrow": "// les solutions de financement",
+  "eyebrow": "// die Finanzierungslösungen",
   "audience": {
     "student": "Die Eugenia hilft ihren Studierenden, Lösungen zur Finanzierung des Studiums zu finden: Stipendien, Studienkredite und der duale Master, bei dem der Arbeitgeber die Studiengebühren übernimmt. Persönliche Unterstützung, um alle Optionen zu prüfen.",
     "parent": "Die Eugenia begleitet Familien bei der Finanzierung des Studiums: Stipendien, Studienkredite und der duale Master, bei dem der Arbeitgeber die Studiengebühren übernimmt. Persönliche Unterstützung, um alle Optionen gemeinsam mit Ihnen zu prüfen.",

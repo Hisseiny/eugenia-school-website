@@ -7,7 +7,7 @@
       "h1": "Profile, die sich abheben.",
       "image": "l3_notre-adn_01_une-etudiante-souriante-cahier-ouv",
       "imageAlt": "Eine lächelnde Studentin mit aufgeschlagenem Heft während eines Kurses auf dem Campus.",
-      "eyebrow": "// notre adn",
+      "eyebrow": "// unsere DNA",
       "lead": "Eugenia ist eine KI-, Tech- und Growth-Schule außerhalb von Parcoursup, entstanden aus einer Überzeugung. Das verändert sie ganz konkret an der Schule.",
       "heroCtas": [
         {
@@ -358,7 +358,7 @@
       "h1": "Ein lebendiger Campus.",
       "image": "l3_campus-paris_01_des-diplomes-en-toge-rouge-lancent",
       "imageAlt": "Absolventen in roten Talaren werfen ihre Hüte in einem Konfettiregen vor dem Logo der Eugenia School in die Luft",
-      "eyebrow": "// campus · paris 10e",
+      "eyebrow": "// Campus · Paris 10",
       "lead": "Der Campus einer KI-Schule außerhalb von Parcoursup: ein Glasdach, ein Hörsaal, Räume, in denen gebaut wird. 2 500 m² in einem lebendigen Studentenviertel voller Energie.",
       "heroCtas": [
         {
@@ -807,7 +807,7 @@
       "h1": "Eine junge Schule. Eine blühende Gemeinschaft.",
       "image": "l3_vie-etudiante_01_la-vie-etudiante-deugenia-school-e",
       "imageAlt": "Das Studentenleben der Eugenia School, zwischen den verschiedenen Jahrgängen",
-      "eyebrow": "// la vie étudiante",
+      "eyebrow": "// das Studentenleben",
       "lead": "An der Eugenia geht das Studentenleben weit über den Unterricht hinaus: Vereine, Events, gemeinsame Projekte, gesellige Momente. An dieser Schule außerhalb von Parcoursup schafft eine eng verbundene Gemeinschaft Erinnerungen und ein starkes berufliches Netzwerk.",
       "heroCtas": [
         {
@@ -1105,7 +1105,7 @@
       "h1": "Starten. Testen. Neu anfangen.",
       "image": "l3_entrepreneuriat_01_le-grand-hall-vitre-de-station-f-s",
       "imageAlt": "Die große verglaste Halle der Station F mit ihrem Glasdach und ihrer bunten Skulptur",
-      "eyebrow": "// entrepreneuriat · Paris 10e",
+      "eyebrow": "// Unternehmertum · Paris 10",
       "lead": "Eine Growth-Schule, gedacht wie ein Coworking-Space: Partnerschaften mit der Station F und dem HEC-Inkubator, Gründer als Gäste auf der Bühne. Wer ein Projekt starten will, findet hier alles, was er dafür braucht.",
       "heroCtas": [
         {
@@ -1402,7 +1402,7 @@
       "h1": "Lernen mit denen, die es tun.",
       "image": "l3_approche-pedagogique_01_une-conversation-entre-etudiants-e",
       "imageAlt": "Ein Gespräch zwischen Studierenden und Referenten im Hörsaal des Campus vor großen Fliesenfresken",
-      "eyebrow": "// profs · méthode",
+      "eyebrow": "// Lehrkräfte · Methode",
       "lead": "An dieser Tech- und Growth-Schule leiten Data Analysts, CEOs, City Manager und SEO-Berater den Unterricht. Jede Sitzung beginnt mit einem echten Fall und endet mit einem Ergebnis.",
       "heroCtas": [
         {
@@ -1846,7 +1846,7 @@
       "h1": "Vom Problem ausgehen. Beim Ergebnis ankommen.",
       "image": "l3_methode-eugenia_01_deux-etudiantes-concentrees-devant",
       "imageAlt": "Zwei konzentrierte Studentinnen vor einem Laptop",
-      "eyebrow": "// la méthode eugenia",
+      "eyebrow": "// die Eugenia-Methode",
       "lead": "An dieser Tech-Schule beginnt ein Kurs mit einer echten Unternehmensfrage und endet vor denen, die sie gestellt haben. Das verändert diese Methode, und das bringt sie bei echten Fällen.",
       "heroCtas": [
         {
@@ -2183,7 +2183,7 @@
       "h1": "Ihre echten Fälle, unsere Teams.",
       "image": "l3_entreprises-partenaires_01_presentation-d-un-projet-devant-le",
       "imageAlt": "Präsentation eines Projekts vor der Hackathon-Jury",
-      "eyebrow": "// entreprises partenaires",
+      "eyebrow": "// Partnerunternehmen",
       "lead": "Die Géniathons verbinden die Studierenden dieser KI-Schule, im Bachelor und im dualen Tech-Master, mit den besten Unternehmen: praktische Erfahrung an Herausforderungen, die für Sie zählen.",
       "heroCtas": [
         {
@@ -2673,7 +2673,7 @@
       "title": "Praktikanten, Auszubildende oder Absolventen rekrutieren | Eugenia",
       "description": "Rekrutieren Sie Studierende und Absolventen der Eugenia School, Tech- und Business-Profile mit Ausbildung in angewandter KI: Praktikum, duale Ausbildung oder Festanstellung. Beschreiben Sie Ihren Bedarf.",
       "h1": "Unsere Studierenden rekrutieren.",
-      "eyebrow": "// entreprises · recrutement",
+      "eyebrow": "// Unternehmen · Recruiting",
       "lead": "Hybride Tech- & Business-Profile von einer KI-Schule, die sie in auf das Business angewandter KI ausbildet und mit Unternehmen in Projekte bringt. Praktikum, duale Ausbildung (Bachelor oder dualer Tech-Master) oder Festanstellung: Es genügt, den Bedarf zu beschreiben, das Team meldet sich bei Ihnen.",
       "heroCtas": [
         {
@@ -3019,9 +3019,9 @@
         "image": "p_team"
       },
       "form": {
-        "kind": "Recruiter",
+        "kind": "recruteur",
         "label": "Ihren Bedarf beschreiben",
-        "anchorId": "Bedarf"
+        "anchorId": "besoin"
       }
     },
     "crumbs": [
@@ -3042,7 +3042,7 @@
       "h1": "Echte Briefings. Echte Teams.",
       "image": "l3_projets-entreprises_01_une-etudiante-deugenia-school-pres",
       "imageAlt": "Eine Studentin der Eugenia School stellt das Projekt ihres Teams während eines Hackathons mit einem Partnerunternehmen vor",
-      "eyebrow": "// projets entreprises · hackathons · Paris 10e",
+      "eyebrow": "// Unternehmensprojekte · Hackathons · Paris 10",
       "lead": "Ein Unternehmen vertraut ein echtes Problem an, ein Softwareanbieter öffnet seine Tools: zum Beispiel Malt mit Mistral AI und Make. In 5 Tagen entwickeln die Teams einen Prototyp und pitchen ihn vor einer externen Jury. So sieht das aus: Briefings, erlebt von Studierenden einer Tech-Schule, im Bachelor wie im dualen Master.",
       "heroCtas": [
         {
@@ -3787,7 +3787,7 @@
       "h1": "Dust Customers Hackathon: ein Tag, um einen KI-Anwendungsfall in Produktion zu bringen",
       "image": "l3_projets-entreprises-dust-hackathon_01_cinq-participants-du-dust-customer",
       "imageAlt": "Fünf Teilnehmende des Dust Customers Hackathon in den Farben von Dust und der Eugenia School im Hörsaal des Campus",
-      "eyebrow": "// Dust Customers Hackathon · 29 mai 2026 · Paris 10e",
+      "eyebrow": "// Dust Customers Hackathon · 29. Mai 2026 · Paris 10",
       "lead": "200 Teilnehmende und rund dreißig Kundenunternehmen von Dust, versammelt an der Eugenia rund um eine KI-Herausforderung, mit zwei Eugenia-Studierendenteams als Verstärkung. Ergebnis: ein 3. Platz.",
       "heroCtas": [
         {
@@ -4145,7 +4145,7 @@
       "h1": "Mistral AI, Make und Malt: der 3M-Hackathon",
       "image": "l3_projets-entreprises-mistral-ai-hackathon_01_le-hackathon-des-3m-sur-le-campus-",
       "imageAlt": "Der 3M-Hackathon auf dem Campus: Ein Referent stellt das Thema vor dem Bildschirm „Géniathon des 3M“ vor",
-      "eyebrow": "// Hackathon des 3M · Mistral AI × Make × Malt · Février 2025 · Paris 10e",
+      "eyebrow": "// 3M-Hackathon · Mistral AI × Make × Malt · Februar 2025 · Paris 10",
       "lead": "Die 3M, das sind drei Unternehmen: Mistral AI, Make und Malt. Mehr als 80 Studierende, 5 Tage, ein echtes Thema von Malt: die Qualifizierung von Leads mit den Tools von Mistral AI und Make automatisieren.",
       "heroCtas": [
         {
@@ -4575,7 +4575,7 @@
       "h1": "Mirakl × OpenAI: drei Herausforderungen agentischer KI",
       "image": "l3_projets-entreprises-openai-hackathon_01_une-etudiante-deugenia-school-pres",
       "imageAlt": "Eine Studentin der Eugenia School stellt das Projekt ihres Teams während des Mirakl × OpenAI-Hackathons vor",
-      "eyebrow": "// Hackathon · Mirakl × OpenAI · Avril 2026 · Paris 10e",
+      "eyebrow": "// Hackathon · Mirakl × OpenAI · April 2026 · Paris 10",
       "lead": "85 Studierende, 5 Tage, 3 echte Anwendungsfälle agentischer KI von Mirakl, mit Dust, n8n, OpenAI und Make.",
       "heroCtas": [
         {
@@ -5015,7 +5015,7 @@
       "title": "Portfolios der Studierenden: Projekte, Code und Demos | Eugenia",
       "description": "Die Projekte der Studierenden der Eugenia School: Stack, Code und Demos. Filtern Sie nach Technologie, Programm oder Projektart und lassen Sie sich inspirieren.",
       "h1": "Portfolios der Studierenden, frei zugänglich.",
-      "eyebrow": "// portfolios",
+      "eyebrow": "// Portfolios",
       "lead": "Die Studierenden dieser Tech-Schule veröffentlichen, was sie gebaut haben: Websites zum Durchstöbern, Code zum Lesen, Projekte zum Testen.",
       "heroCtas": [
         {

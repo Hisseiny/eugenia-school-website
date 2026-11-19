@@ -2,7 +2,7 @@ import type { LivePage } from "@/data/pages/types";
 
 export const page: LivePage = {
   "title": "KI-Bachelor in Paris: 3 Jahre mit Praxis | Eugenia School",
-  "description": "Bachelor IA (AI Applied to Business) à Paris : 3 ans pour allier business, data et no-code, avec un projet d'entreprise dès le semestre 1. Candidatez.",
+  "description": "KI-Bachelor (AI Applied to Business) in Paris: 3 Jahre, um Business, Data und No-Code zu verbinden, mit einem Unternehmensprojekt ab dem 1. Semester. Jetzt bewerben.",
   "h1": "Bachelor Angewandte KI für Unternehmen",
   "image": "pr3_hero-bachelor-alt",
   "imageAlt": "Ein aufmerksamer Schüler der Eugenia School während einer Unterrichtsstunde, im Vordergrund eines hellen Raumes",
@@ -561,7 +561,7 @@ export const page: LivePage = {
     {
       "@type": "EducationalOccupationalProgram",
       "name": "Bachelor AI Applied to Business",
-      "description": "Bachelor en 3 ans à Paris, en IA appliquée au business : projet d’entreprise dès le semestre 1, no-code, data et business. La 3e année peut se faire en alternance.",
+      "description": "Bachelor in 3 Jahren in Paris, in auf das Business angewandter KI: Unternehmensprojekt ab dem 1. Semester, No-Code, Data und Business. Das 3. Jahr kann dual absolviert werden.",
       "url": "https://www.eugeniaschool.com/programme/bachelor-ia-business",
       "provider": {
         "@id": "https://www.eugeniaschool.com/#organization"
@@ -576,7 +576,7 @@ export const page: LivePage = {
           "price": "14900",
           "priceCurrency": "EUR",
           "category": "Étudiants européens",
-          "description": "Étudiants européens"
+          "description": "Europäische Studierende"
         },
         {
           "@type": "Offer",

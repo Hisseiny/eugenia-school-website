@@ -7,10 +7,10 @@ export const page: LivePage = {
   "image": "pr3_hero-bachelor-3e-annee",
   "imageAlt": "Eine Studentin der Eugenia School spricht im Hörsaal des Campus am Mikrofon",
   "lead": "Das 3. Jahr des Bachelor AI Applied to Business wird ein Jahr lang dual in Paris absolviert, ab einem Bac+2 (BTS, BUT, L2, Business School oder Informatikschule). Nach einem 5-wöchigen Bootcamp: 4 Tage im Unternehmen, 1 Tag an der Schule. Studienbeginn im September. RNCP-Titel 41143 (Niveau 6), verliehen von LION.",
-  "eyebrow": "// Bachelor AI Applied to Business · 3e année en alternance · école IA hors Parcoursup",
+  "eyebrow": "// Bachelor AI Applied to Business · duales 3. Jahr · KI-Schule außerhalb von Parcoursup",
   "audience": {
     "student": "Das 3. Bachelorjahr wird dual in Paris erlebt: ein 5-wöchiges Bootcamp an der Schule, dann 4 Tage pro Woche in einem Team, das echte Aufgaben anvertraut, und 1 Tag Unterricht. Studienbeginn im September, offen ab Bac+2.",
-    "parent": "// Alternance · Paris",
+    "parent": "// Duale Ausbildung · Paris",
     "studentCta": "Bewerben →",
     "parentCta": "Zum Rhythmus ↓",
     "href": "/candidature",

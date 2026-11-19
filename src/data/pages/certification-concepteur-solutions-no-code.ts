@@ -8,7 +8,7 @@ export const page: LivePage = {
   "imageAlt": "Eine lächelnde Studentin macht sich im Unterricht Notizen, im Vordergrund eines Klassenraums",
   "lead": "Der RNCP-Titel der Niveaustufe 6 des Bachelors der KI- und Tech-Schule Eugenia, verliehen von LION: No-Code-Lösungen definieren, bauen und bereitstellen, mit KI als Hebel.",
   "postFacts": "Der Titel „Concepteur de solutions no code“ (Konzipient von No-Code-Lösungen) ist ein RNCP-Titel der Niveaustufe 6 mit dem NSF-Code 326, eingetragen im nationalen Verzeichnis der Berufszertifizierungen (RNCP) unter der Nummer 41143. Er wird von LION verliehen und im Bachelor der Eugenia School vorbereitet.",
-  "eyebrow": "// certification RNCP · niveau 6",
+  "eyebrow": "// RNCP-Zertifizierung · Niveau 6",
   "badges": [
     "RNCP 41143",
     "Niveau 6",

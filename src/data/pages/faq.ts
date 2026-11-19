@@ -189,7 +189,7 @@ export const page: LivePage = {
   "h1": "Du hast Fragen.",
   "imageAlt": "",
   "lead": "KI-Schule außerhalb von Parcoursup: Zulassung, Bachelor, dualer Master, Gebühren, Finanzierung. Die Antworten, Rubrik für Rubrik. Fehlt etwas? Schreib uns.",
-  "eyebrow": "// foire aux questions",
+  "eyebrow": "// häufige Fragen",
   "facts": [],
   "sections": [
     {

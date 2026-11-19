@@ -30,7 +30,7 @@ export const page: LivePage = {
   "image": "pr3_hero-bachelor",
   "imageAlt": "Drei Studierende der Eugenia School arbeiten nebeneinander an ihren Computern",
   "lead": "Du bringst dich ein, die Schule begleitet dich: Lebenslauf, Coaching für Vorstellungsgespräche, Job Datings auf dem Campus und eine eigene Plattform. Das Unternehmen finanziert, die Schule kümmert sich um die Verwaltung.",
-  "eyebrow": "// école en alternance · bachelor 3e année & msc",
+  "eyebrow": "// duale Schule · Bachelor 3. Jahr & MSc",
   "facts": [],
   "sections": [
     {
