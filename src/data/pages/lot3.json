@@ -4102,7 +4102,7 @@
       "next": {
         "href": "/entreprises",
         "title": "Unternehmen",
-        "text": "Rekrutieren Sie einen dual Studierenden, vertrauen Sie unseren Studierenden ein Briefing für einen Hackathon an oder werden Sie Partner der Schule. Tauschen Sie sich mit dem Team der Eugenia School aus.",
+        "text": "Rekrutieren Sie einen dual Studierenden, geben Sie unseren Studierenden ein Briefing für einen Hackathon oder werden Sie Partner der Schule. Tauschen Sie sich mit dem Team der Eugenia School aus.",
         "image": "p_team"
       },
       "jsonLd": [
@@ -5309,8 +5309,8 @@
       },
       "next": {
         "href": "/programmes",
-        "title": "Programme",
-        "text": "Bachelor in drei Jahren nach dem Abitur, dualer MSc in zwei Jahren und zwei Berufszertifizierungen. Eine gemeinsame Basis in KI, Data und No-Code.",
+        "title": "Studienprogramme",
+        "text": "Bachelor in drei Jahren nach dem Abitur, dualer MSc in zwei Jahren und zwei Berufszertifizierungen. Gemeinsame Grundlagen in KI, Data und No-Code.",
         "image": "p_team"
       }
     },

@@ -17,7 +17,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 69,
                 "ects": 6.0,
                 "courses": [
@@ -102,8 +102,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 48,
                 "ects": 4.0,
                 "courses": [
@@ -131,7 +131,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 63,
                 "ects": 6.0,
                 "courses": [
@@ -234,8 +234,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 60,
                 "ects": 4.0,
                 "courses": [
@@ -270,7 +270,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 69,
                 "ects": 6.0,
                 "courses": [
@@ -355,8 +355,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 48,
                 "ects": 4.0,
                 "courses": [
@@ -384,7 +384,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 63,
                 "ects": 6.0,
                 "courses": [
@@ -487,8 +487,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 60,
                 "ects": 4.0,
                 "courses": [
@@ -523,7 +523,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 21,
                 "ects": 2.0,
                 "courses": [
@@ -543,7 +543,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 "courses": [
                   {
                     "code": "DAT0531",
-                    "name": "Strukturierung und Wiederherstellung von Daten",
+                    "name": "Strukturierung und Aufbereitung von Daten",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -596,20 +596,20 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 49,
                 "ects": 5.0,
                 "courses": [
                   {
                     "code": "BUI0521",
-                    "name": "Schnittstellendesign und Prototyping",
+                    "name": "Konzeption und Prototyping von Interfaces",
                     "hours": 21.0,
                     "ects": 2.0
                   },
                   {
                     "code": "BUI0522",
-                    "name": "Plattformübergreifende Entwicklung und erweiterte Anpassung",
+                    "name": "Plattformübergreifende Entwicklung und fortgeschrittene Anpassung",
                     "hours": 28.0,
                     "ects": 3.0
                   }
@@ -625,13 +625,13 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 42,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "SPE0641",
-                    "name": "Framework ein No-Code-Projekt (BC01 – Zertifizierer)",
+                    "name": "Ein No-Code-Projekt definieren (BC01 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -645,7 +645,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 "courses": [
                   {
                     "code": "DAT0631",
-                    "name": "Bereitstellung und Support einer No-Code-Lösung (BC03 – Zertifizierer)",
+                    "name": "Eine No-Code-Lösung bereitstellen und begleiten (BC03 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -665,7 +665,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "BRI0652",
-                    "name": "Hackathon 3 – Schulübergreifend",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 35.0,
                     "ects": 6.0
                   },
@@ -678,14 +678,14 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 56,
                 "ects": 6.0,
                 "courses": [
                   {
                     "code": "BUI0621",
-                    "name": "Entwickeln Sie eine No-Code-Lösung (BC02 – Zertifizierer)",
+                    "name": "Eine No-Code-Lösung entwickeln (BC02 — zertifizierend)",
                     "hours": 56.0,
                     "ects": 6.0
                   }
@@ -719,7 +719,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 "courses": [
                   {
                     "code": "SPE0541",
-                    "name": "Communication, entrepreneuriat & portfolio",
+                    "name": "Kommunikation, Unternehmertum & Portfolio",
                     "hours": 21.0,
                     "ects": 2.0
                   }
@@ -747,7 +747,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 "courses": [
                   {
                     "code": "BRI52-1",
-                    "name": "Alternance / Stage",
+                    "name": "Duales Studium / Praktikum",
                     "hours": 0.0,
                     "ects": 14.0
                   }
@@ -773,7 +773,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "COD0513",
-                    "name": "Conception d'agents IA",
+                    "name": "Design von KI-Agenten",
                     "hours": 28.0,
                     "ects": 3.0
                   },
@@ -821,7 +821,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 "courses": [
                   {
                     "code": "SPE0641",
-                    "name": "Cadrer un projet no code (BC01 — certifiant)",
+                    "name": "Ein No-Code-Projekt definieren (BC01 — zertifizierend)",
                     "hours": 42.0,
                     "ects": 6.0
                   }
@@ -849,7 +849,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 "courses": [
                   {
                     "code": "BRI0651",
-                    "name": "Hackathon interpromo",
+                    "name": "Interpromo-Hackathon",
                     "hours": 35.0,
                     "ects": 6.0
                   },
@@ -861,7 +861,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "BRI065-1",
-                    "name": "Alternance / Stage",
+                    "name": "Duales Studium / Praktikum",
                     "hours": 0.0,
                     "ects": 15.0
                   }
@@ -941,8 +941,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 84,
                 "ects": 10.5,
                 "courses": [
@@ -976,7 +976,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 77,
                 "ects": 9.5,
                 "courses": [
@@ -1046,7 +1046,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "BRI0852",
-                    "name": "Hackathon 3 – Schulübergreifend",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 30.0,
                     "ects": 4.5
                   }
@@ -1082,7 +1082,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
             "modules": [
               {
                 "name": "Business",
-                "description": "Marketing, Management, Reden",
+                "description": "Marketing, Management, Präsentieren",
                 "hours": 56,
                 "ects": 8.0,
                 "courses": [
@@ -1202,7 +1202,7 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                   },
                   {
                     "code": "BRI1052",
-                    "name": "Hackathon 3 – Schulübergreifend",
+                    "name": "Hackathon 3 — schulübergreifend",
                     "hours": 30.0,
                     "ects": 4.0
                   }
@@ -1229,8 +1229,8 @@ export const CURRICULA:Record<CurriculumProgram["id"],CurriculumProgram>={
                 ]
               },
               {
-                "name": "Bauen",
-                "description": "Tools und kein Code",
+                "name": "Build",
+                "description": "Tools und No-Code",
                 "hours": 28,
                 "ects": 3.5,
                 "courses": [
