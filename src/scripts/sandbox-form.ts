@@ -8,7 +8,8 @@ export function sandboxConfig(endpoint = "", hosts = "") {
   }
   const allowedHosts = hosts.split(",").map(host => host.trim().toLowerCase()).filter(Boolean);
   for (const host of allowedHosts) {
-    if (host === "eugeniaschool.com" || host.endsWith(".eugeniaschool.com") || host.replace(/\.$/, "").endsWith("eugeniaschool.com")) {
+    const name = host.replace(/\.$/, "");
+    if (name === "eugeniaschool.com" || name.endsWith(".eugeniaschool.com")) {
       throw new Error("PUBLIC_SANDBOX_HOSTS interdit eugeniaschool.com et ses sous-domaines.");
     }
     if (!/^[a-z0-9.-]+$/.test(host) || host.includes("..")) throw new Error("PUBLIC_SANDBOX_HOSTS attend des noms d’hôtes séparés par des virgules, sans port ni protocole.");

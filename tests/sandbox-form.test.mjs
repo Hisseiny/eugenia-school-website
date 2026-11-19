@@ -17,6 +17,7 @@ test("build configuration rejects invalid endpoints and production hosts", () =>
   for (const host of ["eugeniaschool.com", "www.eugeniaschool.com", "TEST.EUGENIASCHOOL.COM", "eugeniaschool.com.", "https://preview.test"]) {
     assert.throws(() => sandboxConfig("", host), /PUBLIC_SANDBOX_HOSTS/);
   }
+  assert.deepEqual(sandboxConfig("", "preview-eugeniaschool.com").hosts, ["preview-eugeniaschool.com"]);
 });
 
 test("sandbox posts named fields as simple JSON text and accepts 2xx", async () => {
