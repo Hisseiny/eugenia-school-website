@@ -13,7 +13,7 @@
         "titre": "Traduire en allemand les pages de la démo Horama"
       },
       "commit": "998767b7869cc566696c1cb5c69d2bcf61555c15",
-      "reponse": null,
+      "reponse": "https://github.com/Hisseiny/eugenia-school-website/pull/16#issuecomment-7019175159",
       "etat": "termine",
       "totaux": {
         "pages_trouvees": 8,
@@ -204,5 +204,5 @@
       ]
     }
   ],
-  "maj": "2026-11-19T19:03:25.760Z"
+  "maj": "2026-11-19T19:03:30.378Z"
 }
