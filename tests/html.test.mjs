@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 
-const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq", "notre-adn", "campus/paris", "vie-etudiante", "entrepreneuriat", "approche-pedagogique", "methode-eugenia", "entreprises-partenaires", "recruter-nos-etudiants", "projets-entreprises", "projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon", "portfolio"];
+const PAGES = ["index", "programmes", "carrieres", "ecole", "admissions", "entreprises", "telecharger-la-brochure", "candidature", "evenements", "contact", "parents", "programme/bachelor-ia-business", "programme/bachelor-ia-business-3eme-annee-alternance", "programme/master-ia-business-alternance", "certification-architecte-ia", "certification-concepteur-solutions-no-code", "alternance", "financement", "processus-admission", "faq", "notre-adn", "campus/paris", "vie-etudiante", "entrepreneuriat", "approche-pedagogique", "methode-eugenia", "entreprises-partenaires", "recruter-nos-etudiants", "projets-entreprises", "projets-entreprises/dust-hackathon", "projets-entreprises/mistral-ai-hackathon", "projets-entreprises/openai-hackathon", "portfolio"];
 const html = (name) => {
   const file = `dist/${name}.html`;
   const nestedFile = `dist/${name}/index.html`;
@@ -157,7 +157,7 @@ test("admissions: FAQ accordion exposes aria-expanded and one FAQPage schema", (
 
 test("form pages render local simulations with no native network submission", () => {
   const expected = {
-    brochure: "brochure",
+    "telecharger-la-brochure": "brochure",
     candidature: "candidature",
     evenements: "evenement",
     contact: "contact",

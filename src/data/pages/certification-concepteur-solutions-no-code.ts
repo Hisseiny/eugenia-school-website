@@ -1,4 +1,5 @@
 import type { LivePage } from "@/data/pages/types";
+import { ROUTES } from "@/data/site";
 
 export const page: LivePage = {
   "title": "Concepteur de solutions no code, titre RNCP 6 | Eugenia",
@@ -189,7 +190,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     },
     {
       "label": "Le programmeBachelor AI Applied to BusinessTrois ans pour construire, tester et lancer, avec une 3e année en stage ou en alternance.Découvrir →",
@@ -205,7 +206,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     }
   ],
   "footer": {

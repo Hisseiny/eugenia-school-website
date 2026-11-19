@@ -17,7 +17,7 @@ test("primary action colors provide AA contrast with white normal-size text", ()
 });
 
 test("each form exposes named questions, progress, privacy and focusable confirmation", () => {
-  for (const page of ["brochure", "candidature", "evenements", "contact"]) {
+  for (const page of ["telecharger-la-brochure", "candidature", "evenements", "contact"]) {
     const html = readFileSync(`dist/${page}.html`, "utf8");
     assert.match(html, /aria-live="polite" aria-atomic="true"/);
     assert.match(html, /data-pf-done-title tabindex="-1"/);

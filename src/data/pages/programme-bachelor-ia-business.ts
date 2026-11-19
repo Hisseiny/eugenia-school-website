@@ -1,4 +1,5 @@
 import type { LivePage } from "@/data/pages/types";
+import { ROUTES } from "@/data/site";
 
 export const page: LivePage = {
   "title": "Bachelor IA à Paris : 3 ans, projets réels | Eugenia School",
@@ -188,7 +189,7 @@ export const page: LivePage = {
         {
           "type": "cta",
           "label": "Télécharger la brochure →",
-          "href": "/brochure"
+          "href": ROUTES.brochure
         },
         {
           "type": "paragraph",
@@ -513,7 +514,7 @@ export const page: LivePage = {
         {
           "type": "cta",
           "label": "Télécharger la brochure",
-          "href": "/brochure"
+          "href": ROUTES.brochure
         }
       ]
     }
@@ -537,7 +538,7 @@ export const page: LivePage = {
     },
     {
       "label": "Télécharger la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     }
   ],
   "footer": {

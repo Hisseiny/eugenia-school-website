@@ -1,4 +1,5 @@
 import type { LivePage } from "@/data/pages/types";
+import { ROUTES } from "@/data/site";
 
 export const page: LivePage = {
   "title": "Admission Bachelor et MSc IA : candidater | Eugenia School",
@@ -322,7 +323,7 @@ export const page: LivePage = {
         },
         { "type": "link", "label": "Toutes les questions →", "href": "/faq" },
         { "type": "cta", "label": "Candidater", "href": "/candidature" },
-        { "type": "link", "label": "Recevoir la brochure", "href": "/brochure" }
+        { "type": "link", "label": "Recevoir la brochure", "href": ROUTES.brochure }
       ]
     },
     {
@@ -383,7 +384,7 @@ export const page: LivePage = {
     },
     {
       "label": "Recevoir la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     },
     {
       "label": "Postuler",

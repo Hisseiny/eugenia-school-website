@@ -8,5 +8,7 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /studio
+Disallow: /brochure
+Disallow: /telecharger-la-brochure
 
 Sitemap: https://www.eugeniaschool.com/sitemap-index.xml

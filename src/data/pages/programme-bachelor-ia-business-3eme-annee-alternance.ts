@@ -1,4 +1,5 @@
 import type { LivePage } from "@/data/pages/types";
+import { ROUTES } from "@/data/site";
 
 export const page: LivePage = {
   "title": "Bachelor 3e année en alternance, dès Bac+2 | Eugenia",
@@ -285,7 +286,7 @@ export const page: LivePage = {
     },
     {
       "label": "Télécharger la brochure",
-      "href": "/brochure"
+      "href": ROUTES.brochure
     }
   ],
   "footer": {
